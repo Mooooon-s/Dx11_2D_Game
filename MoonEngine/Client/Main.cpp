@@ -4,6 +4,16 @@
 #include "framework.h"
 #include "Client.h"
 
+#include "CommonInclude.h"
+
+#ifdef _DEBUG
+#pragma comment(lib,"..\\x64\\Debug\\Engine_SOURCE.lib");
+#else
+#pragma comment(lib,"..\\x64\\Release\\Engine_SOURCE.lib");
+#endif // _DEBUG
+
+Test test;
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
