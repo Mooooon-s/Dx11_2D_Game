@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="Globals">
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -12,5 +12,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnEntity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnGraphicDevice_Dx11.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnTime.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnEnums.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphicDevice_Dx11.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphics.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MoonEngine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)MnMath.inl" />
   </ItemGroup>
 </Project>
