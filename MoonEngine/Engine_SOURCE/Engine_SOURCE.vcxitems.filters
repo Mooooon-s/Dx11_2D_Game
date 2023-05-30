@@ -28,6 +28,9 @@
     <Filter Include="Resource\Resources">
       <UniqueIdentifier>{b1bb4f32-2af9-4c5f-832d-82cf215d7d6e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shape">
+      <UniqueIdentifier>{52e669a3-5363-4c8a-abc6-df0b4eef32f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnEntity.cpp">
@@ -53,6 +56,15 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnApplication.cpp">
       <Filter>High Level Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnRenderer.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnRectangle.cpp">
+      <Filter>Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnCircle.cpp">
+      <Filter>Shape</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +103,15 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnApplication.h">
       <Filter>High Level Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnRenderer.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnRectangle.h">
+      <Filter>Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnCircle.h">
+      <Filter>Shape</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

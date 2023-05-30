@@ -1,4 +1,8 @@
 #include "MnApplication.h"
+#include "MnTime.h"
+#include "MnInput.h"
+#include "MnRenderer.h"
+
 namespace Mn
 {
 	Application::Application()
@@ -15,14 +19,23 @@ namespace Mn
 
 	void Application::Run()
 	{
+		Update();
+		LateUpdate();
+		Render();
 	}
 
 	void Application::Initialize()
 	{
+		Time::Initialize();
+		Input::Initialize();
+
+		renderer::Initialize();
 	}
 
 	void Application::Update()
 	{
+		Time::Update();
+		Input::Updatae();
 	}
 
 	void Application::LateUpdate()
@@ -31,6 +44,9 @@ namespace Mn
 
 	void Application::Render()
 	{
+		Time::Render();
+
+		graphicDevice->Draw();
 	}
 
 	void Application::SetWindow(HWND hwnd, UINT width, UINT height)
@@ -42,6 +58,7 @@ namespace Mn
 			_Height = height;
 
 			graphicDevice = std::make_unique<Mn::graphics::GraphicDevice_Dx11>();
+			Mn::graphics::GetDevice() = graphicDevice.get();
 		}
 
 		RECT rt = { 0, 0, (LONG)width , (LONG)height };

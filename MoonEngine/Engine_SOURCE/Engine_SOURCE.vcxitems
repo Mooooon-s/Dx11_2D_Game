@@ -15,6 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnCircle.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnGraphicDevice_Dx11.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnInput.cpp" />
@@ -22,16 +23,21 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnRectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnCircle.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphicDevice_Dx11.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphics.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnRectangle.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTime.h" />
