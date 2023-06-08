@@ -1,16 +1,20 @@
 #pragma once
 #include "MoonEngine.h"
 #include "MnGraphicDevice_Dx11.h"
+#include "MnScene.h"
+
 namespace Mn
 {
 	class Application
 	{
 	private:
-		bool _Initialize = false;
 		std::unique_ptr<Mn::graphics::GraphicDevice_Dx11> graphicDevice;
+		bool _Initialize = false;
 		HWND _Hwnd;
 		UINT _Width;
 		UINT _Height;
+
+		Scene* _Scene;
 	public:
 		Application();
 		~Application();

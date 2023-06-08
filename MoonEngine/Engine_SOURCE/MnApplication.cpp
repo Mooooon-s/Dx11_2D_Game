@@ -10,6 +10,7 @@ namespace Mn
 		, _Hwnd(NULL)
 		, _Width(-1)
 		, _Height(-1)
+		, _Scene(nullptr)
 	{
 
 	}
@@ -30,12 +31,15 @@ namespace Mn
 		Input::Initialize();
 
 		renderer::Initialize();
+		_Scene = new Scene();
+		_Scene->Initialize();
 	}
 
 	void Application::Update()
 	{
 		Time::Update();
 		Input::Updatae();
+		_Scene->Update();
 	}
 
 	void Application::LateUpdate()
@@ -47,6 +51,7 @@ namespace Mn
 		Time::Render();
 
 		graphicDevice->Draw();
+		_Scene->Render();
 	}
 
 	void Application::SetWindow(HWND hwnd, UINT width, UINT height)
