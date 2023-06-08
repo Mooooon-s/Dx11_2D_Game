@@ -1,9 +1,12 @@
 #pragma once
 #include "MoonEngine.h"
 #include "MnGraphicDevice_Dx11.h"
+#include "MnMesh.h"
+#include "MnShader.h"
+#include "MnConstantBuffer.h"
 
 using namespace Mn::math;
-namespace Mn::renderer
+namespace renderer
 {
 	struct Vertex
 	{
@@ -13,13 +16,11 @@ namespace Mn::renderer
 
 	extern Vertex vertices[];
 	extern ID3D11InputLayout* triangleLayout;
-	extern ID3D11Buffer* triangleBuffer;
-	extern ID3DBlob* errorBlob;
-	extern ID3DBlob* triangleVSBlob;
-	extern ID3D11VertexShader* triangleVSShader;
-	extern ID3DBlob* trianglePSBlob;
-	extern ID3D11PixelShader* trianglePSShader;
+	extern Mn::Mesh* mesh;
+	extern Mn::Shader* shader;
+	extern Mn::graphics::ConstantBuffer* constantBuffer;
 
 	void Initialize();
+	void Release();
 
 }

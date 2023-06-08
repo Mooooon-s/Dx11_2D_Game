@@ -15,13 +15,6 @@ namespace Mn::renderer
 		};
 		int buffer;
 		Vertex* vertices;
-		ID3D11InputLayout* rectangleLayout;
-		ID3D11Buffer* rectangleBuffer;
-		ID3DBlob* errorBlob;
-		ID3DBlob* rectangleVSBlob;
-		ID3D11VertexShader* rectangleVSShader;
-		ID3DBlob* rectanglePSBlob;
-		ID3D11PixelShader* rectanglePSShader;
 	public:
 		Rectangle();
 		~Rectangle();

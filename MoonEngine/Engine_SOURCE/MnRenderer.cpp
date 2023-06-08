@@ -1,102 +1,91 @@
 #include "MnRenderer.h"
-#include "MnRectangle.h"
-#include "MnCircle.h"
 
-#define PI 3.1415926535
 
-namespace Mn::renderer
+namespace renderer
 {
-	Vertex vertices[120] = {};
+	using namespace Mn;
+	using namespace Mn::graphics;
+
+	Vertex vertices[4] = {};
+	Mn::Mesh* mesh = nullptr;
+	Mn::Shader* shader = nullptr;
+	Mn::graphics::ConstantBuffer* constantBuffer = nullptr;
 	
-	ID3D11InputLayout* triangleLayout = nullptr;
-	
-	//vertexBuffer
-	ID3D11Buffer* triangleBuffer = nullptr;
-
-	//error Blob
-	ID3DBlob* errorBlob = nullptr;
-
-	//Vertex shader code == Binary code
-	ID3DBlob* triangleVSBlob = nullptr;
-	//Vertex shader
-	ID3D11VertexShader* triangleVSShader;
-	//Pixel shader code == Binary code
-	ID3DBlob* trianglePSBlob= nullptr;
-	//Pixel Shader
-	ID3D11PixelShader* trianglePSShader;
-
 	void SetupState()
 	{
-		/*D3D11_BUFFER_DESC triangledesc = {};
-		triangledesc.ByteWidth = sizeof(Vertex) * 3;
-		triangledesc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_VERTEX_BUFFER;
-		triangledesc.CPUAccessFlags = D3D11_CPU_ACCESS_FLAG::D3D11_CPU_ACCESS_WRITE;
-		triangledesc.Usage = D3D11_USAGE::D3D11_USAGE_DYNAMIC;
+		D3D11_INPUT_ELEMENT_DESC arrLayout[2] = {};
+		arrLayout[0].AlignedByteOffset = 0;
+		arrLayout[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
+		arrLayout[0].InputSlot = 0;
+		arrLayout[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+		arrLayout[0].SemanticName = "POSITION";
+		arrLayout[0].SemanticIndex = 0;
 
-		D3D11_SUBRESOURCE_DATA triangledata = {};
-		triangledata.pSysMem = vertices;
-		Mn::graphics::GetDevice()->CreateBuffer(&triangledesc, &triangledata, &triangleBuffer);*/
+		arrLayout[1].AlignedByteOffset = 12;
+		arrLayout[1].Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
+		arrLayout[1].InputSlot = 0;
+		arrLayout[1].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+		arrLayout[1].SemanticName = "COLOR";
+		arrLayout[1].SemanticIndex = 0;
+
+		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 2
+			,shader->GetVSCode()
+			, shader->GetInputLayoutAddressOf());
 	}
 
 	void LoadBuffer()
 	{
-		D3D11_BUFFER_DESC triangleDesc = {};
-		triangleDesc.Usage = D3D11_USAGE::D3D11_USAGE_DYNAMIC;
-		triangleDesc.ByteWidth = sizeof(Vertex) * 120;
-		triangleDesc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_VERTEX_BUFFER;
-		triangleDesc.CPUAccessFlags = D3D11_CPU_ACCESS_FLAG::D3D11_CPU_ACCESS_WRITE;
+		mesh = new Mn::Mesh();
+		mesh->CreateVertexBuffer(vertices, 4);
+		//index
+		std::vector<UINT> indices = {};
+		indices.push_back(0);
+		indices.push_back(1);
+		indices.push_back(2);
 
-		D3D11_SUBRESOURCE_DATA triangleData = {};
-		triangleData.pSysMem = vertices;
-		Mn::graphics::GetDevice()->CreateBuffer( &triangleDesc, &triangleData, &triangleBuffer);
+		indices.push_back(0);
+		indices.push_back(2);
+		indices.push_back(3);
+		mesh->CreateIndexBuffer(indices.data(), indices.size());
+		
+		constantBuffer = new ConstantBuffer(eCBType::Transform);
+		constantBuffer->Create(sizeof(Vector4));
+
+		Vector4 _pos = Vector4(0.2f, 0.0f, 0.0f, 1.0f);
+		constantBuffer->setData(&_pos);
+		constantBuffer->Bind(eShaderStage::VS);
 	}
 
 	void LoadShader()
 	{
-		Mn::graphics::GetDevice()->CreateShader();
+		shader = new Mn::Shader();
+		shader->Create(eShaderStage::VS,L"TriangleVS.hlsl","main");
+		shader->Create(eShaderStage::PS,L"TrianglePS.hlsl","main");
 	}
 
 	void Initialize()
 	{
-		Rectangle rectangle;
-		rectangle.Initialize();
-		Circle circle;
-		circle.Initialize();
-		vertices[0].pos = Vector3(0.75f, 1.0f, 0.0f);
-		vertices[0].color = Vector4(0.0f, 0.0f, 0.0f, 1.0f);
+		vertices[0].pos = Vector3(-0.5f, 0.5f, 0.0f);
+		vertices[0].color = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
 
-		vertices[1].pos = Vector3(1.0f, 0.5f, 0.0f);
-		vertices[1].color = Vector4(0.0f, 0.0f, 0.0f, 1.0f);
+		vertices[1].pos = Vector3(0.5f, 0.5f, 0.0f);
+		vertices[1].color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
 
-		vertices[2].pos = Vector3(0.5f, 0.5f, 0.0f);
+		vertices[2].pos = Vector3(0.5f, -0.5f, 0.0f);
 		vertices[2].color = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
 
-		for (int i = 3; i < 9; i++)
-		{
-			vertices[i].pos = rectangle.RectPos(i-3);
-			vertices[i].color = rectangle.RectColor(i-3);
-		}
-
-		for (int i = 9; i < 96; i++)
-		{
-			vertices[i].pos = circle.CirclePos(i-9);
-			vertices[i].color = circle.CircleColor(i-9);
-		}
-
-		vertices[96].pos = Vector3(0.75, 0.0, 0.0);
-		vertices[96].color = Vector4(1.0f, 0.0f, 0.0f,1.0f);
-		vertices[97].pos = Vector3(1.0, -0.25, 0.0);
-		vertices[97].color = Vector4(1.0f, 0.0f, 0.0f,1.0f);
-		vertices[98].pos = Vector3(0.5, -0.25, 0.0);
-		vertices[98].color = Vector4(1.0f, 0.0f, 0.0f,1.0f);
-
-		vertices[99].pos = Vector3(0.75, -0.5, 0.0f);
-		vertices[100].pos = Vector3(0.5, -0.25, 0.0f);
-		vertices[101].pos = Vector3(1.0f, -0.25, 0.0f);
+		vertices[3].pos = Vector3(-0.5f, -0.5f, 0.0f);
+		vertices[3].color = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
 
 
-		SetupState();
 		LoadBuffer();
 		LoadShader();
+		SetupState();
+	}
+	void Release()
+	{
+		delete mesh;
+		delete shader;
+		delete constantBuffer;
 	}
 }

@@ -5,17 +5,12 @@ namespace Mn::renderer
 	Rectangle::Rectangle()
 		:buffer(6)
 		,vertices(nullptr)
-		,rectangleLayout(nullptr)
-		,rectangleBuffer(nullptr)
-		,errorBlob(nullptr)
-		, rectangleVSBlob(nullptr)
-		, rectangleVSShader(nullptr)
-		, rectanglePSBlob(nullptr)
-		, rectanglePSShader(nullptr)
 	{
 	}
 	Rectangle::~Rectangle()
 	{
+		delete vertices;
+		vertices = nullptr;
 	}
 	void Rectangle::Initialize()
 	{
