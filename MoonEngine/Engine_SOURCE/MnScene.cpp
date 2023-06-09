@@ -10,6 +10,7 @@ namespace Mn
 	}
 	void Scene::Initialize()
 	{
+
 	}
 	void Scene::Update()
 	{

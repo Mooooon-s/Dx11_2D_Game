@@ -31,6 +31,15 @@
     <Filter Include="Shape">
       <UniqueIdentifier>{52e669a3-5363-4c8a-abc6-df0b4eef32f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{92cc3bd6-7f88-4939-899d-0c4ff7382bf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{9ca4e5ac-b3e9-4984-9608-c1ddc4aa19a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Component">
+      <UniqueIdentifier>{e50008a3-98ad-45c6-b2d3-acf54c7c85ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnEntity.cpp">
@@ -74,6 +83,15 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnConstantBuffer.cpp">
       <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnGameObject.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnComponent.cpp">
+      <Filter>GameObject\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +148,15 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnConstantBuffer.h">
       <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnGameObject.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnComponent.h">
+      <Filter>GameObject\Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

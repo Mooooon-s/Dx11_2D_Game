@@ -47,6 +47,7 @@ namespace Mn::graphics
 		void BindViewPort(D3D11_VIEWPORT* viewPort);
 
 		void Draw();
+		void Present();
 	};
 
 	inline GraphicDevice_Dx11*& GetDevice()

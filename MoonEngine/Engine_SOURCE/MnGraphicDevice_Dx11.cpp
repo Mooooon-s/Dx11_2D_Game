@@ -276,6 +276,9 @@ namespace Mn::graphics
 		renderer::shader->binds();
 		_Context->DrawIndexed(renderer::mesh->GetIndexCount(), 0, 0);
 
+	}
+	void GraphicDevice_Dx11::Present()
+	{
 		_SwapChain->Present(0, 0);
 	}
 }
