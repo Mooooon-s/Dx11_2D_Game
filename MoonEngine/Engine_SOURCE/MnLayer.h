@@ -1,20 +1,20 @@
 #pragma once
-#include "MnEntity.h"
-#include "MnLayer.h"
+#include "MnGameObject.h"
 
 namespace Mn
 {
-	class Scene : public Entity
+	class Layer
 	{
 	private:
-		std::vector<Layer*> _Layers;
+		std::vector<GameObject*> _GameObjects;
 	public:
-		Scene();
-		virtual ~Scene();
+		Layer();
+		~Layer();
+
 		virtual void Initialize();
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render();
 	};
-}
 
+}

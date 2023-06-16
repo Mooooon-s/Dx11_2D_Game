@@ -3,6 +3,7 @@
 namespace Mn
 {
 	Scene::Scene()
+		:Scene()
 	{
 	}
 	Scene::~Scene()
@@ -10,23 +11,30 @@ namespace Mn
 	}
 	void Scene::Initialize()
 	{
-
+		for (auto layer : _Layers)
+		{
+			layer->Initialize();
+		}
 	}
 	void Scene::Update()
 	{
-		for (auto gameObj : _GameObjects)
+		for (auto layer : _Layers)
 		{
-			gameObj->Update();
+			layer->Update();
 		}
 	}
 	void Scene::LateUpdate()
 	{
+		for (auto layer : _Layers)
+		{
+			layer->LateUpdate();
+		}
 	}
 	void Scene::Render()
 	{
-		for (auto gameObj : _GameObjects)
+		for (auto layer : _Layers)
 		{
-			gameObj->Render();
+			layer->Render();
 		}
 	}
 }

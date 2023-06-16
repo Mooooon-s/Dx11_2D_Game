@@ -40,6 +40,12 @@
     <Filter Include="GameObject\Component">
       <UniqueIdentifier>{e50008a3-98ad-45c6-b2d3-acf54c7c85ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\Layer">
+      <UniqueIdentifier>{082d2abd-d8da-451a-9254-ebd9b7da2f04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager">
+      <UniqueIdentifier>{a76c01cc-fb8a-4f71-9d8a-4f4bcecf9a94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnEntity.cpp">
@@ -92,6 +98,12 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnComponent.cpp">
       <Filter>GameObject\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnLayer.cpp">
+      <Filter>Scene\Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnSceneManager.cpp">
+      <Filter>Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +169,12 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnComponent.h">
       <Filter>GameObject\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnLayer.h">
+      <Filter>Scene\Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnSceneManager.h">
+      <Filter>Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

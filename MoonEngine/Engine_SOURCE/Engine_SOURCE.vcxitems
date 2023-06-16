@@ -14,6 +14,7 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnConstantBuffer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnApplication.cpp" />
@@ -31,6 +32,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnRectangle.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnShader.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnSceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -44,6 +46,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphicDevice_Dx11.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphics.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMesh.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRectangle.h" />
@@ -51,6 +54,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnShader.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MoonEngine.h" />

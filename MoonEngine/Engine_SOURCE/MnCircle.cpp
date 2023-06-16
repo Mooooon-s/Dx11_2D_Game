@@ -14,20 +14,20 @@ namespace Mn::renderer
 	}
 	void Circle::Initialize()
 	{
-		vertices = new Vertex[buffer];
-		idxVertices = new Vertex[90];
-		int i = 0;
-		for (double angle = 0.0f; angle <= PI * 2.0f; angle += PI / 10.0f) {
-			vertices[i].pos= Vector3((float)(0.25f * cos(angle)),(float)(0.25f * sin(angle)), 0.0f);
-			vertices[i].color = Vector4((float)(0.25f * cos(angle)), (float)(0.25f * sin(angle)), 1.0f , 1.0f);
-			i++;
-		}
+		//vertices = new Vertex[buffer];
+		//idxVertices = new Vertex[90];
+		//int i = 0;
+		//for (double angle = 0.0f; angle <= PI * 2.0f; angle += PI / 10.0f) {
+		//	vertices[i].pos= Vector3((float)(0.25f * cos(angle)),(float)(0.25f * sin(angle)), 0.0f);
+		//	vertices[i].color = Vector4((float)(0.25f * cos(angle)), (float)(0.25f * sin(angle)), 1.0f , 1.0f);
+		//	i++;
+		//}
 
-		Index();
+		//Index();
 	}
 	void Circle::Index()
 	{
-		idxVertices[0].pos = Vector3::Zero;
+		/*idxVertices[0].pos = Vector3::Zero;
 		idxVertices[0].color = Vector4(1.0f,1.0f,1.0f,1.0f);
 
 		idxVertices[1].pos = vertices[1].pos;
@@ -50,5 +50,5 @@ namespace Mn::renderer
 	double Circle::Degree2Radian(int degree)
 	{
 		return (degree * PI) / 180;
-	}
+	}*/
 }
