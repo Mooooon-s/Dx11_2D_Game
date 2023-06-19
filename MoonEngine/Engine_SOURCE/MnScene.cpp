@@ -3,8 +3,8 @@
 namespace Mn
 {
 	Scene::Scene()
-		:Scene()
 	{
+		_Layers.resize((int)Mn::enums::eLayerType::End);
 	}
 	Scene::~Scene()
 	{
@@ -13,28 +13,32 @@ namespace Mn
 	{
 		for (auto layer : _Layers)
 		{
-			layer->Initialize();
+			layer.Initialize();
 		}
 	}
 	void Scene::Update()
 	{
 		for (auto layer : _Layers)
 		{
-			layer->Update();
+			layer.Update();
 		}
 	}
 	void Scene::LateUpdate()
 	{
 		for (auto layer : _Layers)
 		{
-			layer->LateUpdate();
+			layer.LateUpdate();
 		}
 	}
 	void Scene::Render()
 	{
 		for (auto layer : _Layers)
 		{
-			layer->Render();
+			layer.Render();
 		}
+	}
+	void Scene::AddGameObject(eLayerType type, GameObject* gameObj)
+	{
+		_Layers[(int)type].AddGameObject(gameObj);
 	}
 }

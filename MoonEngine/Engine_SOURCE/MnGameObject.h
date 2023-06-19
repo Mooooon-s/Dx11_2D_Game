@@ -28,7 +28,7 @@ namespace Mn
 		T* GetComponent()
 		{
 			T* component;
-			for (T* comp : _Components)
+			for (Component* comp : _Components)
 			{
 				component = dynamic_cast<T*>(comp);
 				if (component != nullptr)

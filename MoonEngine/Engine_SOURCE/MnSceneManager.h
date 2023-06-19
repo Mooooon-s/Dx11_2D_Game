@@ -5,7 +5,7 @@ namespace Mn
 	class SceneManager
 	{
 	private:
-		Scene* _ActiveScene;
+		static Scene* _ActiveScene;
 	public:
 
 		static void Initialize();

@@ -51,4 +51,5 @@ namespace Mn::renderer
 	{
 		return (degree * PI) / 180;
 	}*/
+	}
 }

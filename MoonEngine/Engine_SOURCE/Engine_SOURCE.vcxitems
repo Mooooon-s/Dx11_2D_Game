@@ -25,6 +25,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMesh.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnMeshRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnScene.cpp" />
@@ -33,6 +34,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnRectangle.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnShader.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)playScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnTransform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -49,6 +52,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMesh.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnMeshRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRectangle.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnResource.h" />
@@ -57,7 +61,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnShader.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MoonEngine.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)playScene.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl" />

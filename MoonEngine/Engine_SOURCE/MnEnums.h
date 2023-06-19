@@ -7,7 +7,18 @@ namespace Mn::enums
 		Transform,
 		Mesh,
 		Particle,
+		Meshrenderer,
 		Script,
 		End,
 	};
+
+	enum class eLayerType
+	{
+		Player,
+		Monster,
+		BackGround,
+		UI,
+		End,
+	};
+
 }

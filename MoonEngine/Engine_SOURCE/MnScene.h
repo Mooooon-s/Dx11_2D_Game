@@ -7,7 +7,7 @@ namespace Mn
 	class Scene : public Entity
 	{
 	private:
-		std::vector<Layer*> _Layers;
+		std::vector<Layer> _Layers;
 	public:
 		Scene();
 		virtual ~Scene();
@@ -15,6 +15,9 @@ namespace Mn
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render();
+
+	public:
+		void AddGameObject(eLayerType type, GameObject* gameObj);
 	};
 }
 

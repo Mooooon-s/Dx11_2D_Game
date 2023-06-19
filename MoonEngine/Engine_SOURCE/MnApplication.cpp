@@ -2,6 +2,7 @@
 #include "MnInput.h"
 #include "MnTime.h"
 #include "MnRenderer.h"
+#include "MnSceneManager.h"
 
 namespace Mn
 {
@@ -27,29 +28,32 @@ namespace Mn
 	{
 		Time::Initialize();
 		Input::Initialize();
-
+		
 		renderer::Initialize();
-		_Scene = new Scene();
-		_Scene->Initialize();
+		SceneManager::Initialize();
+
 	}
 
 	void Application::Update()
 	{
 		Time::Update();
 		Input::Updatae();
-		_Scene->Update();
+		SceneManager::Update();
 	}
 
 	void Application::LateUpdate()
 	{
+		SceneManager::LateUpdate();
 	}
 
 	void Application::Render()
 	{
 		Time::Render();
 
-		graphicDevice->Draw();
-		//_Scene->Render();
+		graphicDevice->ClearTarget();
+		graphicDevice->UpdateViewPort();
+		SceneManager::Render();
+		//graphicDevice->Draw();
 		graphicDevice->Present();
 	}
 

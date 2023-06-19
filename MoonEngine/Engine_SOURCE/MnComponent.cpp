@@ -2,8 +2,8 @@
 
 namespace Mn
 {
-	Component::Component()
-		: _Type(eComponentType::End)
+	Component::Component(eComponentType type)
+		: _Type(type)
 	{
 	}
 	Component::~Component()

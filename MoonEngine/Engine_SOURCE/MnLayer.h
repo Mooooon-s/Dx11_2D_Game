@@ -15,6 +15,8 @@ namespace Mn
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render();
+	public:
+		void AddGameObject(GameObject* gameObj);
 	};
 
 }

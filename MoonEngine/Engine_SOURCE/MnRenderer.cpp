@@ -51,9 +51,9 @@ namespace renderer
 		constantBuffer = new ConstantBuffer(eCBType::Transform);
 		constantBuffer->Create(sizeof(Vector4));
 
-		Vector4 _pos = Vector4(0.2f, 0.0f, 0.0f, 1.0f);
-		constantBuffer->setData(&_pos);
-		constantBuffer->Bind(eShaderStage::VS);
+		//Vector4 _pos = Vector4(0.2f, 0.0f, 0.0f, 1.0f);
+		//constantBuffer->setData(&_pos);
+		//constantBuffer->Bind(eShaderStage::VS);
 	}
 
 	void LoadShader()

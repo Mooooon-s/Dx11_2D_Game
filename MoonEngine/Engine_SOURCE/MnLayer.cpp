@@ -2,7 +2,6 @@
 namespace Mn
 {
 	Layer::Layer()
-		:Layer()
 	{
 	}
 	Layer::~Layer()
@@ -35,5 +34,9 @@ namespace Mn
 		{
 			gameObj->Render();
 		}
+	}
+	void Layer::AddGameObject(GameObject* gameObj)
+	{
+		_GameObjects.push_back(gameObj);
 	}
 }
