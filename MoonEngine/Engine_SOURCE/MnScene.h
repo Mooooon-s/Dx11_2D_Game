@@ -16,6 +16,9 @@ namespace Mn
 		virtual void LateUpdate();
 		virtual void Render();
 
+		virtual void OnEnter();
+		virtual void OnExit();
+
 	public:
 		void AddGameObject(eLayerType type, GameObject* gameObj);
 	};

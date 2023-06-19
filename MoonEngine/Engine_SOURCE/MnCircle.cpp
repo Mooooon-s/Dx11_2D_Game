@@ -1,7 +1,7 @@
 #include "MnCircle.h"
 #define PI 3.1415926535
 
-namespace Mn::renderer
+namespace Mn
 {
 	Circle::Circle()
 		:buffer(30)

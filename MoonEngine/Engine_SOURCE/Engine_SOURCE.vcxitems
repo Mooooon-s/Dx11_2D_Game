@@ -36,6 +36,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)playScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnTransform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnTexture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -60,6 +61,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnShader.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MoonEngine.h" />

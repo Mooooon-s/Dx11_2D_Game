@@ -2,7 +2,7 @@
 #include "MoonEngine.h"
 #include "MnGraphicDevice_Dx11.h"
 using namespace Mn::math;
-namespace Mn::renderer
+namespace Mn
 {
 	class Circle
 	{

@@ -1,4 +1,6 @@
 #include "MnRenderer.h"
+#include "MnTexture.h"
+#include "MnResources.h"
 
 
 namespace renderer
@@ -13,7 +15,7 @@ namespace renderer
 	
 	void SetupState()
 	{
-		D3D11_INPUT_ELEMENT_DESC arrLayout[2] = {};
+		D3D11_INPUT_ELEMENT_DESC arrLayout[3] = {};
 		arrLayout[0].AlignedByteOffset = 0;
 		arrLayout[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
 		arrLayout[0].InputSlot = 0;
@@ -28,7 +30,14 @@ namespace renderer
 		arrLayout[1].SemanticName = "COLOR";
 		arrLayout[1].SemanticIndex = 0;
 
-		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 2
+		arrLayout[2].AlignedByteOffset = 28;
+		arrLayout[2].Format = DXGI_FORMAT_R32G32_FLOAT;
+		arrLayout[2].InputSlot = 0;
+		arrLayout[2].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+		arrLayout[2].SemanticName = "TEXCOORD";
+		arrLayout[2].SemanticIndex = 0;
+
+		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 3
 			,shader->GetVSCode()
 			, shader->GetInputLayoutAddressOf());
 	}
@@ -67,20 +76,27 @@ namespace renderer
 	{
 		vertices[0].pos = Vector3(-0.5f, 0.5f, 0.0f);
 		vertices[0].color = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+		vertices[0].uv = Vector2(0.0f, 0.0f);
 
 		vertices[1].pos = Vector3(0.5f, 0.5f, 0.0f);
 		vertices[1].color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
+		vertices[1].uv = Vector2(1.0f, 0.0f);
 
 		vertices[2].pos = Vector3(0.5f, -0.5f, 0.0f);
 		vertices[2].color = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
+		vertices[2].uv = Vector2(1.0f, 1.0f);
 
 		vertices[3].pos = Vector3(-0.5f, -0.5f, 0.0f);
 		vertices[3].color = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+		vertices[3].uv = Vector2(0.0f, 1.0f);
 
 
 		LoadBuffer();
 		LoadShader();
 		SetupState();
+
+		Texture* texture = Resources::Load<Texture>(L"m", L"..\\Resources\\Texture\\idle.png");
+		texture->BindShader(eShaderStage::PS, 0);
 	}
 	void Release()
 	{

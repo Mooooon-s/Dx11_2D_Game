@@ -47,6 +47,7 @@ namespace Mn
 				return nullptr;
 
 			_Components.push_back(buff);
+			comp->SetOwner(this);
 			
 			return comp;
 		}

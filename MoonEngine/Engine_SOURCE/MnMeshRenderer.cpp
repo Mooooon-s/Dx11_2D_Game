@@ -5,7 +5,6 @@
 
 namespace Mn
 {
-
 	MeshRenderer::MeshRenderer()
 		: Component(eComponentType::Meshrenderer)
 	{

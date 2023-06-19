@@ -5,6 +5,7 @@
 namespace Mn
 {
 	using namespace graphics;
+
 	class Mesh : public Resource
 	{
 	private:

@@ -253,6 +253,34 @@ namespace Mn::graphics
 		_Context->PSSetConstantBuffers((UINT)type, 1, &buffer);
 		_Context->CSSetConstantBuffers((UINT)type, 1, &buffer);
 	}
+	void GraphicDevice_Dx11::BindShaderResource(eShaderStage stage, UINT startSlot, ID3D11ShaderResourceView** ppSRV)
+	{
+		switch (stage)
+		{
+		case eShaderStage::VS:
+			_Context->VSSetShaderResources(startSlot, 1, ppSRV);
+			break;
+		case eShaderStage::HS:
+			_Context->HSSetShaderResources(startSlot, 1, ppSRV);
+			break;
+		case eShaderStage::DS:
+			_Context->DSSetShaderResources(startSlot, 1, ppSRV);
+			break;
+		case eShaderStage::GS:
+			_Context->GSSetShaderResources(startSlot, 1, ppSRV);
+			break;
+		case eShaderStage::PS:
+			_Context->PSSetShaderResources(startSlot, 1, ppSRV);
+			break;
+		case eShaderStage::CS:
+			_Context->CSSetShaderResources(startSlot, 1, ppSRV);
+			break;
+		case eShaderStage::End:
+			break;
+		default:
+			break;
+		}
+	}
 	void GraphicDevice_Dx11::DrawIndexed(UINT IndexCount, UINT StartIndexLocation, INT BaseVertexLocation)
 	{
 		_Context->DrawIndexed(IndexCount, StartIndexLocation, BaseVertexLocation);

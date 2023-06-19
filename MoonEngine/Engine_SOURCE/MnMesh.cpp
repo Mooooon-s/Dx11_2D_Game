@@ -3,6 +3,7 @@
 
 namespace Mn
 {
+	using namespace renderer;
 	Mesh::Mesh()
 		:_VertexBuffer(nullptr)
 		,_IdxBuffer(nullptr)

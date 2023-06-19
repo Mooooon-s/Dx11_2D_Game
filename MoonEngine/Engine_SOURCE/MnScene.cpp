@@ -37,6 +37,12 @@ namespace Mn
 			layer.Render();
 		}
 	}
+	void Scene::OnEnter()
+	{
+	}
+	void Scene::OnExit()
+	{
+	}
 	void Scene::AddGameObject(eLayerType type, GameObject* gameObj)
 	{
 		_Layers[(int)type].AddGameObject(gameObj);
