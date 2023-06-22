@@ -19,6 +19,15 @@ namespace Mn
 			delete comp;
 			comp = nullptr;
 		}
+
+		for (Script* script : _Scripts)
+		{
+			if (script == nullptr)
+				continue;
+
+			delete script;
+			script = nullptr;
+		}
 	}
 	void GameObject::Initialize()
 	{
@@ -29,6 +38,11 @@ namespace Mn
 		{
 			comp->Update();
 		}
+
+		for (Script* script : _Scripts)
+		{
+			script->Update();
+		}
 	}
 	void GameObject::LateUpdate()
 	{
@@ -36,12 +50,22 @@ namespace Mn
 		{
 			comp->LateUpdate();
 		}
+
+		for (Script* script : _Scripts)
+		{
+			script->LateUpdate();
+		}
 	}
 	void GameObject::Render()
 	{
 		for (Component* comp : _Components)
 		{
 			comp->Render();
+		}
+
+		for (Script* script : _Scripts)
+		{
+			script->Render();
 		}
 	}
 }

@@ -9,8 +9,8 @@ namespace Mn::graphics
 	class Material : public Resource
 	{
 	private:
-		Shader* _Shader;
-		Texture* _Texture;
+		std::shared_ptr <Shader> _Shader;
+		std::shared_ptr <Texture> _Texture;
 	public:
 		Material();
 		~Material();
@@ -19,8 +19,8 @@ namespace Mn::graphics
 		void Binds();
 
 	public:
-		void Shader(Shader* shader) { _Shader = shader; }
-		void Texture(Texture* mesh) { _Texture = mesh; }
+		void Shader(std::shared_ptr<Shader> shader) { _Shader = shader; }
+		void Texture(std::shared_ptr <Texture> mesh) { _Texture = mesh; }
 
 	};
 

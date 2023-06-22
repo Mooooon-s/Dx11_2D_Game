@@ -8,8 +8,8 @@ namespace Mn
 	class MeshRenderer : public Component
 	{
 	private:
-		Mesh* _Mesh;
-		Material* _Material;
+		std::shared_ptr<Mesh>		_Mesh;
+		std::shared_ptr<Material>	_Material;
 	public:
 		MeshRenderer();
 		~MeshRenderer();
@@ -20,8 +20,8 @@ namespace Mn
 		virtual void Render() override;
 
 	public:
-		void SetMesh(Mesh* mesh) { _Mesh = mesh; }
-		void SetMaterial(Material* material) { _Material = material; }
+		void SetMesh(std::shared_ptr<Mesh> mesh) { _Mesh = mesh; }
+		void SetMaterial(std::shared_ptr<Material> material) { _Material = material; }
 	};
 
 }

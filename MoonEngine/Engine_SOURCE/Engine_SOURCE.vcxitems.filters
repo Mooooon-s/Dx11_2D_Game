@@ -114,6 +114,10 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMaterial.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnScript.cpp">
+      <Filter>GameObject\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnCameraScript.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h">
@@ -194,6 +198,10 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMaterial.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnScript.h">
+      <Filter>GameObject\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnCameraScript.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl">

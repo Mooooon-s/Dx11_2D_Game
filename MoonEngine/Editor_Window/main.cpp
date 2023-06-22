@@ -70,7 +70,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
 
     renderer::Release();
-    Mn::Resources::Release();
     Mn::SceneManager::Release();
     return (int) msg.wParam;
 }

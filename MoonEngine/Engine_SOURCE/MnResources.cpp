@@ -2,5 +2,5 @@
 
 namespace Mn
 {
-	std::map<std::wstring, Resource*> Resources::_Resources;
+	std::map<std::wstring, std::shared_ptr<Resource>> Resources::_Resources;
 }

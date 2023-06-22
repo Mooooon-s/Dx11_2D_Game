@@ -25,7 +25,8 @@ namespace Mn {
 	class Input
 	{
 	public:
-		struct Key {
+		struct  Key
+		{
 			eKeyCode	key;
 			eKeyState	state;
 			bool		bPressed;

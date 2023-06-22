@@ -14,6 +14,7 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnCameraScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMaterial.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnComponent.cpp" />
@@ -38,10 +39,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)playScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnTransform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnTexture.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnScript.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnCameraScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCircle.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnConstantBuffer.h" />
@@ -62,6 +65,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnShader.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTime.h" />

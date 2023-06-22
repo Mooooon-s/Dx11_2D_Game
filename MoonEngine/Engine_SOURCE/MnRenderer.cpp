@@ -36,7 +36,7 @@ namespace renderer
 		arrLayout[2].SemanticName = "TEXCOORD";
 		arrLayout[2].SemanticIndex = 0;
 
-		Shader* shader = Mn::Resources::Find<Shader>(L"SpriteShader");
+		std::shared_ptr <Shader> shader = Mn::Resources::Find<Shader>(L"SpriteShader");
 		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 3
 			,shader->GetVSCode()
 			, shader->GetInputLayoutAddressOf());
@@ -56,7 +56,7 @@ namespace renderer
 
 	void LoadBuffer()
 	{
-		Mesh* mesh = new Mn::Mesh();
+		std::shared_ptr <Mesh> mesh = std::make_shared<Mesh>();
 		Resources::Insert(L"RectMesh", mesh);
 		mesh->CreateVertexBuffer(vertices, 4);
 		//index
@@ -80,14 +80,14 @@ namespace renderer
 
 	void LoadShader()
 	{
-		Shader* shader = new Mn::Shader();
+		std::shared_ptr <Shader> shader = std::make_shared<Shader>();
 		shader->Create(eShaderStage::VS,L"SpriteVS.hlsl","main");
 		shader->Create(eShaderStage::PS,L"SpritePS.hlsl","main");
 		Mn::Resources::Insert(L"SpriteShader", shader);
 
-		Texture* texture = Resources::Load<Texture>(L"m", L"..\\Resources\\Texture\\idle.png");
+		std::shared_ptr<Texture> texture = Resources::Load<Texture>(L"m", L"..\\Resources\\Texture\\idle.png");
 
-		Material* spriteMaterial = new Mn::graphics::Material();
+		std::shared_ptr <Material> spriteMaterial = std::make_shared<Material>();
 		spriteMaterial->Texture(texture);
 		spriteMaterial->Shader(shader);
 		Mn::Resources::Insert(L"SpriteMaterial", spriteMaterial);
@@ -116,7 +116,7 @@ namespace renderer
 		LoadShader();
 		SetupState();
 
-		Texture* texture = Resources::Load<Texture>(L"m", L"..\\Resources\\Texture\\idle.png");
+		std::shared_ptr <Texture> texture = Resources::Load<Texture>(L"m", L"..\\Resources\\Texture\\idle.png");
 		texture->BindShader(eShaderStage::PS, 0);
 	}
 	void Release()

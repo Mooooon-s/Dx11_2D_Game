@@ -4,6 +4,7 @@
 #include "MnMeshRenderer.h"
 #include "MnMesh.h"
 #include "MnResources.h"
+#include "MnCameraScript.h"
 
 Mn::playScene::playScene()
 {
@@ -20,6 +21,8 @@ void Mn::playScene::Initialize()
 	MeshRenderer* mr = player->AddComponent<MeshRenderer>();
 	mr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
 	mr->SetMaterial(Resources::Find<Material>(L"SpriteMaterial"));
+
+	player->AddComponent<CameraScript>();
 
 	Scene::Initialize();
 }

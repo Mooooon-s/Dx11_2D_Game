@@ -1,6 +1,8 @@
 #pragma once
 #include "MnEntity.h"
 #include "MnComponent.h"
+#include "MnScript.h"
+
 namespace Mn
 {
 	class GameObject : public Entity
@@ -15,6 +17,8 @@ namespace Mn
 	private:
 		eState _State;
 		std::vector<Component*> _Components;
+		std::vector<Script*>	_Scripts;
+
 	public:
 		GameObject();
 		virtual ~GameObject();
@@ -35,6 +39,13 @@ namespace Mn
 					return component;
 			}
 
+			for (Script* script : _Scripts)
+			{
+				component = dynamic_cast<T*>(script);
+				if (component != nullptr)
+					return component;
+			}
+
 			return nullptr;
 		}
 		template <typename T>
@@ -42,11 +53,15 @@ namespace Mn
 		{
 			T* comp = new T();
 			Component* buff = dynamic_cast<Component*>(comp);
+			Script* script = dynamic_cast<Script*>(buff);
 
 			if (buff == nullptr)
 				return nullptr;
 
-			_Components.push_back(buff);
+			if (script == nullptr)
+				_Components.push_back(buff);
+			else
+				_Scripts.push_back(script);
 			comp->SetOwner(this);
 			
 			return comp;
