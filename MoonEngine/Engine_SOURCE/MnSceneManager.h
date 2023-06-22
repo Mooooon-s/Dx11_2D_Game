@@ -14,6 +14,7 @@ namespace Mn
 		static void Update();
 		static void LateUpdate();
 		static void Render();
+		static void Release();
 	
 		static Scene* LoadScene(std::wstring name);
 	public:

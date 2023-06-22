@@ -11,6 +11,14 @@ namespace Mn
 	}
 	GameObject::~GameObject()
 	{
+		for (Component* comp : _Components)
+		{
+			if (comp == nullptr)
+				continue;
+
+			delete comp;
+			comp = nullptr;
+		}
 	}
 	void GameObject::Initialize()
 	{

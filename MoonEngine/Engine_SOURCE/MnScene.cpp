@@ -11,28 +11,28 @@ namespace Mn
 	}
 	void Scene::Initialize()
 	{
-		for (auto layer : _Layers)
-		{
-			layer.Initialize();
-		}
+		//for (auto layer : _Layers)
+		//{
+		//	layer.Initialize();
+		//}
 	}
 	void Scene::Update()
 	{
-		for (auto layer : _Layers)
+		for (Layer& layer : _Layers)
 		{
 			layer.Update();
 		}
 	}
 	void Scene::LateUpdate()
 	{
-		for (auto layer : _Layers)
+		for (Layer& layer : _Layers)
 		{
 			layer.LateUpdate();
 		}
 	}
 	void Scene::Render()
 	{
-		for (auto layer : _Layers)
+		for (Layer& layer : _Layers)
 		{
 			layer.Render();
 		}

@@ -8,6 +8,7 @@ namespace Mn
 	void SceneManager::Initialize()
 	{
 		_ActiveScene = new playScene();
+		_Scenes.insert(std::make_pair(L"playScene", _ActiveScene));
 		_ActiveScene->Initialize();
 	}
 	void SceneManager::Update()
@@ -21,6 +22,14 @@ namespace Mn
 	void SceneManager::Render()
 	{
 		_ActiveScene->Render();
+	}
+	void SceneManager::Release()
+	{
+		for (auto iter : _Scenes)
+		{
+			delete iter.second;
+			iter.second = nullptr;
+		}
 	}
 	Scene* SceneManager::LoadScene(std::wstring name)
 	{

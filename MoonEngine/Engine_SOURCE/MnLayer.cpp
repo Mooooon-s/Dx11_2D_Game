@@ -6,31 +6,35 @@ namespace Mn
 	}
 	Layer::~Layer()
 	{
+		for (GameObject* gameObj : _GameObjects)
+		{
+			if (gameObj == nullptr)
+				continue;
+
+			delete gameObj;
+			gameObj = nullptr;
+		}
 	}
 	void Layer::Initialize()
 	{
-		for (auto gameObj : _GameObjects)
-		{
-			gameObj->Initialize();
-		}
 	}
 	void Layer::Update()
 	{
-		for (auto gameObj : _GameObjects)
+		for (GameObject* gameObj : _GameObjects)
 		{
 			gameObj->Update();
 		}
 	}
 	void Layer::LateUpdate()
 	{
-		for (auto gameObj : _GameObjects)
+		for (GameObject* gameObj : _GameObjects)
 		{
 			gameObj->LateUpdate();
 		}
 	}
 	void Layer::Render()
 	{
-		for (auto gameObj : _GameObjects)
+		for (GameObject* gameObj : _GameObjects)
 		{
 			gameObj->Render();
 		}
