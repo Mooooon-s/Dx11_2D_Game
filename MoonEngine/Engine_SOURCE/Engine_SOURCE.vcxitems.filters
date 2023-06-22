@@ -113,6 +113,7 @@
       <Filter>GameObject\Component</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnTexture.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnMaterial.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h">
@@ -192,6 +193,7 @@
       <Filter>GameObject\Component</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTexture.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnMaterial.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl">

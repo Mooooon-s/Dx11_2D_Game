@@ -6,6 +6,7 @@
 #include "MnConstantBuffer.h"
 
 using namespace Mn::math;
+using namespace Mn::graphics;
 namespace renderer
 {
 	struct Vertex
@@ -17,9 +18,7 @@ namespace renderer
 
 	extern Vertex vertices[];
 	extern ID3D11InputLayout* triangleLayout;
-	extern Mn::Mesh* mesh;
-	extern Mn::Shader* shader;
-	extern Mn::graphics::ConstantBuffer* constantBuffer;
+	extern Mn::graphics::ConstantBuffer* constantBuffer[(UINT)eCBType::End];
 
 	void Initialize();
 	void Release();

@@ -2,6 +2,8 @@
 #include "MnGameObject.h"
 #include "MnTransform.h"
 #include "MnMeshRenderer.h"
+#include "MnMesh.h"
+#include "MnResources.h"
 
 Mn::playScene::playScene()
 {
@@ -15,7 +17,9 @@ void Mn::playScene::Initialize()
 {
 	GameObject* player = new GameObject();
 	AddGameObject(eLayerType::Player, player);
-	player->AddComponent<MeshRenderer>();
+	MeshRenderer* mr = player->AddComponent<MeshRenderer>();
+	mr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
+	mr->SetMaterial(Resources::Find<Material>(L"SpriteMaterial"));
 
 	Scene::Initialize();
 }

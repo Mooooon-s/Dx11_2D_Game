@@ -4,8 +4,9 @@
 namespace Mn
 {
 	Shader::Shader()
-		:_InputLayout(nullptr)
-		,_Topology(D3D11_PRIMITIVE_TOPOLOGY::D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST)
+		: Resource(Mn::enums::eResourceType::Shader)
+		, _InputLayout(nullptr)
+		, _Topology(D3D11_PRIMITIVE_TOPOLOGY::D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST)
 	{
 	}
 	Shader::~Shader()

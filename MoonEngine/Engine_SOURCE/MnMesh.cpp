@@ -5,8 +5,9 @@ namespace Mn
 {
 	using namespace renderer;
 	Mesh::Mesh()
-		:_VertexBuffer(nullptr)
-		,_IdxBuffer(nullptr)
+		: Resource(enums::eResourceType::Mesh)
+		, _VertexBuffer(nullptr)
+		, _IdxBuffer(nullptr)
 		, _VertexDesc{}
 		, _IndexDesc{}
 		,_IndexCount(0)
@@ -55,5 +56,9 @@ namespace Mn
 
 		GetDevice()->BindVertexBuffer(0, _VertexBuffer.GetAddressOf(), &Stride, &offset);
 		GetDevice()->BindIndexBuffer(_IdxBuffer.Get(),DXGI_FORMAT_R32_UINT,0);
+	}
+	void Mesh::Render()
+	{
+		GetDevice()->DrawIndexed(_IndexCount, 0, 0);
 	}
 }

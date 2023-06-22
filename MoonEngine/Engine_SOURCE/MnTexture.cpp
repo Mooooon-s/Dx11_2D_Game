@@ -4,7 +4,8 @@
 namespace Mn::graphics
 {
 	Texture::Texture()
-		: _Image{}
+		: Resource(Mn::enums::eResourceType::Texture)
+		, _Image{}
 		, _Texture(nullptr)
 		, _SRV(nullptr)
 		, _Desc{}

@@ -25,6 +25,7 @@ namespace Mn
 		bool CreateVertexBuffer(void* data, UINT Count);
 		bool CreateIndexBuffer(void* data, UINT Count);
 		void BindBuffer();
+		void Render();
 
 		UINT GetIndexCount() { return _IndexCount; }
 

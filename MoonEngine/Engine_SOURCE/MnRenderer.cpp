@@ -1,7 +1,7 @@
 #include "MnRenderer.h"
 #include "MnTexture.h"
 #include "MnResources.h"
-
+#include "MnMaterial.h"
 
 namespace renderer
 {
@@ -9,9 +9,8 @@ namespace renderer
 	using namespace Mn::graphics;
 
 	Vertex vertices[4] = {};
-	Mn::Mesh* mesh = nullptr;
-	Mn::Shader* shader = nullptr;
-	Mn::graphics::ConstantBuffer* constantBuffer = nullptr;
+	Mn::graphics::ConstantBuffer* constantBuffer[(UINT)eCBType::End] = {};
+	Microsoft::WRL::ComPtr<ID3D11SamplerState> samplerState[(UINT)eSamplerType::End] = {};
 	
 	void SetupState()
 	{
@@ -37,14 +36,28 @@ namespace renderer
 		arrLayout[2].SemanticName = "TEXCOORD";
 		arrLayout[2].SemanticIndex = 0;
 
+		Shader* shader = Mn::Resources::Find<Shader>(L"SpriteShader");
 		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 3
 			,shader->GetVSCode()
 			, shader->GetInputLayoutAddressOf());
+
+		D3D11_SAMPLER_DESC desc = {};
+		desc.AddressU = D3D11_TEXTURE_ADDRESS_MODE::D3D11_TEXTURE_ADDRESS_WRAP;
+		desc.AddressV = D3D11_TEXTURE_ADDRESS_MODE::D3D11_TEXTURE_ADDRESS_WRAP;
+		desc.AddressW = D3D11_TEXTURE_ADDRESS_MODE::D3D11_TEXTURE_ADDRESS_WRAP;
+		desc.Filter = D3D11_FILTER_MIN_MAG_MIP_POINT;
+		GetDevice()->CreateSampler(&desc, samplerState[(UINT)eSamplerType::Point].GetAddressOf());
+		GetDevice()->BindSampler(eShaderStage::PS, 0, samplerState[(UINT)eSamplerType::Point].GetAddressOf());
+
+		desc.Filter = D3D11_FILTER_ANISOTROPIC;
+		GetDevice()->CreateSampler(&desc, samplerState[(UINT)eSamplerType::Anisotropic].GetAddressOf());
+		GetDevice()->BindSampler(eShaderStage::PS, 1, samplerState[(UINT)eSamplerType::Anisotropic].GetAddressOf());
 	}
 
 	void LoadBuffer()
 	{
-		mesh = new Mn::Mesh();
+		Mesh* mesh = new Mn::Mesh();
+		Resources::Insert(L"RectMesh", mesh);
 		mesh->CreateVertexBuffer(vertices, 4);
 		//index
 		std::vector<UINT> indices = {};
@@ -57,8 +70,8 @@ namespace renderer
 		indices.push_back(3);
 		mesh->CreateIndexBuffer(indices.data(), indices.size());
 		
-		constantBuffer = new ConstantBuffer(eCBType::Transform);
-		constantBuffer->Create(sizeof(Vector4));
+		constantBuffer[(UINT)eCBType::Transform] = new ConstantBuffer(eCBType::Transform);
+		constantBuffer[(UINT)eCBType::Transform]->Create(sizeof(Vector4));
 
 		//Vector4 _pos = Vector4(0.2f, 0.0f, 0.0f, 1.0f);
 		//constantBuffer->setData(&_pos);
@@ -67,9 +80,17 @@ namespace renderer
 
 	void LoadShader()
 	{
-		shader = new Mn::Shader();
-		shader->Create(eShaderStage::VS,L"TriangleVS.hlsl","main");
-		shader->Create(eShaderStage::PS,L"TrianglePS.hlsl","main");
+		Shader* shader = new Mn::Shader();
+		shader->Create(eShaderStage::VS,L"SpriteVS.hlsl","main");
+		shader->Create(eShaderStage::PS,L"SpritePS.hlsl","main");
+		Mn::Resources::Insert(L"SpriteShader", shader);
+
+		Texture* texture = Resources::Load<Texture>(L"m", L"..\\Resources\\Texture\\idle.png");
+
+		Material* spriteMaterial = new Mn::graphics::Material();
+		spriteMaterial->Texture(texture);
+		spriteMaterial->Shader(shader);
+		Mn::Resources::Insert(L"SpriteMaterial", spriteMaterial);
 	}
 
 	void Initialize()
@@ -100,8 +121,14 @@ namespace renderer
 	}
 	void Release()
 	{
-		delete mesh;
-		delete shader;
-		delete constantBuffer;
+		for (auto cb : constantBuffer)
+		{
+			if (cb == nullptr)
+				continue;
+
+			delete cb;
+			cb = nullptr;
+		}
+		
 	}
 }

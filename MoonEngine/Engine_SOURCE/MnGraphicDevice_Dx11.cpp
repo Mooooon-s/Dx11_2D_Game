@@ -179,6 +179,12 @@ namespace Mn::graphics
 			return false;
 		return true;
 	}
+	bool GraphicDevice_Dx11::CreateSampler(const D3D11_SAMPLER_DESC* pSamplerDesc, ID3D11SamplerState** ppSamplerState)
+	{
+		if (FAILED(_Device->CreateSamplerState(pSamplerDesc, ppSamplerState)))
+			return false;
+		return true;
+	}
 	void GraphicDevice_Dx11::BindViewPort(D3D11_VIEWPORT* viewPort)
 	{
 		_Context->RSSetViewports(1, viewPort);
@@ -274,6 +280,34 @@ namespace Mn::graphics
 			break;
 		case eShaderStage::CS:
 			_Context->CSSetShaderResources(startSlot, 1, ppSRV);
+			break;
+		case eShaderStage::End:
+			break;
+		default:
+			break;
+		}
+	}
+	void GraphicDevice_Dx11::BindSampler(eShaderStage stage, UINT StartSlot, ID3D11SamplerState** ppSamplers)
+	{
+		switch (stage)
+		{
+		case eShaderStage::VS:
+			_Context->VSSetSamplers(StartSlot, 1, ppSamplers);
+			break;
+		case eShaderStage::HS:
+			_Context->HSSetSamplers(StartSlot, 1, ppSamplers);
+			break;
+		case eShaderStage::DS:
+			_Context->DSSetSamplers(StartSlot, 1, ppSamplers);
+			break;
+		case eShaderStage::GS:
+			_Context->GSSetSamplers(StartSlot, 1, ppSamplers);
+			break;
+		case eShaderStage::PS:
+			_Context->PSSetSamplers(StartSlot, 1, ppSamplers);
+			break;
+		case eShaderStage::CS:
+			_Context->CSSetSamplers(StartSlot, 1, ppSamplers);
 			break;
 		case eShaderStage::End:
 			break;

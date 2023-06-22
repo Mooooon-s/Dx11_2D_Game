@@ -1,7 +1,7 @@
 #pragma once
 #include "MnComponent.h"
 #include "MnMesh.h"
-#include "MnShader.h"
+#include "MnMaterial.h"
 
 namespace Mn
 {
@@ -9,7 +9,7 @@ namespace Mn
 	{
 	private:
 		Mesh* _Mesh;
-		Shader* _Shader;
+		Material* _Material;
 	public:
 		MeshRenderer();
 		~MeshRenderer();
@@ -18,6 +18,10 @@ namespace Mn
 		virtual void Update() override;
 		virtual void LateUpdate() override;
 		virtual void Render() override;
+
+	public:
+		void SetMesh(Mesh* mesh) { _Mesh = mesh; }
+		void SetMaterial(Material* material) { _Material = material; }
 	};
 
 }

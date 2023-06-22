@@ -23,6 +23,14 @@ namespace Mn::graphics
 	enum class eCBType
 	{
 		Transform,
+		Material,
+		End,
+	};
+
+	enum class eSamplerType
+	{
+		Point,
+		Anisotropic,
 		End,
 	};
 

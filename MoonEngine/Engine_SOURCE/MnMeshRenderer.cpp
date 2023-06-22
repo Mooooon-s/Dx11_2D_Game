@@ -7,6 +7,8 @@ namespace Mn
 {
 	MeshRenderer::MeshRenderer()
 		: Component(eComponentType::Meshrenderer)
+		, _Mesh(nullptr)
+		, _Material(nullptr)
 	{
 	}
 
@@ -31,9 +33,9 @@ namespace Mn
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		tr->BindConstantBuffer();
 
-		renderer::mesh->BindBuffer();
-		renderer::shader->binds();
-		GetDevice()->DrawIndexed(renderer::mesh->GetIndexCount(), 0, 0);
+		_Mesh->BindBuffer();
+		_Material->Binds();
+		_Mesh->Render();
 	}
 
 }

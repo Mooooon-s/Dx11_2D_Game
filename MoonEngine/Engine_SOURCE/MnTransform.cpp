@@ -29,7 +29,7 @@ namespace Mn
 	}
 	void Transform::BindConstantBuffer()
 	{
-		ConstantBuffer* cb = renderer::constantBuffer;
+		ConstantBuffer* cb = renderer::constantBuffer[(UINT)eCBType::Transform];
 		Vector4 position(_Position.x, _Position.y, _Position.z, 1.0f);
 		cb->setData(&position);
 		cb->Bind(eShaderStage::VS);
