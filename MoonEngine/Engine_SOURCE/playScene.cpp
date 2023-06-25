@@ -26,7 +26,7 @@ void Mn::playScene::Initialize()
 	MeshRenderer* mr = player->AddComponent<MeshRenderer>();
 	mr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
 	mr->SetMaterial(Resources::Find<Material>(L"SpriteMaterial"));
-	player->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 0.0f));
+	player->GetComponent<Transform>()->Position(Vector3(1.0f, 0.0f, 0.0f));
 
 	GameObject* camera = new GameObject();
 	AddGameObject(eLayerType::Player, camera);
@@ -37,9 +37,9 @@ void Mn::playScene::Initialize()
 	GameObject* background = new GameObject();
 	AddGameObject(eLayerType::BackGround, background);
 	MeshRenderer* BGmr = background->AddComponent<MeshRenderer>();
-	BGmr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
+	BGmr->SetMesh(Resources::Find<Mesh>(L"BackGroundMesh"));
 	BGmr->SetMaterial(Resources::Find<Material>(L"BackGroundMaterial_Layer_0"));
-	background->GetComponent<Transform>()->Position(Vector3(3.0f, 0.0f, 0.0f));
+	background->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 0.0f));
 
 	//Scene::Initialize();
 }
