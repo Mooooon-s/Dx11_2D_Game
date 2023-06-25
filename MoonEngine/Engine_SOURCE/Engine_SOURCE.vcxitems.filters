@@ -46,6 +46,30 @@
     <Filter Include="Manager">
       <UniqueIdentifier>{a76c01cc-fb8a-4f71-9d8a-4f4bcecf9a94}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Component\Transform">
+      <UniqueIdentifier>{79951a14-3094-4a4d-93e4-07027adaab09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Component\Script">
+      <UniqueIdentifier>{59bd9bd3-4fac-45b9-b8dd-89916f49ae59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Component\MeshRenderer">
+      <UniqueIdentifier>{750ac737-9294-46ca-98fe-de09d67c3375}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Material">
+      <UniqueIdentifier>{bcbfd691-ac53-4383-b293-30b572acabc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture">
+      <UniqueIdentifier>{ebe6421b-a0d2-4db2-9232-b08c781d0097}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Component\Camera">
+      <UniqueIdentifier>{97668caa-126d-4a46-95e3-c4f993464ec4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{e6c148fa-0f72-417d-86e4-f2b816fa2e5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character">
+      <UniqueIdentifier>{494ada95-6d06-48a0-beb0-93cf5e7e297a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnEntity.cpp">
@@ -106,18 +130,31 @@
       <Filter>Manager</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)playScene.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)MnMeshRenderer.cpp">
-      <Filter>GameObject\Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnTransform.cpp">
-      <Filter>GameObject\Component</Filter>
+      <Filter>GameObject\Component\Transform</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MnTexture.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)MnMaterial.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnScript.cpp">
-      <Filter>GameObject\Component</Filter>
+      <Filter>GameObject\Component\Script</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MnCameraScript.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnMeshRenderer.cpp">
+      <Filter>GameObject\Component\MeshRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnMaterial.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnTexture.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnCamera.cpp">
+      <Filter>GameObject\Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnCameraScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnCharacter.cpp">
+      <Filter>GameObject\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnMainCharacter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h">
@@ -190,18 +227,31 @@
       <Filter>Manager</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)playScene.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)MnMeshRenderer.h">
-      <Filter>GameObject\Component</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTransform.h">
-      <Filter>GameObject\Component</Filter>
+      <Filter>GameObject\Component\Transform</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MnTexture.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)MnMaterial.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnScript.h">
-      <Filter>GameObject\Component</Filter>
+      <Filter>GameObject\Component\Script</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MnCameraScript.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnMeshRenderer.h">
+      <Filter>GameObject\Component\MeshRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnMaterial.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnTexture.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnCamera.h">
+      <Filter>GameObject\Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnCameraScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnCharacter.h">
+      <Filter>GameObject\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnMainCharacter.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl">

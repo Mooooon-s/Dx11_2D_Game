@@ -1,15 +1,24 @@
 #pragma once
 #include "MnComponent.h"
+#include "MnCamera.h"
 
 namespace Mn
 {
-	using namespace Mn::math;
+	using namespace Mn::graphics;
 	class Transform : public Component
 	{
 	private:
 		Vector3 _Position;
 		Vector3 _Rotation;
 		Vector3 _Scale;
+
+		Vector3 _Up;
+		Vector3 _Forward;
+		Vector3 _Right;
+
+		Matrix _World;
+		Matrix _View;
+		Matrix _Projection;
 	public:
 		Transform();
 		~Transform();
@@ -32,5 +41,9 @@ namespace Mn
 		Vector3 Position() { return _Position; }
 		Vector3 Rotation() { return _Rotation; }
 		Vector3 Scale() { return _Scale; }
+
+		Vector3 Foward() { return _Forward; }
+		Vector3 Right() { return _Right; }
+		Vector3 Up() { return _Up; }
 	};
 }

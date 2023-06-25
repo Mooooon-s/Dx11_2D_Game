@@ -36,6 +36,8 @@ namespace Mn
 		_Mesh->BindBuffer();
 		_Material->Binds();
 		_Mesh->Render();
+		
+		_Material->Clear();
 	}
 
 }

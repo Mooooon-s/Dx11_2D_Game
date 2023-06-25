@@ -71,26 +71,59 @@ namespace renderer
 		mesh->CreateIndexBuffer(indices.data(), indices.size());
 		
 		constantBuffer[(UINT)eCBType::Transform] = new ConstantBuffer(eCBType::Transform);
-		constantBuffer[(UINT)eCBType::Transform]->Create(sizeof(Vector4));
-
-		//Vector4 _pos = Vector4(0.2f, 0.0f, 0.0f, 1.0f);
-		//constantBuffer->setData(&_pos);
-		//constantBuffer->Bind(eShaderStage::VS);
+		constantBuffer[(UINT)eCBType::Transform]->Create(sizeof(TransformCB));
 	}
 
 	void LoadShader()
 	{
+		//--------------------------------------------------------------------------------------------------------------------------------------
+		//							
+		//																Shader
+		// 
+		//--------------------------------------------------------------------------------------------------------------------------------------
 		std::shared_ptr <Shader> shader = std::make_shared<Shader>();
-		shader->Create(eShaderStage::VS,L"SpriteVS.hlsl","main");
-		shader->Create(eShaderStage::PS,L"SpritePS.hlsl","main");
+		shader->Create(eShaderStage::VS, L"SpriteVS.hlsl", "main");
+		shader->Create(eShaderStage::PS, L"SpritePS.hlsl", "main");
 		Mn::Resources::Insert(L"SpriteShader", shader);
 
-		std::shared_ptr<Texture> texture = Resources::Load<Texture>(L"m", L"..\\Resources\\Texture\\idle.png");
+		//---------------------------------------------------------------------------------------------------------------------------------------
+		//
+		//																Player
+		//
+		//---------------------------------------------------------------------------------------------------------------------------------------
+		// 
+		//----------------------------------------------------------------
+		//							Texture
+		//----------------------------------------------------------------
+		std::shared_ptr<Texture> texture = Resources::Load<Texture>(L"player", L"..\\Resources\\Texture\\idle.png");
 
+		//----------------------------------------------------------------
+		//							Material
+		//----------------------------------------------------------------
 		std::shared_ptr <Material> spriteMaterial = std::make_shared<Material>();
 		spriteMaterial->Texture(texture);
 		spriteMaterial->Shader(shader);
 		Mn::Resources::Insert(L"SpriteMaterial", spriteMaterial);
+
+		//---------------------------------------------------------------------------------------------------------------------------------------
+		//
+		//																BackGround
+		//
+		//---------------------------------------------------------------------------------------------------------------------------------------
+		// 
+		//----------------------------------------------------------------
+		//							Texture
+		//----------------------------------------------------------------
+		std::shared_ptr<Texture> backgroundTex[3];
+		backgroundTex[0] = Resources::Load<Texture>(L"BackGround_", L"..\\Resources\\Texture\\BackGround\\background_layer_1.png");
+		//----------------------------------------------------------------
+		//							Material
+		//----------------------------------------------------------------
+		std::shared_ptr<Material> backgroundMaterial = std::make_shared<Material>();
+		backgroundMaterial->Texture(backgroundTex[0]);
+		backgroundMaterial->Shader(shader);
+		Mn::Resources::Insert(L"BackGroundMaterial_Layer_0", backgroundMaterial);
+
 	}
 
 	void Initialize()
@@ -110,6 +143,7 @@ namespace renderer
 		vertices[3].pos = Vector3(-0.5f, -0.5f, 0.0f);
 		vertices[3].color = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
 		vertices[3].uv = Vector2(0.0f, 1.0f);
+
 
 
 		LoadBuffer();

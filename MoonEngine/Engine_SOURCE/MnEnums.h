@@ -9,6 +9,7 @@ namespace Mn::enums
 		Particle,
 		Meshrenderer,
 		Script,
+		Camera,
 		End,
 	};
 

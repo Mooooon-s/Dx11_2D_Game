@@ -26,6 +26,7 @@ namespace Mn::graphics
 
 		virtual HRESULT Load(const std::wstring& path) override;
 		void BindShader(eShaderStage stage, UINT startSlot);
+		void Clear();
 	};
 }
 

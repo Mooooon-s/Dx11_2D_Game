@@ -19,4 +19,8 @@ namespace Mn
 		_Texture->BindShader(eShaderStage::PS, 0);
 		_Shader->binds();
 	}
+	void graphics::Material::Clear()
+	{
+		_Texture->Clear();
+	}
 }

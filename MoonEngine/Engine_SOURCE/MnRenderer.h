@@ -16,6 +16,13 @@ namespace renderer
 		Vector2 uv;
 	};
 
+	CBUFFER(TransformCB, CBSLOT_TRANSFORM)
+	{
+		Matrix _World;
+		Matrix _View;
+		Matrix _Projection;
+	};
+
 	extern Vertex vertices[];
 	extern ID3D11InputLayout* triangleLayout;
 	extern Mn::graphics::ConstantBuffer* constantBuffer[(UINT)eCBType::End];

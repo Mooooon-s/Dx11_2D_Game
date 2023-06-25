@@ -17,11 +17,11 @@ namespace Mn::graphics
 
 		virtual HRESULT Load(const std::wstring& path) override;
 		void Binds();
+		void Clear();
 
 	public:
 		void Shader(std::shared_ptr<Shader> shader) { _Shader = shader; }
 		void Texture(std::shared_ptr <Texture> mesh) { _Texture = mesh; }
-
 	};
 
 }

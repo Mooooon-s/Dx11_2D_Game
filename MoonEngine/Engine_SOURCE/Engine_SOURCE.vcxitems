@@ -14,6 +14,9 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnMainCharacter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnCharacter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCameraScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMaterial.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnLayer.cpp" />
@@ -44,7 +47,9 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCameraScript.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnCharacter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCircle.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnConstantBuffer.h" />
@@ -55,6 +60,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphics.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnMainCharacter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMaterial.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMesh.h" />
