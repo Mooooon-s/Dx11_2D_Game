@@ -2,6 +2,7 @@
 #include "MnTexture.h"
 #include "MnResources.h"
 #include "MnMaterial.h"
+#include "MnRectangle.h"
 
 namespace renderer
 {
@@ -69,6 +70,15 @@ namespace renderer
 		indices.push_back(2);
 		indices.push_back(3);
 		mesh->CreateIndexBuffer(indices.data(), indices.size());
+
+		Rectangle* rect = new Rectangle();
+		rect->Initialize();
+
+		std::shared_ptr<Mesh> backgroundMesh = std::make_shared<Mesh>();
+		Resources::Insert(L"BackGroundMesh", backgroundMesh);
+		backgroundMesh->CreateVertexBuffer(rect->RectVertex(), 4);
+		indices = rect->IndexBuff();
+		backgroundMesh->CreateIndexBuffer(indices.data(), indices.size());
 		
 		constantBuffer[(UINT)eCBType::Transform] = new ConstantBuffer(eCBType::Transform);
 		constantBuffer[(UINT)eCBType::Transform]->Create(sizeof(TransformCB));
@@ -145,12 +155,12 @@ namespace renderer
 		vertices[3].uv = Vector2(0.0f, 1.0f);
 
 
-
 		LoadBuffer();
 		LoadShader();
 		SetupState();
 
-		std::shared_ptr <Texture> texture = Resources::Load<Texture>(L"m", L"..\\Resources\\Texture\\idle.png");
+		std::shared_ptr <Texture> texture = Resources::Load<Texture>(L"player", L"..\\Resources\\Texture\\idle.png");
+		texture = Resources::Load<Texture>(L"BackGround", L"..\\Resources\\Texture\\BackGround\\background_layer_1.png");
 		texture->BindShader(eShaderStage::PS, 0);
 	}
 	void Release()
