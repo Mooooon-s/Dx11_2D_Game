@@ -39,6 +39,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnRectangle.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnShader.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnTitleScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)playScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnTransform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnTexture.cpp" />
@@ -75,6 +76,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnShader.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnTitleScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MoonEngine.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)playScene.h" />

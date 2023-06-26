@@ -126,6 +126,7 @@ namespace renderer
 		//----------------------------------------------------------------
 		std::shared_ptr<Texture> backgroundTex[3];
 		backgroundTex[0] = Resources::Load<Texture>(L"BackGround_", L"..\\Resources\\Texture\\BackGround\\background_layer_1.png");
+		backgroundTex[1] = Resources::Load<Texture>(L"BackGround_1", L"..\\Resources\\Texture\\BackGround\\background_layer_2.png");
 		//----------------------------------------------------------------
 		//							Material
 		//----------------------------------------------------------------
@@ -134,6 +135,10 @@ namespace renderer
 		backgroundMaterial->Shader(shader);
 		Mn::Resources::Insert(L"BackGroundMaterial_Layer_0", backgroundMaterial);
 
+		std::shared_ptr<Material> backgroundMaterial2 = std::make_shared<Material>();
+		backgroundMaterial2->Texture(backgroundTex[1]);
+		backgroundMaterial2->Shader(shader);
+		Mn::Resources::Insert(L"BackGroundMaterial_Layer_1", backgroundMaterial2);
 	}
 
 	void Initialize()
@@ -161,6 +166,7 @@ namespace renderer
 
 		std::shared_ptr <Texture> texture = Resources::Load<Texture>(L"player", L"..\\Resources\\Texture\\idle.png");
 		texture = Resources::Load<Texture>(L"BackGround", L"..\\Resources\\Texture\\BackGround\\background_layer_1.png");
+		texture = Resources::Load<Texture>(L"BackGround2", L"..\\Resources\\Texture\\BackGround\\background_layer_2.png");
 		texture->BindShader(eShaderStage::PS, 0);
 	}
 	void Release()

@@ -1,5 +1,7 @@
 #include "MnSceneManager.h"
 #include "playScene.h"
+#include "MnTitleScene.h"
+#include "MnInput.h"
 
 namespace Mn
 {
@@ -9,11 +11,23 @@ namespace Mn
 	{
 		_ActiveScene = new playScene();
 		_Scenes.insert(std::make_pair(L"playScene", _ActiveScene));
+		TitleScene* title = new TitleScene();
+		_Scenes.insert(std::make_pair(L"titleScene", title));
 		_ActiveScene->Initialize();
+		title->Initialize();
 	}
 	void SceneManager::Update()
 	{
+		if (Input::GetKeyDown(eKeyCode::P))
+		{
+			_ActiveScene = _Scenes.find(L"titleScene")->second;
+		}
+		if (Input::GetKeyDown(eKeyCode::O))
+		{
+			_ActiveScene = _Scenes.find(L"playScene")->second;
+		}
 		_ActiveScene->Update();
+		
 	}
 	void SceneManager::LateUpdate()
 	{

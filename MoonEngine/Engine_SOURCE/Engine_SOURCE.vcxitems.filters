@@ -155,6 +155,7 @@
       <Filter>GameObject\Character</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMainCharacter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnTitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h">
@@ -252,6 +253,7 @@
       <Filter>GameObject\Character</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMainCharacter.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl">
