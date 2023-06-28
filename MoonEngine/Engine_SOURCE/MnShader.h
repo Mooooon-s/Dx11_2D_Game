@@ -22,6 +22,10 @@ namespace Mn
 		Microsoft::WRL::ComPtr < ID3D11GeometryShader>	_GS;
 		Microsoft::WRL::ComPtr < ID3D11PixelShader>		_PS;
 
+		eRSType _RSType;
+		eDSType _DSType;
+		eBSType _BSType;
+
 
 	public:
 		Shader();
@@ -31,6 +35,12 @@ namespace Mn
 
 		bool Create(const eShaderStage stage, const std::wstring& fileName, const std::string& funcName);
 		void binds();
+	
+	public:
+		void SetRSState(eRSType type) { _RSType = type; }
+		void SetDSState(eDSType type) { _DSType = type; }
+		void SetBSState(eBSType type) { _BSType = type; }
+
 	public:
 		ID3DBlob* GetVSCode()
 		{

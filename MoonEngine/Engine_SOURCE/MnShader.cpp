@@ -1,5 +1,5 @@
 #include "MnShader.h"
-
+#include "MnRenderer.h"
 
 namespace Mn
 {
@@ -7,6 +7,9 @@ namespace Mn
 		: Resource(Mn::enums::eResourceType::Shader)
 		, _InputLayout(nullptr)
 		, _Topology(D3D11_PRIMITIVE_TOPOLOGY::D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST)
+		, _RSType(eRSType::SolidBack)
+		, _DSType(eDSType::Less)
+		, _BSType(eBSType::AlphaBlend)
 	{
 	}
 	Shader::~Shader()
@@ -51,5 +54,14 @@ namespace Mn
 
 		GetDevice()->BindVertexShader(_VS.Get());
 		GetDevice()->BindPixelShader(_PS.Get());
+
+		Microsoft::WRL::ComPtr<ID3D11RasterizerState> rsState = renderer::rasterizerStates[(UINT)_RSType];
+		Microsoft::WRL::ComPtr<ID3D11DepthStencilState> dsState = renderer::depthStencilStates[(UINT)_DSType];
+		Microsoft::WRL::ComPtr<ID3D11BlendState> bsState = renderer::blendStates[(UINT)_BSType];
+
+		GetDevice()->BindRasterizeState(rsState.Get());
+		GetDevice()->BindDepthStencilState(dsState.Get());
+		GetDevice()->BindBlendState(bsState.Get());
+
 	}
 }

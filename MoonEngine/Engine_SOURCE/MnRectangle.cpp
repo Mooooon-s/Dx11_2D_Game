@@ -12,13 +12,13 @@ namespace renderer
 	}
 	void Rectangle::Initialize()
 	{
-		vertices[0].pos = Vector3(-1.0f, 1.0f, 0.0f);
+		vertices[0].pos = Vector3(-0.8f, 0.45f, 0.0f);
 		vertices[0].uv = Vector2(0.0f, 0.0f);
-		vertices[1].pos = Vector3(1.0f, 1.0f, 0.0f);
+		vertices[1].pos = Vector3(0.8f, 0.45f, 0.0f);
 		vertices[1].uv = Vector2(1.0f, 0.0f);
-		vertices[2].pos = Vector3(1.0f, -1.0f, 0.0f);
+		vertices[2].pos = Vector3(0.8f, -0.45f, 0.0f);
 		vertices[2].uv = Vector2(1.0f, 1.0f);
-		vertices[3].pos = Vector3(-1.0f, -1.0f, 0.0f);
+		vertices[3].pos = Vector3(-0.8f, -0.45f, 0.0f);
 		vertices[3].uv = Vector2(0.0f, 1.0f);
 
 		idxbuff[0]=0;

@@ -19,14 +19,20 @@ Mn::playScene::~playScene()
 void Mn::playScene::Initialize()
 {
 
-	//GameObject* player = new GameObject();
-	
+	GameObject* background = new GameObject();
+	AddGameObject(eLayerType::Player, background);
+	MeshRenderer* BGmr = background->AddComponent<MeshRenderer>();
+	BGmr->SetMesh(Resources::Find<Mesh>(L"BackGroundMesh"));
+	BGmr->SetMaterial(Resources::Find<Material>(L"BackGroundMaterial_Layer_0"));
+	background->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 2.0f));
+
 	MainCharacter* player = new MainCharacter();
 	AddGameObject(eLayerType::Player, player);
 	MeshRenderer* mr = player->AddComponent<MeshRenderer>();
 	mr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
 	mr->SetMaterial(Resources::Find<Material>(L"SpriteMaterial"));
-	player->GetComponent<Transform>()->Position(Vector3(1.0f, 0.0f, 0.0f));
+	player->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 1.0f));
+
 
 	GameObject* camera = new GameObject();
 	AddGameObject(eLayerType::Player, camera);
@@ -34,14 +40,6 @@ void Mn::playScene::Initialize()
 	Camera* cameraComp = camera->AddComponent<Camera>();
 	camera->AddComponent<CameraScript>();
 
-	GameObject* background = new GameObject();
-	AddGameObject(eLayerType::BackGround, background);
-	MeshRenderer* BGmr = background->AddComponent<MeshRenderer>();
-	BGmr->SetMesh(Resources::Find<Mesh>(L"BackGroundMesh"));
-	BGmr->SetMaterial(Resources::Find<Material>(L"BackGroundMaterial_Layer_0"));
-	background->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 0.0f));
-
-	//Scene::Initialize();
 }
 
 void Mn::playScene::Update()

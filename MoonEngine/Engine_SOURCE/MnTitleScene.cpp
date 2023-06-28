@@ -22,7 +22,7 @@ namespace Mn
 		mr->SetMaterial(Resources::Find<Material>(L"BackGroundMaterial_Layer_1"));
 		background->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 0.0f));
 		Scene::Initialize();
-		
+
 	}
 	void TitleScene::Update()
 	{
