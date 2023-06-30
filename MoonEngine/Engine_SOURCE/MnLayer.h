@@ -17,6 +17,10 @@ namespace Mn
 		virtual void Render();
 	public:
 		void AddGameObject(GameObject* gameObj);
+		const std::vector<GameObject*> GetGameObjects()
+		{
+			return _GameObjects;
+		}
 	};
 
 }

@@ -21,6 +21,26 @@ namespace Mn
 
 	public:
 		void AddGameObject(eLayerType type, GameObject* gameObj);
+
+		template <typename T>
+		std::vector<T*> FindObjectsOfType()
+		{
+			std::vector<T*> findObjs = {};
+			for (Layer* layer : _Layers)
+			{
+				auto gameObjs = layer->GetGameObjects();
+				for (GameObject* obj : gameObjs)
+				{
+					T* buff = dynamic_cast<T*>(obj);
+					if (buff != nullptr)
+						findObjs.push_back(buff);
+				}
+			}
+
+			return findObjs;
+		}
+
+		Layer& GetLayer(eLayerType type) { return _Layers[(UINT)type]; }
 	};
 }
 

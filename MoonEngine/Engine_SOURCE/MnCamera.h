@@ -14,8 +14,11 @@ namespace Mn
 			None,
 		};
 	private:
-		static Matrix _View;
-		static Matrix _Projection;
+		static Matrix View;
+		static Matrix Projection;
+
+		Matrix _View;
+		Matrix _Projection;
 
 		eProjectionType _Type;
 		float _AspectRatio;
@@ -29,8 +32,8 @@ namespace Mn
 		std::vector<GameObject*> _TransparentGameObjects;
 
 	public:
-		static Matrix GetViewMatrix() { return _View; }
-		static Matrix GetProjectionMatrix() { return _Projection; }
+		static Matrix GetViewMatrix() { return View; }
+		static Matrix GetProjectionMatrix() { return Projection; }
 
 	public:
 		Camera();

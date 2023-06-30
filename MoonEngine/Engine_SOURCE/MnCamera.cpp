@@ -3,13 +3,16 @@
 #include "MnGameObject.h"
 #include "MnApplication.h"
 #include "MnRenderer.h"
+#include "MnScene.h"
+#include "MnSceneManager.h"
+#include "MnMeshRenderer.h"
 
 extern Mn::Application application;
 
 namespace Mn
 {
-	Matrix Camera::_View = Matrix::Identity;
-	Matrix Camera::_Projection = Matrix::Identity;
+	Matrix Camera::View = Matrix::Identity;
+	Matrix Camera::Projection = Matrix::Identity;
 
 	Camera::Camera()
 		: Component(eComponentType::Camera)
@@ -18,7 +21,10 @@ namespace Mn
 		, _Near(1.0f)
 		, _Far(1000.0f)
 		, _Size(5.0f)
+		, _View(Matrix::Identity)
+		, _Projection(Matrix::Identity)
 	{
+		EnableLayerMasks();
 	}
 	Camera::~Camera()
 	{
@@ -37,6 +43,16 @@ namespace Mn
 	}
 	void Camera::Render()
 	{
+		View = _View;
+		Projection = _Projection;
+
+		SortGameObjects();
+
+		RenderOpaque();
+		RenderCutOut();
+		RenderTransparent();
+
+
 	}
 	bool Camera::CreateViewMatrix()
 	{
@@ -86,7 +102,6 @@ namespace Mn
 		{
 			_Projection = Matrix::CreatePerspectiveFieldOfViewLH(XM_2PI / 6.0f, _AspectRatio, _Near, _Far);
 		}
-
 		return true;
 	}
 	void Camera::RegisterCameraInRenderer()
@@ -99,7 +114,44 @@ namespace Mn
 	}
 	void Camera::SortGameObjects()
 	{
+		_OpaqueGameObjects.clear();
+		_CutOutGameObjects.clear();
+		_TransparentGameObjects.clear();
 
+		Scene* scene = SceneManager::ActiveScene();
+		for (int i = 0; i < (UINT)eLayerType::End; i++)
+		{
+			if(_LayerMask[i] == true)
+			{
+				Layer& layer = scene->GetLayer((eLayerType)i);
+				const std::vector<GameObject*> gameObjs
+					= layer.GetGameObjects();
+
+				for (GameObject* obj : gameObjs)
+				{
+					MeshRenderer* mr = obj->GetComponent<MeshRenderer>();
+					if (mr == nullptr)
+						continue;
+
+					std::shared_ptr<Material> mt = mr->GetMaterial();
+					eRenderingMode mode = mt->RenderingMode();
+					switch (mode)
+					{
+					case Mn::graphics::eRenderingMode::Opaque:
+						_OpaqueGameObjects.push_back(obj);
+						break;
+					case Mn::graphics::eRenderingMode::CutOut:
+						_CutOutGameObjects.push_back(obj);
+						break;
+					case Mn::graphics::eRenderingMode::Transparent:
+						_TransparentGameObjects.push_back(obj);
+						break;
+					default:
+						break;
+					}
+				}
+			}
+		}
 	}
 	void Camera::RenderOpaque()
 	{
