@@ -3,13 +3,19 @@
 
 #include "framework.h"
 #include "Editor_Window.h"
-#include "MnApplication.h"
-#include "MnRenderer.h"
-#include "MnResources.h"
-#include "MnSceneManager.h"
+#include "../Engine_SOURCE/MnApplication.h"
+#include "../Engine_SOURCE/MnRenderer.h"
+#include "../Engine_SOURCE/MnResources.h"
+#include "../Engine_SOURCE/MnSceneManager.h"
 #include "LoadScene.h"
 
 Mn::Application application;
+
+#ifdef _DEBUG
+#pragma comment(lib, "..\\x64\\Debug\\YamYamEngine.lib")
+#else
+#pragma comment(lib, "..\\x64\\Release\\YamYamEngine.lib")
+#endif
 
 #define MAX_LOADSTRING 100
 

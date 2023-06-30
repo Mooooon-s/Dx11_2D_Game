@@ -1,5 +1,5 @@
 #pragma once
-#include "MnSceneManager.h"
+#include "../Engine_SOURCE/MnSceneManager.h"
 #include "playScene.h"
 #include "MnTitleScene.h"
 

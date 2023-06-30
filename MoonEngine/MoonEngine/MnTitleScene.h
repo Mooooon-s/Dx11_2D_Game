@@ -1,5 +1,5 @@
 #pragma once
-#include "MnScene.h"
+#include "../Engine_SOURCE/MnScene.h"
 namespace Mn
 {
 
