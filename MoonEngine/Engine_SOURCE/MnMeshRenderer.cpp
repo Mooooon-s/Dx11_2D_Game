@@ -2,6 +2,7 @@
 #include "MnGameObject.h"
 #include "MnTransform.h"
 #include "MnRenderer.h"
+#include "MnWaterScript.h"
 
 namespace Mn
 {
@@ -39,5 +40,4 @@ namespace Mn
 		
 		_Material->Clear();
 	}
-
 }

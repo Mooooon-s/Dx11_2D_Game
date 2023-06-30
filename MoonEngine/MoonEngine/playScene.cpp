@@ -7,6 +7,7 @@
 #include "MnCameraScript.h"
 #include "MnCamera.h"
 #include "MnMainCharacter.h"
+#include "MnWaterScript.h"
 
 Mn::playScene::playScene()
 {
@@ -19,19 +20,30 @@ Mn::playScene::~playScene()
 void Mn::playScene::Initialize()
 {
 
+
 	GameObject* background = new GameObject();
-	AddGameObject(eLayerType::Player, background);
+	AddGameObject(eLayerType::BackGround, background);
 	MeshRenderer* BGmr = background->AddComponent<MeshRenderer>();
 	BGmr->SetMesh(Resources::Find<Mesh>(L"BackGroundMesh"));
 	BGmr->SetMaterial(Resources::Find<Material>(L"BackGroundMaterial_Layer_0"));
-	background->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 2.0f));
+	background->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 1.0f));
+
+
+	GameObject* water = new GameObject();
+	AddGameObject(eLayerType::BackGround, water);
+	MeshRenderer* waterMr = water->AddComponent<MeshRenderer>();
+	waterMr->SetMesh(Resources::Find<Mesh>(L"BackGroundMesh"));
+	waterMr->SetMaterial(Resources::Find<Material>(L"WaterMaterial"));
+	water->GetComponent<Transform>()->Position(Vector3(0.0f, -0.8f, 1.0f));
+	water->AddComponent<WaterScript>();
+
 
 	MainCharacter* player = new MainCharacter();
 	AddGameObject(eLayerType::Player, player);
 	MeshRenderer* mr = player->AddComponent<MeshRenderer>();
 	mr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
 	mr->SetMaterial(Resources::Find<Material>(L"SpriteMaterial"));
-	player->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 1.0f));
+	player->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 0.0f));
 
 
 	GameObject* camera = new GameObject();

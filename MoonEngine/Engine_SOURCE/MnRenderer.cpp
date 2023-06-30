@@ -3,6 +3,7 @@
 #include "MnResources.h"
 #include "MnMaterial.h"
 #include "MnRectangle.h"
+#include "MnTime.h"
 
 namespace renderer
 {
@@ -47,6 +48,12 @@ namespace renderer
 		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 3
 			,shader->GetVSCode()
 			, shader->GetInputLayoutAddressOf());
+
+		std::shared_ptr <Shader> watershader = Mn::Resources::Find<Shader>(L"WaterShader");
+		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 3
+			, watershader->GetVSCode()
+			, watershader->GetInputLayoutAddressOf());
+
 #pragma endregion
 #pragma region SamplerState
 		D3D11_SAMPLER_DESC Samplerdesc = {};
@@ -174,6 +181,9 @@ namespace renderer
 		
 		constantBuffer[(UINT)eCBType::Transform] = new ConstantBuffer(eCBType::Transform);
 		constantBuffer[(UINT)eCBType::Transform]->Create(sizeof(TransformCB));
+
+		constantBuffer[(UINT)eCBType::Time] = new ConstantBuffer(eCBType::Time);
+		constantBuffer[(UINT)eCBType::Time]->Create(sizeof(Vector4));
 	}
 
 	void LoadShader()
@@ -187,6 +197,11 @@ namespace renderer
 		shader->Create(eShaderStage::VS, L"SpriteVS.hlsl", "main");
 		shader->Create(eShaderStage::PS, L"SpritePS.hlsl", "main");
 		Mn::Resources::Insert(L"SpriteShader", shader);
+
+		std::shared_ptr<Shader> watershader = std::make_shared<Shader>();
+		watershader->Create(eShaderStage::VS, L"WaterVS.hlsl", "main");
+		watershader->Create(eShaderStage::PS, L"WaterPS.hlsl", "main");
+		Mn::Resources::Insert(L"WaterShader", watershader);
 
 		//---------------------------------------------------------------------------------------------------------------------------------------
 		//
@@ -205,6 +220,7 @@ namespace renderer
 		std::shared_ptr <Material> spriteMaterial = std::make_shared<Material>();
 		spriteMaterial->Texture(texture);
 		spriteMaterial->Shader(shader);
+		spriteMaterial->RenderingMode(eRenderingMode::Transparent);
 		Mn::Resources::Insert(L"SpriteMaterial", spriteMaterial);
 
 		//---------------------------------------------------------------------------------------------------------------------------------------
@@ -225,12 +241,25 @@ namespace renderer
 		std::shared_ptr<Material> backgroundMaterial = std::make_shared<Material>();
 		backgroundMaterial->Texture(backgroundTex[0]);
 		backgroundMaterial->Shader(shader);
+		backgroundMaterial->RenderingMode(eRenderingMode::Opaque);
 		Mn::Resources::Insert(L"BackGroundMaterial_Layer_0", backgroundMaterial);
 
 		std::shared_ptr<Material> backgroundMaterial2 = std::make_shared<Material>();
 		backgroundMaterial2->Texture(backgroundTex[1]);
 		backgroundMaterial2->Shader(shader);
 		Mn::Resources::Insert(L"BackGroundMaterial_Layer_1", backgroundMaterial2);
+
+
+		//Water
+		std::shared_ptr<Texture> WaterTex;
+		WaterTex = Resources::Load<Texture>(L"Water_Bump", L"..\\Resources\\Texture\\Water\\Water_Bump.png");
+		std::shared_ptr<Material> WaterMat = std::make_shared<Material>();
+		WaterMat->Texture(WaterTex);
+		WaterMat->TextureBind(backgroundTex[0], 1);
+		WaterMat->Shader(watershader);
+		WaterMat->RenderingMode(eRenderingMode::Opaque);
+		Mn::Resources::Insert(L"WaterMaterial", WaterMat);
+
 	}
 
 	void Initialize()
