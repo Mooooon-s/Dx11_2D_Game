@@ -18,6 +18,7 @@ namespace Mn::graphics
 
 		virtual HRESULT Load(const std::wstring& path) override;
 		void Binds();
+		void TextureBind(std::shared_ptr<Texture> tex, int slot);
 		void Clear();
 
 	public:

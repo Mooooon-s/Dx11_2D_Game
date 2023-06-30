@@ -30,6 +30,7 @@ namespace Mn::graphics
 	{
 		Transform,
 		Material,
+		Time,
 		End,
 	};
 

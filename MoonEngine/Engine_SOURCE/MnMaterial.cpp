@@ -1,4 +1,5 @@
 #include "MnMaterial.h"
+#include "MnTexture.h"
 namespace Mn
 {
 	Material::Material()
@@ -19,6 +20,10 @@ namespace Mn
 	{
 		_Texture->BindShader(eShaderStage::PS, 0);
 		_Shader->binds();
+	}
+	void graphics::Material::TextureBind(std::shared_ptr<Mn::graphics::Texture> tex, int slot)
+	{
+		tex->BindShader(eShaderStage::PS, slot);
 	}
 	void graphics::Material::Clear()
 	{
