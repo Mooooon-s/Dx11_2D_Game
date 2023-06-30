@@ -165,9 +165,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="LoadScene.h" />
+    <ClInclude Include="MnCameraScript.h" />
+    <ClInclude Include="MnTitleScene.h" />
+    <ClInclude Include="MnWaterScript.h" />
+    <ClInclude Include="playScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnCameraScript.cpp" />
+    <ClCompile Include="MnTitleScene.cpp" />
+    <ClCompile Include="MnWaterScript.cpp" />
     <ClCompile Include="MoonEngine.cpp" />
+    <ClCompile Include="playScene.cpp" />
+    <ClCompile Include="WaterScript.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

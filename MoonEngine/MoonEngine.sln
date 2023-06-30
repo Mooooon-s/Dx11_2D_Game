@@ -19,7 +19,6 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Editor_SOURCE\Editor_SOURCE.vcxitems*{5fc83899-994d-4f8f-abf1-7811775b811b}*SharedItemsImports = 4
-		Engine_SOURCE\Engine_SOURCE.vcxitems*{5fc83899-994d-4f8f-abf1-7811775b811b}*SharedItemsImports = 4
 		Editor_SOURCE\Editor_SOURCE.vcxitems*{5fecba9d-7b80-4a22-bf93-69a55b62ca76}*SharedItemsImports = 9
 		Engine_SOURCE\Engine_SOURCE.vcxitems*{8ade2006-a19e-4dc1-aec9-be3a67ae9125}*SharedItemsImports = 4
 		Engine_SOURCE\Engine_SOURCE.vcxitems*{91b76432-3a1e-40db-ba92-dd5f5b25ea1b}*SharedItemsImports = 9

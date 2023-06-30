@@ -17,7 +17,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMainCharacter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCharacter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCamera.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)MnCameraScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMaterial.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnComponent.cpp" />
@@ -39,8 +38,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnRectangle.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnShader.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnSceneManager.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)MnTitleScene.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)playScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnTransform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnScript.cpp" />
@@ -49,7 +46,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCamera.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)MnCameraScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCharacter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCircle.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnComponent.h" />
@@ -76,10 +72,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnShader.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTime.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)MnTitleScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MoonEngine.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)playScene.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl" />

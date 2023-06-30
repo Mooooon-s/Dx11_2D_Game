@@ -12,9 +12,9 @@
 Mn::Application application;
 
 #ifdef _DEBUG
-#pragma comment(lib, "..\\x64\\Debug\\YamYamEngine.lib")
+#pragma comment(lib, "..\\x64\\Debug\\MoonEngine.lib")
 #else
-#pragma comment(lib, "..\\x64\\Release\\YamYamEngine.lib")
+#pragma comment(lib, "..\\x64\\Release\\MoonEngine.lib")
 #endif
 
 #define MAX_LOADSTRING 100

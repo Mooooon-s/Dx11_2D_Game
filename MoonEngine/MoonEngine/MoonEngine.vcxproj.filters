@@ -2,8 +2,50 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="MnCameraScript.h">
+      <Filter>Contents\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="MnTitleScene.h">
+      <Filter>Contents\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="playScene.h">
+      <Filter>Contents\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadScene.h">
+      <Filter>Contents\Load</Filter>
+    </ClInclude>
+    <ClInclude Include="MnWaterScript.h">
+      <Filter>Contents\Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
+    <ClCompile Include="MnCameraScript.cpp">
+      <Filter>Contents\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="MnTitleScene.cpp">
+      <Filter>Contents\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="playScene.cpp">
+      <Filter>Contents\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterScript.cpp" />
+    <ClCompile Include="MnWaterScript.cpp">
+      <Filter>Contents\Scripts</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{5bd0338d-6f5a-4cf7-a5eb-8ac76d22bbf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts">
+      <UniqueIdentifier>{a68b2a13-3248-440a-8f45-be6076d17f79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scene">
+      <UniqueIdentifier>{a9b745f7-a3cb-4e6a-90d5-88b238a1db7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Load">
+      <UniqueIdentifier>{64460e03-0eec-4f30-9969-ac14b48662b8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

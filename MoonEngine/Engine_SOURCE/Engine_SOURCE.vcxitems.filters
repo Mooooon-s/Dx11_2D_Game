@@ -64,9 +64,6 @@
     <Filter Include="GameObject\Component\Camera">
       <UniqueIdentifier>{97668caa-126d-4a46-95e3-c4f993464ec4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scripts">
-      <UniqueIdentifier>{e6c148fa-0f72-417d-86e4-f2b816fa2e5f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\Character">
       <UniqueIdentifier>{494ada95-6d06-48a0-beb0-93cf5e7e297a}</UniqueIdentifier>
     </Filter>
@@ -129,7 +126,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnSceneManager.cpp">
       <Filter>Manager</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)playScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnTransform.cpp">
       <Filter>GameObject\Component\Transform</Filter>
     </ClCompile>
@@ -148,14 +144,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCamera.cpp">
       <Filter>GameObject\Component\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MnCameraScript.cpp">
-      <Filter>Scripts</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCharacter.cpp">
       <Filter>GameObject\Character</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMainCharacter.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)MnTitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h">
@@ -227,7 +219,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnSceneManager.h">
       <Filter>Manager</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)playScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTransform.h">
       <Filter>GameObject\Component\Transform</Filter>
     </ClInclude>
@@ -246,14 +237,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCamera.h">
       <Filter>GameObject\Component\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MnCameraScript.h">
-      <Filter>Scripts</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCharacter.h">
       <Filter>GameObject\Character</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMainCharacter.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)MnTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl">
