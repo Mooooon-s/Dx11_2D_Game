@@ -15,8 +15,25 @@ namespace Mn
 		static void LateUpdate();
 		static void Render();
 		static void Release();
+
+		template <typename T>
+		static bool CreateScene(std::wstring name)
+		{
+			T* scene = new T();
+
+			std::map<std::wstring, Scene*>::iterator iter = _Scenes.find(name);
+
+			if (iter != _Scenes.end())
+				return false;
+
+			_Scenes.insert(std::make_pair(name, scene));
+			_ActiveScene = scene;
+			scene->Initialize();
+			return true;
+		}
 	
 		static Scene* LoadScene(std::wstring name);
+
 	public:
 		static Scene* ActiveScene() { return _ActiveScene; }
 	};

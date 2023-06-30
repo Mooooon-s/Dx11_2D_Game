@@ -5,6 +5,7 @@ namespace Mn
 		: Resource(Mn::enums::eResourceType::Material)
 		, _Shader(nullptr)
 		, _Texture(nullptr)
+		, _Mode(eRenderingMode::Opaque)
 	{
 	}
 	Material::~Material()

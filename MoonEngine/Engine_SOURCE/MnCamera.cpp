@@ -2,6 +2,7 @@
 #include "MnTransform.h"
 #include "MnGameObject.h"
 #include "MnApplication.h"
+#include "MnRenderer.h"
 
 extern Mn::Application application;
 
@@ -32,6 +33,7 @@ namespace Mn
 	{
 		CreateViewMatrix();
 		CreateProjectionMatrix(_Type);
+		RegisterCameraInRenderer();
 	}
 	void Camera::Render()
 	{
@@ -86,5 +88,47 @@ namespace Mn
 		}
 
 		return true;
+	}
+	void Camera::RegisterCameraInRenderer()
+	{
+		renderer::cameras.push_back(this);
+	}
+	void Camera::TurnLayerMask(eLayerType type, bool enable)
+	{
+		_LayerMask.set((UINT)type, enable);
+	}
+	void Camera::SortGameObjects()
+	{
+
+	}
+	void Camera::RenderOpaque()
+	{
+		for (GameObject* gameObj : _OpaqueGameObjects)
+		{
+			if (gameObj == nullptr)
+				continue;
+
+			gameObj->Render();
+		}
+	}
+	void Camera::RenderCutOut()
+	{
+		for (GameObject* gameObj : _CutOutGameObjects)
+		{
+			if (gameObj == nullptr)
+				continue;
+
+			gameObj->Render();
+		}
+	}
+	void Camera::RenderTransparent()
+	{
+		for (GameObject* gameObj : _TransparentGameObjects)
+		{
+			if (gameObj == nullptr)
+				continue;
+
+			gameObj->Render();
+		}
 	}
 }

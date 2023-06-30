@@ -1,5 +1,4 @@
 #include "MnSceneManager.h"
-#include "playScene.h"
 #include "MnTitleScene.h"
 #include "MnInput.h"
 
@@ -9,12 +8,6 @@ namespace Mn
 	std::map<std::wstring, Scene* > SceneManager::_Scenes;
 	void SceneManager::Initialize()
 	{
-		_ActiveScene = new playScene();
-		_Scenes.insert(std::make_pair(L"playScene", _ActiveScene));
-		TitleScene* title = new TitleScene();
-		_Scenes.insert(std::make_pair(L"titleScene", title));
-		_ActiveScene->Initialize();
-		title->Initialize();
 	}
 	void SceneManager::Update()
 	{
@@ -39,7 +32,7 @@ namespace Mn
 	}
 	void SceneManager::Release()
 	{
-		for (auto iter : _Scenes)
+		for (auto& iter : _Scenes)
 		{
 			delete iter.second;
 			iter.second = nullptr;
