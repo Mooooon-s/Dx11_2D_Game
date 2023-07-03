@@ -29,7 +29,6 @@
     <ClCompile Include="playScene.cpp">
       <Filter>Contents\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="WaterScript.cpp" />
     <ClCompile Include="MnWaterScript.cpp">
       <Filter>Contents\Scripts</Filter>
     </ClCompile>

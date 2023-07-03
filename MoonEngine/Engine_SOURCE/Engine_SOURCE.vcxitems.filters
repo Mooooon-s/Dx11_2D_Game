@@ -67,6 +67,21 @@
     <Filter Include="GameObject\Character">
       <UniqueIdentifier>{494ada95-6d06-48a0-beb0-93cf5e7e297a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphics\Mesh">
+      <UniqueIdentifier>{9355cfbb-7c22-4172-a38f-ce4c19586c93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Renderer">
+      <UniqueIdentifier>{016a427e-372e-4930-9719-8d22d0c7f3f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\shader">
+      <UniqueIdentifier>{39bcbf8d-28cb-48cc-96e8-e049a8a93424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\GraphicDevice">
+      <UniqueIdentifier>{8fd2f646-19ca-4fea-9968-23fce17f4258}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConstantBuffer">
+      <UniqueIdentifier>{0c4b8d84-3cd8-4643-ba2e-f6c8994133b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnEntity.cpp">
@@ -87,29 +102,14 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnTime.cpp">
       <Filter>Common\Time</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MnGraphicDevice_Dx11.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnApplication.cpp">
       <Filter>High Level Interface</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MnRenderer.cpp">
-      <Filter>Graphics</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnRectangle.cpp">
       <Filter>Shape</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCircle.cpp">
       <Filter>Shape</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MnShader.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MnMesh.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MnConstantBuffer.cpp">
-      <Filter>Graphics</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnScene.cpp">
       <Filter>Scene</Filter>
@@ -148,6 +148,21 @@
       <Filter>GameObject\Character</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMainCharacter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnMesh.cpp">
+      <Filter>Graphics\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnRenderer.cpp">
+      <Filter>Graphics\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnShader.cpp">
+      <Filter>Graphics\shader</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnGraphicDevice_Dx11.cpp">
+      <Filter>Graphics\GraphicDevice</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnConstantBuffer.cpp">
+      <Filter>ConstantBuffer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h">
@@ -171,9 +186,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphics.h">
       <Filter>Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphicDevice_Dx11.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
       <Filter>Common</Filter>
     </ClInclude>
@@ -186,23 +198,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnApplication.h">
       <Filter>High Level Interface</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MnRenderer.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRectangle.h">
       <Filter>Shape</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCircle.h">
       <Filter>Shape</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MnShader.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MnMesh.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MnConstantBuffer.h">
-      <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnScene.h">
       <Filter>Scene</Filter>
@@ -241,6 +241,21 @@
       <Filter>GameObject\Character</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMainCharacter.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnMesh.h">
+      <Filter>Graphics\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnRenderer.h">
+      <Filter>Graphics\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnShader.h">
+      <Filter>Graphics\shader</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphicDevice_Dx11.h">
+      <Filter>Graphics\GraphicDevice</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnConstantBuffer.h">
+      <Filter>ConstantBuffer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl">

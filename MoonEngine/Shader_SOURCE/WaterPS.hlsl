@@ -28,10 +28,10 @@ float4 main(VSOut In) : SV_TARGET
     float4 color = (float) 0.0f;
     float2 uv = In.UV;
     float2 inversUv = float2(In.UV.x,In.UV.y*-1);
-    uv.x -= time.x /2.0f;
+    uv.x -= time.x /4.0f;
     
     color = tex.Sample(pointSampler, uv);
     float4 b = tex2.Sample(pointSampler,inversUv);
-    color.rgb = float4(0.0f, 0.5f, 1.0f, 1);
+    color.rgb = float4(0.0f, 0.5f, 1.0f, 0.5f);
     return b* color;
 }

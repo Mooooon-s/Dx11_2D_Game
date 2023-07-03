@@ -177,7 +177,6 @@
     <ClCompile Include="MnWaterScript.cpp" />
     <ClCompile Include="MoonEngine.cpp" />
     <ClCompile Include="playScene.cpp" />
-    <ClCompile Include="WaterScript.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
