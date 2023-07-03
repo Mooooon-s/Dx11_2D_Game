@@ -11,6 +11,14 @@ extern Mn::Application application;
 
 namespace Mn
 {
+	bool CompareZSort(GameObject* a, GameObject* b)
+	{
+		if (a->GetComponent<Transform>()->Position().z
+			<= b->GetComponent<Transform>()->Position().z)
+			return false;
+
+		return true;
+	}
 	Matrix Camera::View = Matrix::Identity;
 	Matrix Camera::Projection = Matrix::Identity;
 
@@ -46,11 +54,13 @@ namespace Mn
 		View = _View;
 		Projection = _Projection;
 
-		SortGameObjects();
-
+		AlphaSortGameObjects();
+		ZSortTransparencyGameObjects();
 		RenderOpaque();
+		DisableDepthStencilState();
 		RenderCutOut();
 		RenderTransparent();
+		EnableDepthStencilState();
 
 
 	}
@@ -112,12 +122,44 @@ namespace Mn
 	{
 		_LayerMask.set((UINT)type, enable);
 	}
-	void Camera::SortGameObjects()
+	void Camera::ZSortTransparencyGameObjects()
+	{
+		std::sort(_CutOutGameObjects.begin(), _CutOutGameObjects.end(), CompareZSort);
+		std::sort(_TransparentGameObjects.begin(), _TransparentGameObjects.end(), CompareZSort);
+	}
+	void Camera::DivideAlphaBlendGameObjects(const std::vector<GameObject*> gameObjs)
+	{
+		for (GameObject* obj : gameObjs)
+		{
+			MeshRenderer* mr = obj->GetComponent<MeshRenderer>();
+			if (mr == nullptr)
+				continue;
+
+			std::shared_ptr<Material> mt = mr->GetMaterial();
+			eRenderingMode mode = mt->RenderingMode();
+			switch (mode)
+			{
+			case Mn::graphics::eRenderingMode::Opaque:
+				_OpaqueGameObjects.push_back(obj);
+				break;
+			case Mn::graphics::eRenderingMode::CutOut:
+				_CutOutGameObjects.push_back(obj);
+				break;
+			case Mn::graphics::eRenderingMode::Transparent:
+				_TransparentGameObjects.push_back(obj);
+				break;
+			default:
+				break;
+			}
+		}
+	}
+	void Camera::AlphaSortGameObjects()
 	{
 		_OpaqueGameObjects.clear();
 		_CutOutGameObjects.clear();
 		_TransparentGameObjects.clear();
 
+		//alpha sorting
 		Scene* scene = SceneManager::ActiveScene();
 		for (int i = 0; i < (UINT)eLayerType::End; i++)
 		{
@@ -127,29 +169,9 @@ namespace Mn
 				const std::vector<GameObject*> gameObjs
 					= layer.GetGameObjects();
 
-				for (GameObject* obj : gameObjs)
-				{
-					MeshRenderer* mr = obj->GetComponent<MeshRenderer>();
-					if (mr == nullptr)
-						continue;
 
-					std::shared_ptr<Material> mt = mr->GetMaterial();
-					eRenderingMode mode = mt->RenderingMode();
-					switch (mode)
-					{
-					case Mn::graphics::eRenderingMode::Opaque:
-						_OpaqueGameObjects.push_back(obj);
-						break;
-					case Mn::graphics::eRenderingMode::CutOut:
-						_CutOutGameObjects.push_back(obj);
-						break;
-					case Mn::graphics::eRenderingMode::Transparent:
-						_TransparentGameObjects.push_back(obj);
-						break;
-					default:
-						break;
-					}
-				}
+				DivideAlphaBlendGameObjects(gameObjs);
+				
 			}
 		}
 	}
@@ -182,5 +204,17 @@ namespace Mn
 
 			gameObj->Render();
 		}
+	}
+	void Camera::EnableDepthStencilState()
+	{
+		Microsoft::WRL::ComPtr<ID3D11DepthStencilState> dsState
+			= renderer::depthStencilStates[(UINT)eDSType::Less];
+		GetDevice()->BindDepthStencilState(dsState.Get());
+	}
+	void Camera::DisableDepthStencilState()
+	{
+		Microsoft::WRL::ComPtr<ID3D11DepthStencilState> dsState
+			= renderer::depthStencilStates[(UINT)eDSType::None];
+		GetDevice()->BindDepthStencilState(dsState.Get());
 	}
 }
