@@ -1,6 +1,10 @@
 #include "MnTransform.h"
 #include "MnRenderer.h"
 #include "MnConstantBuffer.h"
+#include "MnComponent.h"
+#include "MnResources.h"
+#include "MnGameObject.h"
+#include "MnMeshRenderer.h"
 
 namespace Mn
 {

@@ -46,6 +46,9 @@ namespace Mn::graphics
 		);
 		_SRV->GetResource((ID3D11Resource**)_Texture.GetAddressOf());
 
+		_Width = _Image.GetImages()->width;
+		_Height = _Image.GetImages()->height;
+
 		return S_OK;
 	}
 	void Texture::BindShader(eShaderStage stage, UINT startSlot)
@@ -62,5 +65,18 @@ namespace Mn::graphics
 		GetDevice()->BindShaderResource(eShaderStage::HS,0,&srv);
 		GetDevice()->BindShaderResource(eShaderStage::CS,0,&srv);
 		GetDevice()->BindShaderResource(eShaderStage::PS,0,&srv);
+	}
+	void Texture::CalculateRatio()
+	{
+		if (_Width < _Height)
+		{
+			_Ratio.x = 1.0f;
+			_Ratio.y =  _Width/ _Height;
+		}
+		else
+		{
+			_Ratio.x = _Height / _Width;
+			_Ratio.y = 1.0f;
+		}
 	}
 }

@@ -9,6 +9,7 @@ namespace Mn
 	}
 	void Character::Initialize()
 	{
+
 	}
 	void Character::Update()
 	{

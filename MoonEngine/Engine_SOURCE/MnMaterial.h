@@ -23,10 +23,11 @@ namespace Mn::graphics
 
 	public:
 		void Shader(std::shared_ptr<Shader> shader) { _Shader = shader; }
-		void Texture(std::shared_ptr <Texture> mesh) { _Texture = mesh; }
+		void SetTexture(std::shared_ptr <Texture> mesh) { _Texture = mesh; }
 		void RenderingMode(eRenderingMode mode) { _Mode = mode; }
 
 		eRenderingMode RenderingMode() { return _Mode; }
+		std::shared_ptr<Texture> GetTexture() { return _Texture; }
 	};
 
 }

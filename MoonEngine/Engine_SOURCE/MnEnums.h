@@ -18,6 +18,7 @@ namespace Mn::enums
 		Player,
 		Monster,
 		BackGround,
+		Water,
 		UI,
 		End,
 	};

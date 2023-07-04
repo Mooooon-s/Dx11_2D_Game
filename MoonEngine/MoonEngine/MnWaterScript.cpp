@@ -20,7 +20,7 @@ namespace Mn
 	void WaterScript::LateUpdate()
 	{
 		_Time += Time::DeltaTime();
-		_Times = Vector4(_Time, 0.0f, 0.0f, 0.0f);
+		_Times = Vector4(_Time, _Time/2.0f, 0.0f, 0.0f);
 	}
 	void WaterScript::Render()
 	{

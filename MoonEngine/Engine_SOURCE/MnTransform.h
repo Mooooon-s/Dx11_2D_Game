@@ -30,6 +30,7 @@ namespace Mn
 
 		void BindConstantBuffer();
 
+	public:
 		void Position(Vector3 position) { _Position = position; }
 		void Rotation(Vector3 rotation) { _Rotation = rotation; }
 		void Scale(Vector3 scale) { _Scale = scale; }

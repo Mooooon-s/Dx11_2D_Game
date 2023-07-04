@@ -54,6 +54,16 @@ namespace renderer
 			, watershader->GetVSCode()
 			, watershader->GetInputLayoutAddressOf());
 
+		std::shared_ptr <Shader> HPshader = Mn::Resources::Find<Shader>(L"HPShader");
+		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 3
+			, HPshader->GetVSCode()
+			, HPshader->GetInputLayoutAddressOf());
+
+		std::shared_ptr <Shader> BGshader = Mn::Resources::Find<Shader>(L"BGShader");
+		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 3
+			, BGshader->GetVSCode()
+			, BGshader->GetInputLayoutAddressOf());
+
 #pragma endregion
 #pragma region SamplerState
 		D3D11_SAMPLER_DESC Samplerdesc = {};
@@ -193,15 +203,31 @@ namespace renderer
 		//																Shader
 		// 
 		//--------------------------------------------------------------------------------------------------------------------------------------
+		
+		//sprite
 		std::shared_ptr <Shader> shader = std::make_shared<Shader>();
 		shader->Create(eShaderStage::VS, L"SpriteVS.hlsl", "main");
 		shader->Create(eShaderStage::PS, L"SpritePS.hlsl", "main");
 		Mn::Resources::Insert(L"SpriteShader", shader);
 
+		//water
 		std::shared_ptr<Shader> watershader = std::make_shared<Shader>();
 		watershader->Create(eShaderStage::VS, L"WaterVS.hlsl", "main");
 		watershader->Create(eShaderStage::PS, L"WaterPS.hlsl", "main");
 		Mn::Resources::Insert(L"WaterShader", watershader);
+
+		//BackGorund
+		std::shared_ptr<Shader> BGshader = std::make_shared<Shader>();
+		BGshader->Create(eShaderStage::VS, L"BGVS.hlsl", "main");
+		BGshader->Create(eShaderStage::PS, L"BGPS.hlsl", "main");
+		Mn::Resources::Insert(L"BGShader", BGshader);
+
+		//GUI_HP
+		std::shared_ptr<Shader> HPshader = std::make_shared<Shader>();
+		HPshader->Create(eShaderStage::VS, L"HPVS.hlsl", "main");
+		HPshader->Create(eShaderStage::PS, L"HPPS.hlsl", "main");
+		Mn::Resources::Insert(L"HPShader", HPshader);
+
 
 		//---------------------------------------------------------------------------------------------------------------------------------------
 		//
@@ -218,7 +244,7 @@ namespace renderer
 		//							Material
 		//----------------------------------------------------------------
 		std::shared_ptr <Material> spriteMaterial = std::make_shared<Material>();
-		spriteMaterial->Texture(texture);
+		spriteMaterial->SetTexture(texture);
 		spriteMaterial->Shader(shader);
 		spriteMaterial->RenderingMode(eRenderingMode::Transparent);
 		Mn::Resources::Insert(L"SpriteMaterial", spriteMaterial);
@@ -239,14 +265,14 @@ namespace renderer
 		//							Material
 		//----------------------------------------------------------------
 		std::shared_ptr<Material> backgroundMaterial = std::make_shared<Material>();
-		backgroundMaterial->Texture(backgroundTex[0]);
-		backgroundMaterial->Shader(shader);
+		backgroundMaterial->SetTexture(backgroundTex[0]);
+		backgroundMaterial->Shader(BGshader);
 		backgroundMaterial->RenderingMode(eRenderingMode::Opaque);
 		Mn::Resources::Insert(L"BackGroundMaterial_Layer_0", backgroundMaterial);
 
 		std::shared_ptr<Material> backgroundMaterial2 = std::make_shared<Material>();
-		backgroundMaterial2->Texture(backgroundTex[1]);
-		backgroundMaterial2->Shader(shader);
+		backgroundMaterial2->SetTexture(backgroundTex[1]);
+		backgroundMaterial2->Shader(BGshader);
 		Mn::Resources::Insert(L"BackGroundMaterial_Layer_1", backgroundMaterial2);
 
 
@@ -254,11 +280,39 @@ namespace renderer
 		std::shared_ptr<Texture> WaterTex;
 		WaterTex = Resources::Load<Texture>(L"Water_Bump", L"..\\Resources\\Texture\\Water\\Water_Bump.png");
 		std::shared_ptr<Material> WaterMat = std::make_shared<Material>();
-		WaterMat->Texture(WaterTex);
+		WaterMat->SetTexture(WaterTex);
 		WaterMat->TextureBind(backgroundTex[0], 1);
 		WaterMat->Shader(watershader);
-		WaterMat->RenderingMode(eRenderingMode::Opaque);
+		WaterMat->RenderingMode(eRenderingMode::Transparent);
 		Mn::Resources::Insert(L"WaterMaterial", WaterMat);
+
+		//---------------------------------------------------------------------------------------------------------------------------------------
+		//
+		//																GUI
+		//
+		//---------------------------------------------------------------------------------------------------------------------------------------
+		//----------------------------------------------------------------
+		//							Texture
+		//----------------------------------------------------------------
+
+		//HP
+		std::shared_ptr<Texture> Hpbar = std::make_shared<Texture>();
+		std::shared_ptr<Texture> HpbarBack = std::make_shared<Texture>();
+		std::shared_ptr<Texture> HpbarFrame = std::make_shared<Texture>();
+		Hpbar = Resources::Load<Texture>(L"HP_BAR_", L"..\\Resources\\Texture\\GUI\\HP_BAR\\BarV7_ProgressBar.png");
+		HpbarBack = Resources::Load<Texture>(L"HP_BAR_Back", L"..\\Resources\\Texture\\GUI\\HP_BAR\\BarV7_Bar.png");
+		HpbarFrame = Resources::Load<Texture>(L"HP_BAR_FRAME", L"..\\Resources\\Texture\\GUI\\HP_BAR\\BarV7_ProgressBarBorder.png");
+
+		//----------------------------------------------------------------
+		//							Material
+		//----------------------------------------------------------------
+		
+		//Hp
+		std::shared_ptr<Material> HpMat = std::make_shared<Material>();
+		HpMat->SetTexture(Hpbar);
+		HpMat->Shader(HPshader);
+		HpMat->RenderingMode(eRenderingMode::Opaque);
+		Resources::Insert<Material>(L"Hp_Bar", HpMat);
 
 	}
 
@@ -285,10 +339,6 @@ namespace renderer
 		LoadShader();
 		SetupState();
 
-		//std::shared_ptr <Texture> texture = Resources::Load<Texture>(L"player", L"..\\Resources\\Texture\\idle.png");
-		//texture = Resources::Load<Texture>(L"BackGround", L"..\\Resources\\Texture\\BackGround\\background_layer_1.png");
-		//texture = Resources::Load<Texture>(L"BackGround2", L"..\\Resources\\Texture\\BackGround\\background_layer_2.png");
-		//texture->BindShader(eShaderStage::PS, 0);
 	}
 	void Release()
 	{
