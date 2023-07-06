@@ -71,11 +71,11 @@ namespace Mn::graphics
 		if (_Width < _Height)
 		{
 			_Ratio.x = 1.0f;
-			_Ratio.y =  _Width/ _Height;
+			_Ratio.y = _Height/ _Width;
 		}
 		else
 		{
-			_Ratio.x = _Height / _Width;
+			_Ratio.x = _Width / _Height;
 			_Ratio.y = 1.0f;
 		}
 	}
