@@ -19,6 +19,8 @@ namespace Mn
 		Matrix _World;
 		Matrix _View;
 		Matrix _Projection;
+
+		Transform* _Parent;
 	public:
 		Transform();
 		~Transform();
@@ -31,6 +33,8 @@ namespace Mn
 		void BindConstantBuffer();
 
 	public:
+		void SetParent(Transform* transform) { _Parent = transform; }
+
 		void Position(Vector3 position) { _Position = position; }
 		void Rotation(Vector3 rotation) { _Rotation = rotation; }
 		void Scale(Vector3 scale) { _Scale = scale; }
@@ -38,6 +42,8 @@ namespace Mn
 		void Position(float x, float y, float z) { _Position = Vector3(x, y, z); }
 		void Rotation(float x, float y, float z) { _Rotation = Vector3(x, y, z); }
 		void Scale(float x, float y, float z) { _Scale = Vector3(x, y, z); }
+
+		Transform* GetParent() { return _Parent; }
 
 		Vector3 Position() { return _Position; }
 		Vector3 Rotation() { return _Rotation; }

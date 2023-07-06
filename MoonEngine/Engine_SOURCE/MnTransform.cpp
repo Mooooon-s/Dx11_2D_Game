@@ -42,6 +42,11 @@ namespace Mn
 		_Up = Vector3::TransformNormal(Vector3::Up, rotation);
 		_Forward = Vector3::TransformNormal(Vector3::Forward, rotation);
 		_Right = Vector3::TransformNormal(Vector3::Right, rotation);
+
+		if (_Parent)
+		{
+			_World *= _Parent->_World;
+		}
 	}
 	void Transform::Render()
 	{
