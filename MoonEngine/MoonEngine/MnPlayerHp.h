@@ -1,15 +1,16 @@
 #pragma once
-#include "MnCharacter.h"
+#include "../Engine_SOURCE/MnUI.h"
+#include "../Engine_SOURCE/MnScene.h"
 
 namespace Mn
 {
-	class MainCharacter : public Character
+	class PlayerHp : public UI
 	{
 	private:
-		float _Hp;
+		Scene* _Scene;
 	public:
-		MainCharacter();
-		~MainCharacter();
+		PlayerHp(Scene* scene);
+		~PlayerHp();
 
 		virtual void Initialize() override;
 		virtual void Update() override;
@@ -17,4 +18,3 @@ namespace Mn
 		virtual void Render() override;
 	};
 }
-

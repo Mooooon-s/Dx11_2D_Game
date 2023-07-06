@@ -5,7 +5,7 @@
 
 namespace Mn::graphics
 {
-
+	using namespace math;
 	class Material : public Resource
 	{
 	private:
@@ -20,6 +20,7 @@ namespace Mn::graphics
 		void Binds();
 		void TextureBind(std::shared_ptr<Texture> tex, int slot);
 		void Clear();
+		Vector2 CalcurateRatio();
 
 	public:
 		void Shader(std::shared_ptr<Shader> shader) { _Shader = shader; }

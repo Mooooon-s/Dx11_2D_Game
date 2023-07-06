@@ -17,6 +17,9 @@
     <ClInclude Include="MnWaterScript.h">
       <Filter>Contents\Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="MnPlayerHp.h">
+      <Filter>Contents\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -32,6 +35,9 @@
     <ClCompile Include="MnWaterScript.cpp">
       <Filter>Contents\Scripts</Filter>
     </ClCompile>
+    <ClCompile Include="MnPlayerHp.cpp">
+      <Filter>Contents\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -45,6 +51,9 @@
     </Filter>
     <Filter Include="Contents\Load">
       <UniqueIdentifier>{64460e03-0eec-4f30-9969-ac14b48662b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\UI">
+      <UniqueIdentifier>{d6a5643c-5fc4-4c8b-a82d-fca0352925af}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

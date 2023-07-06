@@ -2,6 +2,8 @@
 namespace Mn
 {
 	Character::Character()
+		: _Dir(eDir::Right)
+		, _Hp(100)
 	{
 	}
 	Character::~Character()
@@ -9,7 +11,6 @@ namespace Mn
 	}
 	void Character::Initialize()
 	{
-
 	}
 	void Character::Update()
 	{

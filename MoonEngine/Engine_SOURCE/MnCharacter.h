@@ -3,16 +3,12 @@
 
 namespace Mn
 {
+	using namespace enums;
 	class Character : public GameObject
 	{
-	public:
-		enum class eDir
-		{
-			Left,
-			Right,
-		};
 	private:
-		float _Hp;
+		eDir	_Dir;
+		float	_Hp;
 	public:
 		Character();
 		virtual ~Character();
@@ -21,5 +17,11 @@ namespace Mn
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render();
+	public:
+		void SetDir(eDir dir) { _Dir = dir; }
+		void SetHp(float hp) { _Hp = hp; }
+
+		eDir GetDir() { return _Dir; }
+		float GetHp() { return _Hp; }
 	};
 }

@@ -29,4 +29,10 @@ namespace Mn
 	{
 		_Texture->Clear();
 	}
+	Vector2 graphics::Material::CalcurateRatio()
+	{
+		_Texture->CalculateRatio();
+		Vector2 ratio =_Texture->Raitio();
+		return ratio;
+	}
 }

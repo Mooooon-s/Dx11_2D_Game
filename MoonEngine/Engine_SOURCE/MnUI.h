@@ -1,20 +1,21 @@
 #pragma once
-#include "MnCharacter.h"
+#include "MnGameObject.h"
 
 namespace Mn
 {
-	class MainCharacter : public Character
+	using namespace enums;
+	class UI : public GameObject
 	{
 	private:
-		float _Hp;
+		eUIType _UIType;
 	public:
-		MainCharacter();
-		~MainCharacter();
+		UI();
+		virtual ~UI();
 
 		virtual void Initialize() override;
 		virtual void Update() override;
 		virtual void LateUpdate() override;
 		virtual void Render() override;
 	};
-}
 
+}

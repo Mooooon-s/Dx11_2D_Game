@@ -32,4 +32,17 @@ namespace Mn::enums
 		End,
 	};
 
+	enum class eUIType
+	{
+		State,
+		Skill,
+		Menu,
+		end,
+	};
+
+	enum class eDir
+	{
+		Left,
+		Right,
+	};
 }

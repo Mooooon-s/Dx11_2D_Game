@@ -167,6 +167,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="LoadScene.h" />
     <ClInclude Include="MnCameraScript.h" />
+    <ClInclude Include="MnPlayerHp.h" />
     <ClInclude Include="MnTitleScene.h" />
     <ClInclude Include="MnWaterScript.h" />
     <ClInclude Include="playScene.h" />
@@ -176,6 +177,7 @@
     <ClCompile Include="MnTitleScene.cpp" />
     <ClCompile Include="MnWaterScript.cpp" />
     <ClCompile Include="MoonEngine.cpp" />
+    <ClCompile Include="MnPlayerHp.cpp" />
     <ClCompile Include="playScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
