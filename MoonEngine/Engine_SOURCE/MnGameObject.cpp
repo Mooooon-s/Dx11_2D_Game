@@ -31,16 +31,34 @@ namespace Mn
 	}
 	void GameObject::Initialize()
 	{
+		for (Component* comp : _Components)
+		{
+			if (comp == nullptr)
+				continue;
+			comp->Initialize();
+		}
+
+		for (Script* script : _Scripts)
+		{
+			if (script == nullptr)
+				continue;
+			script->Initialize();
+		}
 	}
 	void GameObject::Update()
 	{
 		for (Component* comp : _Components)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->Update();
 		}
 
 		for (Script* script : _Scripts)
 		{
+			if (script == nullptr)
+				continue;
+
 			script->Update();
 		}
 	}
@@ -48,11 +66,15 @@ namespace Mn
 	{
 		for (Component* comp : _Components)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->LateUpdate();
 		}
 
 		for (Script* script : _Scripts)
 		{
+			if (script == nullptr)
+				continue;
 			script->LateUpdate();
 		}
 	}

@@ -17,6 +17,13 @@ namespace Mn
 	}
 	void Layer::Initialize()
 	{
+		for (GameObject* gameObj : _GameObjects)
+		{
+			if (gameObj == nullptr)
+				continue;
+
+			gameObj->Initialize();
+		}
 	}
 	void Layer::Update()
 	{
