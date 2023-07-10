@@ -24,6 +24,18 @@ namespace renderer
 		Matrix _Projection;
 	};
 
+	CBUFFER(TimeCB, CBSLOT_TIME)
+	{
+		Vector4 DeltaTime;
+	};
+
+	CBUFFER(GridCB, CBSLOT_GRID)
+	{
+		Vector4 CameraPosition;
+		Vector2 CameraScale;
+		Vector2 Resolution;
+	};
+
 	extern Vertex vertices[];
 	extern ID3D11InputLayout* triangleLayout;
 	extern Mn::graphics::ConstantBuffer* constantBuffer[(UINT)eCBType::End];

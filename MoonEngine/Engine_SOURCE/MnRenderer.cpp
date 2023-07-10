@@ -64,6 +64,11 @@ namespace renderer
 			, BGshader->GetVSCode()
 			, BGshader->GetInputLayoutAddressOf());
 
+		std::shared_ptr <Shader> GridShader = Mn::Resources::Find<Shader>(L"GridShader");
+		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 3
+			, GridShader->GetVSCode()
+			, GridShader->GetInputLayoutAddressOf());
+
 #pragma endregion
 #pragma region SamplerState
 		D3D11_SAMPLER_DESC Samplerdesc = {};
@@ -164,6 +169,25 @@ namespace renderer
 #pragma endregion
 	}
 
+	void LoadMesh()
+	{
+		vertices[0].pos = Vector3(-0.5f, 0.5f, 0.0f);
+		vertices[0].color = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+		vertices[0].uv = Vector2(0.0f, 0.0f);
+
+		vertices[1].pos = Vector3(0.5f, 0.5f, 0.0f);
+		vertices[1].color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
+		vertices[1].uv = Vector2(1.0f, 0.0f);
+
+		vertices[2].pos = Vector3(0.5f, -0.5f, 0.0f);
+		vertices[2].color = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
+		vertices[2].uv = Vector2(1.0f, 1.0f);
+
+		vertices[3].pos = Vector3(-0.5f, -0.5f, 0.0f);
+		vertices[3].color = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+		vertices[3].uv = Vector2(0.0f, 1.0f);
+	}
+
 	void LoadBuffer()
 	{
 		std::shared_ptr <Mesh> mesh = std::make_shared<Mesh>();
@@ -193,7 +217,10 @@ namespace renderer
 		constantBuffer[(UINT)eCBType::Transform]->Create(sizeof(TransformCB));
 
 		constantBuffer[(UINT)eCBType::Time] = new ConstantBuffer(eCBType::Time);
-		constantBuffer[(UINT)eCBType::Time]->Create(sizeof(Vector4));
+		constantBuffer[(UINT)eCBType::Time]->Create(sizeof(TimeCB));
+
+		constantBuffer[(UINT)eCBType::Grid] = new ConstantBuffer(eCBType::Grid);
+		constantBuffer[(UINT)eCBType::Grid]->Create(sizeof(GridCB));
 	}
 
 	void LoadShader()
@@ -228,12 +255,25 @@ namespace renderer
 		HPshader->Create(eShaderStage::PS, L"HPPS.hlsl", "main");
 		Mn::Resources::Insert(L"HPShader", HPshader);
 
+		std::shared_ptr<Shader> girdShader = std::make_shared<Shader>();
+		girdShader->Create(eShaderStage::VS, L"GridVS.hlsl", "main");
+		girdShader->Create(eShaderStage::PS, L"GridPS.hlsl", "main");
+		Mn::Resources::Insert(L"GridShader", girdShader);
 
+	}
+
+	void LoadMaterial()
+	{
 		//---------------------------------------------------------------------------------------------------------------------------------------
 		//
 		//																Player
 		//
 		//---------------------------------------------------------------------------------------------------------------------------------------
+		// ---------------------------------------------------------------
+		//							Shader
+		// ---------------------------------------------------------------
+		std::shared_ptr<Shader> spriteShader
+			= Resources::Find<Shader>(L"SpriteShader");
 		// 
 		//----------------------------------------------------------------
 		//							Texture
@@ -245,7 +285,7 @@ namespace renderer
 		//----------------------------------------------------------------
 		std::shared_ptr <Material> spriteMaterial = std::make_shared<Material>();
 		spriteMaterial->SetTexture(texture);
-		spriteMaterial->Shader(shader);
+		spriteMaterial->Shader(spriteShader);
 		spriteMaterial->RenderingMode(eRenderingMode::Transparent);
 		Mn::Resources::Insert(L"SpriteMaterial", spriteMaterial);
 
@@ -255,24 +295,32 @@ namespace renderer
 		//
 		//---------------------------------------------------------------------------------------------------------------------------------------
 		// 
+		// ---------------------------------------------------------------
+		//							Shader
+		// ---------------------------------------------------------------
+		std::shared_ptr<Shader>  backgroundShader
+			= Resources::Find<Shader>(L"BGShader");
+
+		std::shared_ptr<Shader>  WaterShader
+			= Resources::Find<Shader>(L"WaterShader");
 		//----------------------------------------------------------------
 		//							Texture
 		//----------------------------------------------------------------
 		std::shared_ptr<Texture> backgroundTex[3];
 		backgroundTex[0] = Resources::Load<Texture>(L"BackGround_forest_sky", L"..\\Resources\\Texture\\BackGround\\background_stage_1_sky.png");
-		backgroundTex[1] = Resources::Load<Texture>(L"BackGround_1", L"..\\Resources\\Texture\\BackGround\\background_layer_2.png");
+		backgroundTex[1] = Resources::Load<Texture>(L"BackGround_forest_tree", L"..\\Resources\\Texture\\BackGround\\background_stage_1_tree.png");
 		//----------------------------------------------------------------
 		//							Material
 		//----------------------------------------------------------------
 		std::shared_ptr<Material> backgroundMaterial = std::make_shared<Material>();
 		backgroundMaterial->SetTexture(backgroundTex[0]);
-		backgroundMaterial->Shader(BGshader);
+		backgroundMaterial->Shader(backgroundShader);
 		backgroundMaterial->RenderingMode(eRenderingMode::Opaque);
 		Mn::Resources::Insert(L"BackGroundMaterial_Layer_0", backgroundMaterial);
 
 		std::shared_ptr<Material> backgroundMaterial2 = std::make_shared<Material>();
 		backgroundMaterial2->SetTexture(backgroundTex[1]);
-		backgroundMaterial2->Shader(BGshader);
+		backgroundMaterial2->Shader(backgroundShader);
 		Mn::Resources::Insert(L"BackGroundMaterial_Layer_1", backgroundMaterial2);
 
 
@@ -282,7 +330,7 @@ namespace renderer
 		std::shared_ptr<Material> WaterMat = std::make_shared<Material>();
 		WaterMat->SetTexture(WaterTex);
 		WaterMat->TextureBind(backgroundTex[0], 1);
-		WaterMat->Shader(watershader);
+		WaterMat->Shader(WaterShader);
 		WaterMat->RenderingMode(eRenderingMode::Transparent);
 		Mn::Resources::Insert(L"WaterMaterial", WaterMat);
 
@@ -291,6 +339,12 @@ namespace renderer
 		//																GUI
 		//
 		//---------------------------------------------------------------------------------------------------------------------------------------
+		// ---------------------------------------------------------------
+		//							Shader
+		// ---------------------------------------------------------------
+		std::shared_ptr<Shader>  HPShader
+			= Resources::Find<Shader>(L"HPShader");
+		
 		//----------------------------------------------------------------
 		//							Texture
 		//----------------------------------------------------------------
@@ -306,39 +360,40 @@ namespace renderer
 		//----------------------------------------------------------------
 		//							Material
 		//----------------------------------------------------------------
-		
+
 		//Hp
 		std::shared_ptr<Material> HpMat = std::make_shared<Material>();
 		HpMat->SetTexture(Hpbar);
-		HpMat->Shader(HPshader);
+		HpMat->Shader(HPShader);
 		HpMat->RenderingMode(eRenderingMode::Opaque);
 		Resources::Insert<Material>(L"Hp_Bar", HpMat);
 
+
+		//---------------------------------------------------------------------------------------------------------------------------------------
+		//
+		//																Grid
+		//
+		//---------------------------------------------------------------------------------------------------------------------------------------
+		// ---------------------------------------------------------------
+		//							Shader
+		// ---------------------------------------------------------------
+		std::shared_ptr<Shader> gridShader
+			= Resources::Find<Shader>(L"GridShader");
+
+		std::shared_ptr<Material> material = std::make_shared<Material>();
+		//material->SetTexture(Hpbar);
+		material->Shader(gridShader);
+		Resources::Insert(L"GridMaterial", material);
 	}
+
 
 	void Initialize()
 	{
-		vertices[0].pos = Vector3(-0.5f, 0.5f, 0.0f);
-		vertices[0].color = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
-		vertices[0].uv = Vector2(0.0f, 0.0f);
-
-		vertices[1].pos = Vector3(0.5f, 0.5f, 0.0f);
-		vertices[1].color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
-		vertices[1].uv = Vector2(1.0f, 0.0f);
-
-		vertices[2].pos = Vector3(0.5f, -0.5f, 0.0f);
-		vertices[2].color = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
-		vertices[2].uv = Vector2(1.0f, 1.0f);
-
-		vertices[3].pos = Vector3(-0.5f, -0.5f, 0.0f);
-		vertices[3].color = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
-		vertices[3].uv = Vector2(0.0f, 1.0f);
-
-
+		LoadMesh();
 		LoadBuffer();
 		LoadShader();
 		SetupState();
-
+		LoadMaterial();
 	}
 	void Release()
 	{

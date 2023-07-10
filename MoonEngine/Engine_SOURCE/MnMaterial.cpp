@@ -18,8 +18,10 @@ namespace Mn
 	}
 	void Material::Binds()
 	{
-		_Texture->BindShader(eShaderStage::PS, 0);
-		_Shader->binds();
+		if (_Texture)
+			_Texture->BindShader(eShaderStage::PS, 0);
+		if (_Shader)
+			_Shader->binds();
 	}
 	void graphics::Material::TextureBind(std::shared_ptr<Mn::graphics::Texture> tex, int slot)
 	{

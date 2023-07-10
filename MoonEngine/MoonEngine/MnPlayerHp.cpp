@@ -22,6 +22,7 @@ namespace Mn
 		Vector2 scale = mt->CalcurateRatio();
 		Transform* tr = GetComponent<Transform>();
 		tr->Scale(Vector3(scale.x*0.25, scale.y*0.25, 0.0f));
+		tr->Position(Vector3(-1.5f, 2.0f, 0.0f));
 	}
 	void PlayerHp::Update()
 	{

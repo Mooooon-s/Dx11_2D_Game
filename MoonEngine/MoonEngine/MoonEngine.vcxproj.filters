@@ -20,6 +20,15 @@
     <ClInclude Include="MnPlayerHp.h">
       <Filter>Contents\UI</Filter>
     </ClInclude>
+    <ClInclude Include="MnPlayerScript.h">
+      <Filter>Contents\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGridScript.h">
+      <Filter>Contents\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="MnForestBG.h">
+      <Filter>Contents\BackGround</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -38,6 +47,15 @@
     <ClCompile Include="MnPlayerHp.cpp">
       <Filter>Contents\UI</Filter>
     </ClCompile>
+    <ClCompile Include="MnPlayerScript.cpp">
+      <Filter>Contents\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGridScript.cpp">
+      <Filter>Contents\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="MnForestBG.cpp">
+      <Filter>Contents\BackGround</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -54,6 +72,9 @@
     </Filter>
     <Filter Include="Contents\UI">
       <UniqueIdentifier>{d6a5643c-5fc4-4c8b-a82d-fca0352925af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\BackGround">
+      <UniqueIdentifier>{af507ee7-ecd2-43d5-9670-60b196a54a47}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

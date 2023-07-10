@@ -167,17 +167,23 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="LoadScene.h" />
     <ClInclude Include="MnCameraScript.h" />
+    <ClInclude Include="MnForestBG.h" />
+    <ClInclude Include="MnGridScript.h" />
     <ClInclude Include="MnPlayerHp.h" />
+    <ClInclude Include="MnPlayerScript.h" />
     <ClInclude Include="MnTitleScene.h" />
     <ClInclude Include="MnWaterScript.h" />
     <ClInclude Include="playScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnForestBG.cpp" />
+    <ClCompile Include="MnGridScript.cpp" />
     <ClCompile Include="MnCameraScript.cpp" />
     <ClCompile Include="MnTitleScene.cpp" />
     <ClCompile Include="MnWaterScript.cpp" />
     <ClCompile Include="MoonEngine.cpp" />
     <ClCompile Include="MnPlayerHp.cpp" />
+    <ClCompile Include="MnPlayerScript.cpp" />
     <ClCompile Include="playScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
