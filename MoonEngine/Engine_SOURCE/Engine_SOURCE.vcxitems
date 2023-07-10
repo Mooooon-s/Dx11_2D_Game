@@ -14,6 +14,7 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnBackGround.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMainCharacter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCharacter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCamera.cpp" />
@@ -46,6 +47,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnBackGround.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCharacter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCircle.h" />
@@ -63,6 +65,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMesh.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMeshRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRectangle.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnResource.h" />

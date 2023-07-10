@@ -9,6 +9,10 @@
 #include "MnMainCharacter.h"
 #include "MnWaterScript.h"
 #include "MnPlayerHp.h"
+#include "MnPlayerScript.h"
+#include "MnGridScript.h"
+#include "MnObject.h"
+#include "MnForestBG.h"
 
 #define PI 3.1415926535
 
@@ -22,20 +26,23 @@ Mn::playScene::~playScene()
 
 void Mn::playScene::Initialize()
 {
-	MainCharacter* player = new MainCharacter();
-	AddGameObject(eLayerType::Player, player);
+	MainCharacter* player = object::Instantiate<MainCharacter>(eLayerType::Player);
 	player->Initialize();
+	player->AddComponent<PlayerScript>();
 
-	GameObject* background = new GameObject();
-	AddGameObject(eLayerType::BackGround, background);
-	MeshRenderer* BGmr = background->AddComponent<MeshRenderer>();
-	BGmr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
-	BGmr->SetMaterial(Resources::Find<Material>(L"BackGroundMaterial_Layer_0"));
-	BGmr->GetMaterial()->GetTexture()->CalculateRatio();
-	Vector2 v = BGmr->GetMaterial()->GetTexture()->Raitio();
-	background->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 2.0f));
-	background->GetComponent<Transform>()->Scale(Vector3(v.x*4.5, v.y*4.5, 1.0f));
+	
+	ForestBG* background = object::Instantiate<ForestBG>(eLayerType::BackGround);
+	background->Initialize();
 
+	//Main Camera
+	GameObject* camera = new GameObject();
+	AddGameObject(eLayerType::Player, camera);
+	camera->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, -10.0f));
+	Camera* cameraComp = camera->AddComponent<Camera>();
+	CameraScript* cs = camera->AddComponent<CameraScript>();
+	cs->SetTarget(player);
+	cameraComp->TurnLayerMask(eLayerType::UI, false);
+	cameraComp->TurnLayerMask(eLayerType::Water);
 
 	GameObject* water = new GameObject();
 	AddGameObject(eLayerType::Water, water);
@@ -45,15 +52,14 @@ void Mn::playScene::Initialize()
 	water->GetComponent<Transform>()->Position(Vector3(0.0f, -0.8f, 1.0f));
 	water->AddComponent<WaterScript>();
 
-	GameObject* camera = new GameObject();
-	AddGameObject(eLayerType::Player, camera);
-	camera->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, -10.0f));
-	Camera* cameraComp = camera->AddComponent<Camera>();
-	camera->AddComponent<CameraScript>();
-	cameraComp->TurnLayerMask(eLayerType::UI, false);
-	cameraComp->TurnLayerMask(eLayerType::Water, false);
-
-
+	GameObject* grid = new GameObject();
+	grid->SetName(L"Grid");
+	AddGameObject(eLayerType::Grid, grid);
+	MeshRenderer* mr = grid->AddComponent<MeshRenderer>();
+	mr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
+	mr->SetMaterial(Resources::Find<Material>(L"GridMaterial"));
+	GridScript* gridSc = grid->AddComponent<GridScript>();
+	gridSc->SetCamera(cameraComp);
 
 	GameObject* UICam = new GameObject();
 	AddGameObject(eLayerType::UI, UICam);

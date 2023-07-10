@@ -82,8 +82,11 @@
     <Filter Include="ConstantBuffer">
       <UniqueIdentifier>{0c4b8d84-3cd8-4643-ba2e-f6c8994133b2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI">
+    <Filter Include="GameObject\UI">
       <UniqueIdentifier>{bedc1a43-4593-435f-aa34-9c30b48f8a12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\BackGround">
+      <UniqueIdentifier>{d1619e43-c20c-4a3f-9b6e-3990fc1a6f72}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -167,7 +170,10 @@
       <Filter>ConstantBuffer</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnUI.cpp">
-      <Filter>UI</Filter>
+      <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnBackGround.cpp">
+      <Filter>GameObject\BackGround</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -263,8 +269,12 @@
       <Filter>ConstantBuffer</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnUI.h">
-      <Filter>UI</Filter>
+      <Filter>GameObject\UI</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnBackGround.h">
+      <Filter>GameObject\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnObject.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl">

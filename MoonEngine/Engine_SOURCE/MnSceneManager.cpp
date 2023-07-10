@@ -30,6 +30,10 @@ namespace Mn
 	{
 		_ActiveScene->Render();
 	}
+	void SceneManager::Destroy()
+	{
+		_ActiveScene->Destroy();
+	}
 	void SceneManager::Release()
 	{
 		for (auto& iter : _Scenes)

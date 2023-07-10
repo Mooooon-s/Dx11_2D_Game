@@ -34,6 +34,13 @@ namespace Mn
 			layer.Render();
 		}
 	}
+	void Scene::Destroy()
+	{
+		for (Layer& layer : _Layers)
+		{
+			layer.Destroy();
+		}
+	}
 	void Scene::OnEnter()
 	{
 	}

@@ -15,6 +15,8 @@ namespace Mn
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render();
+		virtual void Destroy();
+
 	public:
 		void AddGameObject(GameObject* gameObj);
 		const std::vector<GameObject*> GetGameObjects()

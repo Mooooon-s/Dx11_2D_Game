@@ -24,6 +24,7 @@ namespace Mn
 		void Update();
 		void LateUpdate();
 		void Render();
+		void Destroy();
 	public:
 		void SetWindow(HWND hwnd,UINT width,UINT height);
 	public:

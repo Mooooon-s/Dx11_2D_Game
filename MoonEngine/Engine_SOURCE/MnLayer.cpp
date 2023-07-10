@@ -17,18 +17,13 @@ namespace Mn
 	}
 	void Layer::Initialize()
 	{
-		for (GameObject* gameObj : _GameObjects)
-		{
-			if (gameObj == nullptr)
-				continue;
-
-			gameObj->Initialize();
-		}
 	}
 	void Layer::Update()
 	{
 		for (GameObject* gameObj : _GameObjects)
 		{
+			if (gameObj->State() != GameObject::eState::Active)
+				continue;
 			gameObj->Update();
 		}
 	}
@@ -36,6 +31,8 @@ namespace Mn
 	{
 		for (GameObject* gameObj : _GameObjects)
 		{
+			if (gameObj->State() != GameObject::eState::Active)
+				continue;
 			gameObj->LateUpdate();
 		}
 	}
@@ -43,7 +40,42 @@ namespace Mn
 	{
 		for (GameObject* gameObj : _GameObjects)
 		{
+			if (gameObj->State() != GameObject::eState::Active)
+				continue;
 			gameObj->Render();
+		}
+	}
+	void Layer::Destroy()
+	{
+		std::set<GameObject*> deleteGameObj = {};
+		for (GameObject* gameObj : _GameObjects)
+		{
+			if (gameObj->State() == GameObject::eState::Dead)
+				deleteGameObj.insert(gameObj);
+		}
+
+		// daed 오브젝트 제외시키기 layer에서
+		typedef std::vector<GameObject*>::iterator GameObjectIter;
+		for (GameObjectIter iter = _GameObjects.begin()
+			; iter != _GameObjects.end(); )
+		{
+			std::set<GameObject*>::iterator deleteIter
+				= deleteGameObj.find(*(iter));
+
+			if (deleteIter != deleteGameObj.end())
+			{
+				iter = _GameObjects.erase(iter);
+				continue;
+			}
+
+			iter++;
+		}
+
+		//메모리 해제
+		for (GameObject* gameObj : deleteGameObj)
+		{
+			delete gameObj;
+			gameObj = nullptr;
 		}
 	}
 	void Layer::AddGameObject(GameObject* gameObj)

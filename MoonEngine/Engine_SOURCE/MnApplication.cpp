@@ -22,6 +22,7 @@ namespace Mn
 		Update();
 		LateUpdate();
 		Render();
+		Destroy();
 	}
 
 	void Application::Initialize()
@@ -57,6 +58,11 @@ namespace Mn
 		//SceneManager::Render();
 		//graphicDevice->Draw();
 		graphicDevice->Present();
+	}
+
+	void Application::Destroy()
+	{
+		SceneManager::Destroy();
 	}
 
 	void Application::SetWindow(HWND hwnd, UINT width, UINT height)
