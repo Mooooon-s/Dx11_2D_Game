@@ -62,7 +62,6 @@ namespace Mn
 		RenderTransparent();
 		EnableDepthStencilState();
 
-
 	}
 	bool Camera::CreateViewMatrix()
 	{

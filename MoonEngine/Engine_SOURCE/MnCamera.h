@@ -63,6 +63,8 @@ namespace Mn
 
 		void EnableDepthStencilState();
 		void DisableDepthStencilState();
+
+		float Size() { return _Size; }
 	};
 }
 
