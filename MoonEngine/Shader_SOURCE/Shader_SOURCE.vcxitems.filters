@@ -31,6 +31,12 @@
     <FxCompile Include="$(MSBuildThisFileDirectory)BGPS.hlsl">
       <Filter>PS</Filter>
     </FxCompile>
+    <FxCompile Include="$(MSBuildThisFileDirectory)GridVS.hlsl">
+      <Filter>VS</Filter>
+    </FxCompile>
+    <FxCompile Include="$(MSBuildThisFileDirectory)GridPS.hlsl">
+      <Filter>PS</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="PS">
@@ -39,5 +45,8 @@
     <Filter Include="VS">
       <UniqueIdentifier>{47243134-350a-4bee-acb6-87c87cb9aeaa}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)globals.hlsli" />
   </ItemGroup>
 </Project>
