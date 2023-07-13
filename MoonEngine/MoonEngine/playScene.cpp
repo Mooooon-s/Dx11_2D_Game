@@ -13,6 +13,8 @@
 #include "MnGridScript.h"
 #include "MnObject.h"
 #include "MnForestBG.h"
+#include "MnPumpkin.h"
+#include "../Engine_SOURCE/MnKdTree.h"
 
 #define PI 3.1415926535
 
@@ -26,6 +28,8 @@ Mn::playScene::~playScene()
 
 void Mn::playScene::Initialize()
 {
+	_KdTree = new KdTree(1);
+
 	MainCharacter* player = object::Instantiate<MainCharacter>(eLayerType::Player);
 	player->Initialize();
 	player->AddComponent<PlayerScript>();
@@ -34,6 +38,17 @@ void Mn::playScene::Initialize()
 	ForestBG* background = object::Instantiate<ForestBG>(eLayerType::BackGround);
 	background->Initialize();
 
+	Pumpkin* pumpkinMon = object::Instantiate<Pumpkin>(Vector3(0.0f,0.5f,0.0f),eLayerType::Monster);
+	pumpkinMon->Initialize();
+
+	Pumpkin* pumpkinMon1 = object::Instantiate<Pumpkin>(Vector3(0.5f, 0.5f, 0.0f),eLayerType::Monster);
+	pumpkinMon1->Initialize();
+
+	Pumpkin* pumpkinMon2 = object::Instantiate<Pumpkin>(Vector3(-0.5f, 0.5f, 0.0f),eLayerType::Monster);
+	pumpkinMon2->Initialize();
+
+	Pumpkin* pumpkinMon3 = object::Instantiate<Pumpkin>(Vector3(-0.5f, -0.5f, 0.0f), eLayerType::Monster);
+	pumpkinMon3->Initialize();
 	//Main Camera
 	GameObject* camera = new GameObject();
 	AddGameObject(eLayerType::Player, camera);
@@ -70,6 +85,17 @@ void Mn::playScene::Initialize()
 	PlayerHp* hpBar = new PlayerHp(this);
 	AddGameObject(eLayerType::UI, hpBar);
 	hpBar->Initialize();
+
+
+	Scene* scene = SceneManager::ActiveScene();
+
+
+	for (auto a : scene->GetLayer(eLayerType::Monster).GetGameObjects())
+	{
+		_ActiveObjs.push_back(a);
+	}
+	_KdTree->BuildTree(_ActiveObjs);
+
 }
 
 void Mn::playScene::Update()

@@ -29,6 +29,9 @@
     <ClInclude Include="MnForestBG.h">
       <Filter>Contents\BackGround</Filter>
     </ClInclude>
+    <ClInclude Include="MnPumpkin.h">
+      <Filter>Contents\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -56,6 +59,9 @@
     <ClCompile Include="MnForestBG.cpp">
       <Filter>Contents\BackGround</Filter>
     </ClCompile>
+    <ClCompile Include="MnPumpkin.cpp">
+      <Filter>Contents\Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -75,6 +81,9 @@
     </Filter>
     <Filter Include="Contents\BackGround">
       <UniqueIdentifier>{af507ee7-ecd2-43d5-9670-60b196a54a47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Monster">
+      <UniqueIdentifier>{283dc678-6cf2-4112-8f44-0b0f17f8dad2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

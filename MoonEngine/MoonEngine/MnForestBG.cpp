@@ -32,8 +32,10 @@ namespace Mn
 	}
 	void ForestBG::Render()
 	{
-		Material* mat = GetComponent<Material>();
-		mat->TextureBind(Resources::Find<Texture>(L"BackGroundMaterial_Layer_1"), 1);
+		MeshRenderer* BGmr = this->GetComponent<MeshRenderer>();
+		std::shared_ptr<Material> mat = BGmr->GetMaterial();
+		std::shared_ptr<Texture> tex = Resources::Find<Texture>(L"BackGround_forest_tree");
+		mat->TextureBind(tex,1);
 		
 		GameObject::Render();
 	}

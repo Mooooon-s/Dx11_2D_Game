@@ -25,7 +25,7 @@ namespace Mn::object
 	{
 		T* gameObj = new T();
 		Transform* tr = gameObj->GetComponent<Transform>();
-		tr->SetPosition(pos);
+		tr->Position(pos);
 
 		Scene* scene = SceneManager::ActiveScene();
 		scene->AddGameObject(layer, gameObj);
@@ -38,8 +38,8 @@ namespace Mn::object
 	{
 		T* gameObj = new T();
 		Transform* tr = gameObj->GetComponent<Transform>();
-		tr->SetPosition(pos);
-		tr->SetRotation(rotate);
+		tr->Position(pos);
+		tr->Rotation(rotate);
 
 		Scene* scene = SceneManager::ActiveScene();
 		scene->AddGameObject(layer, gameObj);
@@ -52,13 +52,12 @@ namespace Mn::object
 	{
 		T* gameObj = new T();
 		Transform* tr = gameObj->GetComponent<Transform>();
-		tr->SetPosition(pos);
-		tr->SetRotation(rotate);
-		tr->SetScale(scale);
+		tr->Position(pos);
+		tr->Rotation(rotate);
+		tr->Scale(scale);
 
 		Scene* scene = SceneManager::ActiveScene();
 		scene->AddGameObject(layer, gameObj);
-
 		return gameObj;
 	}
 

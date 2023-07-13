@@ -88,6 +88,12 @@
     <Filter Include="GameObject\BackGround">
       <UniqueIdentifier>{d1619e43-c20c-4a3f-9b6e-3990fc1a6f72}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Kd-Tree">
+      <UniqueIdentifier>{700634f5-3b76-48c3-aa81-a60ec329fba3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Monster">
+      <UniqueIdentifier>{281b7a2d-009a-47d1-9613-add3e7ec2dd7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnEntity.cpp">
@@ -174,6 +180,12 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnBackGround.cpp">
       <Filter>GameObject\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnKdTree.cpp">
+      <Filter>Kd-Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnMonster.cpp">
+      <Filter>GameObject\Monster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -275,6 +287,12 @@
       <Filter>GameObject\BackGround</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnKdTree.h">
+      <Filter>Kd-Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnMonster.h">
+      <Filter>GameObject\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl">

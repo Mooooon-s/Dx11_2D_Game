@@ -171,6 +171,7 @@
     <ClInclude Include="MnGridScript.h" />
     <ClInclude Include="MnPlayerHp.h" />
     <ClInclude Include="MnPlayerScript.h" />
+    <ClInclude Include="MnPumpkin.h" />
     <ClInclude Include="MnTitleScene.h" />
     <ClInclude Include="MnWaterScript.h" />
     <ClInclude Include="playScene.h" />
@@ -185,6 +186,7 @@
     <ClCompile Include="MnPlayerHp.cpp" />
     <ClCompile Include="MnPlayerScript.cpp" />
     <ClCompile Include="playScene.cpp" />
+    <ClCompile Include="MnPumpkin.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

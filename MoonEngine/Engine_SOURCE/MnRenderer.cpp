@@ -69,6 +69,11 @@ namespace renderer
 			, GridShader->GetVSCode()
 			, GridShader->GetInputLayoutAddressOf());
 
+		std::shared_ptr <Shader> MonShader = Mn::Resources::Find<Shader>(L"MonsterShader");
+		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 3
+			, MonShader->GetVSCode()
+			, MonShader->GetInputLayoutAddressOf());
+
 #pragma endregion
 #pragma region SamplerState
 		D3D11_SAMPLER_DESC Samplerdesc = {};
@@ -260,6 +265,11 @@ namespace renderer
 		girdShader->Create(eShaderStage::PS, L"GridPS.hlsl", "main");
 		Mn::Resources::Insert(L"GridShader", girdShader);
 
+		std::shared_ptr<Shader> MonShader = std::make_shared<Shader>();
+		MonShader->Create(eShaderStage::VS, L"MonsterVS.hlsl", "main");
+		MonShader->Create(eShaderStage::PS, L"MonsterPS.hlsl", "main");
+		Mn::Resources::Insert(L"MonsterShader", MonShader);
+
 	}
 
 	void LoadMaterial()
@@ -288,6 +298,32 @@ namespace renderer
 		spriteMaterial->Shader(spriteShader);
 		spriteMaterial->RenderingMode(eRenderingMode::Transparent);
 		Mn::Resources::Insert(L"SpriteMaterial", spriteMaterial);
+
+
+		//---------------------------------------------------------------------------------------------------------------------------------------
+		//
+		//																Monster
+		//
+		//---------------------------------------------------------------------------------------------------------------------------------------
+		// ---------------------------------------------------------------
+		//							Shader
+		// ---------------------------------------------------------------
+		std::shared_ptr<Shader> MonShader
+			= Resources::Find<Shader>(L"MonsterShader");
+		// 
+		//----------------------------------------------------------------
+		//							Texture
+		//----------------------------------------------------------------
+		std::shared_ptr<Texture> Montexture = Resources::Load<Texture>(L"Monster_Pumpkin", L"..\\Resources\\Texture\\Monster\\Undead_pumpking_Sprites.png");
+
+		//----------------------------------------------------------------
+		//							Material
+		//----------------------------------------------------------------
+		std::shared_ptr <Material> MonMaterial = std::make_shared<Material>();
+		MonMaterial->SetTexture(Montexture);
+		MonMaterial->Shader(MonShader);
+		MonMaterial->RenderingMode(eRenderingMode::Transparent);
+		Mn::Resources::Insert(L"MonMaterial", MonMaterial);
 
 		//---------------------------------------------------------------------------------------------------------------------------------------
 		//
@@ -321,6 +357,7 @@ namespace renderer
 		std::shared_ptr<Material> backgroundMaterial2 = std::make_shared<Material>();
 		backgroundMaterial2->SetTexture(backgroundTex[1]);
 		backgroundMaterial2->Shader(backgroundShader);
+		backgroundMaterial->RenderingMode(eRenderingMode::Transparent);
 		Mn::Resources::Insert(L"BackGroundMaterial_Layer_1", backgroundMaterial2);
 
 

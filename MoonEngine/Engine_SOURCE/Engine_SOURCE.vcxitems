@@ -14,6 +14,7 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnKdTree.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnBackGround.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMainCharacter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCharacter.cpp" />
@@ -31,6 +32,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMesh.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMeshRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnMonster.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnScene.cpp" />
@@ -59,12 +61,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphicDevice_Dx11.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphics.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnKdTree.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMainCharacter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMaterial.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMesh.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMeshRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnMonster.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRectangle.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRenderer.h" />
