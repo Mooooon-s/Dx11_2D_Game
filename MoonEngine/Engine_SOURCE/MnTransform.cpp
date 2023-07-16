@@ -55,10 +55,9 @@ namespace Mn
 	{
 		renderer::TransformCB trCB = {};
 		trCB._World = _World;
-		trCB._View = Camera::GetViewMatrix();
-		trCB._Projection = Camera::GetProjectionMatrix();
+		trCB._View = Camera::GetGpuViewMatrix();
+		trCB._Projection = Camera::GetGpuProjectionMatrix();
 		ConstantBuffer* cb = renderer::constantBuffer[(UINT)eCBType::Transform];
-		//Vector4 position(_Position.x, _Position.y, _Position.z, 1.0f);
 		cb->setData(&trCB);
 		cb->Bind(eShaderStage::VS);
 	}

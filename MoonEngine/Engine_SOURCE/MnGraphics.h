@@ -12,6 +12,10 @@
 #define CBSLOT_TRANSFORM		0
 #define CBSLOT_TIME				1
 #define CBSLOT_GRID				2
+
+#include "../Engine_SOURCE/MnMath.h"
+#include "../Engine_SOURCE/MnEnums.h"
+
 //#define CBSLOT_PARTICLE			1
 
 namespace Mn::graphics
@@ -92,4 +96,15 @@ namespace Mn::graphics
 		virtual ~GpuBuffer() = default;
 	};
 
+	struct DebugMesh
+	{
+		enums::eColliderType type;
+		math::Vector3 position;
+		math::Vector3 rotation;
+		math::Vector3 scale;
+
+		float radius;
+		float duration;
+		float time;
+	};
 }

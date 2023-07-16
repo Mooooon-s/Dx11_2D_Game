@@ -36,18 +36,18 @@ namespace renderer
 		Vector2 Resolution;
 	};
 
-	extern Vertex vertices[];
-	extern ID3D11InputLayout* triangleLayout;
 	extern Mn::graphics::ConstantBuffer* constantBuffer[(UINT)eCBType::End];
 	extern Microsoft::WRL::ComPtr<ID3D11SamplerState> samplerState[];
 	extern Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterizerStates[];
 	extern Microsoft::WRL::ComPtr<ID3D11DepthStencilState> depthStencilStates[];
 	extern Microsoft::WRL::ComPtr<ID3D11BlendState> blendStates[];
 
+	extern Mn::Camera* mainCamera;
 	extern std::vector<Mn::Camera*> cameras;
+	extern std::vector<DebugMesh> debugMeshs;
 
 	void Initialize();
 	void Release();
 	void Render();
-
+	void PushDebugMeshAttribute(DebugMesh mesh);
 }

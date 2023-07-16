@@ -40,6 +40,7 @@ namespace Mn
 		void SetRSState(eRSType type) { _RSType = type; }
 		void SetDSState(eDSType type) { _DSType = type; }
 		void SetBSState(eBSType type) { _BSType = type; }
+		void SetTopology(D3D11_PRIMITIVE_TOPOLOGY topology) { _Topology = topology; }
 
 	public:
 		ID3DBlob* GetVSCode()

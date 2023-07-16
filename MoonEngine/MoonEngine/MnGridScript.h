@@ -1,6 +1,6 @@
 #pragma once
-#include "MnScript.h"
-#include "MnCamera.h"
+#include "../Engine_SOURCE/MnScript.h"
+#include "../Engine_SOURCE/MnCamera.h"
 
 namespace Mn
 {

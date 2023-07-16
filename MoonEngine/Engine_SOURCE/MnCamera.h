@@ -32,8 +32,11 @@ namespace Mn
 		std::vector<GameObject*> _TransparentGameObjects;
 
 	public:
-		static Matrix GetViewMatrix() { return View; }
-		static Matrix GetProjectionMatrix() { return Projection; }
+		static Matrix& GetGpuViewMatrix() { return View; }
+		static Matrix& GetGpuProjectionMatrix() { return Projection; }
+		static void SetGpuViewMatrix(Matrix view) { View = view; }
+		static void SetGpuProjectionMatrix(Matrix projection) { Projection = projection; }
+
 
 	public:
 		Camera();
@@ -45,6 +48,9 @@ namespace Mn
 		virtual void Render() override;
 
 	public:
+
+
+
 		bool CreateViewMatrix();
 		bool CreateProjectionMatrix(eProjectionType type);
 		void RegisterCameraInRenderer();
@@ -65,6 +71,8 @@ namespace Mn
 		void DisableDepthStencilState();
 
 		float Size() { return _Size; }
+		Matrix& GetViewMatrix() { return _View; }
+		Matrix& GetProjectionMatrix() { return _Projection; }
 	};
 }
 

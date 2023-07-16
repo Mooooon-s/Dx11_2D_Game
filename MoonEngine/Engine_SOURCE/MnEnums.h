@@ -6,6 +6,7 @@ namespace Mn::enums
 		None,
 		Transform,
 		Mesh,
+		Collider2D,
 		Particle,
 		Meshrenderer,
 		Script,
@@ -21,7 +22,7 @@ namespace Mn::enums
 		BackGround,
 		Water,
 		UI,
-		End,
+		End=16,
 	};
 
 	enum class eResourceType
@@ -45,5 +46,14 @@ namespace Mn::enums
 	{
 		Left,
 		Right,
+	};
+
+	enum class eColliderType
+	{
+		Rect,
+		Circle,
+		Sphere,
+		Cube,
+		End,
 	};
 }

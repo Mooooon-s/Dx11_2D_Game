@@ -77,7 +77,7 @@ namespace Mn::graphics
 		dxgiDesc.OutputWindow = hWnd;
 		dxgiDesc.Windowed = true;
 		dxgiDesc.BufferCount = desc->BufferCount;
-		dxgiDesc.SwapEffect = DXGI_SWAP_EFFECT::DXGI_SWAP_EFFECT_FLIP_DISCARD;
+		dxgiDesc.SwapEffect = DXGI_SWAP_EFFECT::DXGI_SWAP_EFFECT_DISCARD;
 		
 		dxgiDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 		dxgiDesc.BufferDesc.Width = desc->BufferDesc.Width;
@@ -365,7 +365,8 @@ namespace Mn::graphics
 		HWND hWnd = application.GetHwnd();
 		RECT winRect = {};
 		GetClientRect(hWnd, &winRect);
-		_ViewPort = {
+		_ViewPort = 
+		{
 			0.0f, 0.0f
 			, (float)(winRect.right - winRect.left)
 			, (float)(winRect.bottom - winRect.top)
@@ -376,10 +377,6 @@ namespace Mn::graphics
 	}
 	void GraphicDevice_Dx11::Draw()
 	{
-		/*renderer::mesh->BindBuffer();
-		renderer::shader->binds();
-		_Context->DrawIndexed(renderer::mesh->GetIndexCount(), 0, 0);*/
-
 	}
 	void GraphicDevice_Dx11::Present()
 	{

@@ -8,6 +8,7 @@
 #include "../Engine_SOURCE/MnResources.h"
 #include "../Engine_SOURCE/MnSceneManager.h"
 #include "LoadScene.h"
+#include "guiEditor.h"
 
 Mn::Application application;
 
@@ -73,11 +74,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         {
             // 여기서 게임 로직이 돌아가야한다.
             application.Run();
+            gui::Editor::Run();
+            application.Present();
         }
     }
 
     renderer::Release();
     Mn::SceneManager::Release();
+    gui::Editor::Release();
     return (int) msg.wParam;
 }
 
@@ -134,8 +138,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    application.SetWindow(hWnd, 1600, 900);
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
    application.Initialize();
    Mn::InitializeScenes();
+   gui::Editor::Initialize();
 
    return TRUE;
 }

@@ -15,7 +15,7 @@ namespace Mn
 	void PlayerHp::Initialize()
 	{
 		MeshRenderer* hpBarMr = AddComponent<MeshRenderer>();
-		hpBarMr->SetMesh(Resources::Find<Mesh>(L"BackGroundMesh"));
+		hpBarMr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
 		hpBarMr->SetMaterial(Resources::Find<Material>(L"Hp_Bar"));
 
 		std::shared_ptr<Material> mt = hpBarMr->GetMaterial();

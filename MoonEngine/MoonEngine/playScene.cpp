@@ -15,6 +15,7 @@
 #include "MnForestBG.h"
 #include "MnPumpkin.h"
 #include "../Engine_SOURCE/MnKdTree.h"
+#include "MnRenderer.h"
 
 #define PI 3.1415926535
 
@@ -55,9 +56,11 @@ void Mn::playScene::Initialize()
 	camera->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, -10.0f));
 	Camera* cameraComp = camera->AddComponent<Camera>();
 	CameraScript* cs = camera->AddComponent<CameraScript>();
-	cs->SetTarget(player);
+	//cs->SetTarget(player);
 	cameraComp->TurnLayerMask(eLayerType::UI, false);
 	cameraComp->TurnLayerMask(eLayerType::Water);
+	renderer::cameras.push_back(cameraComp);
+	renderer::mainCamera = cameraComp;
 
 	GameObject* water = new GameObject();
 	AddGameObject(eLayerType::Water, water);
@@ -66,15 +69,6 @@ void Mn::playScene::Initialize()
 	waterMr->SetMaterial(Resources::Find<Material>(L"WaterMaterial"));
 	water->GetComponent<Transform>()->Position(Vector3(0.0f, -0.8f, 1.0f));
 	water->AddComponent<WaterScript>();
-
-	GameObject* grid = new GameObject();
-	grid->SetName(L"Grid");
-	AddGameObject(eLayerType::Grid, grid);
-	MeshRenderer* mr = grid->AddComponent<MeshRenderer>();
-	mr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
-	mr->SetMaterial(Resources::Find<Material>(L"GridMaterial"));
-	GridScript* gridSc = grid->AddComponent<GridScript>();
-	gridSc->SetCamera(cameraComp);
 
 	GameObject* UICam = new GameObject();
 	AddGameObject(eLayerType::UI, UICam);
@@ -87,28 +81,28 @@ void Mn::playScene::Initialize()
 	hpBar->Initialize();
 
 
+}
+
+void Mn::playScene::Update()
+{
 	Scene* scene = SceneManager::ActiveScene();
-
-
 	for (auto a : scene->GetLayer(eLayerType::Monster).GetGameObjects())
 	{
 		_ActiveObjs.push_back(a);
 	}
 	_KdTree->BuildTree(_ActiveObjs);
 
-}
-
-void Mn::playScene::Update()
-{
 	Scene::Update();
 }
 
 void Mn::playScene::LateUpdate()
 {
 	Scene::LateUpdate();
+	_ActiveObjs.clear();
 }
 
 void Mn::playScene::Render()
 {
 	Scene::Render();
+	
 }

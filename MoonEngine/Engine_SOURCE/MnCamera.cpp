@@ -180,7 +180,9 @@ namespace Mn
 		{
 			if (gameObj == nullptr)
 				continue;
-
+			if (gameObj->State()
+				!= GameObject::eState::Active)
+				continue;
 			gameObj->Render();
 		}
 	}
@@ -190,7 +192,9 @@ namespace Mn
 		{
 			if (gameObj == nullptr)
 				continue;
-
+			if (gameObj->State()
+				!= GameObject::eState::Active)
+				continue;
 			gameObj->Render();
 		}
 	}
@@ -200,7 +204,9 @@ namespace Mn
 		{
 			if (gameObj == nullptr)
 				continue;
-
+			if (gameObj->State()
+				!= GameObject::eState::Active)
+				continue;
 			gameObj->Render();
 		}
 	}

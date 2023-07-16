@@ -2,7 +2,6 @@
 #include "MnTexture.h"
 #include "MnResources.h"
 #include "MnMaterial.h"
-#include "MnRectangle.h"
 #include "MnTime.h"
 
 namespace renderer
@@ -10,14 +9,16 @@ namespace renderer
 	using namespace Mn;
 	using namespace Mn::graphics;
 
-	Vertex vertices[4] = {};
 	Mn::graphics::ConstantBuffer* constantBuffer[(UINT)eCBType::End] = {};
 	Microsoft::WRL::ComPtr<ID3D11SamplerState> samplerState[(UINT)eSamplerType::End] = {};
+	
 	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterizerStates[(UINT)eRSType::End] = {};
 	Microsoft::WRL::ComPtr<ID3D11DepthStencilState> depthStencilStates[(UINT)eDSType::End] = {};
 	Microsoft::WRL::ComPtr<ID3D11BlendState> blendStates[(UINT)eBSType::End] = {};
 
+	Mn::Camera* mainCamera = nullptr;
 	std::vector<Mn::Camera*> cameras = {};
+	std::vector<DebugMesh> debugMeshs = {};
 	
 	void SetupState()
 	{
@@ -73,6 +74,12 @@ namespace renderer
 		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 3
 			, MonShader->GetVSCode()
 			, MonShader->GetInputLayoutAddressOf());
+
+		std::shared_ptr <Shader> DebugShader = Mn::Resources::Find<Shader>(L"DebugShader");
+		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 3
+			, DebugShader->GetVSCode()
+			, DebugShader->GetInputLayoutAddressOf());
+
 
 #pragma endregion
 #pragma region SamplerState
@@ -176,6 +183,11 @@ namespace renderer
 
 	void LoadMesh()
 	{
+		std::vector<Vertex> vertices = {};
+		std::vector<UINT> indices = {};
+
+
+		vertices.resize(4);
 		vertices[0].pos = Vector3(-0.5f, 0.5f, 0.0f);
 		vertices[0].color = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
 		vertices[0].uv = Vector2(0.0f, 0.0f);
@@ -191,15 +203,11 @@ namespace renderer
 		vertices[3].pos = Vector3(-0.5f, -0.5f, 0.0f);
 		vertices[3].color = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
 		vertices[3].uv = Vector2(0.0f, 1.0f);
-	}
 
-	void LoadBuffer()
-	{
 		std::shared_ptr <Mesh> mesh = std::make_shared<Mesh>();
 		Resources::Insert(L"RectMesh", mesh);
-		mesh->CreateVertexBuffer(vertices, 4);
+		mesh->CreateVertexBuffer(vertices.data(), vertices.size());
 		//index
-		std::vector<UINT> indices = {};
 		indices.push_back(0);
 		indices.push_back(1);
 		indices.push_back(2);
@@ -209,15 +217,48 @@ namespace renderer
 		indices.push_back(3);
 		mesh->CreateIndexBuffer(indices.data(), indices.size());
 
-		Rectangle* rect = new Rectangle();
-		rect->Initialize();
+		// Rect Debug Mesh
+		std::shared_ptr<Mesh> rectDebug = std::make_shared<Mesh>();
+		Resources::Insert(L"DebugRect", rectDebug);
+		rectDebug->CreateVertexBuffer(vertices.data(), vertices.size());
+		rectDebug->CreateIndexBuffer(indices.data(), indices.size());
 
-		std::shared_ptr<Mesh> backgroundMesh = std::make_shared<Mesh>();
-		Resources::Insert(L"BackGroundMesh", backgroundMesh);
-		backgroundMesh->CreateVertexBuffer(rect->RectVertex(), 4);
-		indices = rect->IndexBuff();
-		backgroundMesh->CreateIndexBuffer(indices.data(), indices.size());
-		
+		vertices.clear();
+		indices.clear();
+
+		Vertex center = {};
+		center.pos = Vector3(0.0f, 0.0f, 0.0f);
+		center.color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
+		vertices.push_back(center);
+
+		int iSlice = 40;
+		float fRadius = 0.5f;
+		float fTheta = XM_2PI / (float)iSlice;
+
+		for (int i = 0; i < iSlice; ++i)
+		{
+			center.pos = Vector3(fRadius * cosf(fTheta * (float)i)
+				, fRadius * sinf(fTheta * (float)i)
+				, 0.0f);
+			center.color = Vector4(0.0f, 1.0f, 0.0f, 1.f);
+			vertices.push_back(center);
+		}
+
+		for (int i = 0; i < vertices.size() - 2; ++i)
+		{
+			indices.push_back(i + 1);
+		}
+		indices.push_back(1);
+
+		std::shared_ptr<Mesh> circleDebug = std::make_shared<Mesh>();
+		Resources::Insert(L"DebugCircle", circleDebug);
+		circleDebug->CreateVertexBuffer(vertices.data(), vertices.size());
+		circleDebug->CreateIndexBuffer(indices.data(), indices.size());
+
+	}
+
+	void LoadBuffer()
+	{	
 		constantBuffer[(UINT)eCBType::Transform] = new ConstantBuffer(eCBType::Transform);
 		constantBuffer[(UINT)eCBType::Transform]->Create(sizeof(TransformCB));
 
@@ -269,6 +310,14 @@ namespace renderer
 		MonShader->Create(eShaderStage::VS, L"MonsterVS.hlsl", "main");
 		MonShader->Create(eShaderStage::PS, L"MonsterPS.hlsl", "main");
 		Mn::Resources::Insert(L"MonsterShader", MonShader);
+
+		std::shared_ptr<Shader> debugShader = std::make_shared<Shader>();
+		debugShader->Create(eShaderStage::VS, L"DebugVS.hlsl", "main");
+		debugShader->Create(eShaderStage::PS, L"DebugPS.hlsl", "main");
+		debugShader->SetTopology(D3D11_PRIMITIVE_TOPOLOGY::D3D_PRIMITIVE_TOPOLOGY_LINESTRIP);
+		debugShader->SetRSState(eRSType::SolidNone);
+		Mn::Resources::Insert(L"DebugShader", debugShader);
+
 
 	}
 
@@ -381,6 +430,12 @@ namespace renderer
 		// ---------------------------------------------------------------
 		std::shared_ptr<Shader>  HPShader
 			= Resources::Find<Shader>(L"HPShader");
+
+		std::shared_ptr<Shader> gridShader
+			= Resources::Find<Shader>(L"GridShader");
+
+		std::shared_ptr<Shader> debugShader
+			= Resources::Find<Shader>(L"DebugShader");
 		
 		//----------------------------------------------------------------
 		//							Texture
@@ -405,22 +460,14 @@ namespace renderer
 		HpMat->RenderingMode(eRenderingMode::Opaque);
 		Resources::Insert<Material>(L"Hp_Bar", HpMat);
 
-
-		//---------------------------------------------------------------------------------------------------------------------------------------
-		//
-		//																Grid
-		//
-		//---------------------------------------------------------------------------------------------------------------------------------------
-		// ---------------------------------------------------------------
-		//							Shader
-		// ---------------------------------------------------------------
-		std::shared_ptr<Shader> gridShader
-			= Resources::Find<Shader>(L"GridShader");
-
 		std::shared_ptr<Material> material = std::make_shared<Material>();
-		//material->SetTexture(Hpbar);
 		material->Shader(gridShader);
 		Resources::Insert(L"GridMaterial", material);
+
+		material = std::make_shared<Material>();
+		material->Shader(debugShader);
+		Resources::Insert(L"DebugMaterial", material);
+
 	}
 
 
@@ -432,18 +479,13 @@ namespace renderer
 		SetupState();
 		LoadMaterial();
 	}
-	void Release()
-	{
-		for (auto cb : constantBuffer)
-		{
-			if (cb == nullptr)
-				continue;
 
-			delete cb;
-			cb = nullptr;
-		}
-		
+	void PushDebugMeshAttribute(DebugMesh mesh)
+	{
+		debugMeshs.push_back(mesh);
 	}
+
+
 	void Render()
 	{
 		for (Camera* cam : cameras)
@@ -455,5 +497,18 @@ namespace renderer
 		}
 
 		cameras.clear();
+	}
+
+	void Release()
+	{
+		for (auto cb : constantBuffer)
+		{
+			if (cb == nullptr)
+				continue;
+
+			delete cb;
+			cb = nullptr;
+		}
+
 	}
 }

@@ -14,6 +14,8 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnCollisionManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnCollider2D.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnKdTree.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnBackGround.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMainCharacter.cpp" />
@@ -53,6 +55,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCharacter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCircle.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnConstantBuffer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEnums.h" />
