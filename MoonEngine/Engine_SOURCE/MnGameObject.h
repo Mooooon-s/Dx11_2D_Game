@@ -49,6 +49,29 @@ namespace Mn
 			return nullptr;
 		}
 		template <typename T>
+		const std::vector<T*>& GetComponents()
+		{
+			std::vector<T*> comps;
+
+			T* component;
+			for (Component* comp : _Components)
+			{
+				component = dynamic_cast<T*>(comp);
+				if (component != nullptr)
+					comps.push_back(component);
+			}
+
+			for (Script* script : _Scripts)
+			{
+				component = dynamic_cast<T*>(script);
+				if (component != nullptr)
+					comps.push_back(component);
+			}
+
+			return comps;
+		}
+
+		template <typename T>
 		T* AddComponent()
 		{
 			T* comp = new T();
