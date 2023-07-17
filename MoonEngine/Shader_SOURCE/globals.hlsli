@@ -19,6 +19,11 @@ cbuffer Grid : register(b2)
     float2 Resolution;
 }
 
+cbuffer Debug : register(b3)
+{
+    float4 InterSect;
+}
+
 Texture2D albedoTexture : register(t0);
 
 SamplerState pointSampler : register(s0);

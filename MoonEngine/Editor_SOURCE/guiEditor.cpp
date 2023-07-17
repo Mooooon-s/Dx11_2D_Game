@@ -32,16 +32,25 @@ namespace gui
 		mr->SetMesh(mesh);
 
 
-		EditorObject* grid = new EditorObject();
-		grid->SetName(L"Grid");
+		mesh = Mn::Resources::Find<Mn::Mesh>(L"DebugCircle");
 
-		mr = grid->AddComponent<Mn::MeshRenderer>();
-		mr->SetMesh(Mn::Resources::Find<Mn::Mesh>(L"RectMesh"));
-		mr->SetMaterial(Mn::Resources::Find<Mn::Material>(L"GridMaterial"));
-		Mn::GridScript* gridSc = grid->AddComponent<Mn::GridScript>();
-		gridSc->SetCamera(renderer::cameras[0]);
+		_DebugOjbects[(UINT)eColliderType::Circle] = new DebugObject();
+		_DebugOjbects[(UINT)eColliderType::Circle]->AddComponent<Mn::Transform>();
+		mr	= _DebugOjbects[(UINT)eColliderType::Circle]->AddComponent<Mn::MeshRenderer>();
+		mr->SetMaterial(material);
+		mr->SetMesh(mesh);
 
-		_EditorObjects.push_back(grid);
+
+		//EditorObject* grid = new EditorObject();
+		//grid->SetName(L"Grid");
+
+		//mr = grid->AddComponent<Mn::MeshRenderer>();
+		//mr->SetMesh(Mn::Resources::Find<Mn::Mesh>(L"RectMesh"));
+		//mr->SetMaterial(Mn::Resources::Find<Mn::Material>(L"GridMaterial"));
+		//Mn::GridScript* gridSc = grid->AddComponent<Mn::GridScript>();
+		//gridSc->SetCamera(renderer::cameras[0]);
+
+		//_EditorObjects.push_back(grid);
 
 	}
 	void Editor::Run()

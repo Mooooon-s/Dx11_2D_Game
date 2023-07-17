@@ -267,6 +267,9 @@ namespace renderer
 
 		constantBuffer[(UINT)eCBType::Grid] = new ConstantBuffer(eCBType::Grid);
 		constantBuffer[(UINT)eCBType::Grid]->Create(sizeof(GridCB));
+
+		constantBuffer[(UINT)eCBType::Debug] = new ConstantBuffer(eCBType::Debug);
+		constantBuffer[(UINT)eCBType::Debug]->Create(sizeof(DebugCB));
 	}
 
 	void LoadShader()

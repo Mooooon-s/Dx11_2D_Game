@@ -12,6 +12,7 @@
 #define CBSLOT_TRANSFORM		0
 #define CBSLOT_TIME				1
 #define CBSLOT_GRID				2
+#define CBSLOT_DEBUG			3
 
 #include "../Engine_SOURCE/MnMath.h"
 #include "../Engine_SOURCE/MnEnums.h"
@@ -38,6 +39,7 @@ namespace Mn::graphics
 		Material,
 		Grid,
 		Time,
+		Debug,
 		End,
 	};
 

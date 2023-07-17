@@ -1,5 +1,6 @@
 #pragma once
 #include "MnComponent.h"
+#include "MnCollider2D.h"
 
 namespace Mn
 {

@@ -16,6 +16,7 @@
 #include "MnPumpkin.h"
 #include "../Engine_SOURCE/MnKdTree.h"
 #include "MnRenderer.h"
+#include "MnCollisionManager.h"
 
 #define PI 3.1415926535
 
@@ -29,11 +30,15 @@ Mn::playScene::~playScene()
 
 void Mn::playScene::Initialize()
 {
+	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
+
+
 	_KdTree = new KdTree(1);
 
 	MainCharacter* player = object::Instantiate<MainCharacter>(eLayerType::Player);
 	player->Initialize();
 	player->AddComponent<PlayerScript>();
+	player->SetName(L"player");
 
 	
 	ForestBG* background = object::Instantiate<ForestBG>(eLayerType::BackGround);
@@ -41,18 +46,20 @@ void Mn::playScene::Initialize()
 
 	Pumpkin* pumpkinMon = object::Instantiate<Pumpkin>(Vector3(0.0f,0.5f,0.0f),eLayerType::Monster);
 	pumpkinMon->Initialize();
+	pumpkinMon->SetName(L"Mon");
+	//Pumpkin* pumpkinMon1 = object::Instantiate<Pumpkin>(Vector3(0.5f, 0.5f, 0.0f),eLayerType::Monster);
+	//pumpkinMon1->Initialize();
+	//pumpkinMon1->SetName(L"Mon");
+	//Pumpkin* pumpkinMon2 = object::Instantiate<Pumpkin>(Vector3(-0.5f, 0.5f, 0.0f),eLayerType::Monster);
+	//pumpkinMon2->Initialize();
+	//pumpkinMon2->SetName(L"Mon");
+	//Pumpkin* pumpkinMon3 = object::Instantiate<Pumpkin>(Vector3(-0.5f, -0.5f, 0.0f), eLayerType::Monster);
+	//pumpkinMon3->Initialize();
+	//pumpkinMon3->SetName(L"Mon");
 
-	Pumpkin* pumpkinMon1 = object::Instantiate<Pumpkin>(Vector3(0.5f, 0.5f, 0.0f),eLayerType::Monster);
-	pumpkinMon1->Initialize();
-
-	Pumpkin* pumpkinMon2 = object::Instantiate<Pumpkin>(Vector3(-0.5f, 0.5f, 0.0f),eLayerType::Monster);
-	pumpkinMon2->Initialize();
-
-	Pumpkin* pumpkinMon3 = object::Instantiate<Pumpkin>(Vector3(-0.5f, -0.5f, 0.0f), eLayerType::Monster);
-	pumpkinMon3->Initialize();
 	//Main Camera
 	GameObject* camera = new GameObject();
-	AddGameObject(eLayerType::Player, camera);
+	AddGameObject(eLayerType::UI, camera);
 	camera->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, -10.0f));
 	Camera* cameraComp = camera->AddComponent<Camera>();
 	CameraScript* cs = camera->AddComponent<CameraScript>();
@@ -80,6 +87,7 @@ void Mn::playScene::Initialize()
 	AddGameObject(eLayerType::UI, hpBar);
 	hpBar->Initialize();
 
+	
 
 }
 

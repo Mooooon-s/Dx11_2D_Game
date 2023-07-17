@@ -3,6 +3,7 @@
 #include "MnTime.h"
 #include "MnRenderer.h"
 #include "MnSceneManager.h"
+#include "MnCollisionManager.h"
 
 namespace Mn
 {
@@ -32,7 +33,8 @@ namespace Mn
 		
 		renderer::Initialize();
 		SceneManager::Initialize();
-
+		
+		CollisionManager::Initialize();
 	}
 
 	void Application::Update()
@@ -40,6 +42,8 @@ namespace Mn
 		Time::Update();
 		Input::Updatae();
 		SceneManager::Update();
+
+		CollisionManager::Update();
 	}
 
 	void Application::LateUpdate()

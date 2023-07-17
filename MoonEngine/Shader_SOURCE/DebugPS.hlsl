@@ -17,7 +17,11 @@ struct VSOut
 
 float4 main(VSOut In) : SV_TARGET
 {
+    float a = InterSect.x;
     float4 color = float4(0.0f, 1.0f, 0.0f, 1.0f);
-    
+    if (a == 0.0f)
+        color = float4(0.0f, 1.0f, 0.0f, 1.0f);
+    if (a == 1.0f)
+        color = float4(1.0f, 0.0f, 0.0f, 1.0f);
     return color;
 }

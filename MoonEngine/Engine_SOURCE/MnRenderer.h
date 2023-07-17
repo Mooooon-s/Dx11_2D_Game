@@ -36,6 +36,11 @@ namespace renderer
 		Vector2 Resolution;
 	};
 
+	CBUFFER(DebugCB, CBSLOT_DEBUG)
+	{
+		Vector4 Intersect;
+	};
+
 	extern Mn::graphics::ConstantBuffer* constantBuffer[(UINT)eCBType::End];
 	extern Microsoft::WRL::ComPtr<ID3D11SamplerState> samplerState[];
 	extern Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterizerStates[];

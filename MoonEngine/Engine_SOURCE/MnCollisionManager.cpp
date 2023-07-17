@@ -2,6 +2,11 @@
 #include "MnSceneManager.h"
 #include "MnCollider2D.h"
 
+#include "MnMeshRenderer.h"
+#include "MnResources.h"
+#include "MnConstantBuffer.h"
+#include "MnRenderer.h"
+
 namespace Mn
 {
 	std::bitset<LAYER_MAX> CollisionManager::_Matrix[LAYER_MAX];
@@ -18,7 +23,7 @@ namespace Mn
 		{
 			for (UINT row = 0; row < (UINT)eLayerType::End; row++)
 			{
-				if (_Matrix[row] == true)
+				if (_Matrix[row][column] == true)
 				{
 					LayerCollision((eLayerType)column, (eLayerType)row);
 				}
@@ -71,6 +76,7 @@ namespace Mn
 
 		if (Intersect(left, right))
 		{
+
 			if (iter->second == false)
 			{
 				left->OnCollisionEnter(right);
@@ -84,21 +90,59 @@ namespace Mn
 		}
 		else
 		{
+
 			if (iter->second == true)
 			{
 				left->OnCollisionExit(right);
 				right->OnCollisionExit(left);
 			}
+
+			
 		}
 
 	}
 
 	bool CollisionManager::Intersect(Collider2D* left, Collider2D* right)
 	{
-		//네모네모 충돌
-		//분리축 이론
 
-		//원원 충돌
+		if (left->GetDebugMesh().type == eColliderType::Circle && right->GetDebugMesh().type == eColliderType::Circle)
+		{
+			//원 - 원 충돌
+			Vector3 v1 = right->GetPosition() - left->GetPosition();
+			float dist = std::sqrtf((v1.x * v1.x) + (v1.y * v1.y));
+			float r1 = 0.5 * right->GetScale().x;
+			float r2 = 0.5 * right->GetScale().x;
+			if (dist < (r1 + r2))
+				return true;
+		}
+		else
+		{
+			//네모네모 충돌
+			//분리축 이론
+			Vector3 d = left->GetPosition() - right->GetPosition();
+			Vector3 v[4]; 
+			Vector3 uint;
+			v[0] = left->HeightVector();
+			v[1] = right->HeightVector();
+			v[2] = left->WidthVector();
+			v[3] = right->WidthVector();
+
+			for (int i = 0; i < 4; i++)
+			{
+				float sum = 0;
+				uint = v[i];
+				uint.Normalize();
+				for (int i = 0; i < 4; i++)
+				{
+					float c = std::abs(v[i].Dot(uint));
+					sum += std::abs(v[i].Dot(uint));
+				}
+				if (std::abs(d.Dot(uint)) > sum)
+					return false;
+			}
+			return true;
+		}
+
 		return false;
 	}
 

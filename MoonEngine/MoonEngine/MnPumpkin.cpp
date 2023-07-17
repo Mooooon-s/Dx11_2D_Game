@@ -3,6 +3,7 @@
 #include "MnMeshRenderer.h"
 #include "MnResources.h"
 #include "MnTransform.h"
+#include "MnCollider2D.h"
 
 namespace Mn
 {
@@ -17,6 +18,7 @@ namespace Mn
 		MeshRenderer* mr = AddComponent<MeshRenderer>();
 		mr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
 		mr->SetMaterial(Resources::Find<Material>(L"MonMaterial"));
+		Collider2D* coll = AddComponent<Collider2D>();
 		GameObject::Initialize();
 	}
 	void Pumpkin::Update()
