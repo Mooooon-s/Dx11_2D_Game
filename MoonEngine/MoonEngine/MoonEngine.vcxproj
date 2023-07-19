@@ -167,8 +167,21 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="LoadScene.h" />
     <ClInclude Include="MnCameraScript.h" />
+    <ClInclude Include="MnCaveBG.h" />
+    <ClInclude Include="MnCaveBossBG.h" />
+    <ClInclude Include="MnCavePillar.h" />
+    <ClInclude Include="MnCaveRock.h" />
+    <ClInclude Include="MnCaveStage.h" />
+    <ClInclude Include="MnCaveStageBoss.h" />
+    <ClInclude Include="MnCaveWall.h" />
     <ClInclude Include="MnForestBG.h" />
+    <ClInclude Include="MnForestGround.h" />
+    <ClInclude Include="MnForestLight.h" />
+    <ClInclude Include="MnForestStageBoss.h" />
+    <ClInclude Include="MnForestTree.h" />
     <ClInclude Include="MnGridScript.h" />
+    <ClInclude Include="MnHpBar.h" />
+    <ClInclude Include="MnHpFrame.h" />
     <ClInclude Include="MnPlayerHp.h" />
     <ClInclude Include="MnPlayerScript.h" />
     <ClInclude Include="MnPumpkin.h" />
@@ -177,6 +190,19 @@
     <ClInclude Include="playScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnHpFrame.cpp" />
+    <ClCompile Include="MnHpBar.cpp" />
+    <ClCompile Include="MnForestStageBoss.cpp" />
+    <ClCompile Include="MnCaveStageBoss.cpp" />
+    <ClCompile Include="MnCaveBossBG.cpp" />
+    <ClCompile Include="MnCaveRock.cpp" />
+    <ClCompile Include="MnCavePillar.cpp" />
+    <ClCompile Include="MnCaveWall.cpp" />
+    <ClCompile Include="MnCaveBG.cpp" />
+    <ClCompile Include="MnCaveStage.cpp" />
+    <ClCompile Include="MnForestGround.cpp" />
+    <ClCompile Include="MnForestLight.cpp" />
+    <ClCompile Include="MnForestTree.cpp" />
     <ClCompile Include="MnForestBG.cpp" />
     <ClCompile Include="MnGridScript.cpp" />
     <ClCompile Include="MnCameraScript.cpp" />

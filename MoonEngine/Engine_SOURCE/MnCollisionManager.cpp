@@ -142,7 +142,6 @@ namespace Mn
 			}
 			return true;
 		}
-
 		return false;
 	}
 
@@ -173,5 +172,4 @@ namespace Mn
 		_Matrix->reset();
 		_CollisionMap.clear();
 	}
-
 }

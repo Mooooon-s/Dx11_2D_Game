@@ -13,12 +13,25 @@ namespace Mn
 	{
 		if (Input::GetKeyDown(eKeyCode::P))
 		{
-			_ActiveScene = _Scenes.find(L"titleScene")->second;
+			LoadScene(L"TitleScene");
 		}
 		if (Input::GetKeyDown(eKeyCode::O))
 		{
-			_ActiveScene = _Scenes.find(L"playScene")->second;
+			LoadScene(L"PlayScene");
 		}
+		if (Input::GetKeyDown(eKeyCode::I))
+		{
+			LoadScene(L"CaveStage");
+		}
+		if (Input::GetKeyDown(eKeyCode::U))
+		{
+			LoadScene(L"CaveStageBoss");
+		}
+		if (Input::GetKeyDown(eKeyCode::Y))
+		{
+			LoadScene(L"ForestStageBoss");
+		}
+
 		_ActiveScene->Update();
 		
 	}

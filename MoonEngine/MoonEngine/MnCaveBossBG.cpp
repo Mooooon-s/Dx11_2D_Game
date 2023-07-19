@@ -1,36 +1,34 @@
-#include "MnForestBG.h"
+#include "MnCaveBossBG.h"
 #include "MnMeshRenderer.h"
-#include "MnTransform.h"
 #include "MnResources.h"
-#include "MnTexture.h"
 
 namespace Mn
 {
-	ForestBG::ForestBG()
+	CaveBossBG::CaveBossBG()
 	{
 	}
-	ForestBG::~ForestBG()
+	CaveBossBG::~CaveBossBG()
 	{
 	}
-	void ForestBG::Initialize()
+	void CaveBossBG::Initialize()
 	{
 		MeshRenderer* BGmr = this->AddComponent<MeshRenderer>();
 		BGmr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
-		BGmr->SetMaterial(Resources::Find<Material>(L"BackGroundMaterial_Sky"));
+		BGmr->SetMaterial(Resources::Find<Material>(L"BackGround_Cave_Rock_type_3"));
 		BGmr->GetMaterial()->GetTexture()->CalculateRatio();
 		Vector2 v = BGmr->GetMaterial()->GetTexture()->Raitio();
-		this->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 2.9f));
+		this->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 2.5f));
 		this->GetComponent<Transform>()->Scale(Vector3(v.x * 4.5, v.y * 4.5, 1.0f));
 	}
-	void ForestBG::Update()
+	void CaveBossBG::Update()
 	{
 		GameObject::Update();
 	}
-	void ForestBG::LateUpdate()
+	void CaveBossBG::LateUpdate()
 	{
 		GameObject::LateUpdate();
 	}
-	void ForestBG::Render()
+	void CaveBossBG::Render()
 	{
 		GameObject::Render();
 	}

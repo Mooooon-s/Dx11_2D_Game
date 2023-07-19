@@ -61,6 +61,15 @@ namespace Mn::object
 		return gameObj;
 	}
 
+	template<typename T>
+	static __forceinline T* Instantiate(enums::eLayerType layer,Scene* activeScene)
+	{
+		T* gameObj = new T();
+		Scene* scene = activeScene;
+		scene->AddGameObject(layer, gameObj);
+		return gameObj;
+	}
+
 	template <typename T>
 	static __forceinline T* Instantiate(std::wstring mesh, std::wstring material ,enums::eLayerType layer)
 	{

@@ -2,6 +2,9 @@
 #include "../Engine_SOURCE/MnSceneManager.h"
 #include "playScene.h"
 #include "MnTitleScene.h"
+#include "MnCaveStage.h"
+#include "MnCaveStageBoss.h"
+#include "MnForestStageBoss.h"
 
 
 #ifdef _DEBUG
@@ -16,5 +19,9 @@ namespace Mn
 	{
 		//PlayScene* playScene = new PlayScene();
 		SceneManager::CreateScene<playScene>(L"PlayScene");
+		SceneManager::CreateScene<ForestStageBoss>(L"ForestStageBoss");
+		SceneManager::CreateScene<TitleScene>(L"TitleScene");
+		SceneManager::CreateScene<CaveStage>(L"CaveStage");
+		SceneManager::CreateScene<CaveStageBoss>(L"CaveStageBoss");
 	}
 }

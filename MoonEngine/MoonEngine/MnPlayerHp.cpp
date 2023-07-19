@@ -16,13 +16,13 @@ namespace Mn
 	{
 		MeshRenderer* hpBarMr = AddComponent<MeshRenderer>();
 		hpBarMr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
-		hpBarMr->SetMaterial(Resources::Find<Material>(L"Hp_Bar"));
+		hpBarMr->SetMaterial(Resources::Find<Material>(L"HP_BAR_ProgressBar"));
 
 		std::shared_ptr<Material> mt = hpBarMr->GetMaterial();
 		Vector2 scale = mt->CalcurateRatio();
 		Transform* tr = GetComponent<Transform>();
-		tr->Scale(Vector3(scale.x*0.25, scale.y*0.25, 0.0f));
-		tr->Position(Vector3(-1.5f, 2.0f, 0.0f));
+		tr->Scale(Vector3(scale.x*0.106f, scale.y*0.55f, 0.0f));
+		tr->Position(Vector3(0.0f, 0.0f, 0.1f));
 	}
 	void PlayerHp::Update()
 	{

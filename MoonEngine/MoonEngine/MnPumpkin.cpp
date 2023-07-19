@@ -19,6 +19,7 @@ namespace Mn
 		mr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
 		mr->SetMaterial(Resources::Find<Material>(L"MonMaterial"));
 		Collider2D* coll = AddComponent<Collider2D>();
+		coll->SetSize(Vector2(1.2, 1.2));
 		GameObject::Initialize();
 	}
 	void Pumpkin::Update()

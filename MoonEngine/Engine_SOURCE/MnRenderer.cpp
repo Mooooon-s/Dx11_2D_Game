@@ -394,23 +394,105 @@ namespace renderer
 		//----------------------------------------------------------------
 		//							Texture
 		//----------------------------------------------------------------
-		std::shared_ptr<Texture> backgroundTex[3];
-		backgroundTex[0] = Resources::Load<Texture>(L"BackGround_forest_sky", L"..\\Resources\\Texture\\BackGround\\background_stage_1_sky.png");
-		backgroundTex[1] = Resources::Load<Texture>(L"BackGround_forest_tree", L"..\\Resources\\Texture\\BackGround\\background_stage_1_tree.png");
+
+
+		std::shared_ptr<Texture> TitleTex;
+		TitleTex = Resources::Load<Texture>(L"Title_Scene", L"..\\Resources\\Texture\\BackGround\\Title_1.jpg");
+
+
+
+		std::shared_ptr<Texture> SkyBackground;
+		SkyBackground= Resources::Load<Texture>(L"BackGround_forest_sky", L"..\\Resources\\Texture\\BackGround\\background_stage_1_sky.png");
+		
+		
+		std::shared_ptr<Texture> backgroundTex[4];
+		backgroundTex[0] = Resources::Load<Texture>(L"BackGround_forest_ground", L"..\\Resources\\Texture\\BackGround\\background_stage_1_ground.png");
+		backgroundTex[1] = Resources::Load<Texture>(L"BackGround_forest_tree", L"..\\Resources\\Texture\\BackGround\\background_stage_1_tree_1.png");
+		backgroundTex[2] = Resources::Load<Texture>(L"BackGround_forest_light", L"..\\Resources\\Texture\\BackGround\\background_light.png");
+		backgroundTex[3] = Resources::Load<Texture>(L"BackGround_forest_boss", L"..\\Resources\\Texture\\BackGround\\forestBoss.png");
+
+
+		std::shared_ptr<Texture> stage2BackGroundTex[5];
+		stage2BackGroundTex[0] = Resources::Load<Texture>(L"BackGround_Cave_backGround_1", L"..\\Resources\\Texture\\BackGround\\cave\\background1.png");
+		stage2BackGroundTex[1] = Resources::Load<Texture>(L"BackGround_Cave_backGround_2", L"..\\Resources\\Texture\\BackGround\\cave\\background2.png");
+		stage2BackGroundTex[2] = Resources::Load<Texture>(L"BackGround_Cave_rock_type_1", L"..\\Resources\\Texture\\BackGround\\cave\\background3.png");
+		stage2BackGroundTex[3] = Resources::Load<Texture>(L"BackGround_Cave_rock_type_2", L"..\\Resources\\Texture\\BackGround\\cave\\background4a.png");
+		stage2BackGroundTex[4] = Resources::Load<Texture>(L"BackGround_Cave_rock_type_3", L"..\\Resources\\Texture\\BackGround\\cave\\background4b.png");
+
+
+
 		//----------------------------------------------------------------
 		//							Material
 		//----------------------------------------------------------------
+		
+		//forest
+		std::shared_ptr<Material> TitleMaterial = std::make_shared<Material>();
+		TitleMaterial->SetTexture(TitleTex);
+		TitleMaterial->Shader(backgroundShader);
+		TitleMaterial->RenderingMode(eRenderingMode::Opaque);
+		Mn::Resources::Insert(L"TitleMaterial", TitleMaterial);
+
 		std::shared_ptr<Material> backgroundMaterial = std::make_shared<Material>();
-		backgroundMaterial->SetTexture(backgroundTex[0]);
+		backgroundMaterial->SetTexture(SkyBackground);
 		backgroundMaterial->Shader(backgroundShader);
 		backgroundMaterial->RenderingMode(eRenderingMode::Opaque);
-		Mn::Resources::Insert(L"BackGroundMaterial_Layer_0", backgroundMaterial);
+		Mn::Resources::Insert(L"BackGroundMaterial_Sky", backgroundMaterial);
 
-		std::shared_ptr<Material> backgroundMaterial2 = std::make_shared<Material>();
-		backgroundMaterial2->SetTexture(backgroundTex[1]);
-		backgroundMaterial2->Shader(backgroundShader);
-		backgroundMaterial->RenderingMode(eRenderingMode::Transparent);
-		Mn::Resources::Insert(L"BackGroundMaterial_Layer_1", backgroundMaterial2);
+		std::shared_ptr<Material> backgroundMaterialGround = std::make_shared<Material>();
+		backgroundMaterialGround->SetTexture(backgroundTex[0]);
+		backgroundMaterialGround->Shader(backgroundShader);
+		backgroundMaterialGround->RenderingMode(eRenderingMode::Transparent);
+		Mn::Resources::Insert(L"BackGround_forest_Ground", backgroundMaterialGround);
+
+		std::shared_ptr<Material> backgroundMaterialTree = std::make_shared<Material>();
+		backgroundMaterialTree->SetTexture(backgroundTex[1]);
+		backgroundMaterialTree->Shader(backgroundShader);
+		backgroundMaterialTree->RenderingMode(eRenderingMode::Transparent);
+		Mn::Resources::Insert(L"BackGroundMaterial_Tree", backgroundMaterialTree);
+
+		std::shared_ptr<Material> backgroundMaterialLight = std::make_shared<Material>();
+		backgroundMaterialLight->SetTexture(backgroundTex[2]);
+		backgroundMaterialLight->Shader(backgroundShader);
+		backgroundMaterialLight->RenderingMode(eRenderingMode::Transparent);
+		Mn::Resources::Insert(L"BackGroundMaterial_Light", backgroundMaterialLight);
+
+		std::shared_ptr<Material> backgroundMaterialBoss = std::make_shared<Material>();
+		backgroundMaterialBoss->SetTexture(backgroundTex[3]);
+		backgroundMaterialBoss->Shader(backgroundShader);
+		backgroundMaterialBoss->RenderingMode(eRenderingMode::Opaque);
+		Mn::Resources::Insert(L"BackGround_forest_Boss", backgroundMaterialBoss);
+
+
+		//cave
+		std::shared_ptr<Material> backgroundMaterialCaveWall1 = std::make_shared<Material>();
+		backgroundMaterialCaveWall1->SetTexture(stage2BackGroundTex[0]);
+		backgroundMaterialCaveWall1->Shader(backgroundShader);
+		backgroundMaterialCaveWall1->RenderingMode(eRenderingMode::Opaque);
+		Mn::Resources::Insert(L"BackGround_Cave_BackGround_1", backgroundMaterialCaveWall1);
+
+		std::shared_ptr<Material> backgroundMaterialCaveWall2 = std::make_shared<Material>();
+		backgroundMaterialCaveWall2->SetTexture(stage2BackGroundTex[1]);
+		backgroundMaterialCaveWall2->Shader(backgroundShader);
+		backgroundMaterialCaveWall2->RenderingMode(eRenderingMode::Transparent);
+		Mn::Resources::Insert(L"BackGround_Cave_BackGround_2", backgroundMaterialCaveWall2);
+
+		std::shared_ptr<Material> backgroundMaterialCaveRock1 = std::make_shared<Material>();
+		backgroundMaterialCaveRock1->SetTexture(stage2BackGroundTex[2]);
+		backgroundMaterialCaveRock1->Shader(backgroundShader);
+		backgroundMaterialCaveRock1->RenderingMode(eRenderingMode::Transparent);
+		Mn::Resources::Insert(L"BackGround_Cave_Rock_type_1", backgroundMaterialCaveRock1);
+
+		std::shared_ptr<Material> backgroundMaterialCaveRock2 = std::make_shared<Material>();
+		backgroundMaterialCaveRock2->SetTexture(stage2BackGroundTex[3]);
+		backgroundMaterialCaveRock2->Shader(backgroundShader);
+		backgroundMaterialCaveRock2->RenderingMode(eRenderingMode::Transparent);
+		Mn::Resources::Insert(L"BackGround_Cave_Rock_type_2", backgroundMaterialCaveRock2);
+
+		std::shared_ptr<Material> backgroundMaterialCaveRock3 = std::make_shared<Material>();
+		backgroundMaterialCaveRock3->SetTexture(stage2BackGroundTex[4]);
+		backgroundMaterialCaveRock3->Shader(backgroundShader);
+		backgroundMaterialCaveRock3->RenderingMode(eRenderingMode::Transparent);
+		Mn::Resources::Insert(L"BackGround_Cave_Rock_type_3", backgroundMaterialCaveRock3);
 
 
 		//Water
@@ -418,7 +500,7 @@ namespace renderer
 		WaterTex = Resources::Load<Texture>(L"Water_Bump", L"..\\Resources\\Texture\\Water\\Water_Bump.png");
 		std::shared_ptr<Material> WaterMat = std::make_shared<Material>();
 		WaterMat->SetTexture(WaterTex);
-		WaterMat->TextureBind(backgroundTex[0], 1);
+		//WaterMat->TextureBind(backgroundTex[0], 1);
 		WaterMat->Shader(WaterShader);
 		WaterMat->RenderingMode(eRenderingMode::Transparent);
 		Mn::Resources::Insert(L"WaterMaterial", WaterMat);
@@ -448,20 +530,32 @@ namespace renderer
 		std::shared_ptr<Texture> Hpbar = std::make_shared<Texture>();
 		std::shared_ptr<Texture> HpbarBack = std::make_shared<Texture>();
 		std::shared_ptr<Texture> HpbarFrame = std::make_shared<Texture>();
-		Hpbar = Resources::Load<Texture>(L"HP_BAR_", L"..\\Resources\\Texture\\GUI\\HP_BAR\\BarV7_ProgressBar.png");
-		HpbarBack = Resources::Load<Texture>(L"HP_BAR_Back", L"..\\Resources\\Texture\\GUI\\HP_BAR\\BarV7_Bar.png");
-		HpbarFrame = Resources::Load<Texture>(L"HP_BAR_FRAME", L"..\\Resources\\Texture\\GUI\\HP_BAR\\BarV7_ProgressBarBorder.png");
+		Hpbar = Resources::Load<Texture>(L"HP_BAR_progressBar", L"..\\Resources\\Texture\\GUI\\HP_BAR\\BarV7_ProgressBar.png");
+		HpbarBack = Resources::Load<Texture>(L"HP_BAR_back", L"..\\Resources\\Texture\\GUI\\HP_BAR\\BarV7_Bar.png");
+		HpbarFrame = Resources::Load<Texture>(L"HP_BAR_fram", L"..\\Resources\\Texture\\GUI\\HP_BAR\\BarV7_ProgressBarBorder.png");
 
 		//----------------------------------------------------------------
 		//							Material
 		//----------------------------------------------------------------
 
 		//Hp
+		std::shared_ptr<Material> progressHpMat = std::make_shared<Material>();
+		progressHpMat->SetTexture(Hpbar);
+		progressHpMat->Shader(HPShader);
+		progressHpMat->RenderingMode(eRenderingMode::Transparent);
+		Resources::Insert<Material>(L"HP_BAR_ProgressBar", progressHpMat);
+
 		std::shared_ptr<Material> HpMat = std::make_shared<Material>();
-		HpMat->SetTexture(Hpbar);
+		HpMat->SetTexture(HpbarBack);
 		HpMat->Shader(HPShader);
-		HpMat->RenderingMode(eRenderingMode::Opaque);
-		Resources::Insert<Material>(L"Hp_Bar", HpMat);
+		HpMat->RenderingMode(eRenderingMode::Transparent);
+		Resources::Insert<Material>(L"HP_BAR_Back", HpMat);
+
+		std::shared_ptr<Material> HpBarFrameMat = std::make_shared<Material>();
+		HpBarFrameMat->SetTexture(HpbarFrame);
+		HpBarFrameMat->Shader(HPShader);
+		HpBarFrameMat->RenderingMode(eRenderingMode::Transparent);
+		Resources::Insert<Material>(L"HP_BAR_FRAME", HpBarFrameMat);
 
 		std::shared_ptr<Material> material = std::make_shared<Material>();
 		material->Shader(gridShader);

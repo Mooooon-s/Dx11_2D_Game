@@ -5,12 +5,6 @@
     <ClInclude Include="MnCameraScript.h">
       <Filter>Contents\Scripts</Filter>
     </ClInclude>
-    <ClInclude Include="MnTitleScene.h">
-      <Filter>Contents\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="playScene.h">
-      <Filter>Contents\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="LoadScene.h">
       <Filter>Contents\Load</Filter>
     </ClInclude>
@@ -26,23 +20,62 @@
     <ClInclude Include="MnGridScript.h">
       <Filter>Contents\Scripts</Filter>
     </ClInclude>
-    <ClInclude Include="MnForestBG.h">
-      <Filter>Contents\BackGround</Filter>
-    </ClInclude>
     <ClInclude Include="MnPumpkin.h">
       <Filter>Contents\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="playScene.h">
+      <Filter>Contents\Scene\Stage_1</Filter>
+    </ClInclude>
+    <ClInclude Include="MnTitleScene.h">
+      <Filter>Contents\Scene\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="MnCaveStage.h">
+      <Filter>Contents\Scene\Stage_2</Filter>
+    </ClInclude>
+    <ClInclude Include="MnForestBG.h">
+      <Filter>Contents\BackGround\Forest</Filter>
+    </ClInclude>
+    <ClInclude Include="MnForestGround.h">
+      <Filter>Contents\BackGround\Forest</Filter>
+    </ClInclude>
+    <ClInclude Include="MnForestLight.h">
+      <Filter>Contents\BackGround\Forest</Filter>
+    </ClInclude>
+    <ClInclude Include="MnForestTree.h">
+      <Filter>Contents\BackGround\Forest</Filter>
+    </ClInclude>
+    <ClInclude Include="MnCaveBG.h">
+      <Filter>Contents\BackGround\Cave</Filter>
+    </ClInclude>
+    <ClInclude Include="MnCaveWall.h">
+      <Filter>Contents\BackGround\Cave</Filter>
+    </ClInclude>
+    <ClInclude Include="MnCavePillar.h">
+      <Filter>Contents\BackGround\Cave</Filter>
+    </ClInclude>
+    <ClInclude Include="MnCaveBossBG.h">
+      <Filter>Contents\BackGround\Cave</Filter>
+    </ClInclude>
+    <ClInclude Include="MnCaveRock.h">
+      <Filter>Contents\BackGround\Cave</Filter>
+    </ClInclude>
+    <ClInclude Include="MnCaveStageBoss.h">
+      <Filter>Contents\Scene\Stage_2</Filter>
+    </ClInclude>
+    <ClInclude Include="MnForestStageBoss.h">
+      <Filter>Contents\Scene\Stage_1</Filter>
+    </ClInclude>
+    <ClInclude Include="MnHpBar.h">
+      <Filter>Contents\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="MnHpFrame.h">
+      <Filter>Contents\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
     <ClCompile Include="MnCameraScript.cpp">
       <Filter>Contents\Scripts</Filter>
-    </ClCompile>
-    <ClCompile Include="MnTitleScene.cpp">
-      <Filter>Contents\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="playScene.cpp">
-      <Filter>Contents\Scene</Filter>
     </ClCompile>
     <ClCompile Include="MnWaterScript.cpp">
       <Filter>Contents\Scripts</Filter>
@@ -56,11 +89,56 @@
     <ClCompile Include="MnGridScript.cpp">
       <Filter>Contents\Scripts</Filter>
     </ClCompile>
-    <ClCompile Include="MnForestBG.cpp">
-      <Filter>Contents\BackGround</Filter>
-    </ClCompile>
     <ClCompile Include="MnPumpkin.cpp">
       <Filter>Contents\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="playScene.cpp">
+      <Filter>Contents\Scene\Stage_1</Filter>
+    </ClCompile>
+    <ClCompile Include="MnTitleScene.cpp">
+      <Filter>Contents\Scene\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="MnCaveStage.cpp">
+      <Filter>Contents\Scene\Stage_2</Filter>
+    </ClCompile>
+    <ClCompile Include="MnForestBG.cpp">
+      <Filter>Contents\BackGround\Forest</Filter>
+    </ClCompile>
+    <ClCompile Include="MnForestGround.cpp">
+      <Filter>Contents\BackGround\Forest</Filter>
+    </ClCompile>
+    <ClCompile Include="MnForestLight.cpp">
+      <Filter>Contents\BackGround\Forest</Filter>
+    </ClCompile>
+    <ClCompile Include="MnForestTree.cpp">
+      <Filter>Contents\BackGround\Forest</Filter>
+    </ClCompile>
+    <ClCompile Include="MnCaveBG.cpp">
+      <Filter>Contents\BackGround\Cave</Filter>
+    </ClCompile>
+    <ClCompile Include="MnCaveWall.cpp">
+      <Filter>Contents\BackGround\Cave</Filter>
+    </ClCompile>
+    <ClCompile Include="MnCavePillar.cpp">
+      <Filter>Contents\BackGround\Cave</Filter>
+    </ClCompile>
+    <ClCompile Include="MnCaveRock.cpp">
+      <Filter>Contents\BackGround\Cave</Filter>
+    </ClCompile>
+    <ClCompile Include="MnCaveBossBG.cpp">
+      <Filter>Contents\BackGround\Cave</Filter>
+    </ClCompile>
+    <ClCompile Include="MnCaveStageBoss.cpp">
+      <Filter>Contents\Scene\Stage_2</Filter>
+    </ClCompile>
+    <ClCompile Include="MnForestStageBoss.cpp">
+      <Filter>Contents\Scene\Stage_1</Filter>
+    </ClCompile>
+    <ClCompile Include="MnHpBar.cpp">
+      <Filter>Contents\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MnHpFrame.cpp">
+      <Filter>Contents\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +162,21 @@
     </Filter>
     <Filter Include="Contents\Monster">
       <UniqueIdentifier>{283dc678-6cf2-4112-8f44-0b0f17f8dad2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\BackGround\Forest">
+      <UniqueIdentifier>{6bf600bd-c4e5-4766-b909-f26b0a77852e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\BackGround\Cave">
+      <UniqueIdentifier>{94ca0685-45ca-4599-8fc3-b7bc15740ce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scene\Stage_2">
+      <UniqueIdentifier>{0a002c5d-f9da-4cb8-844b-00262e8ff083}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scene\Stage_1">
+      <UniqueIdentifier>{dc460d1a-f75f-46ff-9485-a951339f9cdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scene\Title">
+      <UniqueIdentifier>{17c2c4b5-a802-43df-8cb1-304b6a905951}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
