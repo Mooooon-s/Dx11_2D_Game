@@ -13,6 +13,7 @@
 #define CBSLOT_TIME				1
 #define CBSLOT_GRID				2
 #define CBSLOT_DEBUG			3
+#define CBSLOT_ANIMATION		4
 
 #include "../Engine_SOURCE/MnMath.h"
 #include "../Engine_SOURCE/MnEnums.h"
@@ -40,6 +41,7 @@ namespace Mn::graphics
 		Grid,
 		Time,
 		Debug,
+		Animator,
 		End,
 	};
 

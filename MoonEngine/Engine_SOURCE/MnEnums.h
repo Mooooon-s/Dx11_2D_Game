@@ -11,6 +11,7 @@ namespace Mn::enums
 		Meshrenderer,
 		Script,
 		Camera,
+		Animator,
 		End,
 	};
 
@@ -31,6 +32,7 @@ namespace Mn::enums
 		Shader,
 		Material,
 		Mesh,
+		Animation,
 		End,
 	};
 

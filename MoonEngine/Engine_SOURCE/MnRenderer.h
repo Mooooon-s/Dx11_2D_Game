@@ -41,6 +41,14 @@ namespace renderer
 		Vector4 Intersect;
 	};
 
+	CBUFFER(AnimatorCB, CBSLOT_ANIMATION)
+	{
+		Vector2 SpriteleftTop;
+		Vector2 SpriteSize;
+		Vector2 SpriteOffset;
+		Vector2 atlasSize;
+	};
+
 	extern Mn::graphics::ConstantBuffer* constantBuffer[(UINT)eCBType::End];
 	extern Microsoft::WRL::ComPtr<ID3D11SamplerState> samplerState[];
 	extern Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterizerStates[];

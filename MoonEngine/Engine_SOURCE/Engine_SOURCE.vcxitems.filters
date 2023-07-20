@@ -97,6 +97,12 @@
     <Filter Include="GameObject\Component\Collider">
       <UniqueIdentifier>{cf7a5ef5-f215-4aec-83fd-67cd04bcd886}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource\Animation">
+      <UniqueIdentifier>{ee3a7312-59c8-4777-b369-b7371239f19b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Component\Animator">
+      <UniqueIdentifier>{41f88c44-9000-494a-ab31-8afa54c961da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnEntity.cpp">
@@ -195,6 +201,12 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCollisionManager.cpp">
       <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnAnimation.cpp">
+      <Filter>Resource\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnAnimator.cpp">
+      <Filter>GameObject\Component\Animator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -307,6 +319,12 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCollisionManager.h">
       <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnAnimation.h">
+      <Filter>Resource\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnAnimator.h">
+      <Filter>GameObject\Component\Animator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

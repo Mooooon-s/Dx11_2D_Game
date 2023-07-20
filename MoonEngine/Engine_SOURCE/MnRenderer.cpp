@@ -270,6 +270,9 @@ namespace renderer
 
 		constantBuffer[(UINT)eCBType::Debug] = new ConstantBuffer(eCBType::Debug);
 		constantBuffer[(UINT)eCBType::Debug]->Create(sizeof(DebugCB));
+
+		constantBuffer[(UINT)eCBType::Animator] = new ConstantBuffer(eCBType::Animator);
+		constantBuffer[(UINT)eCBType::Animator]->Create(sizeof(AnimatorCB));
 	}
 
 	void LoadShader()
@@ -340,7 +343,7 @@ namespace renderer
 		//----------------------------------------------------------------
 		//							Texture
 		//----------------------------------------------------------------
-		std::shared_ptr<Texture> texture = Resources::Load<Texture>(L"player", L"..\\Resources\\Texture\\idle.png");
+		std::shared_ptr<Mn::graphics::Texture> texture = Resources::Load<Mn::graphics::Texture>(L"player", L"..\\Resources\\Texture\\idle.png");
 
 		//----------------------------------------------------------------
 		//							Material
@@ -366,7 +369,7 @@ namespace renderer
 		//----------------------------------------------------------------
 		//							Texture
 		//----------------------------------------------------------------
-		std::shared_ptr<Texture> Montexture = Resources::Load<Texture>(L"Monster_Pumpkin", L"..\\Resources\\Texture\\Monster\\Undead_pumpking_Sprites.png");
+		std::shared_ptr<Mn::graphics::Texture> Montexture = Resources::Load<Mn::graphics::Texture>(L"Monster_Pumpkin", L"..\\Resources\\Texture\\Monster\\Undead_pumpking_Sprites.png");
 
 		//----------------------------------------------------------------
 		//							Material
@@ -396,28 +399,28 @@ namespace renderer
 		//----------------------------------------------------------------
 
 
-		std::shared_ptr<Texture> TitleTex;
-		TitleTex = Resources::Load<Texture>(L"Title_Scene", L"..\\Resources\\Texture\\BackGround\\Title_1.jpg");
+		std::shared_ptr<Mn::graphics::Texture> TitleTex;
+		TitleTex = Resources::Load<Mn::graphics::Texture>(L"Title_Scene", L"..\\Resources\\Texture\\BackGround\\Title_1.jpg");
 
 
 
-		std::shared_ptr<Texture> SkyBackground;
-		SkyBackground= Resources::Load<Texture>(L"BackGround_forest_sky", L"..\\Resources\\Texture\\BackGround\\background_stage_1_sky.png");
+		std::shared_ptr<Mn::graphics::Texture> SkyBackground;
+		SkyBackground= Resources::Load<Mn::graphics::Texture>(L"BackGround_forest_sky", L"..\\Resources\\Texture\\BackGround\\background_stage_1_sky.png");
 		
 		
-		std::shared_ptr<Texture> backgroundTex[4];
-		backgroundTex[0] = Resources::Load<Texture>(L"BackGround_forest_ground", L"..\\Resources\\Texture\\BackGround\\background_stage_1_ground.png");
-		backgroundTex[1] = Resources::Load<Texture>(L"BackGround_forest_tree", L"..\\Resources\\Texture\\BackGround\\background_stage_1_tree_1.png");
-		backgroundTex[2] = Resources::Load<Texture>(L"BackGround_forest_light", L"..\\Resources\\Texture\\BackGround\\background_light.png");
-		backgroundTex[3] = Resources::Load<Texture>(L"BackGround_forest_boss", L"..\\Resources\\Texture\\BackGround\\forestBoss.png");
+		std::shared_ptr<Mn::graphics::Texture> backgroundTex[4];
+		backgroundTex[0] = Resources::Load<Mn::graphics::Texture>(L"BackGround_forest_ground", L"..\\Resources\\Texture\\BackGround\\background_stage_1_ground.png");
+		backgroundTex[1] = Resources::Load<Mn::graphics::Texture>(L"BackGround_forest_tree", L"..\\Resources\\Texture\\BackGround\\background_stage_1_tree_1.png");
+		backgroundTex[2] = Resources::Load<Mn::graphics::Texture>(L"BackGround_forest_light", L"..\\Resources\\Texture\\BackGround\\background_light.png");
+		backgroundTex[3] = Resources::Load<Mn::graphics::Texture>(L"BackGround_forest_boss", L"..\\Resources\\Texture\\BackGround\\forestBoss.png");
 
 
-		std::shared_ptr<Texture> stage2BackGroundTex[5];
-		stage2BackGroundTex[0] = Resources::Load<Texture>(L"BackGround_Cave_backGround_1", L"..\\Resources\\Texture\\BackGround\\cave\\background1.png");
-		stage2BackGroundTex[1] = Resources::Load<Texture>(L"BackGround_Cave_backGround_2", L"..\\Resources\\Texture\\BackGround\\cave\\background2.png");
-		stage2BackGroundTex[2] = Resources::Load<Texture>(L"BackGround_Cave_rock_type_1", L"..\\Resources\\Texture\\BackGround\\cave\\background3.png");
-		stage2BackGroundTex[3] = Resources::Load<Texture>(L"BackGround_Cave_rock_type_2", L"..\\Resources\\Texture\\BackGround\\cave\\background4a.png");
-		stage2BackGroundTex[4] = Resources::Load<Texture>(L"BackGround_Cave_rock_type_3", L"..\\Resources\\Texture\\BackGround\\cave\\background4b.png");
+		std::shared_ptr<Mn::graphics::Texture> stage2BackGroundTex[5];
+		stage2BackGroundTex[0] = Resources::Load<Mn::graphics::Texture>(L"BackGround_Cave_backGround_1", L"..\\Resources\\Texture\\BackGround\\cave\\background1.png");
+		stage2BackGroundTex[1] = Resources::Load<Mn::graphics::Texture>(L"BackGround_Cave_backGround_2", L"..\\Resources\\Texture\\BackGround\\cave\\background2.png");
+		stage2BackGroundTex[2] = Resources::Load<Mn::graphics::Texture>(L"BackGround_Cave_rock_type_1", L"..\\Resources\\Texture\\BackGround\\cave\\background3.png");
+		stage2BackGroundTex[3] = Resources::Load<Mn::graphics::Texture>(L"BackGround_Cave_rock_type_2", L"..\\Resources\\Texture\\BackGround\\cave\\background4a.png");
+		stage2BackGroundTex[4] = Resources::Load<Mn::graphics::Texture>(L"BackGround_Cave_rock_type_3", L"..\\Resources\\Texture\\BackGround\\cave\\background4b.png");
 
 
 
@@ -496,8 +499,8 @@ namespace renderer
 
 
 		//Water
-		std::shared_ptr<Texture> WaterTex;
-		WaterTex = Resources::Load<Texture>(L"Water_Bump", L"..\\Resources\\Texture\\Water\\Water_Bump.png");
+		std::shared_ptr<Mn::graphics::Texture> WaterTex;
+		WaterTex = Resources::Load<Mn::graphics::Texture>(L"Water_Bump", L"..\\Resources\\Texture\\Water\\Water_Bump.png");
 		std::shared_ptr<Material> WaterMat = std::make_shared<Material>();
 		WaterMat->SetTexture(WaterTex);
 		//WaterMat->TextureBind(backgroundTex[0], 1);
@@ -527,12 +530,12 @@ namespace renderer
 		//----------------------------------------------------------------
 
 		//HP
-		std::shared_ptr<Texture> Hpbar = std::make_shared<Texture>();
-		std::shared_ptr<Texture> HpbarBack = std::make_shared<Texture>();
-		std::shared_ptr<Texture> HpbarFrame = std::make_shared<Texture>();
-		Hpbar = Resources::Load<Texture>(L"HP_BAR_progressBar", L"..\\Resources\\Texture\\GUI\\HP_BAR\\BarV7_ProgressBar.png");
-		HpbarBack = Resources::Load<Texture>(L"HP_BAR_back", L"..\\Resources\\Texture\\GUI\\HP_BAR\\BarV7_Bar.png");
-		HpbarFrame = Resources::Load<Texture>(L"HP_BAR_fram", L"..\\Resources\\Texture\\GUI\\HP_BAR\\BarV7_ProgressBarBorder.png");
+		std::shared_ptr<Mn::graphics::Texture> Hpbar = std::make_shared<Mn::graphics::Texture>();
+		std::shared_ptr<Mn::graphics::Texture> HpbarBack = std::make_shared<Mn::graphics::Texture>();
+		std::shared_ptr<Mn::graphics::Texture> HpbarFrame = std::make_shared<Mn::graphics::Texture>();
+		Hpbar = Resources::Load<Mn::graphics::Texture>(L"HP_BAR_progressBar", L"..\\Resources\\Texture\\GUI\\HP_BAR\\BarV7_ProgressBar.png");
+		HpbarBack = Resources::Load<Mn::graphics::Texture>(L"HP_BAR_back", L"..\\Resources\\Texture\\GUI\\HP_BAR\\BarV7_Bar.png");
+		HpbarFrame = Resources::Load<Mn::graphics::Texture>(L"HP_BAR_fram", L"..\\Resources\\Texture\\GUI\\HP_BAR\\BarV7_ProgressBarBorder.png");
 
 		//----------------------------------------------------------------
 		//							Material

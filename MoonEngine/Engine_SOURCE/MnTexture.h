@@ -34,6 +34,8 @@ namespace Mn::graphics
 		void CalculateRatio();
 		float GetWidth() { return _Width; }
 		float GetHeight() { return _Height; }
+		size_t GetImageWidth() { return _Image.GetMetadata().width; }
+		size_t GetImageHeight() { return _Image.GetMetadata().height; }
 		math::Vector2 Raitio() { return _Ratio; }
 	};
 }
