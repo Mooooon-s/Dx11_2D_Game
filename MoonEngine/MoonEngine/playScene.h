@@ -1,5 +1,4 @@
 #pragma once
-//#include "MnScene.h"
 #include "../Engine_SOURCE/MnScene.h"
 #include "../Engine_SOURCE/MnKdTree.h"
 

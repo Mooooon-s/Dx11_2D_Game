@@ -18,6 +18,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnFish.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnKdTree.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnBackGround.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMainCharacter.cpp" />
@@ -65,6 +66,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnConstantBuffer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnFish.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphicDevice_Dx11.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphics.h" />

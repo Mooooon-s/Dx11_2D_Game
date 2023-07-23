@@ -14,66 +14,37 @@
 #include "MnCamera.h"
 #include "MnRenderer.h"
 
+#include "MnAquarimBG.h"
+#include "MnTopBar.h"
+
+
+#include "MnGuppy.h"
+
 #include "MnCameraScript.h"
-#include "MnWaterScript.h"
-#include "MnPlayerScript.h"
 #include "MnGridScript.h"
 
-#include "MnPumpkin.h"
-#include "MnMainCharacter.h"
-
-#include "MnForestBG.h"
-#include "MnForestTree.h"
-#include "MnForestLight.h"
-#include "MnForestGround.h"
-
-#include "MnPlayerHp.h"
-#include "MnHpBar.h"
-#include "MnHpFrame.h"
-
-#define PI 3.1415926535
-
 Mn::playScene::playScene()
+	: _KdTree(nullptr)
 {
 }
 
 Mn::playScene::~playScene()
 {
+
 }
 
 void Mn::playScene::Initialize()
 {
 	_KdTree = new KdTree(1);
 
-	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
+	Guppy* guppy = object::Instantiate<Guppy>(eLayerType::Fish);
+	guppy->Initialize();
 
+	AquarimBG* aquarimBG = object::Instantiate<AquarimBG>(eLayerType::BackGround,enums::eAquarim::Stage1);
+	aquarimBG->Initialize();
 
-	ForestBG* background = object::Instantiate<ForestBG>(eLayerType::BackGround);
-	background->Initialize();
-	background->SetName(L"background");
-
-	ForestTree* backgroundtree = object::Instantiate<ForestTree>(eLayerType::BackGround);
-	backgroundtree->Initialize();
-	background->SetName(L"background_Tree");
-
-	ForestLight* backgroundLight = object::Instantiate<ForestLight>(eLayerType::BackGround);
-	backgroundLight->Initialize();
-
-	ForestGround* backfroundGround = object::Instantiate<ForestGround>(eLayerType::BackGround);
-	backfroundGround->Initialize();
-
-	MainCharacter* player = object::Instantiate<MainCharacter>(eLayerType::Player);
-	player->Initialize();
-	player->AddComponent<PlayerScript>();
-	player->SetName(L"player");
-
-	Pumpkin* pumpkinMon = object::Instantiate<Pumpkin>(Vector3(0.0f,0.5f,0.0f),eLayerType::Monster);
-	pumpkinMon->Initialize();
-	pumpkinMon->SetName(L"Mon");
-	pumpkinMon->GetComponent<Transform>()->Rotation(Vector3(0.0f, 0.0f, 5.0f));
-
-
-
+	TopBar* topbar = object::Instantiate<TopBar>(eLayerType::UI);
+	topbar->Initialize();
 
 
 	//Main Camera
@@ -82,7 +53,6 @@ void Mn::playScene::Initialize()
 	camera->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, -10.0f));
 	Camera* cameraComp = camera->AddComponent<Camera>();
 	CameraScript* cs = camera->AddComponent<CameraScript>();
-	cs->SetTarget(player);
 	cameraComp->TurnLayerMask(eLayerType::UI, false);
 	renderer::cameras.push_back(cameraComp);
 	renderer::mainCamera = cameraComp;
@@ -92,24 +62,6 @@ void Mn::playScene::Initialize()
 	Camera* camComp = UICam->AddComponent<Camera>();
 	camComp->DisableLayerMasks();
 	camComp->TurnLayerMask(eLayerType::UI, true);
-
-	HpBar* hpbar = new HpBar(this);
-	AddGameObject(eLayerType::UI, hpbar);
-	hpbar->Initialize();
-	Transform* hptr = hpbar->GetComponent<Transform>();
-
-	PlayerHp* hpProgressBar = new PlayerHp(this);
-	AddGameObject(eLayerType::UI, hpProgressBar);
-	Transform* pHptr = hpProgressBar->GetComponent<Transform>();
-	pHptr->SetParent(hptr);
-	hpProgressBar->Initialize();
-
-	HpFrame* hpFrame = new HpFrame(this);
-	AddGameObject(eLayerType::UI, hpFrame);
-	Transform* fHptr = hpFrame->GetComponent<Transform>();
-	fHptr->SetParent(hptr);
-	hpFrame->Initialize();
-
 }
 
 void Mn::playScene::Update()
@@ -133,7 +85,6 @@ void Mn::playScene::LateUpdate()
 void Mn::playScene::Render()
 {
 	Scene::Render();
-	
 }
 
 void Mn::playScene::Destroy()

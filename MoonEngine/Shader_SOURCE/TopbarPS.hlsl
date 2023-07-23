@@ -14,15 +14,15 @@ struct VSOut
     float2 UV : TEXCOORD;
 };
 
-//Texture2D tex : register(t1);
+Texture2D tex : register(t1);
 
 float4 main(VSOut In) : SV_TARGET
 {
-    float4 color = (float) 0.0f;
-
-    color = albedoTexture.Sample(anisotropicSampler, In.UV);
-    //alpha = tex.Sample(anisotropicSampler, In.UV);
-    //color.a = alpha.a;
-
+    float4 color = albedoTexture.Sample(anisotropicSampler, In.UV);
+    float4 alpha = tex.Sample(anisotropicSampler, In.UV);
+    
+    float alphaValue = alpha.r;
+    color = lerp(float4(0.0f, 0.0f, 0.0f, 0.0f), color, alphaValue);
+    
     return color;
 }

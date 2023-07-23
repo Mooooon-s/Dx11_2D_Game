@@ -103,6 +103,9 @@
     <Filter Include="GameObject\Component\Animator">
       <UniqueIdentifier>{41f88c44-9000-494a-ab31-8afa54c961da}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Fish">
+      <UniqueIdentifier>{903f9ba2-72bf-4b83-8fc4-50d5f9193a9d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnEntity.cpp">
@@ -207,6 +210,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnAnimator.cpp">
       <Filter>GameObject\Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnFish.cpp">
+      <Filter>GameObject\Fish</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -325,6 +331,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnAnimator.h">
       <Filter>GameObject\Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnFish.h">
+      <Filter>GameObject\Fish</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

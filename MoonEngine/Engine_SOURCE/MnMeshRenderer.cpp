@@ -2,7 +2,7 @@
 #include "MnGameObject.h"
 #include "MnTransform.h"
 #include "MnRenderer.h"
-#include "MnWaterScript.h"
+#include "MnAnimator.h"
 
 namespace Mn
 {
@@ -36,8 +36,20 @@ namespace Mn
 
 		_Mesh->BindBuffer();
 		_Material->Binds();
+
+		Animator* animator = GetOwner()->GetComponent<Animator>();
+		if (animator)
+		{
+			animator->Binds();
+		}
+
 		_Mesh->Render();
 		
 		_Material->Clear();
+	}
+	Vector2 MeshRenderer::CalculateRatio()
+	{
+		Material* mat = GetOwner()->GetComponent<Material>();
+		return mat->CalcurateRatio();
 	}
 }

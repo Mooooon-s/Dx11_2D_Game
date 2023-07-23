@@ -31,7 +31,7 @@ namespace Mn::graphics
 		virtual HRESULT Load(const std::wstring& path) override;
 		void BindShader(eShaderStage stage, UINT startSlot);
 		void Clear();
-		void CalculateRatio();
+		math::Vector2 CalculateRatio();
 		float GetWidth() { return _Width; }
 		float GetHeight() { return _Height; }
 		size_t GetImageWidth() { return _Image.GetMetadata().width; }

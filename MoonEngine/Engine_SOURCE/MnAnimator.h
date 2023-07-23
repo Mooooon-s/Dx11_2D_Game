@@ -27,15 +27,9 @@ namespace Mn
 		struct Events
 		{
 			Event startEvent;
-			Event CompleteEvent;
-			Event EndEvent;
+			Event completeEvent;
+			Event endEvent;
 		};
-
-	private:
-		std::map<std::wstring, Animation*> _Animations;
-		std::map<std::wstring, Events*> _Events;
-
-		Animation* _ActiveAnimation;
 		
 	public:
 		Animator();
@@ -46,7 +40,39 @@ namespace Mn
 		virtual void LateUpdate();
 		virtual void Render();
 
-		void Create(std::wstring name, std::shared_ptr<graphics::Texture> atlas, Vector2 leftTop, Vector2 size, UINT columLength, Vector2 offset = Vector2::Zero, float duration = 0.0f);
+		void Create(const std::wstring& name
+			, std::shared_ptr<graphics::Texture> atlas
+			, Vector2 leftTop
+			, Vector2 size
+			, UINT columLength
+			, Vector2 offset = Vector2::Zero
+			, float duration = 0.1f);
+
+		void Create(const std::wstring& name
+			, std::shared_ptr<graphics::Texture> atlas
+			, std::shared_ptr<graphics::Texture> atlasAlpha
+			, Vector2 leftTop
+			, Vector2 size
+			, UINT columLength
+			, Vector2 offset = Vector2::Zero
+			, float duration = 0.1f);
+
+		Animation* FindAnimation(const std::wstring& name);
+		Events* FindEvents(const std::wstring& name);
+		void PlayAnimation(const std::wstring& name, bool loop);
+		void Binds();
+
+		std::function<void()>& StartEvent(const std::wstring key);
+		std::function<void()>& CompleteEvent(const std::wstring key);
+		std::function<void()>& EndEvent(const std::wstring key);
+
+		bool AnimationComplete() { return _ActiveAnimation->IsComplete(); }
+
+	private:
+		std::map<std::wstring, Animation*> _Animations;
+		std::map<std::wstring, Events*> _Events;
+		Animation* _ActiveAnimation;
+		bool _Loop;
 	};
 
 }

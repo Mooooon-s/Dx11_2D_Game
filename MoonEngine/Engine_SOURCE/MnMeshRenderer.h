@@ -19,6 +19,8 @@ namespace Mn
 		virtual void LateUpdate() override;
 		virtual void Render() override;
 
+		Vector2 CalculateRatio();
+
 	public:
 		void SetMesh(std::shared_ptr<Mesh> mesh) { _Mesh = mesh; }
 		void SetMaterial(std::shared_ptr<Material> material) { _Material = material; }

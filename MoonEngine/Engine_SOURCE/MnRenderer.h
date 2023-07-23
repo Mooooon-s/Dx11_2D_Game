@@ -47,6 +47,8 @@ namespace renderer
 		Vector2 SpriteSize;
 		Vector2 SpriteOffset;
 		Vector2 atlasSize;
+		UINT animationType;
+
 	};
 
 	extern Mn::graphics::ConstantBuffer* constantBuffer[(UINT)eCBType::End];

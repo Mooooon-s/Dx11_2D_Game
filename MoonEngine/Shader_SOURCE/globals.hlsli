@@ -7,10 +7,7 @@ cbuffer Transform : register(b0)
     row_major matrix ProjectionMatrix;
 }
 
-cbuffer Time : register(b1)
-{
-    float4 DeltaTime;
-}
+//Material b1
 
 cbuffer Grid : register(b2)
 {
@@ -18,18 +15,23 @@ cbuffer Grid : register(b2)
     float2 CameraScale;
     float2 Resolution;
 }
-
-cbuffer Animator : register(b4)
+cbuffer Time : register(b3)
 {
-    float2 SpriteleftTop;
-    float2 SpriteSize;
-    float2 SpriteOffset;
-    float2 atlasSize;
+    float4 DeltaTime;
 }
 
-cbuffer Debug : register(b3)
+cbuffer Debug : register(b4)
 {
     float4 InterSect;
+}
+
+cbuffer Animator : register(b5)
+{
+    float2 SpriteLeftTop;
+    float2 SpriteSize;
+    float2 SpriteOffset;
+    float2 AtlasSize;
+    uint animationType;
 }
 
 Texture2D albedoTexture : register(t0);

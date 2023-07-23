@@ -2,23 +2,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="framework.h" />
-    <ClInclude Include="MnCameraScript.h">
-      <Filter>Contents\Scripts</Filter>
-    </ClInclude>
     <ClInclude Include="LoadScene.h">
       <Filter>Contents\Load</Filter>
     </ClInclude>
-    <ClInclude Include="MnWaterScript.h">
-      <Filter>Contents\Scripts</Filter>
-    </ClInclude>
     <ClInclude Include="MnPlayerHp.h">
       <Filter>Contents\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="MnPlayerScript.h">
-      <Filter>Contents\Scripts</Filter>
-    </ClInclude>
-    <ClInclude Include="MnGridScript.h">
-      <Filter>Contents\Scripts</Filter>
     </ClInclude>
     <ClInclude Include="MnPumpkin.h">
       <Filter>Contents\Monster</Filter>
@@ -29,65 +17,50 @@
     <ClInclude Include="MnTitleScene.h">
       <Filter>Contents\Scene\Title</Filter>
     </ClInclude>
-    <ClInclude Include="MnCaveStage.h">
-      <Filter>Contents\Scene\Stage_2</Filter>
-    </ClInclude>
-    <ClInclude Include="MnForestBG.h">
-      <Filter>Contents\BackGround\Forest</Filter>
-    </ClInclude>
-    <ClInclude Include="MnForestGround.h">
-      <Filter>Contents\BackGround\Forest</Filter>
-    </ClInclude>
-    <ClInclude Include="MnForestLight.h">
-      <Filter>Contents\BackGround\Forest</Filter>
-    </ClInclude>
-    <ClInclude Include="MnForestTree.h">
-      <Filter>Contents\BackGround\Forest</Filter>
-    </ClInclude>
-    <ClInclude Include="MnCaveBG.h">
-      <Filter>Contents\BackGround\Cave</Filter>
-    </ClInclude>
-    <ClInclude Include="MnCaveWall.h">
-      <Filter>Contents\BackGround\Cave</Filter>
-    </ClInclude>
-    <ClInclude Include="MnCavePillar.h">
-      <Filter>Contents\BackGround\Cave</Filter>
-    </ClInclude>
-    <ClInclude Include="MnCaveBossBG.h">
-      <Filter>Contents\BackGround\Cave</Filter>
-    </ClInclude>
-    <ClInclude Include="MnCaveRock.h">
-      <Filter>Contents\BackGround\Cave</Filter>
-    </ClInclude>
-    <ClInclude Include="MnCaveStageBoss.h">
-      <Filter>Contents\Scene\Stage_2</Filter>
-    </ClInclude>
-    <ClInclude Include="MnForestStageBoss.h">
-      <Filter>Contents\Scene\Stage_1</Filter>
-    </ClInclude>
     <ClInclude Include="MnHpBar.h">
       <Filter>Contents\UI</Filter>
     </ClInclude>
     <ClInclude Include="MnHpFrame.h">
       <Filter>Contents\UI</Filter>
     </ClInclude>
+    <ClInclude Include="MnMountainStage.h">
+      <Filter>Contents\Scene\Stage_3</Filter>
+    </ClInclude>
+    <ClInclude Include="MnAquarimBG.h">
+      <Filter>Contents\BackGround\Aquarim</Filter>
+    </ClInclude>
+    <ClInclude Include="MnTopBar.h">
+      <Filter>Contents\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="MnMenuScene.h">
+      <Filter>Contents\Scene\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="MnMenuBG.h">
+      <Filter>Contents\BackGround\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGuppy.h">
+      <Filter>Contents\Guppy</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGuppyRenderScript.h">
+      <Filter>Contents\Scripts\Guppy\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="MnCameraScript.h">
+      <Filter>Contents\Scripts\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGridScript.h">
+      <Filter>Contents\Scripts\Grid</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGuppyScript.h">
+      <Filter>Contents\Scripts\Guppy</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGuppyAnimationCntrl.h">
+      <Filter>Contents\Scripts\Guppy\AnimationCntrl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
-    <ClCompile Include="MnCameraScript.cpp">
-      <Filter>Contents\Scripts</Filter>
-    </ClCompile>
-    <ClCompile Include="MnWaterScript.cpp">
-      <Filter>Contents\Scripts</Filter>
-    </ClCompile>
     <ClCompile Include="MnPlayerHp.cpp">
       <Filter>Contents\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="MnPlayerScript.cpp">
-      <Filter>Contents\Scripts</Filter>
-    </ClCompile>
-    <ClCompile Include="MnGridScript.cpp">
-      <Filter>Contents\Scripts</Filter>
     </ClCompile>
     <ClCompile Include="MnPumpkin.cpp">
       <Filter>Contents\Monster</Filter>
@@ -98,47 +71,44 @@
     <ClCompile Include="MnTitleScene.cpp">
       <Filter>Contents\Scene\Title</Filter>
     </ClCompile>
-    <ClCompile Include="MnCaveStage.cpp">
-      <Filter>Contents\Scene\Stage_2</Filter>
-    </ClCompile>
-    <ClCompile Include="MnForestBG.cpp">
-      <Filter>Contents\BackGround\Forest</Filter>
-    </ClCompile>
-    <ClCompile Include="MnForestGround.cpp">
-      <Filter>Contents\BackGround\Forest</Filter>
-    </ClCompile>
-    <ClCompile Include="MnForestLight.cpp">
-      <Filter>Contents\BackGround\Forest</Filter>
-    </ClCompile>
-    <ClCompile Include="MnForestTree.cpp">
-      <Filter>Contents\BackGround\Forest</Filter>
-    </ClCompile>
-    <ClCompile Include="MnCaveBG.cpp">
-      <Filter>Contents\BackGround\Cave</Filter>
-    </ClCompile>
-    <ClCompile Include="MnCaveWall.cpp">
-      <Filter>Contents\BackGround\Cave</Filter>
-    </ClCompile>
-    <ClCompile Include="MnCavePillar.cpp">
-      <Filter>Contents\BackGround\Cave</Filter>
-    </ClCompile>
-    <ClCompile Include="MnCaveRock.cpp">
-      <Filter>Contents\BackGround\Cave</Filter>
-    </ClCompile>
-    <ClCompile Include="MnCaveBossBG.cpp">
-      <Filter>Contents\BackGround\Cave</Filter>
-    </ClCompile>
-    <ClCompile Include="MnCaveStageBoss.cpp">
-      <Filter>Contents\Scene\Stage_2</Filter>
-    </ClCompile>
-    <ClCompile Include="MnForestStageBoss.cpp">
-      <Filter>Contents\Scene\Stage_1</Filter>
-    </ClCompile>
     <ClCompile Include="MnHpBar.cpp">
       <Filter>Contents\UI</Filter>
     </ClCompile>
     <ClCompile Include="MnHpFrame.cpp">
       <Filter>Contents\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MnMountainStage.cpp">
+      <Filter>Contents\Scene\Stage_3</Filter>
+    </ClCompile>
+    <ClCompile Include="MnAquarimBG.cpp">
+      <Filter>Contents\BackGround\Aquarim</Filter>
+    </ClCompile>
+    <ClCompile Include="MnTopBar.cpp">
+      <Filter>Contents\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MnMenuScene.cpp">
+      <Filter>Contents\Scene\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="MnMenuBG.cpp">
+      <Filter>Contents\BackGround\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGuppy.cpp">
+      <Filter>Contents\Guppy</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGuppyRenderScript.cpp">
+      <Filter>Contents\Scripts\Guppy\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="MnCameraScript.cpp">
+      <Filter>Contents\Scripts\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGridScript.cpp">
+      <Filter>Contents\Scripts\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGuppyScript.cpp">
+      <Filter>Contents\Scripts\Guppy</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGuppyAnimationCntrl.cpp">
+      <Filter>Contents\Scripts\Guppy\AnimationCntrl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -163,12 +133,6 @@
     <Filter Include="Contents\Monster">
       <UniqueIdentifier>{283dc678-6cf2-4112-8f44-0b0f17f8dad2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\BackGround\Forest">
-      <UniqueIdentifier>{6bf600bd-c4e5-4766-b909-f26b0a77852e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\BackGround\Cave">
-      <UniqueIdentifier>{94ca0685-45ca-4599-8fc3-b7bc15740ce9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\Scene\Stage_2">
       <UniqueIdentifier>{0a002c5d-f9da-4cb8-844b-00262e8ff083}</UniqueIdentifier>
     </Filter>
@@ -177,6 +141,33 @@
     </Filter>
     <Filter Include="Contents\Scene\Title">
       <UniqueIdentifier>{17c2c4b5-a802-43df-8cb1-304b6a905951}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scene\Stage_3">
+      <UniqueIdentifier>{c66f6439-7e6c-450a-9a5b-fb546cef4f86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\BackGround\Aquarim">
+      <UniqueIdentifier>{fd3b9dc8-cd9c-46f8-9979-950cf5ee3ca8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\BackGround\Menu">
+      <UniqueIdentifier>{8e220940-8bc6-419e-8bb2-6401562b52f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Guppy">
+      <UniqueIdentifier>{865a5c95-e0a7-460e-8a0c-23234d50c7d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Camera">
+      <UniqueIdentifier>{199f0f2d-b4aa-4ece-ad8a-fff0f6a9abff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Grid">
+      <UniqueIdentifier>{c4a82383-6cad-49e3-8106-1012a36d1362}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Guppy">
+      <UniqueIdentifier>{6f8d0803-1917-4b64-a1e3-3832a0727030}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Guppy\Render">
+      <UniqueIdentifier>{74729f92-dae5-465b-b8d4-2dc38c2f2a71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Guppy\AnimationCntrl">
+      <UniqueIdentifier>{f4f05190-345c-43e0-b323-2ef95a2169d5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

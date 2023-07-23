@@ -32,7 +32,7 @@ namespace Mn::graphics
 		}
 		else // WIC (png, jpg, jpeg, bmp )
 		{
-			if (FAILED(LoadFromWICFile(path.c_str(), WIC_FLAGS::WIC_FLAGS_NONE, nullptr, _Image)))
+			if (FAILED(LoadFromWICFile(path.c_str(), WIC_FLAGS::WIC_FLAGS_IGNORE_SRGB, nullptr, _Image)))
 				return S_FALSE;
 		}
 
@@ -66,7 +66,7 @@ namespace Mn::graphics
 		GetDevice()->BindShaderResource(eShaderStage::CS,0,&srv);
 		GetDevice()->BindShaderResource(eShaderStage::PS,0,&srv);
 	}
-	void Texture::CalculateRatio()
+	math::Vector2 Texture::CalculateRatio()
 	{
 		if (_Width < _Height)
 		{
@@ -78,5 +78,7 @@ namespace Mn::graphics
 			_Ratio.x = _Width / _Height;
 			_Ratio.y = 1.0f;
 		}
+
+		return _Ratio;
 	}
 }
