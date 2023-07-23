@@ -21,15 +21,7 @@ namespace Mn
 		}
 		if (Input::GetKeyDown(eKeyCode::I))
 		{
-			LoadScene(L"CaveStage");
-		}
-		if (Input::GetKeyDown(eKeyCode::U))
-		{
-			LoadScene(L"CaveStageBoss");
-		}
-		if (Input::GetKeyDown(eKeyCode::Y))
-		{
-			LoadScene(L"ForestStageBoss");
+			LoadScene(L"MenuScene");
 		}
 
 		_ActiveScene->Update();

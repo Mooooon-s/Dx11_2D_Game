@@ -148,7 +148,7 @@ namespace Mn
 	}
 	void KdTree::Query(std::vector<GameObject*>& gameObj, double r, int index)
 	{
-		auto pos = gameObj[index]->GetComponent<Transform>()->Position();
+		Vector3 pos = gameObj[index]->GetComponent<Transform>()->Position();
 
 		std::vector<KdNode*> queue;
 		queue.push_back(_Root);

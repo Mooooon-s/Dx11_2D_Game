@@ -20,6 +20,15 @@ namespace Mn::object
 		return gameObj;
 	}
 
+	template<typename T>
+	static __forceinline T* Instantiate(enums::eLayerType layer,enums::eAquarim type)
+	{
+		T* gameObj = new T(type);
+		Scene* scene = SceneManager::ActiveScene();
+		scene->AddGameObject(layer, gameObj);
+		return gameObj;
+	}
+
 	template <typename T>
 	static __forceinline T* Instantiate(Vector3 pos, enums::eLayerType layer)
 	{

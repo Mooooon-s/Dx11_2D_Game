@@ -86,7 +86,7 @@ namespace Mn
 			else
 				_Scripts.push_back(script);
 			comp->SetOwner(this);
-			
+			comp->Initialize();
 			return comp;
 		}
 

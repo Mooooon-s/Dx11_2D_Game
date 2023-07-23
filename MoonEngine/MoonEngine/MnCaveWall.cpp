@@ -16,7 +16,7 @@ namespace Mn
 	{
 		MeshRenderer* mr = AddComponent<MeshRenderer>();
 		mr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
-		mr->SetMaterial(Resources::Find<Material>(L"BackGround_Cave_BackGround_1"));
+		mr->SetMaterial(Resources::Find<Material>(L"TestMaterial"));
 		mr->GetMaterial()->GetTexture()->CalculateRatio();
 		Vector2 v = mr->GetMaterial()->GetTexture()->Raitio();
 		GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 2.9f));
