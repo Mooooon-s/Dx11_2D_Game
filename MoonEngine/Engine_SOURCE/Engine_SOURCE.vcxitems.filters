@@ -106,6 +106,42 @@
     <Filter Include="GameObject\Fish">
       <UniqueIdentifier>{903f9ba2-72bf-4b83-8fc4-50d5f9193a9d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BT-Tree">
+      <UniqueIdentifier>{ca4f0bdd-92e3-42fd-9a6b-cd785febf2dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BlackBorad">
+      <UniqueIdentifier>{4813f637-b014-42a6-ba1c-f9c511307907}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BT-Tree\Node">
+      <UniqueIdentifier>{2cce25da-fee6-4f64-859f-482d52ee9611}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BT-Tree\CompositeNode">
+      <UniqueIdentifier>{a805e2ca-30fc-48c0-a4c7-e13930db0c2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BT-Tree\RootNode">
+      <UniqueIdentifier>{363c71d6-c01c-45e0-8352-6d7731eee5b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BT-Tree\CompositeNode\Sequence">
+      <UniqueIdentifier>{446773bd-cf54-4798-ad96-10aa2da26f5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BT-Tree\CompositeNode\Selector">
+      <UniqueIdentifier>{5de64922-7b51-44c8-9564-d9e9b4988c47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BT-Tree\DecoratorNode">
+      <UniqueIdentifier>{f58dee9f-87ea-4249-b2cc-5f5a1384094c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BT-Tree\DecoratorNode\Inverter">
+      <UniqueIdentifier>{7df99e25-5125-4ee9-b81e-f793ca4572e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BT-Tree\DecoratorNode\Succeeder">
+      <UniqueIdentifier>{5cf9b2c6-4216-406d-a694-440c70803fb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BT-Tree\DecoratorNode\RepeatUntilFail">
+      <UniqueIdentifier>{372a2b12-38e7-43e9-a8f0-a94eafb6918e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BT-Tree\CompositeNode\RandomSelector">
+      <UniqueIdentifier>{c1ee14d3-f740-43e1-8980-f3aa376aaa8a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnEntity.cpp">
@@ -214,6 +250,37 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnFish.cpp">
       <Filter>GameObject\Fish</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnBtNode.cpp">
+      <Filter>BT-Tree\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnCompositeNode.cpp">
+      <Filter>BT-Tree\CompositeNode</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnRootNode.cpp">
+      <Filter>BT-Tree\RootNode</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnSelector.cpp">
+      <Filter>BT-Tree\CompositeNode\Selector</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnSequence.cpp">
+      <Filter>BT-Tree\CompositeNode\Sequence</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnDecoratorNode.cpp">
+      <Filter>BT-Tree\DecoratorNode</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnInverter.cpp">
+      <Filter>BT-Tree\DecoratorNode\Inverter</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnSucceeder.cpp">
+      <Filter>BT-Tree\DecoratorNode\Succeeder</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnRepeatUntilFail.cpp">
+      <Filter>BT-Tree\DecoratorNode\RepeatUntilFail</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnBlackBoard.cpp">
+      <Filter>BlackBorad</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)RandomSelector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h">
@@ -335,6 +402,37 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnFish.h">
       <Filter>GameObject\Fish</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnBtNode.h">
+      <Filter>BT-Tree\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnCompositeNode.h">
+      <Filter>BT-Tree\CompositeNode</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnRootNode.h">
+      <Filter>BT-Tree\RootNode</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnSelector.h">
+      <Filter>BT-Tree\CompositeNode\Selector</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnSequence.h">
+      <Filter>BT-Tree\CompositeNode\Sequence</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnDecoratorNode.h">
+      <Filter>BT-Tree\DecoratorNode</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnInverter.h">
+      <Filter>BT-Tree\DecoratorNode\Inverter</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnSucceeder.h">
+      <Filter>BT-Tree\DecoratorNode\Succeeder</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnRepeatUntilFail.h">
+      <Filter>BT-Tree\DecoratorNode\RepeatUntilFail</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnBlackBoard.h">
+      <Filter>BlackBorad</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnRandomSelector.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl">

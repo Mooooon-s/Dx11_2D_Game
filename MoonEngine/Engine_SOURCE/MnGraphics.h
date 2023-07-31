@@ -14,6 +14,7 @@
 #define CBSLOT_GRID				2
 #define CBSLOT_DEBUG			3
 #define CBSLOT_ANIMATION		4
+#define CBSLOT_FLIPX			5
 
 #include "../Engine_SOURCE/MnMath.h"
 #include "../Engine_SOURCE/MnEnums.h"
@@ -42,6 +43,7 @@ namespace Mn::graphics
 		Time,
 		Debug,
 		Animator,
+		Flip,
 		End,
 	};
 

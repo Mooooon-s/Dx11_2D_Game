@@ -278,6 +278,10 @@ namespace renderer
 
 		constantBuffer[(UINT)eCBType::Animator] = new ConstantBuffer(eCBType::Animator);
 		constantBuffer[(UINT)eCBType::Animator]->Create(sizeof(AnimatorCB));
+
+		constantBuffer[(UINT)eCBType::Flip] = new ConstantBuffer(eCBType::Flip);
+		constantBuffer[(UINT)eCBType::Flip]->Create(sizeof(FlipCB));
+	
 	}
 
 	void LoadShader()

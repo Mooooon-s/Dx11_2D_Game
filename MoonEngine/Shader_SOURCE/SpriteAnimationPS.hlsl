@@ -34,8 +34,17 @@ float4 main(VSOut In) : SV_TARGET
             || UV.y < SpriteLeftTop.y || UV.y > SpriteLeftTop.y + SpriteSize.y)
             discard;
         
-        color = atlasTexture.Sample(anisotropicSampler, UV);
-        alpha = alphaTex.Sample(anisotropicSampler, UV);
+        if(FlipX==0)
+        {
+            color = atlasTexture.Sample(anisotropicSampler, UV);
+            alpha = alphaTex.Sample(anisotropicSampler, UV);
+        }
+        else if (FlipX==1)
+        {
+            UV.x *= -1;
+            color = atlasTexture.Sample(anisotropicSampler, UV);
+            alpha = alphaTex.Sample(anisotropicSampler, UV);
+        }
     }
     float alphaValue = alpha.r;
     color = lerp(float4(0.0f, 0.0f, 0.0f, 0.0f), color, alphaValue);

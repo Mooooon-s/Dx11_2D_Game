@@ -14,9 +14,18 @@ namespace Mn
 		void Update() override;
 		void LateUpdate() override;
 		void Render() override;
+
+		void Play();
+		void Swim();
+		void Turn();
+		void HungrySwim();
+		void HungryTurn();
 	private:
-		bool _Hungry;
-		eBehavior _Behavior;
+		UINT		_Level;
+		bool		_Hungry;
+		eBehavior	_Behavior;
+
+		class Animator* _Animator;
 	};
 
 }

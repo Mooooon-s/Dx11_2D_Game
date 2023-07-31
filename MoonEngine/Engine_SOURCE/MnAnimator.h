@@ -57,6 +57,15 @@ namespace Mn
 			, Vector2 offset = Vector2::Zero
 			, float duration = 0.1f);
 
+		void CreateReverse(const std::wstring& name
+			, std::shared_ptr<graphics::Texture> atlas
+			, std::shared_ptr<graphics::Texture> atlasAlpha
+			, Vector2 leftTop
+			, Vector2 size
+			, UINT columLength
+			, Vector2 offset = Vector2::Zero
+			, float duration = 0.1f);
+
 		Animation* FindAnimation(const std::wstring& name);
 		Events* FindEvents(const std::wstring& name);
 		void PlayAnimation(const std::wstring& name, bool loop);

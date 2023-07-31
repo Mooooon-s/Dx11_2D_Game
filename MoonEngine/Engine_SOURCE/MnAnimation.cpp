@@ -94,6 +94,30 @@ namespace Mn
 
 		}
 	}
+	void Animation::CreateReverse(std::wstring name, std::shared_ptr<graphics::Texture> atlas, std::shared_ptr<graphics::Texture> atlasAlpha, Vector2 leftTop, Vector2 size, UINT columLength, Vector2 offset, float duration)
+	{
+		Key(name);
+		_Atlas = atlas;
+		_AtlasAlpha = atlasAlpha;
+
+		float width = (float)atlas->GetImageWidth();
+		float height = (float)atlas->GetImageHeight();
+
+		for (int i = columLength-1; i >= 0; i--)
+		{
+			Sprite sprite = {};
+			sprite.leftTop.x = leftTop.x + (float)(i * size.x) / width;
+			sprite.leftTop.y = leftTop.y / height;
+			sprite.size.x = size.x / width;
+			sprite.size.y = size.y / height;
+			sprite.offset = offset;
+			sprite.atlasSize = Vector2(100.0f / width, 100.0f / height);
+			sprite.duration = duration;
+
+			_Sprites.push_back(sprite);
+
+		}
+	}
 	void Animation::Binds()
 	{
 		//TextureBinds

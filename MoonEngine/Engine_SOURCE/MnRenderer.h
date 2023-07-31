@@ -51,6 +51,13 @@ namespace renderer
 
 	};
 
+	CBUFFER(FlipCB, CBSLOT_FLIPX)
+	{
+		UINT FlipX;
+	};
+
+	
+
 	extern Mn::graphics::ConstantBuffer* constantBuffer[(UINT)eCBType::End];
 	extern Microsoft::WRL::ComPtr<ID3D11SamplerState> samplerState[];
 	extern Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterizerStates[];

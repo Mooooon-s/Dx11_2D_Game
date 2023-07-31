@@ -1,0 +1,59 @@
+#include "MnMove.h"
+#include "MnAnimator.h"
+#include "MnGameObject.h"
+#include "MnTransform.h"
+#include "MnTime.h"
+
+namespace Mn
+{
+	Move::Move()
+		:_Blackboard(nullptr)
+		, _Time(0)
+		, _Speed(0.0f)
+	{
+	}
+	Move::Move(BlackBoard* blackboard)
+		:_Blackboard(blackboard)
+		, _Time(0)
+		, _Speed(0.0f)
+	{
+	}
+	enums::eBTState Move::Run()
+	{
+		_Time += Time::DeltaTime();
+		GameObject* gameObj = _Blackboard->GetData<GameObject>(L"Guppy");
+		_Speed = _Blackboard->GetDataValue<float>(L"MoveSpeed");
+		eDir dir = _Blackboard->GetDataValue<eDir>(L"Dir");
+		Transform* tr =gameObj->GetComponent<Transform>();
+		Vector3 pos = tr->Position();
+		if (_Time <= 1.0f)
+		{
+			if (dir == eDir::Left)
+			{
+				if(pos.x > -2.8)
+					pos+= Vector3(-1.0f, 0.0f, 0.0f) * _Speed * Time::DeltaTime();
+				else
+					pos+= Vector3(1.0f, 0.0f, 0.0f) * _Speed * Time::DeltaTime();
+
+			}
+			else
+			{
+				if(pos.x<2.8)
+					pos += Vector3(1.0f, 0.0f, 0.0f) * _Speed * Time::DeltaTime();
+				else
+					pos += Vector3(-1.0f, 0.0f, 0.0f) * _Speed * Time::DeltaTime();
+
+			}
+			tr->Position(pos);
+			_Blackboard->SetRunningNode<Move>(this);
+			return enums::eBTState::RUNNING;
+		}
+		else
+		{
+			_Time = 0.0f;
+			_Blackboard->ResetRunningNode();
+			return enums::eBTState::SUCCESS;
+		}
+		return enums::eBTState::SUCCESS;
+	}
+}

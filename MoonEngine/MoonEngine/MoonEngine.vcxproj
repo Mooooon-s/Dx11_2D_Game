@@ -168,23 +168,34 @@
     <ClInclude Include="LoadScene.h" />
     <ClInclude Include="MnAquarimBG.h" />
     <ClInclude Include="MnCameraScript.h" />
+    <ClInclude Include="MnFindFood.h" />
     <ClInclude Include="MnGridScript.h" />
     <ClInclude Include="MnGuppy.h" />
     <ClInclude Include="MnGuppyAnimationCntrl.h" />
+    <ClInclude Include="MnGuppyBehaviorTree.h" />
     <ClInclude Include="MnGuppyRenderScript.h" />
     <ClInclude Include="MnGuppyScript.h" />
+    <ClInclude Include="MnGuppyTurn.h" />
     <ClInclude Include="MnHpBar.h" />
     <ClInclude Include="MnHpFrame.h" />
+    <ClInclude Include="MnIsTurn.h" />
     <ClInclude Include="MnMenuBG.h" />
     <ClInclude Include="MnMenuScene.h" />
     <ClInclude Include="MnMountainStage.h" />
+    <ClInclude Include="MnMove.h" />
     <ClInclude Include="MnPlayerHp.h" />
     <ClInclude Include="MnPumpkin.h" />
     <ClInclude Include="MnTitleScene.h" />
     <ClInclude Include="MnTopBar.h" />
+    <ClInclude Include="MnPlayAnimaion.h" />
     <ClInclude Include="playScene.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnGuppyTurn.cpp" />
+    <ClCompile Include="MnIsTurn.cpp" />
+    <ClCompile Include="MnFindFood.cpp" />
+    <ClCompile Include="MnGuppyBehaviorTree.cpp" />
     <ClCompile Include="MnGuppyAnimationCntrl.cpp" />
     <ClCompile Include="MnGuppyRenderScript.cpp" />
     <ClCompile Include="MnGuppyScript.cpp" />
@@ -201,8 +212,13 @@
     <ClCompile Include="MoonEngine.cpp" />
     <ClCompile Include="MnPlayerHp.cpp" />
     <ClCompile Include="MnMountainStage.cpp" />
+    <ClCompile Include="MnMove.cpp" />
+    <ClCompile Include="MnPlayAnimaion.cpp" />
     <ClCompile Include="playScene.cpp" />
     <ClCompile Include="MnPumpkin.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MoonEngine.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

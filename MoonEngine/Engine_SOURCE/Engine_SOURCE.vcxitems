@@ -14,6 +14,11 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnInverter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnDecoratorNode.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnCompositeNode.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnBlackBoard.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnBtNode.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCollisionManager.cpp" />
@@ -50,6 +55,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnUI.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnRootNode.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnSelector.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnSequence.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnSucceeder.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnRepeatUntilFail.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)RandomSelector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -57,13 +68,17 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnBackGround.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnBlackBoard.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnBtNode.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCharacter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCircle.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCollider2D.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnCompositeNode.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnConstantBuffer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnDecoratorNode.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnFish.h" />
@@ -71,6 +86,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphicDevice_Dx11.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnGraphics.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnInverter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnKdTree.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMainCharacter.h" />
@@ -80,14 +96,20 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMeshRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMonster.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnRandomSelector.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRectangle.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnRepeatUntilFail.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnRootNode.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnScript.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnSelector.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnSequence.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnShader.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnSucceeder.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTransform.h" />

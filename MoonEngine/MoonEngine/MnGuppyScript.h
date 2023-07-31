@@ -1,5 +1,7 @@
 #pragma once
+
 #include "MnScript.h"
+#include "MnGuppyBehaviorTree.h"
 
 namespace Mn
 {
@@ -19,10 +21,15 @@ namespace Mn
 		void Behavior();
 		void Think();
 		void Swim();
-		void Eat();
-		void Turn();
 		void MoveVec();
 
+		void SetDir(eDir dir) { _Dir = dir; }
+		void SetLevel(UINT level) { _Level = level; }
+		void IsHungry(bool hungry) { _Hungry = hungry; }
+		void SetBehavior(eBehavior behavior) { _Behavior = behavior; }
+
+		eDir GetDir() { return _Dir; }
+		UINT GetLevel() { return _Level; }
 		bool IsHungry() { return _Hungry; }
 		eBehavior GetBehavior() { return _Behavior; }
 
@@ -34,6 +41,7 @@ namespace Mn
 		eDir		_Dir;
 		Vector3		_Move;
 		eBehavior	_Behavior;
+		GuppyBehaviorTree* _Tree;
 	};
 
 }

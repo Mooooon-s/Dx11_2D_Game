@@ -1,4 +1,5 @@
 #include "MnGuppy.h"
+
 #include "MnMeshRenderer.h"
 #include "MnResources.h"
 #include "MnTexture.h"
@@ -8,6 +9,8 @@
 
 #include "MnGuppyRenderScript.h"
 #include "MnGuppyAnimationCntrl.h"
+
+
 namespace Mn
 {
 	Guppy::Guppy()
@@ -28,8 +31,8 @@ namespace Mn
 		GuppyScript* GS = AddComponent<GuppyScript>();
 		GS->Initialize();
 
-		GuppyAnimationCntrl* GSC = AddComponent<GuppyAnimationCntrl>();
-		GSC->Initialize();
+		/*GuppyAnimationCntrl* GSC = AddComponent<GuppyAnimationCntrl>();
+		GSC->Initialize();*/
 
 	}
 	void Guppy::Update()
