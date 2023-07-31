@@ -85,4 +85,11 @@ namespace Mn::enums
 		Cube,
 		End,
 	};
+
+	enum class eBTState
+	{
+		SUCCESS,
+		FAILURE,
+		RUNNING,
+	};
 }
