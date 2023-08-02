@@ -75,6 +75,9 @@
     <ClInclude Include="MnGuppyTurn.h">
       <Filter>Contents\LeafNode\Guppy\Turn</Filter>
     </ClInclude>
+    <ClInclude Include="MnMousePosScript.h">
+      <Filter>Contents\Scripts\Mouse</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -146,6 +149,9 @@
     </ClCompile>
     <ClCompile Include="MnGuppyTurn.cpp">
       <Filter>Contents\LeafNode\Guppy\Turn</Filter>
+    </ClCompile>
+    <ClCompile Include="MnMousePosScript.cpp">
+      <Filter>Contents\Scripts\Mouse</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +241,9 @@
     </Filter>
     <Filter Include="Contents\LeafNode\Guppy\Turn">
       <UniqueIdentifier>{b3a427d3-12d7-49de-96a3-d033fb5e2ee2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Mouse">
+      <UniqueIdentifier>{8b0b1d74-8c8b-450a-a311-28364d402d1a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

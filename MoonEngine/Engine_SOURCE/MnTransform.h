@@ -52,5 +52,11 @@ namespace Mn
 		Vector3 Foward() { return _Forward; }
 		Vector3 Right() { return _Right; }
 		Vector3 Up() { return _Up; }
+
+		Matrix WorldMatrix() { return _World; }
+		Matrix ViewMatrix() { return _View; }
+		Matrix ProjectionMatrix() { return _Projection; }
+
+
 	};
 }

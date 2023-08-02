@@ -60,6 +60,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnSequence.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnSucceeder.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnRepeatUntilFail.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnMouse.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RandomSelector.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +96,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMesh.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMeshRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMonster.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnMouse.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRandomSelector.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRectangle.h" />

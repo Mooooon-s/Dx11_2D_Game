@@ -22,6 +22,7 @@
 
 #include "MnCameraScript.h"
 #include "MnGridScript.h"
+#include "MnMouse.h"
 
 Mn::playScene::playScene()
 	: _KdTree(nullptr)
@@ -58,10 +59,15 @@ void Mn::playScene::Initialize()
 	renderer::mainCamera = cameraComp;
 
 	GameObject* UICam = new GameObject();
+	UICam->SetName(L"UICam");
 	AddGameObject(eLayerType::UI, UICam);
 	Camera* camComp = UICam->AddComponent<Camera>();
 	camComp->DisableLayerMasks();
 	camComp->TurnLayerMask(eLayerType::UI, true);
+
+	Mouse* mouse = object::Instantiate<Mouse>(eLayerType::UI);
+	mouse->UICamera(UICam);
+	mouse->Initialize();
 }
 
 void Mn::playScene::Update()

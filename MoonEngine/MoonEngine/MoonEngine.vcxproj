@@ -188,6 +188,7 @@
     <ClInclude Include="MnTitleScene.h" />
     <ClInclude Include="MnTopBar.h" />
     <ClInclude Include="MnPlayAnimaion.h" />
+    <ClInclude Include="MnMousePosScript.h" />
     <ClInclude Include="playScene.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
@@ -214,6 +215,7 @@
     <ClCompile Include="MnMountainStage.cpp" />
     <ClCompile Include="MnMove.cpp" />
     <ClCompile Include="MnPlayAnimaion.cpp" />
+    <ClCompile Include="MnMousePosScript.cpp" />
     <ClCompile Include="playScene.cpp" />
     <ClCompile Include="MnPumpkin.cpp" />
   </ItemGroup>

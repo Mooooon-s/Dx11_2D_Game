@@ -281,6 +281,7 @@
       <Filter>BlackBorad</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)RandomSelector.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnMouse.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h">
@@ -433,6 +434,7 @@
       <Filter>BlackBorad</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRandomSelector.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnMouse.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl">
