@@ -30,7 +30,7 @@ namespace Mn
 		{
 			if (dir == eDir::Left)
 			{
-				if(pos.x > -2.8)
+				if(pos.x > -2.2f)
 					pos+= Vector3(-1.0f, 0.0f, 0.0f) * _Speed * Time::DeltaTime();
 				else
 					pos+= Vector3(1.0f, 0.0f, 0.0f) * _Speed * Time::DeltaTime();
@@ -38,7 +38,7 @@ namespace Mn
 			}
 			else
 			{
-				if(pos.x<2.8)
+				if(pos.x<2.2)
 					pos += Vector3(1.0f, 0.0f, 0.0f) * _Speed * Time::DeltaTime();
 				else
 					pos += Vector3(-1.0f, 0.0f, 0.0f) * _Speed * Time::DeltaTime();

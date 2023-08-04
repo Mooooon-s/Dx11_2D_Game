@@ -3,12 +3,17 @@
 #include "../Engine_SOURCE/MnApplication.h"
 #include "../Engine_SOURCE/MnInput.h"
 
+#include "MnObject.h"
+#include "MnGameObject.h"
+#include "MnFood.h"
+#include "MnInput.h"
 
 extern Mn::Application application;
 
 namespace Mn
 {
 	MousePosScript::MousePosScript()
+		:_Cam(nullptr)
 	{
 	}
 	MousePosScript::MousePosScript(GameObject* cam)
@@ -23,6 +28,12 @@ namespace Mn
 	}
 	void MousePosScript::Update()
 	{
+		if (Input::GetKeyDown(eKeyCode::LBUTTON))
+		{
+			int a = 0;
+			Food* food = object::Instantiate<Food>(_UnProjectPos,eLayerType::Food);
+			food->Initialize();
+		}
 	}
 	void MousePosScript::LateUpdate()
 	{
@@ -33,7 +44,6 @@ namespace Mn
 		//camera
 		Vector2 pos = Input::GetMousePos();
 		_WinPos = Vector3(pos.x, pos.y, 1.0f);
-		Vector3 worldpos;
 		Viewport viewport;
 		viewport.width = application.GetWidth();
 		viewport.height = application.GetHeight();
@@ -41,13 +51,13 @@ namespace Mn
 		viewport.y = 0;
 		viewport.minDepth = 0.0f;
 		viewport.maxDepth = 1.0f;
-		worldpos = viewport.Unproject(_WinPos, projection, view, Matrix::Identity);
+		_UnProjectPos = viewport.Unproject(_WinPos, Camera::GetGpuProjectionMatrix(), Camera::GetGpuViewMatrix(), Matrix::Identity);
 
 		HWND hwnd = application.GetHwnd();
 		wchar_t szPos[50] = {};
 
 		//프레임 계산
-		swprintf_s(szPos, 50, L"x : %lf, y : %lf", worldpos.x, worldpos.y);
+		swprintf_s(szPos, 50, L"x : %lf, y : %lf", _UnProjectPos.x, _UnProjectPos.y);
 		SetWindowText(hwnd, szPos);
 	}
 	void MousePosScript::Render()

@@ -66,14 +66,14 @@ void Mn::playScene::Initialize()
 	camComp->TurnLayerMask(eLayerType::UI, true);
 
 	Mouse* mouse = object::Instantiate<Mouse>(eLayerType::UI);
-	mouse->UICamera(UICam);
+	mouse->UICamera(camera);
 	mouse->Initialize();
 }
 
 void Mn::playScene::Update()
 {
 	Scene* scene = SceneManager::ActiveScene();
-	for (auto a : scene->GetLayer(eLayerType::Monster).GetGameObjects())
+	for (auto a : scene->GetLayer(eLayerType::Food).GetGameObjects())
 	{
 		_ActiveObjs.push_back(a);
 	}

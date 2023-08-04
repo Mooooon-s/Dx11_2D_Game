@@ -20,6 +20,7 @@ namespace Mn
 		void UICamera(GameObject* uicamera) { _Cam = uicamera; }
 	private:
 		Vector3  _WinPos;
+		Vector3 _UnProjectPos;
 		GameObject* _Cam;
 	};
 }

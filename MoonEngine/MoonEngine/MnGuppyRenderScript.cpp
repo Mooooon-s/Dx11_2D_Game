@@ -92,29 +92,4 @@ namespace Mn
 	void GuppyRender::Render()
 	{
 	}
-	void GuppyRender::AfterTurn()
-	{
-		/*GuppyScript* gs =GetOwner()->GetComponent<GuppyScript>();
-		GuppyAnimationCntrl* GAC = GetOwner()->GetComponent<GuppyAnimationCntrl>();*/
-
-		//gs->SetBehavior(eBehavior::Swim);
-		//GAC->Play();
-	}
-	void GuppyRender::EndTurn()
-	{
-	/*	GuppyScript* gs =GetOwner()->GetComponent<GuppyScript>();
-		if (gs->GetDir() == eDir::Left)
-			gs->SetDir(eDir::Right);
-		else
-			gs->SetDir(eDir::Left);*/
-
-		//ConstantBuffer* cb = renderer::constantBuffer[(UINT)eCBType::Flip];
-		//renderer::FlipCB data = {};
-		//if (GetOwner()->GetComponent<GuppyScript>()->GetDir() == eDir::Right)
-		//	data.FlipX = 1;
-		//else
-		//	data.FlipX = 0;
-		//cb->setData(&data);
-		//cb->Bind(eShaderStage::PS);
-	}
 }

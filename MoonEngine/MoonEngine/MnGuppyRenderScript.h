@@ -16,9 +16,6 @@ namespace Mn
 		void LateUpdate() override;
 		void Render() override;
 
-		void AfterTurn();
-		void EndTurn();
-
 	private:
 		std::shared_ptr<Mn::graphics::Texture> atlases[2];
 		eFishState _PreState;

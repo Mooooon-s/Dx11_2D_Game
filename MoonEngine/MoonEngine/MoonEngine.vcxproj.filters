@@ -78,6 +78,9 @@
     <ClInclude Include="MnMousePosScript.h">
       <Filter>Contents\Scripts\Mouse</Filter>
     </ClInclude>
+    <ClInclude Include="MnFood.h">
+      <Filter>Contents\Food</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -152,6 +155,9 @@
     </ClCompile>
     <ClCompile Include="MnMousePosScript.cpp">
       <Filter>Contents\Scripts\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="MnFood.cpp">
+      <Filter>Contents\Food</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -244,6 +250,9 @@
     </Filter>
     <Filter Include="Contents\Scripts\Mouse">
       <UniqueIdentifier>{8b0b1d74-8c8b-450a-a311-28364d402d1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Food">
+      <UniqueIdentifier>{5ca81470-328f-40ba-81e3-27d8c8ea2cee}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -10,6 +10,8 @@
 #include "MnGameObject.h"
 #include "MnRandomSelector.h"
 
+#include "MnKdTree.h"
+
 namespace Mn
 {
 	GuppyBehaviorTree::GuppyBehaviorTree()
@@ -39,23 +41,31 @@ namespace Mn
 		eFishState fishstate = eFishState::Full;
 		eDir dir = eDir::Left;
 		float level = 1;
+		int HungryStack=0;
+
+		KdTree* foodtree = nullptr;
+
 
 		//setData
 		_BlackBoard->AddData<GameObject>(L"Guppy", _Guppy);
+		_BlackBoard->AddData<KdTree>(L"Food_Tree", foodtree);
+
+
 		_BlackBoard->MakeData<bool>(L"Hungry");
 		_BlackBoard->SetData(L"Hungry", IsHungry);
+		_BlackBoard->MakeData<int>(L"HungryStack");
+		_BlackBoard->SetData(L"HungryStack", HungryStack);
+		_BlackBoard->MakeData<float>(L"Level");
+		_BlackBoard->SetData(L"Level", level);
 		_BlackBoard->MakeData<float>(L"MoveSpeed");
 		_BlackBoard->SetData(L"MoveSpeed", speed);
+		
 		_BlackBoard->MakeData<eBehavior>(L"Behavior");
 		_BlackBoard->SetData(L"Behavior", behavior);
 		_BlackBoard->MakeData<eFishState>(L"Fish_State");
 		_BlackBoard->SetData(L"Fish_State", fishstate);
-		_BlackBoard->MakeData<float>(L"Level");
-		_BlackBoard->SetData(L"Level", level);
-
 		_BlackBoard->MakeData<eDir>(L"Dir");
 		_BlackBoard->SetData(L"Dir", dir);
-
 
 		_BlackBoard->MakeData<double>(L"End");
 		_BlackBoard->SetData(L"End", 0.0f);
@@ -66,7 +76,7 @@ namespace Mn
 
 
 
-		_Sequence = new Sequence(_BlackBoard.get());
+		_Sequence = _Root->setChild<Sequence>();
 		Sequence* swimSequence;
 		Sequence* turnSequence;
 		Selector* turnSelector;
@@ -79,8 +89,6 @@ namespace Mn
 		//action Node
 		Move* move;
 		PlayAnimaion* playanima[2];
-		_Root->setChild(_Sequence);
-		//turnSucceeder = turnSelector->AddChild<Succeeder>();
 		
 		turnSucceeder = _Sequence->AddChild<Succeeder>();
 		turnSequence = turnSucceeder->SetChild<Sequence>();

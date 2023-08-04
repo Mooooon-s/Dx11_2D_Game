@@ -24,6 +24,7 @@ namespace Mn
 	}
 	void Mouse::Update()
 	{
+		GameObject::Update();
 	}
 	void Mouse::LateUpdate()
 	{

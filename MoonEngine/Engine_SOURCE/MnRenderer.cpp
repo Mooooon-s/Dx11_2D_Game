@@ -378,6 +378,34 @@ namespace renderer
 
 		//---------------------------------------------------------------------------------------------------------------------------------------
 		//
+		//																Item
+		//
+		//---------------------------------------------------------------------------------------------------------------------------------------
+		// ---------------------------------------------------------------
+		//							Shader
+		// ---------------------------------------------------------------
+		// 
+		spriteShader = Resources::Find<Shader>(L"SpriteAnimationShader");
+		// 
+		//----------------------------------------------------------------
+		//							Texture
+		//----------------------------------------------------------------
+		std::shared_ptr<Mn::graphics::Texture> FoodTexture = Resources::Load<Mn::graphics::Texture>(L"FoodTex", L"..\\Resources\\Texture\\Food\\food.jpg");
+		std::shared_ptr<Mn::graphics::Texture> FoodTextureAlpha = Resources::Load<Mn::graphics::Texture>(L"FoodTex_alpha", L"..\\Resources\\Texture\\Food\\_food.jpg");
+
+		//----------------------------------------------------------------
+		//							Material
+		//----------------------------------------------------------------
+		
+		std::shared_ptr <Material> FoodAnimaterial = std::make_shared<Material>();
+		FoodAnimaterial->Shader(spriteShader);
+		FoodAnimaterial->RenderingMode(eRenderingMode::Transparent);
+		Resources::Insert(L"FoodSpriteAnimaionMaterial", FoodAnimaterial);
+
+
+
+		//---------------------------------------------------------------------------------------------------------------------------------------
+		//
 		//																Monster
 		//
 		//---------------------------------------------------------------------------------------------------------------------------------------

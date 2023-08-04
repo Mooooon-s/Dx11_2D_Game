@@ -169,6 +169,7 @@
     <ClInclude Include="MnAquarimBG.h" />
     <ClInclude Include="MnCameraScript.h" />
     <ClInclude Include="MnFindFood.h" />
+    <ClInclude Include="MnFood.h" />
     <ClInclude Include="MnGridScript.h" />
     <ClInclude Include="MnGuppy.h" />
     <ClInclude Include="MnGuppyAnimationCntrl.h" />
@@ -193,6 +194,7 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnFood.cpp" />
     <ClCompile Include="MnGuppyTurn.cpp" />
     <ClCompile Include="MnIsTurn.cpp" />
     <ClCompile Include="MnFindFood.cpp" />

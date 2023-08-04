@@ -21,7 +21,7 @@ namespace Mn::enums
 		Fish,
 		Monster,
 		BackGround,
-		Water,
+		Food,
 		UI,
 		End=16,
 	};

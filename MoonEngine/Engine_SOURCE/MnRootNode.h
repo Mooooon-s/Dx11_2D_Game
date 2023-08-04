@@ -15,7 +15,14 @@ namespace Mn
 
 		}
 	public:
-		void setChild(Node* newChild) { _Child = newChild; }
+		//void setChild(Node* newChild) { _Child = newChild; }
+		template <typename T>
+		T* setChild()
+		{
+			T* child = new T(_BlackBoard);
+			_Child = child;
+			return child;
+		}
 		virtual enums::eBTState Run() override;
 		bool CheckRunning();
 	private:
