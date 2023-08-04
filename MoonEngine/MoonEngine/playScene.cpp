@@ -23,6 +23,7 @@
 #include "MnCameraScript.h"
 #include "MnGridScript.h"
 #include "MnMouse.h"
+#include "MnLight.h"
 
 Mn::playScene::playScene()
 	: _KdTree(nullptr)
@@ -47,6 +48,12 @@ void Mn::playScene::Initialize()
 	TopBar* topbar = object::Instantiate<TopBar>(eLayerType::UI);
 	topbar->Initialize();
 
+	GameObject* light = new GameObject();
+	light->SetName(L"Light");
+	AddGameObject(eLayerType::Light, light);
+	Light* lightComp = light->AddComponent<Light>();
+	lightComp->SetType(eLightType::Directional);
+	lightComp->SetColor(Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 
 	//Main Camera
 	GameObject* camera = new GameObject();

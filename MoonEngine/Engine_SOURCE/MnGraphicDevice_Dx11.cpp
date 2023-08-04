@@ -203,6 +203,12 @@ namespace Mn::graphics
 			return false;
 		return true;
 	}
+	bool GraphicDevice_Dx11::CreateShaderResourceView(ID3D11Resource* pResource, const D3D11_SHADER_RESOURCE_VIEW_DESC* pDesc, ID3D11ShaderResourceView** ppSRView)
+	{
+		if (FAILED(_Device->CreateShaderResourceView(pResource, pDesc, ppSRView)))
+			return false;
+		return true;
+	}
 	void GraphicDevice_Dx11::BindViewPort(D3D11_VIEWPORT* viewPort)
 	{
 		_Context->RSSetViewports(1, viewPort);
@@ -276,6 +282,13 @@ namespace Mn::graphics
 		_Context->GSSetConstantBuffers((UINT)type, 1, &buffer);
 		_Context->PSSetConstantBuffers((UINT)type, 1, &buffer);
 		_Context->CSSetConstantBuffers((UINT)type, 1, &buffer);
+	}
+	void GraphicDevice_Dx11::BindBuffer(ID3D11Buffer* buffer, void* data, UINT size)
+	{
+		D3D11_MAPPED_SUBRESOURCE sub = {};
+		_Context->Map(buffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &sub);
+		memcpy(sub.pData, data, size);
+		_Context->Unmap(buffer, 0);
 	}
 	void GraphicDevice_Dx11::BindShaderResource(eShaderStage stage, UINT startSlot, ID3D11ShaderResourceView** ppSRV)
 	{

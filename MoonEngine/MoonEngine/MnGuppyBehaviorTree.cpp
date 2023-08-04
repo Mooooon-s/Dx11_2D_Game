@@ -72,11 +72,9 @@ namespace Mn
 		
 
 
-		_Root = new RootNode(_BlackBoard.get());
 
 
 
-		_Sequence = _Root->setChild<Sequence>();
 		Sequence* swimSequence;
 		Sequence* turnSequence;
 		Selector* turnSelector;
@@ -90,6 +88,10 @@ namespace Mn
 		Move* move;
 		PlayAnimaion* playanima[2];
 		
+
+
+		_Root = new RootNode(_BlackBoard.get());
+		_Sequence = _Root->setChild<Sequence>();
 		turnSucceeder = _Sequence->AddChild<Succeeder>();
 		turnSequence = turnSucceeder->SetChild<Sequence>();
 		isturn = turnSequence->AddChild<IsTurn>();

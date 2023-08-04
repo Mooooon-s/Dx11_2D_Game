@@ -14,6 +14,7 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnLight.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnInverter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnDecoratorNode.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCompositeNode.cpp" />
@@ -62,6 +63,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnRepeatUntilFail.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMouse.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RandomSelector.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnStructedBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -90,6 +92,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnInverter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnKdTree.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnLight.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMainCharacter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMaterial.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMath.h" />
@@ -111,6 +114,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnSelector.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnSequence.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnShader.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnStructedBuffer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnSucceeder.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTime.h" />

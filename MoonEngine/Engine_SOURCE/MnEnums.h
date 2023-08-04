@@ -9,9 +9,10 @@ namespace Mn::enums
 		Collider2D,
 		Particle,
 		Meshrenderer,
-		Script,
-		Camera,
 		Animator,
+		Script,
+		Light,
+		Camera,
 		End,
 	};
 
@@ -20,6 +21,7 @@ namespace Mn::enums
 		Grid,
 		Fish,
 		Monster,
+		Light,
 		BackGround,
 		Food,
 		UI,
@@ -83,6 +85,14 @@ namespace Mn::enums
 		Circle,
 		Sphere,
 		Cube,
+		End,
+	};
+
+	enum class eLightType
+	{
+		Directional,
+		Point,
+		Spot,
 		End,
 	};
 

@@ -142,6 +142,12 @@
     <Filter Include="BT-Tree\CompositeNode\RandomSelector">
       <UniqueIdentifier>{c1ee14d3-f740-43e1-8980-f3aa376aaa8a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Component\Light">
+      <UniqueIdentifier>{a69ccb4a-196a-4243-9a74-9937a6e22a50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\StructedBuffer">
+      <UniqueIdentifier>{7798a062-0335-4def-a2ab-e1e8f1886b0a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnEntity.cpp">
@@ -282,6 +288,10 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)RandomSelector.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMouse.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnLight.cpp">
+      <Filter>GameObject\Component\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnStructedBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h">
@@ -435,6 +445,10 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRandomSelector.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMouse.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnLight.h">
+      <Filter>GameObject\Component\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnStructedBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl">
