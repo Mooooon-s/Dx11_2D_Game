@@ -49,12 +49,17 @@ namespace Mn
 		atlas = Resources::Load<Mn::graphics::Texture>(L"Guppy_Turn_Sprite", L"..\\Resources\\Texture\\Fish\\guppy\\smallturn.jpg");
 		atlasAlpha = Resources::Load<Mn::graphics::Texture>(L"Guppy_Turn_Sprite_Alpha", L"..\\Resources\\Texture\\Fish\\guppy\\smallturn_.jpg");
 		at->CreateReverse(L"Turn_Small_Revers", atlas, atlasAlpha, Vector2(0.0f, 0.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
+		at->CreateReverse(L"Turn_Middle_Revers", atlas, atlasAlpha, Vector2(0.0f, 80.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
+		at->CreateReverse(L"Turn_Large_Revers", atlas, atlasAlpha, Vector2(0.0f, 160.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
 		at->Create(L"Turn_Small", atlas, atlasAlpha, Vector2(0.0f, 0.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
 		at->Create(L"Turn_Middle", atlas, atlasAlpha, Vector2(0.0f, 80.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
 		at->Create(L"Turn_Large", atlas, atlasAlpha, Vector2(0.0f, 160.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
 
 		atlas = Resources::Load<Mn::graphics::Texture>(L"Hungry_Guppy_Turn_Sprite", L"..\\Resources\\Texture\\Fish\\guppy\\hungryturn.jpg");
 		atlasAlpha = Resources::Load<Mn::graphics::Texture>(L"Hungry_Guppy_Turn_Sprite_Alpha", L"..\\Resources\\Texture\\Fish\\guppy\\hungryturn_.jpg");
+		at->CreateReverse(L"Hungry_Turn_Small_Revers", atlas, atlasAlpha, Vector2(0.0f, 0.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
+		at->CreateReverse(L"Hungry_Turn_Middle_Revers", atlas, atlasAlpha, Vector2(0.0f, 80.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
+		at->CreateReverse(L"Hungry_Turn_Large_Revers", atlas, atlasAlpha, Vector2(0.0f, 160.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
 		at->Create(L"Hungry_Turn_Small", atlas, atlasAlpha, Vector2(0.0f, 0.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
 		at->Create(L"Hungry_Turn_Middle", atlas, atlasAlpha,Vector2(0.0f, 80.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
 		at->Create(L"Hungry_Turn_Large", atlas, atlasAlpha, Vector2(0.0f, 160.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);

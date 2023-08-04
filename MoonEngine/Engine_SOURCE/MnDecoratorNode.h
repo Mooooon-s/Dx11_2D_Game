@@ -17,7 +17,7 @@ namespace Mn
 		{
 			T* child = new T(_BlackBoard);
 			_Child = child;
-			return dynamic_cast<T*>(child);
+			return child;
 		}
 	private:
 		Node* _Child;

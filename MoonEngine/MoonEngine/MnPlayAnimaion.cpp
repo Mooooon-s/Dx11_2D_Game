@@ -19,52 +19,43 @@ namespace Mn
 	}
 	enums::eBTState PlayAnimaion::Run()
 	{
-		
 		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Guppy");
 		Animator* at = gameObj->GetComponent<Animator>();
 		enums::eBehavior behavior = _BlackBoard->GetDataValue<eBehavior>(L"Behavior");
-		
-		if (!at->AnimationComplete()&& _Behavior== behavior)
+
+		if (!at->AnimationComplete() && _Behavior == behavior)
 			return enums::eBTState::SUCCESS;
 
+		PlayAnimation(behavior);
+		Bind();
 
+		return enums::eBTState::SUCCESS;
+	}
+	void PlayAnimaion::PlayAnimation(enums::eBehavior behavior)
+	{
 		enums::eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
-		
-		
+
 		switch (state)
 		{
 		case eFishState::Full:
-			FullAnimaton(behavior);
+		case eFishState::Hungry:
+			FullAnimation(behavior);
 			break;
 		case eFishState::Starving:
+			StarvingAnimation(behavior);
 			break;
 		case eFishState::Death:
 			break;
 		default:
 			break;
 		}
-
-		
-		enums::eDir dir = _BlackBoard->GetDataValue<enums::eDir>(L"Dir");
-		ConstantBuffer* cb = renderer::constantBuffer[(UINT)eCBType::Flip];
-		renderer::FlipCB data = {};
-		if (dir == eDir::Right)
-			data.FlipX = 1;
-		else
-			data.FlipX = 0;
-		cb->setData(&data);
-		cb->Bind(eShaderStage::PS);
-
-		return enums::eBTState::SUCCESS;
 	}
-	void PlayAnimaion::FullAnimaton(enums::eBehavior behavior)
+	void PlayAnimaion::FullAnimation(enums::eBehavior behavior)
 	{
 		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Guppy");
 		Animator* at = gameObj->GetComponent<Animator>();
 
 		int level = _BlackBoard->GetDataValue<float>(L"Level");
-
-
 
 		switch (behavior)
 		{
@@ -118,5 +109,77 @@ namespace Mn
 		default:
 			break;
 		}
+	}
+	void PlayAnimaion::StarvingAnimation(enums::eBehavior behavior)
+	{
+		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Guppy");
+		Animator* at = gameObj->GetComponent<Animator>();
+
+		int level = _BlackBoard->GetDataValue<float>(L"Level");
+
+		switch (behavior)
+		{
+		case eBehavior::Swim:
+			switch (level)
+			{
+			case 1:
+				at->PlayAnimation(L"Hungry_Swim_Small", true);
+				break;
+			case 2:
+				at->PlayAnimation(L"Hungry_Swim_Middle", true);
+				break;
+			case 3:
+				at->PlayAnimation(L"Hungry_Swim_Large", true);
+				break;
+			default:
+				break;
+			}
+			break;
+		case eBehavior::Turn:
+			switch (level)
+			{
+			case 1:
+				if (_BlackBoard->GetDataValue<eDir>(L"Dir") == eDir::Right)
+				{
+					at->PlayAnimation(L"Hungry_Turn_Small_Revers", false);
+				}
+				else
+					at->PlayAnimation(L"Hungry_Turn_Small", false);
+				break;
+			case 2:
+				if (_BlackBoard->GetDataValue<eDir>(L"Dir") == eDir::Right)
+					at->PlayAnimation(L"Hungry_Turn_Middle_Revers", false);
+				else
+					at->PlayAnimation(L"Hungry_Turn_Middle", false);
+				break;
+			case 3:
+				if (_BlackBoard->GetDataValue<eDir>(L"Dir") == eDir::Right)
+					at->PlayAnimation(L"Hungry_Turn_Large_Revers", false);
+				else
+					at->PlayAnimation(L"Hungry_Turn_Large", false);
+				break;
+			default:
+				break;
+			}
+			break;
+		case eBehavior::Eat:
+			break;
+		case eBehavior::End:
+			break;
+		default:
+			break;
+		}
+	}
+	void PlayAnimaion::Bind()
+	{
+		enums::eDir dir = _BlackBoard->GetDataValue<enums::eDir>(L"Dir");
+		ConstantBuffer* cb = renderer::constantBuffer[(UINT)eCBType::Flip];
+		renderer::FlipCB data = {};
+		if (dir == eDir::Right)
+			data.FlipX = 1;
+		else
+			data.FlipX = 0;
+		cb->setData(&data);
+		cb->Bind(eShaderStage::PS);
 	}
 }

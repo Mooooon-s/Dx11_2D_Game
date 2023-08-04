@@ -8,7 +8,8 @@ namespace Mn
 	public:
 		RepeatUntilFail() :_BlackBoard(nullptr) {}
 		RepeatUntilFail(BlackBoard* blackboard)
-			:_BlackBoard(blackboard)
+			: DecoratorNode(blackboard)
+			, _BlackBoard(blackboard)
 		{
 
 		}

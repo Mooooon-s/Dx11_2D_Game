@@ -4,19 +4,18 @@
 
 namespace Mn
 {
-
-	class FindFood : public Node
+	class IsHungry : public Node
 	{
 	public:
-		FindFood();
-		FindFood(BlackBoard* blakcboard);
-		~FindFood();
+		IsHungry();
+		IsHungry(BlackBoard* board);
+		~IsHungry();
+
+		virtual enums::eBTState Run();
 	public:
-		virtual enums::eBTState Run() override;
-		void Food();
+
 	private:
 		BlackBoard* _BlackBoard;
-
 	};
 
 }

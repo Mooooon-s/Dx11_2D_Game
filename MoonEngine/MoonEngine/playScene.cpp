@@ -25,8 +25,15 @@
 #include "MnMouse.h"
 #include "MnLight.h"
 
+
+namespace Mn
+{
+	KdTree* kdTree = nullptr;
+
+}
+
+
 Mn::playScene::playScene()
-	: _KdTree(nullptr)
 {
 }
 
@@ -37,7 +44,7 @@ Mn::playScene::~playScene()
 
 void Mn::playScene::Initialize()
 {
-	_KdTree = new KdTree(1);
+	kdTree = new KdTree(1);
 
 	Guppy* guppy = object::Instantiate<Guppy>(eLayerType::Fish);
 	guppy->Initialize();
@@ -84,8 +91,7 @@ void Mn::playScene::Update()
 	{
 		_ActiveObjs.push_back(a);
 	}
-	_KdTree->BuildTree(_ActiveObjs);
-
+	kdTree->BuildTree(_ActiveObjs);
 	Scene::Update();
 }
 

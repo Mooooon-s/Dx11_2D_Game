@@ -11,7 +11,10 @@ namespace Mn
 		PlayAnimaion(BlackBoard* blackboard);
 	public:
 		virtual enums::eBTState Run()override;
-		void FullAnimaton(enums::eBehavior behavior);
+		void PlayAnimation(enums::eBehavior behavior);
+		void FullAnimation(enums::eBehavior behavior);
+		void StarvingAnimation(enums::eBehavior behavior);
+		void Bind();
 	private:
 		BlackBoard* _BlackBoard;
 		eBehavior _Behavior;

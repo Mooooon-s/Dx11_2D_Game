@@ -81,6 +81,12 @@
     <ClInclude Include="MnFood.h">
       <Filter>Contents\Food</Filter>
     </ClInclude>
+    <ClInclude Include="MnAddHungryStack.h">
+      <Filter>Contents\LeafNode\Guppy\AddHungryStack</Filter>
+    </ClInclude>
+    <ClInclude Include="MnIsHungry.h">
+      <Filter>Contents\LeafNode\Guppy\IsHungry</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -158,6 +164,12 @@
     </ClCompile>
     <ClCompile Include="MnFood.cpp">
       <Filter>Contents\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="MnAddHungryStack.cpp">
+      <Filter>Contents\LeafNode\Guppy\AddHungryStack</Filter>
+    </ClCompile>
+    <ClCompile Include="MnIsHungry.cpp">
+      <Filter>Contents\LeafNode\Guppy\IsHungry</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +265,9 @@
     </Filter>
     <Filter Include="Contents\Food">
       <UniqueIdentifier>{5ca81470-328f-40ba-81e3-27d8c8ea2cee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Guppy\AddHungryStack">
+      <UniqueIdentifier>{3b8b3277-b812-47b1-88aa-c67158919a28}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

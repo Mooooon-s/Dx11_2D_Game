@@ -5,6 +5,7 @@
 #include "../Engine_SOURCE/MnSelector.h"
 #include "../Engine_SOURCE/MnInverter.h"
 #include "../Engine_SOURCE/MnSucceeder.h"
+#include "../Engine_SOURCE/MnRepeatUntilFail.h"
 
 #include "MnGameObject.h"
 

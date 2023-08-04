@@ -1,6 +1,5 @@
 #include "MnGuppyBehaviorTree.h"
 
-#include "MnFindFood.h"
 #include "MnMove.h"
 #include "MnPlayAnimaion.h"
 #include "MnIsTurn.h"
@@ -10,7 +9,13 @@
 #include "MnGameObject.h"
 #include "MnRandomSelector.h"
 
+#include "MnAddHungryStack.h"
+#include "MnIsHungry.h"
+#include "MnFindFood.h"
+
 #include "MnKdTree.h"
+
+#include "playScene.h"
 
 namespace Mn
 {
@@ -33,9 +38,7 @@ namespace Mn
 	{
 		_BlackBoard = std::make_shared<BlackBoard>();
 
-
 		//value
-		bool IsHungry = false;
 		float speed = 0.8f;
 		eBehavior behavior = eBehavior::Swim;
 		eFishState fishstate = eFishState::Full;
@@ -43,7 +46,7 @@ namespace Mn
 		float level = 1;
 		int HungryStack=0;
 
-		KdTree* foodtree = nullptr;
+		KdTree* foodtree =Mn::kdTree;
 
 
 		//setData
@@ -51,8 +54,6 @@ namespace Mn
 		_BlackBoard->AddData<KdTree>(L"Food_Tree", foodtree);
 
 
-		_BlackBoard->MakeData<bool>(L"Hungry");
-		_BlackBoard->SetData(L"Hungry", IsHungry);
 		_BlackBoard->MakeData<int>(L"HungryStack");
 		_BlackBoard->SetData(L"HungryStack", HungryStack);
 		_BlackBoard->MakeData<float>(L"Level");
@@ -72,17 +73,27 @@ namespace Mn
 		
 
 
+		//Hungry
+		Succeeder* HungrySucceder;
+		Selector* HungrySelector;
+		Sequence* HungrySequence;
+		AddHungryStack* addStack;
+		IsHungry* isHungry;
+		RepeatUntilFail* Hungryrepeat;
+		Sequence* eatSequence;
+		FindFood* findFood;
+		
 
-
-
-		Sequence* swimSequence;
-		Sequence* turnSequence;
-		Selector* turnSelector;
+		//turn
 		Succeeder* turnSucceeder;
+		Sequence* turnSequence;
 		IsTurn* isturn;
 		GuppyTurn* guppyturn;
+		
+		//swim
+		Sequence* swimSequence;
+		
 		//condition
-		FindFood* findFood;
 
 		//action Node
 		Move* move;
@@ -91,7 +102,17 @@ namespace Mn
 
 
 		_Root = new RootNode(_BlackBoard.get());
+		_Root->SetTimer();
 		_Sequence = _Root->setChild<Sequence>();
+
+		HungrySucceder = _Sequence->AddChild<Succeeder>();
+		HungrySequence = HungrySucceder->SetChild<Sequence>();
+		addStack = HungrySequence->AddChild<AddHungryStack>();
+		isHungry = HungrySequence->AddChild<IsHungry>();
+		Hungryrepeat = HungrySequence->AddChild<RepeatUntilFail>();
+		eatSequence = Hungryrepeat->SetChild<Sequence>();
+		findFood = eatSequence->AddChild<FindFood>();
+
 		turnSucceeder = _Sequence->AddChild<Succeeder>();
 		turnSequence = turnSucceeder->SetChild<Sequence>();
 		isturn = turnSequence->AddChild<IsTurn>();

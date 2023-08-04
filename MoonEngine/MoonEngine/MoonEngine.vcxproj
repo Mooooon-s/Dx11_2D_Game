@@ -166,6 +166,7 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="LoadScene.h" />
+    <ClInclude Include="MnAddHungryStack.h" />
     <ClInclude Include="MnAquarimBG.h" />
     <ClInclude Include="MnCameraScript.h" />
     <ClInclude Include="MnFindFood.h" />
@@ -179,6 +180,7 @@
     <ClInclude Include="MnGuppyTurn.h" />
     <ClInclude Include="MnHpBar.h" />
     <ClInclude Include="MnHpFrame.h" />
+    <ClInclude Include="MnIsHungry.h" />
     <ClInclude Include="MnIsTurn.h" />
     <ClInclude Include="MnMenuBG.h" />
     <ClInclude Include="MnMenuScene.h" />
@@ -194,6 +196,8 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnIsHungry.cpp" />
+    <ClCompile Include="MnAddHungryStack.cpp" />
     <ClCompile Include="MnFood.cpp" />
     <ClCompile Include="MnGuppyTurn.cpp" />
     <ClCompile Include="MnIsTurn.cpp" />

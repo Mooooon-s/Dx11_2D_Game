@@ -25,7 +25,10 @@ namespace Mn
 		}
 		virtual enums::eBTState Run() override;
 		bool CheckRunning();
+
+		void SetTimer();
 	private:
+		float _Time;
 		Node* _Child;
 		Node* _RunningNode;
 		BlackBoard* _BlackBoard;

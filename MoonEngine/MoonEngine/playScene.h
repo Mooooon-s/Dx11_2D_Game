@@ -4,11 +4,10 @@
 
 namespace Mn
 {
-
+	extern Mn::KdTree* kdTree;
 	class playScene : public Scene
 	{
 	private:
-		KdTree* _KdTree;
 		std::vector<GameObject*> _ActiveObjs;
 	public:
 		playScene();
