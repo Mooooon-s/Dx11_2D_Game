@@ -5,7 +5,7 @@
 #include "MnAnimator.h"
 #include "MnGameObject.h"
 #include "MnCollider2D.h"
-
+#include "MnFoodScript.h"
 namespace Mn
 {
 	Food::Food()
@@ -36,6 +36,9 @@ namespace Mn
 		at->Create(L"Level_3_Food", atlas, atlasAlpha, Vector2(0.0f, 80.0f), Vector2(40.0f, 40.f), 10, Vector2::Zero, 0.1);
 
 		at->PlayAnimation(L"Level_1_Food", true);
+
+		FoodScript* foodscript = AddComponent<FoodScript>();
+		foodscript->Initialize();
 	}
 	void Food::Update()
 	{

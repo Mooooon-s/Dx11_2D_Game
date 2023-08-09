@@ -164,6 +164,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="MnFoodScript.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="LoadScene.h" />
     <ClInclude Include="MnAddHungryStack.h" />
@@ -198,6 +199,7 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnFoodScript.cpp" />
     <ClCompile Include="MnEatFood.cpp" />
     <ClCompile Include="MnIsHungry.cpp" />
     <ClCompile Include="MnAddHungryStack.cpp" />

@@ -93,6 +93,7 @@
     <ClInclude Include="MnEatFood.h">
       <Filter>Contents\LeafNode\Guppy\EatFood</Filter>
     </ClInclude>
+    <ClInclude Include="MnFoodScript.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -183,6 +184,7 @@
     <ClCompile Include="MnEatFood.cpp">
       <Filter>Contents\LeafNode\Guppy\EatFood</Filter>
     </ClCompile>
+    <ClCompile Include="MnFoodScript.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -286,6 +288,9 @@
     </Filter>
     <Filter Include="Contents\LeafNode\Guppy\EatFood">
       <UniqueIdentifier>{e5783598-111e-43a6-9321-6836c064f346}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\FoodScript">
+      <UniqueIdentifier>{28acec9d-a6bc-4c37-983e-3da93687110d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
