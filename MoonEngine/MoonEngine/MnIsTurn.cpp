@@ -29,10 +29,14 @@ namespace Mn
 	enums::eBTState IsTurn::Run()
 	{
 
+		if (_BlackBoard->GetDataValue<float>(L"Timer")-_Time < 3)
+			return enums::eBTState::FAILURE;
+
 		if (Generate() == 0)
 			return enums::eBTState::FAILURE;
 		else
 		{
+			_Time = _BlackBoard->GetDataValue<float>(L"Timer");
 			_BlackBoard->SetData(L"Behavior", enums::eBehavior::Turn);
 			return enums::eBTState::SUCCESS;
 		}

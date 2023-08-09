@@ -38,6 +38,8 @@ namespace Mn
 		void BuildTree(std::vector<GameObject*>& gameObj);
 		void Query(std::vector<GameObject*>& gameObj, double r, int index);
 		void Query(GameObject* gameObj, double r);
+		GameObject* Query(GameObject* gameObj, double r,int a);
+		
 	public:
 		void Draw();
 	};

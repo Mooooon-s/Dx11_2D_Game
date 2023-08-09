@@ -4,6 +4,7 @@
 #include "MnMaterial.h"
 #include "MnAnimator.h"
 #include "MnGameObject.h"
+#include "MnCollider2D.h"
 
 namespace Mn
 {
@@ -16,6 +17,9 @@ namespace Mn
 	}
 	void Food::Initialize()
 	{
+		Collider2D* coll = AddComponent<Collider2D>();
+		coll->SetSize(Vector2(0.2f, 0.2f));
+
 		MeshRenderer* mr = AddComponent<MeshRenderer>();
 		mr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
 		mr->SetMaterial(Resources::Find<Material>(L"FoodSpriteAnimaionMaterial"));

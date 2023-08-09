@@ -12,10 +12,13 @@
 #include "MnAddHungryStack.h"
 #include "MnIsHungry.h"
 #include "MnFindFood.h"
+#include "MnMove2Food.h"
+#include "MnEatFood.h"
 
 #include "MnKdTree.h"
 
 #include "playScene.h"
+#include "MnFood.h"
 
 namespace Mn
 {
@@ -25,10 +28,6 @@ namespace Mn
 		,_Selector(nullptr)
 		,_Inverter(nullptr)
 		,_BlackBoard(nullptr)
-	{
-	}
-	GuppyBehaviorTree::GuppyBehaviorTree(GameObject* guppy)
-		: _Guppy(guppy)
 	{
 	}
 	GuppyBehaviorTree::~GuppyBehaviorTree()
@@ -50,7 +49,7 @@ namespace Mn
 
 
 		//setData
-		_BlackBoard->AddData<GameObject>(L"Guppy", _Guppy);
+		_BlackBoard->AddData<GameObject>(L"Guppy", GetOwner());
 		_BlackBoard->AddData<KdTree>(L"Food_Tree", foodtree);
 
 
@@ -70,7 +69,9 @@ namespace Mn
 
 		_BlackBoard->MakeData<double>(L"End");
 		_BlackBoard->SetData(L"End", 0.0f);
-		
+		_BlackBoard->MakeData<bool>(L"CollisionEnter");
+		_BlackBoard->MakeData<bool>(L"CollisionStay");
+		_BlackBoard->MakeData<Collider2D>(L"other");
 
 
 		//Hungry
@@ -83,6 +84,10 @@ namespace Mn
 		Sequence* eatSequence;
 		FindFood* findFood;
 		
+		Sequence* eatSequence_;
+		Inverter* eatInverter;
+		Move2Food* move2food;
+		EatFood* eatfood;
 
 		//turn
 		Succeeder* turnSucceeder;
@@ -92,10 +97,6 @@ namespace Mn
 		
 		//swim
 		Sequence* swimSequence;
-		
-		//condition
-
-		//action Node
 		Move* move;
 		PlayAnimaion* playanima[2];
 		
@@ -109,9 +110,18 @@ namespace Mn
 		HungrySequence = HungrySucceder->SetChild<Sequence>();
 		addStack = HungrySequence->AddChild<AddHungryStack>();
 		isHungry = HungrySequence->AddChild<IsHungry>();
+
 		Hungryrepeat = HungrySequence->AddChild<RepeatUntilFail>();
 		eatSequence = Hungryrepeat->SetChild<Sequence>();
+
 		findFood = eatSequence->AddChild<FindFood>();
+		eatInverter = eatSequence->AddChild<Inverter>();
+
+		eatSequence_ = eatInverter->SetChild<Sequence>();
+		
+		move2food = eatSequence_->AddChild<Move2Food>();
+		eatfood = eatSequence_->AddChild<EatFood>();
+		eatSequence_->AddChild<PlayAnimaion>();
 
 		turnSucceeder = _Sequence->AddChild<Succeeder>();
 		turnSequence = turnSucceeder->SetChild<Sequence>();
@@ -122,10 +132,33 @@ namespace Mn
 		swimSequence = _Sequence->AddChild<Sequence>();
 		playanima[1] = swimSequence->AddChild<PlayAnimaion>();
 		move = swimSequence->AddChild<Move>();
-		
-		
-		
-		int a = 0;
+
+	}
+	void GuppyBehaviorTree::Update()
+	{
+		Run();
+	}
+	void GuppyBehaviorTree::LateUpdate()
+	{
+	}
+	void GuppyBehaviorTree::Render()
+	{
+	}
+	void GuppyBehaviorTree::OnCollisionEnter(Collider2D* other)
+	{
+		_BlackBoard->AddData(L"otherColl", other);
+		_BlackBoard->SetData(L"CollisionEnter", true);
+	}
+	void GuppyBehaviorTree::OnCollisionStay(Collider2D* other)
+	{
+		_BlackBoard->AddData(L"otherColl", other);
+		_BlackBoard->SetData(L"CollisionEnter", false);
+		_BlackBoard->SetData(L"CollisionStay", true);
+	}
+	void GuppyBehaviorTree::OnCollisionExit(Collider2D* other)
+	{
+		_BlackBoard->SetData(L"CollisionEnter", false);
+		_BlackBoard->SetData(L"CollisionStay", false);
 	}
 	void GuppyBehaviorTree::Run()
 	{

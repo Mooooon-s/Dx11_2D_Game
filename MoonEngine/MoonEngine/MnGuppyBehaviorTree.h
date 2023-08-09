@@ -8,21 +8,30 @@
 #include "../Engine_SOURCE/MnRepeatUntilFail.h"
 
 #include "MnGameObject.h"
+#include "MnScript.h"
+
 
 namespace Mn
 {
-	class GuppyBehaviorTree
+	class GuppyBehaviorTree : public Script
 	{
 	public:
 		GuppyBehaviorTree();
-		GuppyBehaviorTree(GameObject* guppy);
 		~GuppyBehaviorTree();
 
-		void Initialize();
-		void Run();
+
+		virtual void Initialize() override;
+		virtual void Update() override;
+		virtual void LateUpdate() override;
+		virtual void Render() override;
+
+		virtual void OnCollisionEnter(Collider2D* other) override;
+		virtual void OnCollisionStay(Collider2D* other) override;
+		virtual void OnCollisionExit(Collider2D* other) override;
 
 	public:
-		GameObject* _Guppy;
+		void Run();
+	public:
 		RootNode* _Root;
 		Sequence* _Sequence;
 		Selector* _Selector;

@@ -21,16 +21,20 @@ namespace Mn
 	{
 		if (_BlackBoard->GetData<KdTree>(L"Food_Tree") != nullptr)
 		{
-			Food();
-			return enums::eBTState::SUCCESS;
+			if(Food()==true)
+				return enums::eBTState::SUCCESS;
 		}
 		return enums::eBTState::FAILURE;
 	}
-	void FindFood::Food()
+	bool FindFood::Food()
 	{
 		GameObject* guppy = _BlackBoard->GetData<GameObject>(L"Guppy");
 
 		KdTree* kd = Mn::kdTree;
-		kd->Query(guppy, 2.0f);
+		GameObject* food_ = kd->Query(guppy, 2.0f,0);
+		if (food_ != nullptr)
+			return true;
+		else
+			return false;
 	}
 }

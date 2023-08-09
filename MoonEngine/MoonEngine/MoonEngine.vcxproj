@@ -169,6 +169,7 @@
     <ClInclude Include="MnAddHungryStack.h" />
     <ClInclude Include="MnAquarimBG.h" />
     <ClInclude Include="MnCameraScript.h" />
+    <ClInclude Include="MnEatFood.h" />
     <ClInclude Include="MnFindFood.h" />
     <ClInclude Include="MnFood.h" />
     <ClInclude Include="MnGridScript.h" />
@@ -186,6 +187,7 @@
     <ClInclude Include="MnMenuScene.h" />
     <ClInclude Include="MnMountainStage.h" />
     <ClInclude Include="MnMove.h" />
+    <ClInclude Include="MnMove2Food.h" />
     <ClInclude Include="MnPlayerHp.h" />
     <ClInclude Include="MnPumpkin.h" />
     <ClInclude Include="MnTitleScene.h" />
@@ -196,6 +198,7 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnEatFood.cpp" />
     <ClCompile Include="MnIsHungry.cpp" />
     <ClCompile Include="MnAddHungryStack.cpp" />
     <ClCompile Include="MnFood.cpp" />
@@ -222,6 +225,7 @@
     <ClCompile Include="MnMove.cpp" />
     <ClCompile Include="MnPlayAnimaion.cpp" />
     <ClCompile Include="MnMousePosScript.cpp" />
+    <ClCompile Include="MnMove2Food.cpp" />
     <ClCompile Include="playScene.cpp" />
     <ClCompile Include="MnPumpkin.cpp" />
   </ItemGroup>

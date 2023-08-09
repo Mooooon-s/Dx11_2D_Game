@@ -89,7 +89,8 @@ void Mn::playScene::Update()
 	Scene* scene = SceneManager::ActiveScene();
 	for (auto a : scene->GetLayer(eLayerType::Food).GetGameObjects())
 	{
-		_ActiveObjs.push_back(a);
+		if(a->State()==GameObject::eState::Active)
+			_ActiveObjs.push_back(a);
 	}
 	kdTree->BuildTree(_ActiveObjs);
 	Scene::Update();
@@ -108,10 +109,12 @@ void Mn::playScene::Render()
 
 void Mn::playScene::Destroy()
 {
+	Scene::Destroy();
 }
 
 void Mn::playScene::OnEnter()
 {
+	CollisionManager::SetLayer(eLayerType::Fish, eLayerType::Food, true);
 }
 
 void Mn::playScene::OnExit()

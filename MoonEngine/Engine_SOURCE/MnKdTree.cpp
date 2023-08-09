@@ -200,6 +200,37 @@ namespace Mn
 			}
 		}
 	}
+
+	GameObject* KdTree::Query(GameObject* gameObj, double r, int a)
+	{
+		Vector3 pos = gameObj->GetComponent<Transform>()->Position();
+
+		std::vector<KdNode*> queue;
+		queue.push_back(_Root);
+
+		while (queue.size() != 0)
+		{
+			auto node = queue[0];
+			queue.erase(queue.begin());
+			bool contain = node->IsContain(pos, r);
+			bool intersect = node->IsIntersect(pos, r);
+			if (contain == true || intersect == true)
+			{
+				for (auto g : node->_GameObj)
+				{
+					return g;
+					g->State(GameObject::eState::Active);
+				}
+				if (node->IsEmpty() == false) {
+					for (int i = 0; i < 2; i++) {
+						queue.push_back(node->_ChildNode[i]);
+					}
+				}
+			}
+		}
+		return nullptr;
+	}
+
 	void KdTree::Draw()
 	{
 	}

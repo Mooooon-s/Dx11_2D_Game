@@ -56,7 +56,16 @@ namespace Mn
 
 			return *(T*)iter->second;
 		}
+		template <typename T>
+		void EraseData(std::wstring key)
+		{
+			auto iter = _BlackBoard.find(key);
+			if (iter == _BlackBoard.end())
+				assert(true);
 
+			iter->second = nullptr;
+			_BlackBoard.erase(iter);
+		}
 
 	template <typename T>
 	void SetRunningNode(T* runningNode)

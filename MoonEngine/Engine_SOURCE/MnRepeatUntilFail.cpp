@@ -3,7 +3,13 @@ namespace Mn
 {
 	enums::eBTState RepeatUntilFail::Run()
 	{
-		while (GetChildren()->Run() != enums::eBTState::FAILURE)
-			return enums::eBTState::FAILURE;
+		enums::eBTState state;
+		do {
+			state = GetChildren()->Run();
+			if (state == enums::eBTState::RUNNING)
+				return enums::eBTState::RUNNING;
+			if (state == enums::eBTState::FAILURE)
+				return enums::eBTState::FAILURE;
+		} while (state != enums::eBTState::FAILURE);
 	}
 }

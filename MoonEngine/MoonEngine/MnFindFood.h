@@ -13,7 +13,7 @@ namespace Mn
 		~FindFood();
 	public:
 		virtual enums::eBTState Run() override;
-		void Food();
+		bool Food();
 	private:
 		BlackBoard* _BlackBoard;
 

@@ -13,7 +13,12 @@ namespace Mn
 
 		if (CheckRunning() == false)
 		{
-			return _RunningNode->Run();
+			enums::eBTState state = _RunningNode->Run();
+			if ( state == enums::eBTState::FAILURE || state == enums::eBTState::SUCCESS)
+			{
+				_BlackBoard->ResetRunningNode();
+			}
+			return state;
 		}
 		enums::eBTState state = _Child->Run();
 		if (state == enums::eBTState::RUNNING)

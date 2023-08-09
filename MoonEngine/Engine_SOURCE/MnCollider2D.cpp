@@ -59,7 +59,7 @@ namespace Mn
 	}
 	void Collider2D::OnCollisionEnter(Collider2D* other)
 	{
-		const std::vector<Script*>& scripts = GetOwner()->GetComponents<Script>();
+		const std::vector<Script*> scripts = GetOwner()->GetComponents<Script>();
 		for (Script* script : scripts)
 		{
 			script->OnCollisionEnter(other);
@@ -67,6 +67,9 @@ namespace Mn
 	}
 	void Collider2D::OnCollisionStay(Collider2D* other)
 	{
+
+
+
 		const std::vector<Script*>& scripts = GetOwner()->GetComponents<Script>();
 
 		for (Script* script : scripts)

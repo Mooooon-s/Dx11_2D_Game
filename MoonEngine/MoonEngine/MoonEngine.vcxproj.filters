@@ -87,6 +87,12 @@
     <ClInclude Include="MnIsHungry.h">
       <Filter>Contents\LeafNode\Guppy\IsHungry</Filter>
     </ClInclude>
+    <ClInclude Include="MnMove2Food.h">
+      <Filter>Contents\LeafNode\Guppy\Move2Food</Filter>
+    </ClInclude>
+    <ClInclude Include="MnEatFood.h">
+      <Filter>Contents\LeafNode\Guppy\EatFood</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -170,6 +176,12 @@
     </ClCompile>
     <ClCompile Include="MnIsHungry.cpp">
       <Filter>Contents\LeafNode\Guppy\IsHungry</Filter>
+    </ClCompile>
+    <ClCompile Include="MnMove2Food.cpp">
+      <Filter>Contents\LeafNode\Guppy\Move2Food</Filter>
+    </ClCompile>
+    <ClCompile Include="MnEatFood.cpp">
+      <Filter>Contents\LeafNode\Guppy\EatFood</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -268,6 +280,12 @@
     </Filter>
     <Filter Include="Contents\LeafNode\Guppy\AddHungryStack">
       <UniqueIdentifier>{3b8b3277-b812-47b1-88aa-c67158919a28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Guppy\Move2Food">
+      <UniqueIdentifier>{5dcd4143-0229-4702-9a6a-12e3d6f10620}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Guppy\EatFood">
+      <UniqueIdentifier>{e5783598-111e-43a6-9321-6836c064f346}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

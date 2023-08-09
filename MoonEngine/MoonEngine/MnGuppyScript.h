@@ -18,11 +18,6 @@ namespace Mn
 		void Render() override;
 
 	public:
-		void Behavior();
-		void Think();
-		void Swim();
-		void MoveVec();
-
 		void SetDir(eDir dir) { _Dir = dir; }
 		void SetLevel(UINT level) { _Level = level; }
 		void IsHungry(bool hungry) { _Hungry = hungry; }

@@ -17,13 +17,11 @@ namespace Mn
 	enums::eBTState AddHungryStack::Run()
 	{
 		_Time = _BlackBoard->GetDataValue<float>(L"Timer");
-		
-		if (_Time >= 3.0)
+		if ((int)_Time % 3 ==0&& _Time!=0 )
 		{
 			int stack = _BlackBoard->GetDataValue<int>(L"HungryStack");
 			stack += 1;
 			_BlackBoard->SetData(L"HungryStack", stack);
-			_BlackBoard->SetData<float>(L"Timer",0);
 		}
 		return enums::eBTState::SUCCESS;
 	}

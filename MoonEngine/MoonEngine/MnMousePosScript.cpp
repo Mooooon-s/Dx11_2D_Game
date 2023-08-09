@@ -28,10 +28,13 @@ namespace Mn
 	}
 	void MousePosScript::Update()
 	{
-		if (Input::GetKeyDown(eKeyCode::LBUTTON))
+		if (Input::GetKeyDown(eKeyCode::LBUTTON) 
+			&& _UnProjectPos.x > -2.0f && _UnProjectPos.x < 2.0f 
+			&& _UnProjectPos.y > -1.5f && _UnProjectPos.y < 1.0f )
 		{
 			int a = 0;
-			Food* food = object::Instantiate<Food>(_UnProjectPos,eLayerType::Food);
+			Vector3 pos = Vector3(_UnProjectPos.x, _UnProjectPos.y, 0);
+			Food* food = object::Instantiate<Food>(pos,eLayerType::Food);
 			food->Initialize();
 		}
 	}

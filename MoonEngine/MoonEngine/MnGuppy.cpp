@@ -10,6 +10,7 @@
 #include "MnGuppyRenderScript.h"
 #include "MnGuppyAnimationCntrl.h"
 
+#include "MnGuppyBehaviorTree.h"
 
 namespace Mn
 {
@@ -23,13 +24,16 @@ namespace Mn
 	{
 		SetName(L"Guppy");
 		Collider2D* col = AddComponent<Collider2D>();
-		col->SetSize(Vector2(1.0f, 1.0f));
+		col->SetSize(Vector2(0.25f, 0.25f));
 
 		GuppyRender* GR = AddComponent<GuppyRender>();
 		GR->Initialize();
 
 		GuppyScript* GS = AddComponent<GuppyScript>();
 		GS->Initialize();
+
+		GuppyBehaviorTree* GBT = AddComponent<GuppyBehaviorTree>();
+		GBT->Initialize();
 
 		/*GuppyAnimationCntrl* GSC = AddComponent<GuppyAnimationCntrl>();
 		GSC->Initialize();*/

@@ -103,6 +103,20 @@ namespace Mn
 			}
 			break;
 		case eBehavior::Eat:
+			switch (level)
+			{
+			case 1:
+				at->PlayAnimation(L"Hungry_Eat_Small", false);
+				break;
+			case 2:
+				at->PlayAnimation(L"Hungry_Eat_Middle", false);
+				break;
+			case 3:
+				at->PlayAnimation(L"Hungry_Eat_Large", false);
+				break;
+			default:
+				break;
+			}
 			break;
 		case eBehavior::End:
 			break;
@@ -163,6 +177,20 @@ namespace Mn
 			}
 			break;
 		case eBehavior::Eat:
+			switch (level)
+			{
+			case 1:
+				at->PlayAnimation(L"Hungry_Eat_Small", false);
+				break;
+			case 2:
+				at->PlayAnimation(L"Hungry_Eat_Middle", false);
+				break;
+			case 3:
+				at->PlayAnimation(L"Hungry_Eat_Large", false);
+				break;
+			default:
+				break;
+			}
 			break;
 		case eBehavior::End:
 			break;

@@ -42,7 +42,6 @@ namespace Mn
 		Time::Update();
 		Input::Updatae();
 		SceneManager::Update();
-
 		CollisionManager::Update();
 	}
 
