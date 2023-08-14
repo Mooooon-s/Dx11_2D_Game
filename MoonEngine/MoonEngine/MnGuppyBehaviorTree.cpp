@@ -1,5 +1,6 @@
 #include "MnGuppyBehaviorTree.h"
 
+#include "MnDropCoin.h"
 #include "MnMove.h"
 #include "MnPlayAnimaion.h"
 #include "MnIsTurn.h"
@@ -14,6 +15,7 @@
 #include "MnFindFood.h"
 #include "MnMove2Food.h"
 #include "MnEatFood.h"
+#include "MnAddLevel.h"
 
 #include "MnKdTree.h"
 
@@ -44,6 +46,7 @@ namespace Mn
 		eDir dir = eDir::Left;
 		float level = 1;
 		int HungryStack=0;
+		UINT levelStack = 0;
 
 		KdTree* foodtree =Mn::kdTree;
 
@@ -59,6 +62,8 @@ namespace Mn
 		_BlackBoard->SetData(L"Level", level);
 		_BlackBoard->MakeData<float>(L"MoveSpeed");
 		_BlackBoard->SetData(L"MoveSpeed", speed);
+		_BlackBoard->MakeData<UINT>(L"Level_Stack");
+		_BlackBoard->SetData(L"Level_Stack", levelStack);
 		
 		_BlackBoard->MakeData<eBehavior>(L"Behavior");
 		_BlackBoard->SetData(L"Behavior", behavior);
@@ -88,6 +93,7 @@ namespace Mn
 		Inverter* eatInverter;
 		Move2Food* move2food;
 		EatFood* eatfood;
+		AddLevel* addlevel;
 
 		//turn
 		Succeeder* turnSucceeder;
@@ -97,6 +103,7 @@ namespace Mn
 		
 		//swim
 		Sequence* swimSequence;
+		DropCoin* dropCoin;
 		Move* move;
 		PlayAnimaion* playanima[2];
 		
@@ -120,8 +127,9 @@ namespace Mn
 		eatSequence_ = eatInverter->SetChild<Sequence>();
 		
 		move2food = eatSequence_->AddChild<Move2Food>();
-		eatfood = eatSequence_->AddChild<EatFood>();
 		eatSequence_->AddChild<PlayAnimaion>();
+		eatfood = eatSequence_->AddChild<EatFood>();
+		addlevel = eatSequence_->AddChild<AddLevel>();
 
 		turnSucceeder = _Sequence->AddChild<Succeeder>();
 		turnSequence = turnSucceeder->SetChild<Sequence>();
@@ -130,6 +138,7 @@ namespace Mn
 		guppyturn = turnSequence->AddChild<GuppyTurn>();
 
 		swimSequence = _Sequence->AddChild<Sequence>();
+		dropCoin = swimSequence->AddChild<DropCoin>();
 		playanima[1] = swimSequence->AddChild<PlayAnimaion>();
 		move = swimSequence->AddChild<Move>();
 

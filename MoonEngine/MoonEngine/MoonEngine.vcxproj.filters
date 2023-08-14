@@ -93,7 +93,24 @@
     <ClInclude Include="MnEatFood.h">
       <Filter>Contents\LeafNode\Guppy\EatFood</Filter>
     </ClInclude>
-    <ClInclude Include="MnFoodScript.h" />
+    <ClInclude Include="MnCoin.h">
+      <Filter>Contents\Coin</Filter>
+    </ClInclude>
+    <ClInclude Include="MnFoodScript.h">
+      <Filter>Contents\Scripts\FoodScript</Filter>
+    </ClInclude>
+    <ClInclude Include="MnAddLevel.h">
+      <Filter>Contents\LeafNode\Guppy\AddLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="MnDropCoin.h">
+      <Filter>Contents\LeafNode\Guppy\DropCoin</Filter>
+    </ClInclude>
+    <ClInclude Include="MnCoinRender.h">
+      <Filter>Contents\Scripts\CoinRender</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGuppyDeath.h">
+      <Filter>Contents\LeafNode\Guppy\Death</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -184,7 +201,24 @@
     <ClCompile Include="MnEatFood.cpp">
       <Filter>Contents\LeafNode\Guppy\EatFood</Filter>
     </ClCompile>
-    <ClCompile Include="MnFoodScript.cpp" />
+    <ClCompile Include="MnCoin.cpp">
+      <Filter>Contents\Coin</Filter>
+    </ClCompile>
+    <ClCompile Include="MnFoodScript.cpp">
+      <Filter>Contents\Scripts\FoodScript</Filter>
+    </ClCompile>
+    <ClCompile Include="MnAddLevel.cpp">
+      <Filter>Contents\LeafNode\Guppy\AddLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="MnDropCoin.cpp">
+      <Filter>Contents\LeafNode\Guppy\DropCoin</Filter>
+    </ClCompile>
+    <ClCompile Include="MnCoinRender.cpp">
+      <Filter>Contents\Scripts\CoinRender</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGuppyDeath.cpp">
+      <Filter>Contents\LeafNode\Guppy\Death</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -259,9 +293,6 @@
     <Filter Include="Contents\LeafNode\Guppy\FindFood">
       <UniqueIdentifier>{23dc3609-3f10-4a5d-955c-ed6f5b122911}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\LeafNode\Guppy\GetFood">
-      <UniqueIdentifier>{24ec1fcc-a0b8-4206-a5d8-914778edbb04}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\LeafNode\Guppy\PlayAnimaion">
       <UniqueIdentifier>{8bb735cd-1982-4777-8f5b-28bca9a84f6f}</UniqueIdentifier>
     </Filter>
@@ -291,6 +322,21 @@
     </Filter>
     <Filter Include="Contents\Scripts\FoodScript">
       <UniqueIdentifier>{28acec9d-a6bc-4c37-983e-3da93687110d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Coin">
+      <UniqueIdentifier>{35c78fda-ba5d-44ae-b6c5-cf6be622ef02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Guppy\AddLevel">
+      <UniqueIdentifier>{24ec1fcc-a0b8-4206-a5d8-914778edbb04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Guppy\DropCoin">
+      <UniqueIdentifier>{dd9a2d88-31b8-4ae1-991e-3d9875438c09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\CoinRender">
+      <UniqueIdentifier>{d2e806e0-74ac-4a84-aabd-b8212453a784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Guppy\Death">
+      <UniqueIdentifier>{f51aa5a7-e7c1-45f0-abfb-79192e1f7bd2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

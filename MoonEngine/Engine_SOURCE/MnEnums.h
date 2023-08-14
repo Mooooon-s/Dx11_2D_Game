@@ -20,6 +20,7 @@ namespace Mn::enums
 	{
 		Grid,
 		Fish,
+		Coin,
 		Monster,
 		Light,
 		BackGround,

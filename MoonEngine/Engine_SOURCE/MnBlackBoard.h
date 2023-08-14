@@ -57,14 +57,15 @@ namespace Mn
 			return *(T*)iter->second;
 		}
 		template <typename T>
-		void EraseData(std::wstring key)
+		bool EraseData(std::wstring key)
 		{
 			auto iter = _BlackBoard.find(key);
 			if (iter == _BlackBoard.end())
-				assert(true);
+				return false;
 
 			iter->second = nullptr;
 			_BlackBoard.erase(iter);
+			return true;
 		}
 
 	template <typename T>

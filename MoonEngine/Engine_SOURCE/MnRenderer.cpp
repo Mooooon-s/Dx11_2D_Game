@@ -399,8 +399,8 @@ namespace renderer
 		//----------------------------------------------------------------
 		//							Texture
 		//----------------------------------------------------------------
-		std::shared_ptr<Mn::graphics::Texture> FoodTexture = Resources::Load<Mn::graphics::Texture>(L"FoodTex", L"..\\Resources\\Texture\\Food\\food.jpg");
-		std::shared_ptr<Mn::graphics::Texture> FoodTextureAlpha = Resources::Load<Mn::graphics::Texture>(L"FoodTex_alpha", L"..\\Resources\\Texture\\Food\\_food.jpg");
+		//std::shared_ptr<Mn::graphics::Texture> FoodTexture = Resources::Load<Mn::graphics::Texture>(L"FoodTex", L"..\\Resources\\Texture\\Food\\food.jpg");
+		//std::shared_ptr<Mn::graphics::Texture> FoodTextureAlpha = Resources::Load<Mn::graphics::Texture>(L"FoodTex_alpha", L"..\\Resources\\Texture\\Food\\_food.jpg");
 
 		//----------------------------------------------------------------
 		//							Material
@@ -410,6 +410,11 @@ namespace renderer
 		FoodAnimaterial->Shader(spriteShader);
 		FoodAnimaterial->RenderingMode(eRenderingMode::Transparent);
 		Resources::Insert(L"FoodSpriteAnimaionMaterial", FoodAnimaterial);
+
+		std::shared_ptr <Material> coinAnimaterial = std::make_shared<Material>();
+		coinAnimaterial->Shader(spriteShader);
+		coinAnimaterial->RenderingMode(eRenderingMode::Transparent);
+		Resources::Insert(L"CoinSpriteAnimaionMaterial", coinAnimaterial);
 
 
 

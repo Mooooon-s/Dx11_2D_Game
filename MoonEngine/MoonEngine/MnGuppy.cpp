@@ -22,6 +22,8 @@ namespace Mn
 	}
 	void Guppy::Initialize()
 	{
+		Transform* tr = GetComponent<Transform>();
+		tr->Scale(Vector3(0.8, 0.8, 0.0f));
 		SetName(L"Guppy");
 		Collider2D* col = AddComponent<Collider2D>();
 		col->SetSize(Vector2(0.25f, 0.25f));
@@ -34,9 +36,6 @@ namespace Mn
 
 		GuppyBehaviorTree* GBT = AddComponent<GuppyBehaviorTree>();
 		GBT->Initialize();
-
-		/*GuppyAnimationCntrl* GSC = AddComponent<GuppyAnimationCntrl>();
-		GSC->Initialize();*/
 
 	}
 	void Guppy::Update()

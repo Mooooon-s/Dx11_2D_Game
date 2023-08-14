@@ -20,12 +20,14 @@ namespace Mn
 	{
 		Collider2D* food = _BlackBoard->GetData<Collider2D>(L"otherColl");
 		Food* castFood = dynamic_cast<Food*>(food->GetOwner());
-		castFood->State(GameObject::eState::Dead);
 		_BlackBoard->EraseData<Collider2D>(L"otherColl");
 		_BlackBoard->SetData(L"CollisionEnter", false);
 		_BlackBoard->SetData(L"CollisionStay", false);
 		_BlackBoard->SetData(L"HungryStack", 0);
-		_BlackBoard->SetData(L"Behavior", enums::eBehavior::Eat);
+		UINT stack = _BlackBoard->GetDataValue<UINT>(L"Level_Stack");
+		stack += 1;
+		_BlackBoard->SetData(L"Level_Stack", stack);
+		castFood->State(GameObject::eState::Dead);
 		return enums::eBTState::SUCCESS;
 	}
 }

@@ -92,6 +92,7 @@ namespace Mn
 		
 		if (_BlackBoard->GetDataValue<bool>(L"CollisionEnter") == true || _BlackBoard->GetDataValue<bool>(L"CollisionStay") == true)
 		{
+			_BlackBoard->SetData(L"Behavior", enums::eBehavior::Eat);
 			return enums::eBTState::SUCCESS;
 		}
 

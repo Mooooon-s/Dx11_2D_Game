@@ -164,6 +164,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="MnAddLevel.h" />
+    <ClInclude Include="MnCoin.h" />
+    <ClInclude Include="MnCoinRender.h" />
+    <ClInclude Include="MnDropCoin.h" />
     <ClInclude Include="MnFoodScript.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="LoadScene.h" />
@@ -177,6 +181,7 @@
     <ClInclude Include="MnGuppy.h" />
     <ClInclude Include="MnGuppyAnimationCntrl.h" />
     <ClInclude Include="MnGuppyBehaviorTree.h" />
+    <ClInclude Include="MnGuppyDeath.h" />
     <ClInclude Include="MnGuppyRenderScript.h" />
     <ClInclude Include="MnGuppyScript.h" />
     <ClInclude Include="MnGuppyTurn.h" />
@@ -199,6 +204,11 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnGuppyDeath.cpp" />
+    <ClCompile Include="MnDropCoin.cpp" />
+    <ClCompile Include="MnAddLevel.cpp" />
+    <ClCompile Include="MnCoinRender.cpp" />
+    <ClCompile Include="MnCoin.cpp" />
     <ClCompile Include="MnFoodScript.cpp" />
     <ClCompile Include="MnEatFood.cpp" />
     <ClCompile Include="MnIsHungry.cpp" />

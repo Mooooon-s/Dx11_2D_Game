@@ -1,4 +1,5 @@
 #include "MnIsHungry.h"
+#include "MnCollider2D.h"
 
 namespace Mn
 {
@@ -18,6 +19,9 @@ namespace Mn
 		if (stack < 3)
 		{
 			_BlackBoard->SetData(L"Fish_State", enums::eFishState::Full);
+			_BlackBoard->SetData(L"CollisionEnter", false);
+			_BlackBoard->SetData(L"CollisionStay", false);
+			_BlackBoard->EraseData<Collider2D>(L"otherColl");
 			return enums::eBTState::FAILURE;
 		}
 		else if (stack >= 3 && stack <5 )
@@ -25,7 +29,7 @@ namespace Mn
 			_BlackBoard->SetData(L"Fish_State", enums::eFishState::Hungry);
 			return enums::eBTState::SUCCESS;
 		}
-		else if (stack >= 5)
+		else if (stack >= 5 && stack < 7)
 		{
 			_BlackBoard->SetData(L"Fish_State", enums::eFishState::Starving);
 			return enums::eBTState::SUCCESS;
