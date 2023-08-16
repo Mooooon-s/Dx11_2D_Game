@@ -19,6 +19,9 @@ namespace Mn
 	enums::eBTState EatFood::Run()
 	{
 		Collider2D* food = _BlackBoard->GetData<Collider2D>(L"otherColl");
+		food->GetOwner()->GetComponent<Transform>()->Position(Vector3(-100.0f, -100.0f, 0.0f));
+		if (food->GetOwner() == nullptr)
+			return enums::eBTState::FAILURE;
 		Food* castFood = dynamic_cast<Food*>(food->GetOwner());
 		_BlackBoard->EraseData<Collider2D>(L"otherColl");
 		_BlackBoard->SetData(L"CollisionEnter", false);

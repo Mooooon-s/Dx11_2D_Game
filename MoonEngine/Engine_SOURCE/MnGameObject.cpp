@@ -80,14 +80,15 @@ namespace Mn
 	}
 	void GameObject::Render()
 	{
-		for (Component* comp : _Components)
-		{
-			comp->Render();
-		}
 
 		for (Script* script : _Scripts)
 		{
 			script->Render();
+		}
+
+		for (Component* comp : _Components)
+		{
+			comp->Render();
 		}
 	}
 }

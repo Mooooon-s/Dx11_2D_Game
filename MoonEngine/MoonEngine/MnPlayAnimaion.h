@@ -13,6 +13,7 @@ namespace Mn
 		virtual enums::eBTState Run()override;
 		void PlayAnimation(enums::eBehavior behavior);
 		void FullAnimation(enums::eBehavior behavior);
+		void DeathAnimation();
 		void StarvingAnimation(enums::eBehavior behavior);
 		void Bind();
 	private:

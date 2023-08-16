@@ -49,7 +49,7 @@ namespace renderer
 		Vector2 SpriteOffset;
 		Vector2 atlasSize;
 		UINT animationType;
-
+		//UINT Flipx;
 	};
 
 	CBUFFER(FlipCB, CBSLOT_FLIPX)

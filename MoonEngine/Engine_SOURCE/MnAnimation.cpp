@@ -133,6 +133,7 @@ namespace Mn
 		data.SpriteOffset = _Sprites[_Index].offset;
 		data.atlasSize = _Sprites[_Index].atlasSize;
 		data.animationType = 1;
+		//data.Flipx = 0;
 
 		ConstantBuffer* cb = renderer::constantBuffer[(UINT)eCBType::Animator];
 		cb->setData(&data);

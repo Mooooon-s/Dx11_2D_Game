@@ -33,12 +33,9 @@ namespace Mn
 	}
 	void GuppyScript::Initialize()
 	{
-		/*_Tree = new GuppyBehaviorTree(GetOwner());
-		_Tree->Initialize();*/
 	}
 	void GuppyScript::Update()
 	{
-		//_Tree->Run();
 	}
 	void GuppyScript::LateUpdate()
 	{

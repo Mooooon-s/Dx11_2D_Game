@@ -17,9 +17,7 @@ namespace Mn
 	}
 	enums::eBTState GuppyDeath::Run()
 	{
-
-		//음...애매한데 
-		//좀더 생각하기
+		//애니메이션을 death로 변경
 		int stack = _BlackBoard->GetDataValue<int>(L"HungryStack");
 		if (stack > 7)
 		{
@@ -27,12 +25,11 @@ namespace Mn
 			eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
 			if (state != eFishState::Death)
 			{
-
+				_BlackBoard->SetData(L"Fish_State", eFishState::Death);
+				return enums::eBTState::SUCCESS;
 			}
-
-			obj->State(GameObject::eState::Dead);
-			return enums::eBTState::FAILURE;
+			return enums::eBTState::SUCCESS;
 		}
-		return enums::eBTState::SUCCESS;
+		return enums::eBTState::FAILURE;
 	}
 }

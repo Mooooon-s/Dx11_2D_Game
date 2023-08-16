@@ -10,6 +10,7 @@ namespace Mn
 		: Component(eComponentType::Meshrenderer)
 		, _Mesh(nullptr)
 		, _Material(nullptr)
+		, _FlipX(0)
 	{
 	}
 
@@ -31,11 +32,19 @@ namespace Mn
 
 	void MeshRenderer::Render()
 	{
+		
+		ConstantBuffer* cb = renderer::constantBuffer[(UINT)eCBType::Flip];
+		renderer::FlipCB data = {};
+		data.FlipX = _FlipX;
+		cb->setData(&data);
+		cb->Bind(eShaderStage::PS);
+
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		tr->BindConstantBuffer();
 
 		_Mesh->BindBuffer();
 		_Material->Binds();
+
 
 		Animator* animator = GetOwner()->GetComponent<Animator>();
 		if (animator)

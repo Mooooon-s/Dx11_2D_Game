@@ -45,6 +45,7 @@ namespace Mn
 			StarvingAnimation(behavior);
 			break;
 		case eFishState::Death:
+			DeathAnimation();
 			break;
 		default:
 			break;
@@ -119,6 +120,28 @@ namespace Mn
 			}
 			break;
 		case eBehavior::End:
+			break;
+		default:
+			break;
+		}
+	}
+	void PlayAnimaion::DeathAnimation()
+	{
+		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Guppy");
+		Animator* at = gameObj->GetComponent<Animator>();
+
+		int level = _BlackBoard->GetDataValue<float>(L"Level");
+
+		switch (level)
+		{
+		case 1:
+			at->PlayAnimation(L"Hungry_Death_Small",false);
+			break;
+		case 2:
+			at->PlayAnimation(L"Hungry_Death_Middle",false);
+			break;
+		case 3:
+			at->PlayAnimation(L"Hungry_Death_Large",false);
 			break;
 		default:
 			break;
@@ -200,14 +223,5 @@ namespace Mn
 	}
 	void PlayAnimaion::Bind()
 	{
-		enums::eDir dir = _BlackBoard->GetDataValue<enums::eDir>(L"Dir");
-		ConstantBuffer* cb = renderer::constantBuffer[(UINT)eCBType::Flip];
-		renderer::FlipCB data = {};
-		if (dir == eDir::Right)
-			data.FlipX = 1;
-		else
-			data.FlipX = 0;
-		cb->setData(&data);
-		cb->Bind(eShaderStage::PS);
 	}
 }

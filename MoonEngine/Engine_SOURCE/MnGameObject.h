@@ -2,6 +2,7 @@
 #include "MnEntity.h"
 #include "MnComponent.h"
 #include "MnScript.h"
+#include "MnMeshRenderer.h"
 
 namespace Mn
 {
@@ -75,6 +76,14 @@ namespace Mn
 		T* AddComponent()
 		{
 			T* comp = new T();
+			if (dynamic_cast<MeshRenderer*>(comp))
+				int a = 0;
+			for (auto compon : _Components)
+			{
+				if (dynamic_cast<T*>(compon))
+					int a=0;
+			}
+
 			Component* buff = dynamic_cast<Component*>(comp);
 			Script* script = dynamic_cast<Script*>(buff);
 
@@ -86,7 +95,7 @@ namespace Mn
 			else
 				_Scripts.push_back(script);
 			comp->SetOwner(this);
-			comp->Initialize();
+			//comp->Initialize();
 			return comp;
 		}
 

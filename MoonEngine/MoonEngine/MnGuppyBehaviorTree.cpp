@@ -1,5 +1,9 @@
 #include "MnGuppyBehaviorTree.h"
 
+#include "MnGuppyDeath.h"
+#include "MnDestroyFish.h"
+
+
 #include "MnDropCoin.h"
 #include "MnMove.h"
 #include "MnPlayAnimaion.h"
@@ -21,6 +25,10 @@
 
 #include "playScene.h"
 #include "MnFood.h"
+
+#include "MnConstantBuffer.h"
+#include "MnRenderer.h"
+#include "MnMeshRenderer.h"
 
 namespace Mn
 {
@@ -55,7 +63,6 @@ namespace Mn
 		_BlackBoard->AddData<GameObject>(L"Guppy", GetOwner());
 		_BlackBoard->AddData<KdTree>(L"Food_Tree", foodtree);
 
-
 		_BlackBoard->MakeData<int>(L"HungryStack");
 		_BlackBoard->SetData(L"HungryStack", HungryStack);
 		_BlackBoard->MakeData<float>(L"Level");
@@ -78,6 +85,14 @@ namespace Mn
 		_BlackBoard->MakeData<bool>(L"CollisionStay");
 		_BlackBoard->MakeData<Collider2D>(L"other");
 
+
+		Selector* mainSelector;
+
+
+		//Death
+		Sequence* deathSequence;
+		GuppyDeath* isDeath;
+		DestroyFish* destroyFish;
 
 		//Hungry
 		Succeeder* HungrySucceder;
@@ -111,8 +126,14 @@ namespace Mn
 
 		_Root = new RootNode(_BlackBoard.get());
 		_Root->SetTimer();
-		_Sequence = _Root->setChild<Sequence>();
 
+		mainSelector = _Root->setChild<Selector>();
+		deathSequence = mainSelector->AddChild<Sequence>();
+		isDeath = deathSequence->AddChild<GuppyDeath>();
+		deathSequence->AddChild<PlayAnimaion>();
+		destroyFish = deathSequence->AddChild<DestroyFish>();
+
+		_Sequence = mainSelector->AddChild <Sequence>();
 		HungrySucceder = _Sequence->AddChild<Succeeder>();
 		HungrySequence = HungrySucceder->SetChild<Sequence>();
 		addStack = HungrySequence->AddChild<AddHungryStack>();
@@ -146,28 +167,54 @@ namespace Mn
 	void GuppyBehaviorTree::Update()
 	{
 		Run();
+		MeshRenderer* MR = GetOwner()->GetComponent<MeshRenderer>();
+		enums::eDir dir = _BlackBoard->GetDataValue<enums::eDir>(L"Dir");
+		if (dir == eDir::Right)
+			MR->FlipX(1);
+		else
+			MR->FlipX(0);
 	}
 	void GuppyBehaviorTree::LateUpdate()
 	{
 	}
 	void GuppyBehaviorTree::Render()
 	{
+		//enums::eDir dir = _BlackBoard->GetDataValue<enums::eDir>(L"Dir");
+		//ConstantBuffer* cb = renderer::constantBuffer[(UINT)eCBType::Flip];
+		//renderer::FlipCB data = {};
+		//if (dir == eDir::Right)
+		//	data.FlipX = 1;
+		//else
+		//	data.FlipX = 0;
+		//cb->setData(&data);
+		//cb->Bind(eShaderStage::PS);
 	}
 	void GuppyBehaviorTree::OnCollisionEnter(Collider2D* other)
 	{
-		_BlackBoard->AddData(L"otherColl", other);
-		_BlackBoard->SetData(L"CollisionEnter", true);
+		eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
+		if (state == eFishState::Hungry || state == eFishState::Starving)
+		{
+			_BlackBoard->AddData(L"otherColl", other);
+			_BlackBoard->SetData(L"CollisionEnter", true);
+		}
 	}
 	void GuppyBehaviorTree::OnCollisionStay(Collider2D* other)
 	{
-		_BlackBoard->AddData(L"otherColl", other);
-		_BlackBoard->SetData(L"CollisionEnter", false);
-		_BlackBoard->SetData(L"CollisionStay", true);
+		eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
+		if (state == eFishState::Hungry || state == eFishState::Starving)
+		{
+			_BlackBoard->SetData(L"CollisionEnter", false);
+			_BlackBoard->SetData(L"CollisionStay", true);
+		}
 	}
 	void GuppyBehaviorTree::OnCollisionExit(Collider2D* other)
 	{
-		_BlackBoard->SetData(L"CollisionEnter", false);
-		_BlackBoard->SetData(L"CollisionStay", false);
+		eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
+		if (state == eFishState::Hungry || state == eFishState::Starving)
+		{
+			_BlackBoard->SetData(L"CollisionEnter", false);
+			_BlackBoard->SetData(L"CollisionStay", false);
+		}
 	}
 	void GuppyBehaviorTree::Run()
 	{

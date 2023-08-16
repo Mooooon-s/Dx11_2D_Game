@@ -10,6 +10,7 @@ namespace Mn
 	private:
 		std::shared_ptr<Mesh>		_Mesh;
 		std::shared_ptr<Material>	_Material;
+		UINT _FlipX;
 	public:
 		MeshRenderer();
 		~MeshRenderer();
@@ -26,6 +27,7 @@ namespace Mn
 		void SetMaterial(std::shared_ptr<Material> material) { _Material = material; }
 		std::shared_ptr<Material> GetMaterial() { return _Material; }
 		std::shared_ptr<Mesh> GetMesh() { return _Mesh; }
+		void FlipX(UINT X) { _FlipX = X; }
 	};
 
 }

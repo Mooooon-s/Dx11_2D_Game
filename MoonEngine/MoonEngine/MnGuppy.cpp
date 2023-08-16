@@ -29,14 +29,11 @@ namespace Mn
 		col->SetSize(Vector2(0.25f, 0.25f));
 
 		GuppyRender* GR = AddComponent<GuppyRender>();
-		GR->Initialize();
-
-		GuppyScript* GS = AddComponent<GuppyScript>();
-		GS->Initialize();
+		//GR->Initialize();
 
 		GuppyBehaviorTree* GBT = AddComponent<GuppyBehaviorTree>();
-		GBT->Initialize();
-
+		//GBT->Initialize();
+		GameObject::Initialize();
 	}
 	void Guppy::Update()
 	{
