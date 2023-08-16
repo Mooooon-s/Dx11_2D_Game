@@ -292,6 +292,7 @@
       <Filter>GameObject\Component\Light</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnStructedBuffer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnComputeShader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h">
@@ -449,6 +450,7 @@
       <Filter>GameObject\Component\Light</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnStructedBuffer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnComputeShader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl">

@@ -55,6 +55,9 @@
     <FxCompile Include="$(MSBuildThisFileDirectory)SpriteAnimationPS.hlsl">
       <Filter>PS</Filter>
     </FxCompile>
+    <FxCompile Include="$(MSBuildThisFileDirectory)PaintCS.hlsl">
+      <Filter>CS</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="PS">
@@ -62,6 +65,9 @@
     </Filter>
     <Filter Include="VS">
       <UniqueIdentifier>{47243134-350a-4bee-acb6-87c87cb9aeaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CS">
+      <UniqueIdentifier>{5f899809-5064-4e72-903d-40402f2e18fb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

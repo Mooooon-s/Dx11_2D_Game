@@ -26,12 +26,20 @@ namespace Mn::graphics
 		if (!CreateSwapChain(&swapChainDesc, hWnd))
 			return;
 
-		if (FAILED(_SwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D)
-			, (void**)_RenderTarget.GetAddressOf())))
-			return;
+		_RenderTarget = std::make_shared<Texture>();
+		_DepthStencil = std::make_shared<Texture>();
 
-		_Device->CreateRenderTargetView((ID3D11Resource*)_RenderTarget.Get()
-			, nullptr,_RenderTargetView.GetAddressOf());
+		Microsoft::WRL::ComPtr<ID3D11Texture2D> renderTarget = nullptr;
+		if (FAILED(_SwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D)
+			, (void**)renderTarget.GetAddressOf())))
+			return;
+		
+		_RenderTarget->SetTexture(renderTarget);
+
+		Microsoft::WRL::ComPtr<ID3D11RenderTargetView> renderTargetView = nullptr;
+		_Device->CreateRenderTargetView((ID3D11Resource*)_RenderTarget->GetTexture().Get()
+			, nullptr, renderTargetView.GetAddressOf());
+		_RenderTarget->SetRTV(renderTargetView);
 		
 		D3D11_TEXTURE2D_DESC depthStencilDesc = {};
 		depthStencilDesc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_DEPTH_STENCIL;
@@ -49,9 +57,15 @@ namespace Mn::graphics
 		depthStencilDesc.MiscFlags = 0;
 		depthStencilDesc.MipLevels = 0;
 
-		D3D11_SUBRESOURCE_DATA data;
-		if (!CreateTexture(&depthStencilDesc, &data))
+		Microsoft::WRL::ComPtr<ID3D11Texture2D> depthStencilBuffer = nullptr;
+		if (!CreateTexture2D(&depthStencilDesc, nullptr, depthStencilBuffer.GetAddressOf()))
 			return;
+		_DepthStencil->SetTexture(depthStencilBuffer);
+
+		Microsoft::WRL::ComPtr<ID3D11DepthStencilView> DepthStencilView = nullptr;
+		if (!CraeteDepthStencilView(depthStencilBuffer.Get(), nullptr, DepthStencilView.GetAddressOf()))
+			return;
+		_DepthStencil->SetDSV(DepthStencilView);
 
 		RECT winRect = {};
 		GetClientRect(hWnd, &winRect);
@@ -64,7 +78,7 @@ namespace Mn::graphics
 		};
 
 		BindViewPort(&_ViewPort);
-		_Context->OMSetRenderTargets(1, _RenderTargetView.GetAddressOf(), _DepthStencilView.Get());		
+		_Context->OMSetRenderTargets(1, _RenderTarget->GetRTV().GetAddressOf(), _DepthStencil->GetDSV().Get());
 
 	}
 	GraphicDevice_Dx11::~GraphicDevice_Dx11()
@@ -110,29 +124,10 @@ namespace Mn::graphics
 
 		return true;
 	}
-	bool GraphicDevice_Dx11::CreateTexture(const D3D11_TEXTURE2D_DESC* desc, void* data)
+	bool GraphicDevice_Dx11::CreateTexture2D(const D3D11_TEXTURE2D_DESC* desc, void* data, ID3D11Texture2D** ppTexture2D)
 	{
-		D3D11_TEXTURE2D_DESC dxgiDesc = {};
-		dxgiDesc.BindFlags = desc->BindFlags;
-		dxgiDesc.Usage = desc->Usage;
-		dxgiDesc.CPUAccessFlags = 0;
-		
-		dxgiDesc.Format = desc->Format;
-		dxgiDesc.Width = desc->Width;
-		dxgiDesc.Height = desc->Height;
-		dxgiDesc.ArraySize = desc->ArraySize;
-
-		dxgiDesc.SampleDesc.Count = desc->SampleDesc.Count;
-		dxgiDesc.SampleDesc.Quality = 0;
-
-		dxgiDesc.MipLevels = desc->MipLevels;
-		dxgiDesc.MiscFlags = desc->MiscFlags;
-
-		if (FAILED(_Device->CreateTexture2D(&dxgiDesc, nullptr, _DepthStencilBuffer.ReleaseAndGetAddressOf())))
+		if (FAILED(_Device->CreateTexture2D(desc, nullptr, ppTexture2D)))
 			return false;
-		if (FAILED(_Device->CreateDepthStencilView(_DepthStencilBuffer.Get(), nullptr, _DepthStencilView.GetAddressOf())))
-			return false;
-
 		return true;
 	}
 	bool GraphicDevice_Dx11::CreateInputLayout(const D3D11_INPUT_ELEMENT_DESC* pInputElementDescs, UINT NumElements, ID3DBlob* byteCode, ID3D11InputLayout** ppInputLayout)
@@ -179,6 +174,13 @@ namespace Mn::graphics
 			return false;
 		return true;
 	}
+	bool GraphicDevice_Dx11::CreateComputeShader(const void* pShaderBytecode, SIZE_T BytecodeLength, ID3D11ComputeShader** ppComputeShader)
+	{
+		if (FAILED(_Device->CreateComputeShader(pShaderBytecode, BytecodeLength, nullptr, ppComputeShader)))
+			return false;
+
+		return true;
+	}
 	bool GraphicDevice_Dx11::CreateSamplerState(const D3D11_SAMPLER_DESC* pSamplerDesc, ID3D11SamplerState** ppSamplerState)
 	{
 		if (FAILED(_Device->CreateSamplerState(pSamplerDesc, ppSamplerState)))
@@ -203,9 +205,27 @@ namespace Mn::graphics
 			return false;
 		return true;
 	}
+	bool GraphicDevice_Dx11::CraeteDepthStencilView(ID3D11Resource* pResource, const D3D11_DEPTH_STENCIL_VIEW_DESC* pDesc, ID3D11DepthStencilView** ppDepthStencilView)
+	{
+		if (FAILED(_Device->CreateDepthStencilView(pResource, pDesc, ppDepthStencilView)))
+			return false;
+		return true;
+	}
 	bool GraphicDevice_Dx11::CreateShaderResourceView(ID3D11Resource* pResource, const D3D11_SHADER_RESOURCE_VIEW_DESC* pDesc, ID3D11ShaderResourceView** ppSRView)
 	{
 		if (FAILED(_Device->CreateShaderResourceView(pResource, pDesc, ppSRView)))
+			return false;
+		return true;
+	}
+	bool GraphicDevice_Dx11::CreateRenderTargetView(ID3D11Resource* pResource, const D3D11_RENDER_TARGET_VIEW_DESC* pDesc, ID3D11RenderTargetView** ppRTView)
+	{
+		if (FAILED(_Device->CreateRenderTargetView(pResource, pDesc, ppRTView)))
+			return false;
+		return true;
+	}
+	bool GraphicDevice_Dx11::CreateUnordedAccessView(ID3D11Resource* pResource, const D3D11_UNORDERED_ACCESS_VIEW_DESC* pDesc, ID3D11UnorderedAccessView** ppUAView)
+	{
+		if (FAILED(_Device->CreateUnorderedAccessView(pResource, pDesc, ppUAView)))
 			return false;
 		return true;
 	}
@@ -369,9 +389,9 @@ namespace Mn::graphics
 	void GraphicDevice_Dx11::ClearTarget()
 	{
 		FLOAT bgColor[4] = { 0.2f, 0.2f, 0.2f, 1.0f };
-		_Context->ClearRenderTargetView(_RenderTargetView.Get(), bgColor);
-		_Context->ClearDepthStencilView(_DepthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0.0f);
-		_Context->OMSetRenderTargets(1, _RenderTargetView.GetAddressOf(), _DepthStencilView.Get());
+		_Context->ClearRenderTargetView(_RenderTarget->GetRTV().Get(), bgColor);
+		_Context->ClearDepthStencilView(_DepthStencil->GetDSV().Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0.0f);
+		_Context->OMSetRenderTargets(1, _RenderTarget->GetRTV().GetAddressOf(), _DepthStencil->GetDSV().Get());
 	}
 	void GraphicDevice_Dx11::UpdateViewPort()
 	{

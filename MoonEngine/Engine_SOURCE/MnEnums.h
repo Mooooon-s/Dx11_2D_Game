@@ -19,6 +19,7 @@ namespace Mn::enums
 	enum class eLayerType
 	{
 		Grid,
+		Pet,
 		Fish,
 		Coin,
 		Monster,
@@ -36,6 +37,7 @@ namespace Mn::enums
 		Material,
 		Mesh,
 		Animation,
+		ComputeShader,
 		End,
 	};
 

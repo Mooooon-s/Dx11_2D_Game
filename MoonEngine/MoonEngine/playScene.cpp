@@ -1,4 +1,5 @@
 #include "playScene.h"
+#include "MnComputeShader.h"
 
 
 #include "../Engine_SOURCE/MnKdTree.h"
@@ -25,6 +26,7 @@
 #include "MnMouse.h"
 #include "MnLight.h"
 
+#include "MnNiko.h"
 
 namespace Mn
 {
@@ -44,10 +46,25 @@ Mn::playScene::~playScene()
 
 void Mn::playScene::Initialize()
 {
+	ComputeShader* coms = new ComputeShader();
+	coms->Create(L"PaintCS.hlsl", "main");
+
+
 	kdTree = new KdTree(1);
 
 	Guppy* guppy = object::Instantiate<Guppy>(eLayerType::Fish);
 	guppy->Initialize();
+
+	Guppy* guppy2 = object::Instantiate<Guppy>(Vector3(1.5f,0.0f,0.0f),eLayerType::Fish);
+	guppy2->Initialize();
+
+	Guppy* guppy3 = object::Instantiate<Guppy>(Vector3(1.0f, 1.0f, 0.0f),eLayerType::Fish);
+	guppy3->Initialize();
+
+
+	Niko* niko = object::Instantiate<Niko>(Vector3(-1.4f,-0.4f,0.0f),eLayerType::Pet);
+	niko->Initialize();
+
 
 	AquarimBG* aquarimBG = object::Instantiate<AquarimBG>(eLayerType::BackGround,enums::eAquarim::Stage1);
 	aquarimBG->Initialize();

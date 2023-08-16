@@ -167,6 +167,7 @@
     <ClInclude Include="MnAddLevel.h" />
     <ClInclude Include="MnCoin.h" />
     <ClInclude Include="MnCoinRender.h" />
+    <ClInclude Include="MnDestroyFish.h" />
     <ClInclude Include="MnDropCoin.h" />
     <ClInclude Include="MnFoodScript.h" />
     <ClInclude Include="framework.h" />
@@ -194,16 +195,21 @@
     <ClInclude Include="MnMountainStage.h" />
     <ClInclude Include="MnMove.h" />
     <ClInclude Include="MnMove2Food.h" />
+    <ClInclude Include="MnNiko.h" />
+    <ClInclude Include="MnNikoRenderer.h" />
+    <ClInclude Include="MnNikoScript.h" />
     <ClInclude Include="MnPlayerHp.h" />
     <ClInclude Include="MnPumpkin.h" />
     <ClInclude Include="MnTitleScene.h" />
     <ClInclude Include="MnTopBar.h" />
     <ClInclude Include="MnPlayAnimaion.h" />
     <ClInclude Include="MnMousePosScript.h" />
+    <ClInclude Include="MnNikoBehaviorTree.h" />
     <ClInclude Include="playScene.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnDestroyFish.cpp" />
     <ClCompile Include="MnGuppyDeath.cpp" />
     <ClCompile Include="MnDropCoin.cpp" />
     <ClCompile Include="MnAddLevel.cpp" />
@@ -238,6 +244,10 @@
     <ClCompile Include="MnPlayAnimaion.cpp" />
     <ClCompile Include="MnMousePosScript.cpp" />
     <ClCompile Include="MnMove2Food.cpp" />
+    <ClCompile Include="MnNiko.cpp" />
+    <ClCompile Include="MnNikoScript.cpp" />
+    <ClCompile Include="MnNikoBehaviorTree.cpp" />
+    <ClCompile Include="MnNikoRenderer.cpp" />
     <ClCompile Include="playScene.cpp" />
     <ClCompile Include="MnPumpkin.cpp" />
   </ItemGroup>

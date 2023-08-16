@@ -39,7 +39,7 @@
       <Filter>Contents\BackGround\Menu</Filter>
     </ClInclude>
     <ClInclude Include="MnGuppy.h">
-      <Filter>Contents\Guppy</Filter>
+      <Filter>Contents\Fish\Guppy</Filter>
     </ClInclude>
     <ClInclude Include="MnGuppyRenderScript.h">
       <Filter>Contents\Scripts\Guppy\Render</Filter>
@@ -111,6 +111,21 @@
     <ClInclude Include="MnGuppyDeath.h">
       <Filter>Contents\LeafNode\Guppy\Death</Filter>
     </ClInclude>
+    <ClInclude Include="MnNiko.h">
+      <Filter>Contents\Pet\Niko</Filter>
+    </ClInclude>
+    <ClInclude Include="MnNikoScript.h">
+      <Filter>Contents\Scripts\Niko</Filter>
+    </ClInclude>
+    <ClInclude Include="MnNikoBehaviorTree.h">
+      <Filter>Contents\Scripts\Niko</Filter>
+    </ClInclude>
+    <ClInclude Include="MnNikoRenderer.h">
+      <Filter>Contents\Scripts\Niko\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="MnDestroyFish.h">
+      <Filter>Contents\LeafNode\Guppy\Death</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -148,7 +163,7 @@
       <Filter>Contents\BackGround\Menu</Filter>
     </ClCompile>
     <ClCompile Include="MnGuppy.cpp">
-      <Filter>Contents\Guppy</Filter>
+      <Filter>Contents\Fish\Guppy</Filter>
     </ClCompile>
     <ClCompile Include="MnGuppyRenderScript.cpp">
       <Filter>Contents\Scripts\Guppy\Render</Filter>
@@ -219,6 +234,21 @@
     <ClCompile Include="MnGuppyDeath.cpp">
       <Filter>Contents\LeafNode\Guppy\Death</Filter>
     </ClCompile>
+    <ClCompile Include="MnNiko.cpp">
+      <Filter>Contents\Pet\Niko</Filter>
+    </ClCompile>
+    <ClCompile Include="MnNikoScript.cpp">
+      <Filter>Contents\Scripts\Niko</Filter>
+    </ClCompile>
+    <ClCompile Include="MnNikoBehaviorTree.cpp">
+      <Filter>Contents\Scripts\Niko</Filter>
+    </ClCompile>
+    <ClCompile Include="MnNikoRenderer.cpp">
+      <Filter>Contents\Scripts\Niko\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="MnDestroyFish.cpp">
+      <Filter>Contents\LeafNode\Guppy\Death</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -259,9 +289,6 @@
     </Filter>
     <Filter Include="Contents\BackGround\Menu">
       <UniqueIdentifier>{8e220940-8bc6-419e-8bb2-6401562b52f1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Guppy">
-      <UniqueIdentifier>{865a5c95-e0a7-460e-8a0c-23234d50c7d4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents\Scripts\Camera">
       <UniqueIdentifier>{199f0f2d-b4aa-4ece-ad8a-fff0f6a9abff}</UniqueIdentifier>
@@ -337,6 +364,24 @@
     </Filter>
     <Filter Include="Contents\LeafNode\Guppy\Death">
       <UniqueIdentifier>{f51aa5a7-e7c1-45f0-abfb-79192e1f7bd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Pet">
+      <UniqueIdentifier>{4818b4fd-de9e-4244-a2e3-8dfd73e43a73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Pet\Niko">
+      <UniqueIdentifier>{64bf592a-a499-4271-9834-61c019df90b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Fish">
+      <UniqueIdentifier>{12e0e681-ae04-4632-beca-06fa4eaf3a13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Fish\Guppy">
+      <UniqueIdentifier>{865a5c95-e0a7-460e-8a0c-23234d50c7d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Niko">
+      <UniqueIdentifier>{be5ed189-ee24-42c9-a853-a861e134db93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Niko\Render">
+      <UniqueIdentifier>{8247f518-9987-411e-9f4c-d294a80246f0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

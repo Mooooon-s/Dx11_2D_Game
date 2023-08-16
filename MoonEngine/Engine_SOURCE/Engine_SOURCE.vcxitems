@@ -14,6 +14,7 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnComputeShader.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnLight.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnInverter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnDecoratorNode.cpp" />
@@ -80,6 +81,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnCompositeNode.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnComputeShader.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnConstantBuffer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnDecoratorNode.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEnums.h" />

@@ -14,6 +14,69 @@ namespace Mn::graphics
 	Texture::~Texture()
 	{
 	}
+	bool Texture::Create(UINT width, UINT height, DXGI_FORMAT format, UINT bindFlag)
+	{
+		if (_Texture == nullptr)
+		{
+			_Desc.BindFlags = bindFlag;
+			_Desc.Usage = D3D11_USAGE_DEFAULT;
+			_Desc.CPUAccessFlags = 0;
+			_Desc.Format = format;
+			_Desc.Width = width;
+			_Desc.Height = height;
+			_Desc.ArraySize = 1;
+
+			_Desc.SampleDesc.Count = 1;
+			_Desc.SampleDesc.Quality = 0;
+
+			_Desc.MipLevels = 0;
+			_Desc.MiscFlags = 0;
+
+			if (!GetDevice()->CreateTexture2D(&_Desc, nullptr, _Texture.GetAddressOf()))
+				return false;
+		}
+
+		if (bindFlag & (UINT)D3D11_BIND_FLAG::D3D11_BIND_DEPTH_STENCIL)
+		{
+			if (!GetDevice()->CraeteDepthStencilView(_Texture.Get(), nullptr, _DSV.GetAddressOf()))
+				return false;
+		}
+		if (bindFlag & (UINT)D3D11_BIND_FLAG::D3D11_BIND_SHADER_RESOURCE)
+		{
+			D3D11_SHADER_RESOURCE_VIEW_DESC tSRVDesc = {};
+			tSRVDesc.Format = _Desc.Format;
+			tSRVDesc.Texture2D.MipLevels = 1;
+			tSRVDesc.Texture2D.MostDetailedMip = 0;
+			tSRVDesc.ViewDimension = D3D11_SRV_DIMENSION::D3D11_SRV_DIMENSION_TEXTURE2D;
+
+			if (!GetDevice()->CreateShaderResourceView(_Texture.Get(), &tSRVDesc, _SRV.GetAddressOf()))
+				return false;
+		}
+
+		if (bindFlag & (UINT)D3D11_BIND_FLAG::D3D11_BIND_RENDER_TARGET)
+		{
+			D3D11_RENDER_TARGET_VIEW_DESC tSRVDesc = {};
+			tSRVDesc.Format = _Desc.Format;
+			tSRVDesc.Texture2D.MipSlice = 0;
+			tSRVDesc.ViewDimension = D3D11_RTV_DIMENSION::D3D11_RTV_DIMENSION_TEXTURE2D;
+
+			if (!GetDevice()->CreateRenderTargetView(_Texture.Get(), nullptr, _RTV.GetAddressOf()))
+				return false;
+		}
+
+		if (bindFlag & (UINT)D3D11_BIND_FLAG::D3D11_BIND_UNORDERED_ACCESS)
+		{
+			D3D11_UNORDERED_ACCESS_VIEW_DESC tUAVDesc = {};
+			tUAVDesc.Format = _Desc.Format;
+			tUAVDesc.Texture2D.MipSlice = 0;
+			tUAVDesc.ViewDimension = D3D11_UAV_DIMENSION::D3D11_UAV_DIMENSION_TEXTURE2D;
+
+			if (!GetDevice()->CreateUnordedAccessView(_Texture.Get(), &tUAVDesc, _UAV.GetAddressOf()))
+				return false;
+		}
+
+		return true;
+	}
 	HRESULT Texture::Load(const std::wstring& path)
 	{
 		wchar_t szExtension[50] = {};
