@@ -293,6 +293,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MnStructedBuffer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnComputeShader.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnPaintShader.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnParticleSystem.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnParticleShader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h">
@@ -451,6 +454,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnStructedBuffer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnComputeShader.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnPaintShader.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnParticleSystem.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnParticleShader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl">

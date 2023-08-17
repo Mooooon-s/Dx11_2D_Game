@@ -61,4 +61,8 @@ namespace Mn
 	{
 		GetDevice()->DrawIndexed(_IndexCount, 0, 0);
 	}
+	void Mesh::RenderInstanced(UINT startIndexLocation)
+	{
+		GetDevice()->DrawIndexedInstanced(_IndexCount, startIndexLocation, 0, 0, 0);
+	}
 }

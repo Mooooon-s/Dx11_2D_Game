@@ -38,6 +38,12 @@ namespace Mn
 			GetDevice()->CreateVertexShader(_VSBlob->GetBufferPointer()
 				, _VSBlob->GetBufferSize(),_VS.GetAddressOf());
 		}
+		else if (stage == eShaderStage::GS)
+		{
+			GetDevice()->CompileFromfile(fullPath, funcName, "gs_5_0", _GSBlob.GetAddressOf());
+			GetDevice()->CreateGeometryShader(_GSBlob->GetBufferPointer()
+				, _GSBlob->GetBufferSize(), _GS.GetAddressOf());
+		}
 		else if (stage == eShaderStage::PS)
 		{
 			GetDevice()->CompileFromfile(fullPath, funcName, "ps_5_0", _PSBlob.GetAddressOf());
@@ -53,14 +59,15 @@ namespace Mn
 		GetDevice()->BindInputLayout(_InputLayout);
 
 		GetDevice()->BindVertexShader(_VS.Get());
+		GetDevice()->BindGeometryShader(_GS.Get());
 		GetDevice()->BindPixelShader(_PS.Get());
 
 		Microsoft::WRL::ComPtr<ID3D11RasterizerState> rsState = renderer::rasterizerStates[(UINT)_RSType];
-		//Microsoft::WRL::ComPtr<ID3D11DepthStencilState> dsState = renderer::depthStencilStates[(UINT)_DSType];
+		Microsoft::WRL::ComPtr<ID3D11DepthStencilState> dsState = renderer::depthStencilStates[(UINT)_DSType];
 		Microsoft::WRL::ComPtr<ID3D11BlendState> bsState = renderer::blendStates[(UINT)_BSType];
 
 		GetDevice()->BindRasterizeState(rsState.Get());
-		//GetDevice()->BindDepthStencilState(dsState.Get());
+		GetDevice()->BindDepthStencilState(dsState.Get());
 		GetDevice()->BindBlendState(bsState.Get());
 
 	}

@@ -1,5 +1,7 @@
 #include "playScene.h"
 #include "MnComputeShader.h"
+#include "MnPaintShader.h"
+#include "MnParticleSystem.h"
 
 
 #include "../Engine_SOURCE/MnKdTree.h"
@@ -46,9 +48,10 @@ Mn::playScene::~playScene()
 
 void Mn::playScene::Initialize()
 {
-	ComputeShader* coms = new ComputeShader();
-	coms->Create(L"PaintCS.hlsl", "main");
-
+	std::shared_ptr<PaintShader> paintShader = Resources::Find<PaintShader>(L"PaintShader");
+	std::shared_ptr<Mn::graphics::Texture> paintTexture = Resources::Find<Mn::graphics::Texture>(L"PaintTexuture");
+	paintShader->SetTarget(paintTexture);
+	paintShader->OnExcute();
 
 	kdTree = new KdTree(1);
 
@@ -71,6 +74,14 @@ void Mn::playScene::Initialize()
 
 	TopBar* topbar = object::Instantiate<TopBar>(eLayerType::UI);
 	topbar->Initialize();
+
+	GameObject* particle = new GameObject();
+	particle->SetName(L"Particle");
+	AddGameObject(eLayerType::Monster, particle);
+	ParticleSystem* mr = particle->AddComponent<ParticleSystem>();
+	particle->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 1.0f));
+	particle->GetComponent<Transform>()->Scale(Vector3(0.2f, 0.2f, 0.2f));
+
 
 	GameObject* light = new GameObject();
 	light->SetName(L"Light");

@@ -121,10 +121,10 @@ namespace Mn
 	void Animation::Binds()
 	{
 		//TextureBinds
-		_Atlas->BindShader(graphics::eShaderStage::PS, 12);
+		_Atlas->BindShaderResource(graphics::eShaderStage::PS, 12);
 		if (_AtlasAlpha != nullptr)
 		{
-			_AtlasAlpha->BindShader(graphics::eShaderStage::PS, 13);
+			_AtlasAlpha->BindShaderResource(graphics::eShaderStage::PS, 13);
 		}
 		//AnimationCB
 		renderer::AnimatorCB data = {};

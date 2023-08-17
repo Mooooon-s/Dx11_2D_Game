@@ -26,6 +26,7 @@ namespace Mn
 		bool CreateIndexBuffer(void* data, UINT Count);
 		void BindBuffer();
 		void Render();
+		void RenderInstanced(UINT startIndexLocation);
 
 		UINT GetIndexCount() { return _IndexCount; }
 

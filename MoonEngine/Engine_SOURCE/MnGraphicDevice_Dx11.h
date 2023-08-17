@@ -37,6 +37,7 @@ namespace Mn::graphics
 		bool CreateBuffer(D3D11_BUFFER_DESC* desc, D3D11_SUBRESOURCE_DATA* data, ID3D11Buffer** buffer);
 		bool CompileFromfile(const std::wstring& fileName, const std::string& funcName, const std::string& version, ID3DBlob** ppCode);
 		bool CreateVertexShader(const void* pShaderBytecode, SIZE_T BytecodeLength, ID3D11VertexShader** ppVertexShader);
+		bool CreateGeometryShader(const void* pShaderBytecode, SIZE_T BytecodeLength, ID3D11GeometryShader** ppGeometryShader);
 		bool CreatePixelShader(const void* pShaderBytecode, SIZE_T BytecodeLength, ID3D11PixelShader** ppPixelShader);
 		bool CreateComputeShader(const void* pShaderBytecode, SIZE_T BytecodeLength, ID3D11ComputeShader** ppComputeShader);
 		bool CreateSamplerState(const D3D11_SAMPLER_DESC* pSamplerDesc, ID3D11SamplerState** ppSamplerState);
@@ -51,23 +52,34 @@ namespace Mn::graphics
 		void BindInputLayout(ID3D11InputLayout* pInputlayout);
 		void BindPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY Topology);
 		void BindVertexBuffer(UINT StartSlot, ID3D11Buffer* const* ppVertexBuffers, const UINT* pStrides, const UINT* pOffsets);
+		void BindHullShader(ID3D11HullShader* pHullShader);
+		void BindDomainShader(ID3D11DomainShader* pDomainShader);
+		void BindGeometryShader(ID3D11GeometryShader* pGeometryShader);
 		void BindIndexBuffer(ID3D11Buffer* pIndexBuffer, DXGI_FORMAT Format, UINT Offset);
 		void BindVertexShader(ID3D11VertexShader* vs);
 		void BindPixelShader(ID3D11PixelShader* ps);
+		void BindComputeShader(ID3D11ComputeShader* pComputeShader);
+		void Dispatch(UINT ThreadGroupCountX, UINT ThreadGroupCountY, UINT ThreadGroupCountZ);
+
 		void SetConstantBuffer(ID3D11Buffer* buffer, void* data, UINT size);
 		void BindConstantBuffer(eShaderStage stage, eCBType type, ID3D11Buffer* buffer);
 		void BindsConstantBuffer(eShaderStage stage, eCBType type, ID3D11Buffer* buffer);
 		void BindBuffer(ID3D11Buffer* buffer, void* data, UINT size);
 		void BindShaderResource(eShaderStage stage, UINT startSlot, ID3D11ShaderResourceView** ppSRV);
+		void BindUnorderedAccess(UINT slot, ID3D11UnorderedAccessView** ppUnorderedAccessViews, const UINT* pUAVInitialCounts);
+
 		void BindSampler(eShaderStage stage, UINT StartSlot, ID3D11SamplerState** ppSamplers);
 		void BindRasterizeState(ID3D11RasterizerState* pRasterizerState);
 		void BindDepthStencilState(ID3D11DepthStencilState* pDepthStencilState);
 		void BindBlendState(ID3D11BlendState* pBlendState);
+		void CopyResource(ID3D11Resource* pDstResource, ID3D11Resource* pSrcResource);
 
 		
 		void BindViewPort(D3D11_VIEWPORT* viewPort);
 
 		void DrawIndexed(UINT IndexCount, UINT StartIndexLocation, INT BaseVertexLocation);
+		void DrawIndexedInstanced(UINT IndexCountPerInstance, UINT InstanceCount
+			, UINT StartIndexLocation, INT BaseVertexLocation, UINT StartInstanceLocation);
 		void ClearTarget();
 		void UpdateViewPort();
 		void Draw();

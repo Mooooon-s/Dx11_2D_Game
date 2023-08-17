@@ -27,6 +27,10 @@ namespace Mn::graphics
 
 		float _Width;
 		float _Height;
+
+		UINT mWidth;
+		UINT mHeight;
+
 		math::Vector2 _Ratio;
 	public:
 		Texture();
@@ -34,15 +38,17 @@ namespace Mn::graphics
 
 		bool Create(UINT width, UINT height, DXGI_FORMAT format, UINT bindFlag);
 		virtual HRESULT Load(const std::wstring& path) override;
-		void BindShader(eShaderStage stage, UINT startSlot);
+		void BindShaderResource(eShaderStage stage, UINT startSlot);
+		void BindUnorderedAccessViews(UINT slot);
+		void ClearUnorderedAccessViews(UINT slot);
 		void Clear();
 
 		math::Vector2 CalculateRatio();
 		float GetWidth() { return _Width; }
 		float GetHeight() { return _Height; }
 		
-		size_t GetImageWidth() { return _Image.GetMetadata().width; }
-		size_t GetImageHeight() { return _Image.GetMetadata().height; }
+		size_t GetImageWidth() { return mWidth; }
+		size_t GetImageHeight() { return mHeight; }
 		math::Vector2 Raitio() { return _Ratio; }
 
 		Microsoft::WRL::ComPtr<ID3D11RenderTargetView>    GetRTV() { return  _RTV; }

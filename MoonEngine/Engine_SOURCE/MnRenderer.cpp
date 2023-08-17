@@ -4,6 +4,8 @@
 #include "MnMaterial.h"
 #include "MnTime.h"
 #include "MnStructedBuffer.h"
+#include "MnPaintShader.h"
+#include "MnParticleShader.h"
 
 namespace renderer
 {
@@ -89,6 +91,11 @@ namespace renderer
 		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 3
 			, AnimationShader->GetVSCode()
 			, AnimationShader->GetInputLayoutAddressOf());
+
+		shader = Mn::Resources::Find<Shader>(L"ParticleShader");
+		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 3
+			, shader->GetVSCode()
+			, shader->GetInputLayoutAddressOf());
 
 
 #pragma endregion
@@ -196,6 +203,20 @@ namespace renderer
 		std::vector<Vertex> vertices = {};
 		std::vector<UINT> indices = {};
 
+		// PointMesh
+		Vertex v = {};
+		v.pos = Vector3(0.0f, 0.0f, 0.0f);
+		vertices.push_back(v);
+		indices.push_back(0);
+		std::shared_ptr<Mesh> mesh = std::make_shared<Mesh>();
+		mesh->CreateVertexBuffer(vertices.data(), vertices.size());
+		mesh->CreateIndexBuffer(indices.data(), indices.size());
+		Resources::Insert(L"PointMesh", mesh);
+
+
+		vertices.clear();
+		indices.clear();
+
 
 		vertices.resize(4);
 		vertices[0].pos = Vector3(-0.5f, 0.5f, 0.0f);
@@ -214,7 +235,7 @@ namespace renderer
 		vertices[3].color = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
 		vertices[3].uv = Vector2(0.0f, 1.0f);
 
-		std::shared_ptr <Mesh> mesh = std::make_shared<Mesh>();
+		mesh = std::make_shared<Mesh>();
 		Resources::Insert(L"RectMesh", mesh);
 		mesh->CreateVertexBuffer(vertices.data(), vertices.size());
 		//index
@@ -287,10 +308,18 @@ namespace renderer
 		constantBuffer[(UINT)eCBType::Flip] = new ConstantBuffer(eCBType::Flip);
 		constantBuffer[(UINT)eCBType::Flip]->Create(sizeof(FlipCB));
 
+		//ParticleCB
+		constantBuffer[(UINT)eCBType::Particle] = new ConstantBuffer(eCBType::Particle);
+		constantBuffer[(UINT)eCBType::Particle]->Create(sizeof(ParticleCB));
+
 		//structed buffer
 		lightsBuffer = new StructedBuffer();
-		lightsBuffer->Create(sizeof(LightAttribute), 2, eSRVType::None);
-	
+		lightsBuffer->Create(sizeof(LightAttribute), 2, eViewType::SRV, nullptr,true);
+
+		//NoiseCB
+		constantBuffer[(UINT)eCBType::Noise] = new ConstantBuffer(eCBType::Noise);
+		constantBuffer[(UINT)eCBType::Noise]->Create(sizeof(NoiseCB));
+
 	}
 
 	void LoadShader()
@@ -347,6 +376,39 @@ namespace renderer
 		animationShader->Create(eShaderStage::PS, L"SpriteAnimationPS.hlsl", "main");
 		Mn::Resources::Insert(L"SpriteAnimationShader", animationShader);
 
+		std::shared_ptr<PaintShader> paintShader = std::make_shared<PaintShader>();
+		paintShader->Create(L"PaintCS.hlsl", "main");
+		Mn::Resources::Insert(L"PaintShader", paintShader);
+
+		std::shared_ptr<ParticleShader> psSystemShader = std::make_shared<ParticleShader>();
+		psSystemShader->Create(L"ParticleCS.hlsl", "main");
+		Mn::Resources::Insert(L"ParticleSystemShader", psSystemShader);
+
+		std::shared_ptr<Shader> paritcleShader = std::make_shared<Shader>();
+		paritcleShader->Create(eShaderStage::VS, L"ParticleVS.hlsl", "main");
+		paritcleShader->Create(eShaderStage::GS, L"ParticleGS.hlsl", "main");
+		paritcleShader->Create(eShaderStage::PS, L"ParticlePS.hlsl", "main");
+		paritcleShader->SetRSState(eRSType::SolidNone);
+		paritcleShader->SetDSState(eDSType::NoWrite);
+		paritcleShader->SetBSState(eBSType::AlphaBlend);
+		paritcleShader->SetTopology(D3D11_PRIMITIVE_TOPOLOGY::D3D_PRIMITIVE_TOPOLOGY_POINTLIST);
+		Mn::Resources::Insert(L"ParticleShader", paritcleShader);
+	}
+
+	void LoadTexture()
+	{
+		//paint texture
+		std::shared_ptr<Texture> uavTexture = std::make_shared<Texture>();
+		uavTexture->Create(1024, 1024, DXGI_FORMAT_R8G8B8A8_UNORM, D3D11_BIND_SHADER_RESOURCE | D3D11_BIND_UNORDERED_ACCESS);
+		Mn::Resources::Insert(L"PaintTexuture", uavTexture);
+
+		std::shared_ptr<Texture> particle = std::make_shared<Texture>();
+		Resources::Load<Texture>(L"Bubble", L"..\\Resources\\Texture\\FX\\energyball.jpg");
+
+		Resources::Load<Texture>(L"Noise01", L"..\\Resources\\Texture\\noise\\noise_01.png");
+		Resources::Load<Texture>(L"Noise02", L"..\\Resources\\Texture\\noise\\noise_02.png");
+		Resources::Load<Texture>(L"Noise03", L"..\\Resources\\Texture\\noise\\noise_03.png");
+
 	}
 
 	void LoadMaterial()
@@ -364,12 +426,16 @@ namespace renderer
 
 		std::shared_ptr<Shader> animationShader
 			= Resources::Find<Shader>(L"SpriteShader");
+
+		
+
+
 		// 
 		//----------------------------------------------------------------
 		//							Texture
 		//----------------------------------------------------------------
-		std::shared_ptr<Mn::graphics::Texture> texture = Resources::Load<Mn::graphics::Texture>(L"player", L"..\\Resources\\Texture\\idle.png");
-
+		std::shared_ptr<Mn::graphics::Texture> texture; //= Resources::Load<Mn::graphics::Texture>(L"player", L"..\\Resources\\Texture\\idle.png");
+		texture = Resources::Find<Texture>(L"PaintTexuture");
 		//----------------------------------------------------------------
 		//							Material
 		//----------------------------------------------------------------
@@ -568,6 +634,16 @@ namespace renderer
 		material->Shader(debugShader);
 		Resources::Insert(L"DebugMaterial", material);
 
+		spriteShader
+			= Resources::Find<Shader>(L"ParticleShader");
+		material = std::make_shared<Material>();
+		material->Shader(spriteShader);
+		material->RenderingMode(eRenderingMode::Transparent);
+		std::shared_ptr<Texture> particleTex
+			= Resources::Find<Texture>(L"Bubble");
+		material->SetTexture(particleTex);
+		Resources::Insert(L"ParticleMaterial", material);
+
 	}
 
 
@@ -577,6 +653,7 @@ namespace renderer
 		LoadBuffer();
 		LoadShader();
 		SetupState();
+		LoadTexture();
 		LoadMaterial();
 	}
 
@@ -590,8 +667,32 @@ namespace renderer
 		}
 
 		lightsBuffer->SetData(lightsAttributes.data(), lightsAttributes.size());
-		lightsBuffer->Bind(eShaderStage::VS, 14);
-		lightsBuffer->Bind(eShaderStage::PS, 14);
+		lightsBuffer->BindSRV(eShaderStage::VS, 14);
+		lightsBuffer->BindSRV(eShaderStage::PS, 14);
+	}
+
+	void BindNoiseTexture()
+	{
+		std::shared_ptr<Texture> texture
+			= Resources::Find<Texture>(L"Noise01");
+
+		texture->BindShaderResource(eShaderStage::VS, 16);
+		texture->BindShaderResource(eShaderStage::HS, 16);
+		texture->BindShaderResource(eShaderStage::DS, 16);
+		texture->BindShaderResource(eShaderStage::GS, 16);
+		texture->BindShaderResource(eShaderStage::PS, 16);
+		texture->BindShaderResource(eShaderStage::CS, 16);
+
+		ConstantBuffer* cb = constantBuffer[(UINT)eCBType::Noise];
+		NoiseCB data = {};
+		data.size.x = texture->GetWidth();
+		data.size.y = texture->GetHeight();
+
+		cb->setData(&data);
+		cb->Bind(eShaderStage::VS);
+		cb->Bind(eShaderStage::GS);
+		cb->Bind(eShaderStage::PS);
+		cb->Bind(eShaderStage::CS);
 	}
 
 	void PushDebugMeshAttribute(DebugMesh mesh)
@@ -599,9 +700,9 @@ namespace renderer
 		debugMeshs.push_back(mesh);
 	}
 
-
 	void Render()
 	{
+		BindNoiseTexture();
 		BindLights();
 
 		for (Camera* cam : cameras)

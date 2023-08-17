@@ -10,11 +10,13 @@
 #define CBUFFER(name, slot) static const int CB_GETBINDSLOT(name) = slot; struct alignas(16) name 
 
 #define CBSLOT_TRANSFORM		0
-#define CBSLOT_TIME				1
 #define CBSLOT_GRID				2
-#define CBSLOT_DEBUG			3
-#define CBSLOT_ANIMATION		4
-#define CBSLOT_FLIPX			5
+#define CBSLOT_TIME				3
+#define CBSLOT_DEBUG			4
+#define CBSLOT_ANIMATION		5
+#define CBSLOT_FLIPX			6
+#define CBSLOT_PARTICLE			7
+#define CBSLOT_NOISE			8
 
 #include "../Engine_SOURCE/MnMath.h"
 #include "../Engine_SOURCE/MnEnums.h"
@@ -44,6 +46,8 @@ namespace Mn::graphics
 		Debug,
 		Animator,
 		Flip,
+		Particle,
+		Noise,
 		End,
 	};
 
@@ -88,9 +92,11 @@ namespace Mn::graphics
 		End,
 	};
 
-	enum class eSRVType
+	enum class eViewType
 	{
 		None,
+		SRV,
+		UAV,
 		End,
 	};
 
@@ -130,5 +136,21 @@ namespace Mn::graphics
 		float radius;
 		float angle;
 		int pad;
+	};
+
+	struct Particle
+	{
+		math::Vector4 position;
+		math::Vector4 direction;
+
+		float endTime;
+		float time;
+		float speed;
+		UINT active;
+	};
+
+	struct ParticleShared
+	{
+		UINT sharedActiveCount;
 	};
 }

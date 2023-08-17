@@ -168,6 +168,13 @@ namespace Mn::graphics
 		return true;
 	}
 
+	bool GraphicDevice_Dx11::CreateGeometryShader(const void* pShaderBytecode, SIZE_T BytecodeLength, ID3D11GeometryShader** ppGeometryShader)
+	{
+		if (FAILED(_Device->CreateGeometryShader(pShaderBytecode, BytecodeLength, nullptr, ppGeometryShader)))
+			return false;
+		return true;
+	}
+
 	bool GraphicDevice_Dx11::CreatePixelShader(const void* pShaderBytecode, SIZE_T BytecodeLength, ID3D11PixelShader** ppPixelShader)
 	{
 		if(FAILED(_Device->CreatePixelShader(pShaderBytecode, BytecodeLength, nullptr, ppPixelShader)))
@@ -245,6 +252,18 @@ namespace Mn::graphics
 	{
 		_Context->IASetVertexBuffers(StartSlot, 1, ppVertexBuffers, pStrides, pOffsets);
 	}
+	void GraphicDevice_Dx11::BindHullShader(ID3D11HullShader* pHullShader)
+	{
+		_Context->HSSetShader(pHullShader, 0, 0);
+	}
+	void GraphicDevice_Dx11::BindDomainShader(ID3D11DomainShader* pDomainShader)
+	{
+		_Context->DSSetShader(pDomainShader, 0, 0);
+	}
+	void GraphicDevice_Dx11::BindGeometryShader(ID3D11GeometryShader* pGeometryShader)
+	{
+		_Context->GSSetShader(pGeometryShader, 0, 0);
+	}
 	void GraphicDevice_Dx11::BindIndexBuffer(ID3D11Buffer* pIndexBuffer, DXGI_FORMAT Format, UINT Offset)
 	{
 		_Context->IASetIndexBuffer(pIndexBuffer, Format, Offset);
@@ -257,6 +276,16 @@ namespace Mn::graphics
 	void GraphicDevice_Dx11::BindPixelShader(ID3D11PixelShader* ps)
 	{
 		_Context->PSSetShader(ps, 0, 0);
+	}
+
+	void GraphicDevice_Dx11::BindComputeShader(ID3D11ComputeShader* pComputeShader)
+	{
+		_Context->CSSetShader(pComputeShader, 0, 0);
+	}
+
+	void GraphicDevice_Dx11::Dispatch(UINT ThreadGroupCountX, UINT ThreadGroupCountY, UINT ThreadGroupCountZ)
+	{
+		_Context->Dispatch(ThreadGroupCountX, ThreadGroupCountY, ThreadGroupCountZ);
 	}
 
 	void GraphicDevice_Dx11::SetConstantBuffer(ID3D11Buffer* buffer, void* data, UINT size)
@@ -338,6 +367,10 @@ namespace Mn::graphics
 			break;
 		}
 	}
+	void GraphicDevice_Dx11::BindUnorderedAccess(UINT slot, ID3D11UnorderedAccessView** ppUnorderedAccessViews, const UINT* pUAVInitialCounts)
+	{
+		_Context->CSSetUnorderedAccessViews(slot, 1, ppUnorderedAccessViews, pUAVInitialCounts);
+	}
 	void GraphicDevice_Dx11::BindSampler(eShaderStage stage, UINT StartSlot, ID3D11SamplerState** ppSamplers)
 	{
 		switch (stage)
@@ -382,9 +415,18 @@ namespace Mn::graphics
 		_Context->OMSetBlendState(pBlendState, nullptr, 0xffffffff);
 	}
 
+	void GraphicDevice_Dx11::CopyResource(ID3D11Resource* pDstResource, ID3D11Resource* pSrcResource)
+	{
+		_Context->CopyResource(pDstResource, pSrcResource);
+	}
+
 	void GraphicDevice_Dx11::DrawIndexed(UINT IndexCount, UINT StartIndexLocation, INT BaseVertexLocation)
 	{
 		_Context->DrawIndexed(IndexCount, StartIndexLocation, BaseVertexLocation);
+	}
+	void GraphicDevice_Dx11::DrawIndexedInstanced(UINT IndexCountPerInstance, UINT InstanceCount, UINT StartIndexLocation, INT BaseVertexLocation, UINT StartInstanceLocation)
+	{
+		_Context->DrawIndexedInstanced(IndexCountPerInstance, InstanceCount, StartIndexLocation, BaseVertexLocation, StartInstanceLocation);
 	}
 	void GraphicDevice_Dx11::ClearTarget()
 	{

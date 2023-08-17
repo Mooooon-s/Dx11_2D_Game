@@ -57,7 +57,19 @@ namespace renderer
 		UINT FlipX;
 	};
 
-	
+	CBUFFER(ParticleCB, CBSLOT_PARTICLE)
+	{
+		UINT elementCount;
+		float elpasedTime;
+		float deltaTime;
+		int padd2;
+	};
+
+	CBUFFER(NoiseCB, CBSLOT_NOISE)
+	{
+		Vector4 size;
+	};
+
 
 	extern Mn::graphics::ConstantBuffer* constantBuffer[(UINT)eCBType::End];
 	extern Microsoft::WRL::ComPtr<ID3D11SamplerState> samplerState[];

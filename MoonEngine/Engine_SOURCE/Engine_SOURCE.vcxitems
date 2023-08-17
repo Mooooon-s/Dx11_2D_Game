@@ -63,6 +63,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnSucceeder.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnRepeatUntilFail.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMouse.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnPaintShader.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnParticleSystem.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnParticleShader.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RandomSelector.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnStructedBuffer.cpp" />
   </ItemGroup>
@@ -103,6 +106,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMonster.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMouse.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnPaintShader.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnParticleShader.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnParticleSystem.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRandomSelector.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRectangle.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnRenderer.h" />
