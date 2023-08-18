@@ -403,7 +403,7 @@ namespace renderer
 		Mn::Resources::Insert(L"PaintTexuture", uavTexture);
 
 		std::shared_ptr<Texture> particle = std::make_shared<Texture>();
-		Resources::Load<Texture>(L"Bubble", L"..\\Resources\\Texture\\FX\\energyball.jpg");
+		Resources::Load<Texture>(L"Bubble", L"..\\Resources\\Texture\\FX\\_IncubatorReflection.jpg");
 
 		Resources::Load<Texture>(L"Noise01", L"..\\Resources\\Texture\\noise\\noise_01.png");
 		Resources::Load<Texture>(L"Noise02", L"..\\Resources\\Texture\\noise\\noise_02.png");

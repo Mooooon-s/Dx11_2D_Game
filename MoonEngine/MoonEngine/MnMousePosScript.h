@@ -19,8 +19,9 @@ namespace Mn
 	public:
 		void UICamera(GameObject* uicamera) { _Cam = uicamera; }
 	private:
-		Vector3  _WinPos;
-		Vector3 _UnProjectPos;
+		UINT		_Idx;
+		Vector3		_WinPos;
+		Vector3		_UnProjectPos;
 		GameObject* _Cam;
 	};
 }

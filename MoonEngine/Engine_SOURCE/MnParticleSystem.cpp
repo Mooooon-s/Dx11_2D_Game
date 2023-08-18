@@ -4,6 +4,8 @@
 #include "MnGameObject.h"
 #include "MnTime.h"
 
+#include <random>
+
 namespace Mn
 {
 	ParticleSystem::ParticleSystem()
@@ -26,26 +28,31 @@ namespace Mn
 		Particle particles[1000] = {};
 		for (size_t i = 0; i < 1000; i++)
 		{
-			Vector4 pos = Vector4::Zero;
-			/*pos.x += rand() % 20;
-			pos.y += rand() % 10;
 
-			int sign = rand() % 2;
-			if (sign == 0)
-				pos.x *= -1.0f;
-			sign = rand() % 2;
-			if (sign == 0)
-				pos.y *= -1.0f;*/
+			std::random_device rd;
+			std::mt19937 gen(rd());
+			std::uniform_real_distribution<> dis(0.0, 2.0);
+			std::uniform_real_distribution<> ac(0.0, 1.0);
+			std::uniform_real_distribution<> t(0.0, 4.0);
+
+
+			Vector4 pos = Vector4::Zero;
 
 			particles[i].direction =
 				Vector4(cosf((float)i * (XM_2PI / (float)1000))
 					, sinf((float)i * (XM_2PI / 100.f))
 					, 0.0f, 1.0f);
 
-
 			particles[i].position = pos;
-			particles[i].speed = 1.0f;
-			particles[i].active = 0;
+			particles[i].speed = (float)dis(gen);
+
+			if(ac(gen)<0.05)
+				particles[i].active = 1;
+			else
+				particles[i].active = 0;
+
+			particles[i].endTime= (float)t(gen);
+			particles[i].time = 0;
 		}
 
 		_Buffer = new graphics::StructedBuffer();
@@ -53,13 +60,11 @@ namespace Mn
 		_SharedBuffer = new graphics::StructedBuffer();
 		_SharedBuffer->Create(sizeof(ParticleShared), 1, eViewType::UAV, nullptr, true);
 
-		//ParticleShared shareData = {};
-		//shareData.sharedActiveCount = 1000;
-		//_SharedBuffer->SetData(&shareData, 1);
-		//_Buffer->SetData(particles, 1000);
 	}
 	ParticleSystem::~ParticleSystem()
 	{
+		delete _Buffer;
+		delete _SharedBuffer;
 	}
 	void ParticleSystem::Initialize()
 	{
@@ -69,6 +74,10 @@ namespace Mn
 	}
 	void ParticleSystem::LateUpdate()
 	{
+		std::random_device rd;
+		std::mt19937 gen(rd());
+		std::uniform_real_distribution<> dis(0.0, 10.0);
+
 		float AliveTime = 1.0f / 1.0f;
 		_Time += Time::DeltaTime();
 
@@ -79,7 +88,7 @@ namespace Mn
 			_Time = f - floor(f);
 
 			ParticleShared shareData = {};
-			shareData.sharedActiveCount = 2;
+			shareData.sharedActiveCount = (UINT)dis(gen);
 			_SharedBuffer->SetData(&shareData, 1);
 		}
 		else

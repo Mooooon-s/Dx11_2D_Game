@@ -13,7 +13,8 @@ extern Mn::Application application;
 namespace Mn
 {
 	MousePosScript::MousePosScript()
-		:_Cam(nullptr)
+		: _Cam(nullptr)
+		, _Idx(1)
 	{
 	}
 	MousePosScript::MousePosScript(GameObject* cam)
@@ -32,10 +33,13 @@ namespace Mn
 			&& _UnProjectPos.x > -2.0f && _UnProjectPos.x < 2.0f 
 			&& _UnProjectPos.y > -1.5f && _UnProjectPos.y < 1.0f )
 		{
-			int a = 0;
-			Vector3 pos = Vector3(_UnProjectPos.x, _UnProjectPos.y, 0);
+			float a = (0.0001 * _Idx)+1;
+			Vector3 pos = Vector3(_UnProjectPos.x, _UnProjectPos.y, a);
 			Food* food = object::Instantiate<Food>(pos,eLayerType::Food);
 			food->Initialize();
+			_Idx+=1;
+			if (_Idx >= 100)
+				_Idx = 1;
 		}
 	}
 	void MousePosScript::LateUpdate()

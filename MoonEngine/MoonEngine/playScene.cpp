@@ -58,14 +58,14 @@ void Mn::playScene::Initialize()
 	Guppy* guppy = object::Instantiate<Guppy>(eLayerType::Fish);
 	guppy->Initialize();
 
-	Guppy* guppy2 = object::Instantiate<Guppy>(Vector3(1.5f,0.0f,0.0f),eLayerType::Fish);
+	Guppy* guppy2 = object::Instantiate<Guppy>(Vector3(1.5f,0.0f,0.01f),eLayerType::Fish);
 	guppy2->Initialize();
 
-	Guppy* guppy3 = object::Instantiate<Guppy>(Vector3(1.0f, 1.0f, 0.0f),eLayerType::Fish);
+	Guppy* guppy3 = object::Instantiate<Guppy>(Vector3(1.0f, 1.0f, 0.02f),eLayerType::Fish);
 	guppy3->Initialize();
 
 
-	Niko* niko = object::Instantiate<Niko>(Vector3(-1.4f,-0.4f,0.0f),eLayerType::Pet);
+	Niko* niko = object::Instantiate<Niko>(Vector3(-1.4f,-0.4f,0.03f),eLayerType::Pet);
 	niko->Initialize();
 
 
@@ -75,13 +75,12 @@ void Mn::playScene::Initialize()
 	TopBar* topbar = object::Instantiate<TopBar>(eLayerType::UI);
 	topbar->Initialize();
 
-	GameObject* particle = new GameObject();
-	particle->SetName(L"Particle");
-	AddGameObject(eLayerType::Monster, particle);
-	ParticleSystem* mr = particle->AddComponent<ParticleSystem>();
-	particle->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 1.0f));
-	particle->GetComponent<Transform>()->Scale(Vector3(0.2f, 0.2f, 0.2f));
-
+	//GameObject* particle = new GameObject();
+	//particle->SetName(L"Particle");
+	//AddGameObject(eLayerType::Particle, particle);
+	//ParticleSystem* mr = particle->AddComponent<ParticleSystem>();
+	//particle->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 1.0f));
+	//particle->GetComponent<Transform>()->Scale(Vector3(0.2f, 0.2f, 0.2f));
 
 	GameObject* light = new GameObject();
 	light->SetName(L"Light");

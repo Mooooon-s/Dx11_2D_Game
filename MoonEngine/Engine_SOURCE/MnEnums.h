@@ -21,11 +21,12 @@ namespace Mn::enums
 		Grid,
 		Pet,
 		Fish,
+		Food,
 		Coin,
 		Monster,
 		Light,
+		Particle,
 		BackGround,
-		Food,
 		UI,
 		End=16,
 	};

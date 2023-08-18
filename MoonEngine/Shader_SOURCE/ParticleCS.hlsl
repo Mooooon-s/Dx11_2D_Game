@@ -50,15 +50,22 @@ void main(uint3 DTid : SV_DispatchThreadID)
             
             ParticleBuffer[DTid.x].position.xyz = vRandom.xyz * 3.0f;
             ParticleBuffer[DTid.x].position.x -= 0.65f;
-            ParticleBuffer[DTid.x].position.y -= 1.4f;
+            ParticleBuffer[DTid.x].position.y -= 1.5f;
             ParticleBuffer[DTid.x].position.z = 0.0f;
         }
     }
     else
     {
-        //ParticleBuffer[DTid.x].position 
-        //   += ParticleBuffer[DTid.x].direction * ParticleBuffer[DTid.x].speed * deltaTime;
-        
+        ParticleBuffer[DTid.x].position
+           += ParticleBuffer[DTid.x].direction * ParticleBuffer[DTid.x].speed * deltaTime;
+        ParticleBuffer[DTid.x].time += deltaTime;
+        if (ParticleBuffer[DTid.x].endTime < ParticleBuffer[DTid.x].time)
+        {
+            ParticleBuffer[DTid.x].active = 0;
+            ParticleBuffer[DTid.x].time = 0;
+
+        }
+            
         // 시간을 체크해서 일정 시간(랜덤)이 지나면
         // active = 0;
     }
