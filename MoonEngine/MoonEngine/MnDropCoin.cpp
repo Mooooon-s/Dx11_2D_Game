@@ -25,6 +25,7 @@ namespace Mn
 		{
 			Transform* tr = guppy->GetComponent<Transform>();
 			Vector3 pos = tr->Position();
+			pos.z += 2.001;
 			Coin* coin =object::Instantiate<Coin>(pos,enums::eLayerType::Coin);
 			coin->SetLevel(level);
 			coin->Initialize();

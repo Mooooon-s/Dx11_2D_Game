@@ -130,7 +130,6 @@ namespace Mn
 		mainSelector = _Root->setChild<Selector>();
 		deathSequence = mainSelector->AddChild<Sequence>();
 		isDeath = deathSequence->AddChild<GuppyDeath>();
-		deathSequence->AddChild<PlayAnimaion>();
 		destroyFish = deathSequence->AddChild<DestroyFish>();
 
 		_Sequence = mainSelector->AddChild <Sequence>();
@@ -148,14 +147,12 @@ namespace Mn
 		eatSequence_ = eatInverter->SetChild<Sequence>();
 		
 		move2food = eatSequence_->AddChild<Move2Food>();
-		eatSequence_->AddChild<PlayAnimaion>();
 		eatfood = eatSequence_->AddChild<EatFood>();
 		addlevel = eatSequence_->AddChild<AddLevel>();
 
 		turnSucceeder = _Sequence->AddChild<Succeeder>();
 		turnSequence = turnSucceeder->SetChild<Sequence>();
 		isturn = turnSequence->AddChild<IsTurn>();
-		playanima[0] = turnSequence->AddChild<PlayAnimaion>();
 		guppyturn = turnSequence->AddChild<GuppyTurn>();
 
 		swimSequence = _Sequence->AddChild<Sequence>();
@@ -179,15 +176,7 @@ namespace Mn
 	}
 	void GuppyBehaviorTree::Render()
 	{
-		//enums::eDir dir = _BlackBoard->GetDataValue<enums::eDir>(L"Dir");
-		//ConstantBuffer* cb = renderer::constantBuffer[(UINT)eCBType::Flip];
-		//renderer::FlipCB data = {};
-		//if (dir == eDir::Right)
-		//	data.FlipX = 1;
-		//else
-		//	data.FlipX = 0;
-		//cb->setData(&data);
-		//cb->Bind(eShaderStage::PS);
+
 	}
 	void GuppyBehaviorTree::OnCollisionEnter(Collider2D* other)
 	{

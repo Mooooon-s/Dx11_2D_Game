@@ -2,6 +2,8 @@
 #include "MnGameObject.h"
 #include "MnCollider2D.h"
 #include "MnFood.h"
+#include "MnAnimator.h"
+#include "MnPlayAnimaion.h"
 
 namespace Mn
 {
@@ -19,8 +21,7 @@ namespace Mn
 	enums::eBTState EatFood::Run()
 	{
 		Collider2D* food = _BlackBoard->GetData<Collider2D>(L"otherColl");
-		food->GetOwner()->GetComponent<Transform>()->Position(Vector3(-100.0f, -100.0f, 0.0f));
-		if (food->GetOwner() == nullptr)
+		if (food == nullptr)
 			return enums::eBTState::FAILURE;
 		Food* castFood = dynamic_cast<Food*>(food->GetOwner());
 		_BlackBoard->EraseData<Collider2D>(L"otherColl");
@@ -31,6 +32,7 @@ namespace Mn
 		stack += 1;
 		_BlackBoard->SetData(L"Level_Stack", stack);
 		castFood->State(GameObject::eState::Dead);
+		
 		return enums::eBTState::SUCCESS;
 	}
 }

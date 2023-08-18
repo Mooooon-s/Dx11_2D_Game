@@ -1,6 +1,7 @@
 #include "MnGuppyDeath.h"
 #include "MnGameObject.h"
 #include "MnAnimator.h"
+#include "MnPlayAnimaion.h"
 
 namespace Mn
 {
@@ -26,6 +27,8 @@ namespace Mn
 			if (state != eFishState::Death)
 			{
 				_BlackBoard->SetData(L"Fish_State", eFishState::Death);
+				PlayAnimaion* anima = new PlayAnimaion(_BlackBoard);
+				anima->Run();
 				return enums::eBTState::SUCCESS;
 			}
 			return enums::eBTState::SUCCESS;

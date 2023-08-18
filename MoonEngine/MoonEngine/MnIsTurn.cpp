@@ -3,6 +3,7 @@
 #include "MnAnimator.h"
 #include <random>
 #include "MnTime.h"
+#include "MnPlayAnimaion.h"
 
 namespace Mn
 {
@@ -29,6 +30,7 @@ namespace Mn
 	}
 	enums::eBTState IsTurn::Run()
 	{
+		//최소 3초간은 방향전환을 하지 않음
 		if (_BlackBoard->GetDataValue<float>(L"Timer")-_Time < 3)
 			return enums::eBTState::FAILURE;
 
@@ -42,6 +44,8 @@ namespace Mn
 		if (randomValue <= 0.15) {
 			_Time = _BlackBoard->GetDataValue<float>(L"Timer");
 			_BlackBoard->SetData(L"Behavior", enums::eBehavior::Turn);
+			PlayAnimaion* anima = new PlayAnimaion(_BlackBoard);
+			anima->Run();
 			return enums::eBTState::SUCCESS;
 		}
 		else {

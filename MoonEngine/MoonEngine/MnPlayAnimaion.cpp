@@ -16,19 +16,26 @@ namespace Mn
 		:_BlackBoard(blackboard)
 		, _Behavior(eBehavior::Swim)
 	{
+		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Guppy");
+		Animator* at = gameObj->GetComponent<Animator>();
+		at->CompleteEvent(L"Eat_Small") = std::bind(&PlayAnimaion::afterAction,this);
+		at->CompleteEvent(L"Eat_Middle") = std::bind(&PlayAnimaion::afterAction,this);
+		at->CompleteEvent(L"Eat_Large") = std::bind(&PlayAnimaion::afterAction,this);
 	}
 	enums::eBTState PlayAnimaion::Run()
 	{
 		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Guppy");
 		Animator* at = gameObj->GetComponent<Animator>();
-		enums::eBehavior behavior = _BlackBoard->GetDataValue<eBehavior>(L"Behavior");
-
-		if (!at->AnimationComplete() && _Behavior == behavior)
+		enums::eBehavior behavior =_BlackBoard->GetDataValue<eBehavior>(L"Behavior");
+		enums::eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
+		if (!at->AnimationComplete() && _Behavior == behavior && _State== state)
 			return enums::eBTState::SUCCESS;
 
 		PlayAnimation(behavior);
 		Bind();
 
+		_State = state;
+		_Behavior = behavior;
 		return enums::eBTState::SUCCESS;
 	}
 	void PlayAnimaion::PlayAnimation(enums::eBehavior behavior)
@@ -107,13 +114,13 @@ namespace Mn
 			switch (level)
 			{
 			case 1:
-				at->PlayAnimation(L"Eat_Small", false);
+				at->PlayAnimation(L"Eat_Small", true);
 				break;
 			case 2:
-				at->PlayAnimation(L"Eat_Middle", false);
+				at->PlayAnimation(L"Eat_Middle", true);
 				break;
 			case 3:
-				at->PlayAnimation(L"Eat_Large", false);
+				at->PlayAnimation(L"Eat_Large", true);
 				break;
 			default:
 				break;
@@ -135,13 +142,22 @@ namespace Mn
 		switch (level)
 		{
 		case 1:
-			at->PlayAnimation(L"Hungry_Death_Small",false);
+			if (_BlackBoard->GetDataValue<eDir>(L"Dir") == eDir::Right)
+				at->PlayAnimation(L"Hungry_Death_Small_Reverse", false);
+			else
+				at->PlayAnimation(L"Hungry_Death_Small",false);
 			break;
 		case 2:
-			at->PlayAnimation(L"Hungry_Death_Middle",false);
+			if (_BlackBoard->GetDataValue<eDir>(L"Dir") == eDir::Right)
+				at->PlayAnimation(L"Hungry_Death_Middle_Reverse", false);
+			else
+				at->PlayAnimation(L"Hungry_Death_Middle",false);
 			break;
 		case 3:
-			at->PlayAnimation(L"Hungry_Death_Large",false);
+			if (_BlackBoard->GetDataValue<eDir>(L"Dir") == eDir::Right)
+				at->PlayAnimation(L"Hungry_Death_Large_Reverse", false);
+			else
+				at->PlayAnimation(L"Hungry_Death_Large",false);
 			break;
 		default:
 			break;
@@ -223,5 +239,32 @@ namespace Mn
 	}
 	void PlayAnimaion::Bind()
 	{
+	}
+	void PlayAnimaion::afterAction()
+	{
+		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Guppy");
+		Animator* at = gameObj->GetComponent<Animator>();
+		if (at->AnimationComplete())
+		{
+			enums::eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
+			switch (state)
+			{
+			case eFishState::Full:
+			case eFishState::Hungry:
+				FullAnimation(eBehavior::Swim);
+				break;
+			case eFishState::Starving:
+				StarvingAnimation(eBehavior::Swim);
+				break;
+			case eFishState::Death:
+				DeathAnimation();
+				break;
+			default:
+				break;
+			}
+		}
+
+		_BlackBoard->SetData(L"Behavior", eBehavior::Swim);
+		_Behavior = eBehavior::Swim;
 	}
 }

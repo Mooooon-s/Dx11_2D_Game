@@ -80,9 +80,13 @@ namespace Mn
 #pragma region Death
 		atlas = Resources::Load<Mn::graphics::Texture>(L"Hungry_Guppy_Death_Sprite", L"..\\Resources\\Texture\\Fish\\guppy\\smalldie.jpg");
 		atlasAlpha =  Resources::Load<Mn::graphics::Texture>(L"Hungry_Guppy_Death_Sprite_Alpha", L"..\\Resources\\Texture\\Fish\\guppy\\smalldie_.jpg");
-		at->Create(L"Hungry_Death_Small", atlas, atlasAlpha, Vector2(0.0f, 0.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
+		at->Create(L"Hungry_Death_Small", atlas, atlasAlpha, Vector2(0.0f, 0.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1f);
 		at->Create(L"Hungry_Death_Middle", atlas, atlasAlpha, Vector2(0.0f, 80.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
 		at->Create(L"Hungry_Death_Large", atlas, atlasAlpha, Vector2(0.0f, 160.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
+
+		at->CreateReverse(L"Hungry_Death_Small_Reverse", atlas, atlasAlpha, Vector2(0.0f, 0.0f), Vector2(80.0f, 80.0f), 10, Vector2::Zero, 0.1f);
+		at->CreateReverse(L"Hungry_Death_Middle_Reverse", atlas, atlasAlpha, Vector2(0.0f, 80.0f), Vector2(80.0f, 80.0f), 10, Vector2::Zero, 0.1f);
+		at->CreateReverse(L"Hungry_Death_Large_Reverse", atlas, atlasAlpha, Vector2(0.0f, 160.0f), Vector2(80.0f, 80.0f), 10, Vector2::Zero, 0.1f);
 #pragma endregion
 		at->PlayAnimation(L"Swim_Small", true);
 #pragma endregion

@@ -19,7 +19,7 @@ namespace Mn
 	{
 		GameObject* guppy = _BlackBoard->GetData<GameObject>(L"Guppy");
 		Animator* at = guppy->GetComponent<Animator>();
-		if (at->AnimationComplete() == true)
+		if (at->AnimationComplete())
 		{
 			guppy->State(GameObject::eState::Dead);
 			return enums::eBTState::FAILURE;

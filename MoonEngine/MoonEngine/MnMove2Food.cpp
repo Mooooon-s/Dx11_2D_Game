@@ -43,23 +43,18 @@ namespace Mn
 		Transform* foodTr = food->GetComponent<Transform>();
 		Vector3 foodPos = foodTr->Position();
 
-		//좌우 확인
+		//좌우 확인 물고기 기준으로 먹이가 어디에 있는지
 		if (foodPos.x - guppyPos.x < 0)
-		{
-			//Food is Left
 			_Dir = enums::eDir::Left;
-		}
 		else
-		{
-			//Food is right
 			_Dir = enums::eDir::Right;
-		}
 
 		//방향 전환
 		
 		PlayAnimaion* anima = new PlayAnimaion(_BlackBoard);
 
 		//turn에서 하면되나? 보류
+		//애니메이션을 노드로 사용하는것이 아니라 객채로 사용한다면??
 		enums::eDir dir = _BlackBoard->GetDataValue<enums::eDir>(L"Dir");
 		if (dir == enums::eDir::Right && _Dir == enums::eDir::Left)
 		{
@@ -90,9 +85,11 @@ namespace Mn
 		guppyPos += Vector3(moveVec.x, moveVec.y,0.0f)* speed * Time::DeltaTime();
 		guppyTr->Position(guppyPos);
 		
-		if (_BlackBoard->GetDataValue<bool>(L"CollisionEnter") == true || _BlackBoard->GetDataValue<bool>(L"CollisionStay") == true)
+		if (_BlackBoard->GetDataValue<bool>(L"CollisionEnter") == true)
 		{
 			_BlackBoard->SetData(L"Behavior", enums::eBehavior::Eat);
+			_BlackBoard->SetData(L"Fish_State", eFishState::Full);
+			anima->Run();
 			return enums::eBTState::SUCCESS;
 		}
 

@@ -16,9 +16,11 @@ namespace Mn
 		void DeathAnimation();
 		void StarvingAnimation(enums::eBehavior behavior);
 		void Bind();
+		void afterAction();
 	private:
-		BlackBoard* _BlackBoard;
-		eBehavior _Behavior;
+		BlackBoard*		_BlackBoard;
+		eBehavior		_Behavior;
+		eFishState		_State;
 	};
 
 }

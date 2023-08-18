@@ -31,18 +31,22 @@ namespace Mn
 			if (dir == eDir::Left)
 			{
 				if(pos.x > -2.2f)
-					pos+= Vector3(-1.0f, 0.0f, 0.0f) * _Speed * Time::DeltaTime();
+					pos+= Vector3(-1.0f, 0.05f, 0.0f) * _Speed * Time::DeltaTime();
 				else
-					pos+= Vector3(1.0f, 0.0f, 0.0f) * _Speed * Time::DeltaTime();
+					pos+= Vector3(1.0f, 0.05f, 0.0f) * _Speed * Time::DeltaTime();
 
+				if(pos.y> 1.0f)
+					pos+= Vector3(0.0f, -0.05f, 0.0f) * _Speed * Time::DeltaTime();
 			}
 			else
 			{
 				if(pos.x<2.2)
-					pos += Vector3(1.0f, 0.0f, 0.0f) * _Speed * Time::DeltaTime();
+					pos += Vector3(1.0f, 0.05f, 0.0f) * _Speed * Time::DeltaTime();
 				else
-					pos += Vector3(-1.0f, 0.0f, 0.0f) * _Speed * Time::DeltaTime();
+					pos += Vector3(-1.0f, 0.05f, 0.0f) * _Speed * Time::DeltaTime();
 
+				if (pos.y > 1.0f)
+					pos += Vector3(0.0f, -0.05f, 0.0f) * _Speed * Time::DeltaTime();
 			}
 			tr->Position(pos);
 			_Blackboard->SetRunningNode<Move>(this);
