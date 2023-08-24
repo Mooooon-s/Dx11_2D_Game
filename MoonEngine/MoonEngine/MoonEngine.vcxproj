@@ -165,6 +165,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="MnAddLevel.h" />
+    <ClInclude Include="MnBalrog.h" />
+    <ClInclude Include="MnBalrogRenderScript.h" />
     <ClInclude Include="MnCoin.h" />
     <ClInclude Include="MnCoinRender.h" />
     <ClInclude Include="MnDestroyFish.h" />
@@ -209,6 +211,8 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnBalrogRenderScript.cpp" />
+    <ClCompile Include="MnBalrog.cpp" />
     <ClCompile Include="MnDestroyFish.cpp" />
     <ClCompile Include="MnGuppyDeath.cpp" />
     <ClCompile Include="MnDropCoin.cpp" />

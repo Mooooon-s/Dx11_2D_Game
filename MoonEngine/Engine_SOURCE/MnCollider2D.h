@@ -19,7 +19,7 @@ namespace Mn
 
 		Vector3 _Scale;
 
-		bool _stay;
+		bool	_Check;
 	public:
 		Collider2D();
 		~Collider2D();
@@ -48,6 +48,9 @@ namespace Mn
 		Vector3 GetScale() { return _Scale; }
 		UINT GetColliderID() { return _ColliderID; }
 		graphics::DebugMesh GetDebugMesh() { return _DebugMesh; }
+
+		void Check(bool check) { _Check = check; }
+		bool Check() { return _Check; }
 	};
 
 }

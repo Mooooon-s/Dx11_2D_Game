@@ -32,7 +32,6 @@ namespace Mn
 		at->CreateReverse(L"Niko_Close", atlas, atlasAlpha, Vector2(0.0f, 160.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
 
 		at->CompleteEvent(L"Niko_Close") = std::bind(&NikoRenderer::AfterClick, this);
-
 		at->PlayAnimation(L"Niko_Idle", true);
 	}
 	void NikoRenderer::Update()

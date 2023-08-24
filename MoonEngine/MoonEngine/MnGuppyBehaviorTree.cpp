@@ -179,6 +179,10 @@ namespace Mn
 	}
 	void GuppyBehaviorTree::OnCollisionEnter(Collider2D* other)
 	{
+		//여러 오브젝트가 한번에 접근하게 됨......
+		//접근하려는 오브젝트가 없어지면 후에 접근하는 오브젝트에서는 오류가 발생
+		//누군가 접근중일때 접근 못하게???
+		//사라진 오브젝트의 데이터가 쓰레기 값으로 변경되어버림
 		eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
 		if (state == eFishState::Hungry || state == eFishState::Starving)
 		{

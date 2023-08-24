@@ -18,7 +18,7 @@ namespace Mn
 		coll->SetSize(Vector2(0.35f, 0.35f));
 
 		Transform* tr = GetComponent<Transform>();
-		tr->Scale(Vector3(0.8f, 0.8f, 0.0f));
+		tr->Scale(Vector3(0.5f, 0.5f, 0.0f));
 		NikoRenderer* NR = AddComponent<NikoRenderer>();
 		NikoScript* NS = AddComponent<NikoScript>();
 		GameObject::Initialize();

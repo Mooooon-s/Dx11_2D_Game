@@ -126,6 +126,10 @@
     <ClInclude Include="MnDestroyFish.h">
       <Filter>Contents\LeafNode\Guppy\Death</Filter>
     </ClInclude>
+    <ClInclude Include="MnBalrog.h">
+      <Filter>Contents\BossMonster\Balrog</Filter>
+    </ClInclude>
+    <ClInclude Include="MnBalrogRenderScript.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -249,6 +253,10 @@
     <ClCompile Include="MnDestroyFish.cpp">
       <Filter>Contents\LeafNode\Guppy\Death</Filter>
     </ClCompile>
+    <ClCompile Include="MnBalrog.cpp">
+      <Filter>Contents\BossMonster\Balrog</Filter>
+    </ClCompile>
+    <ClCompile Include="MnBalrogRenderScript.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -382,6 +390,21 @@
     </Filter>
     <Filter Include="Contents\Scripts\Niko\Render">
       <UniqueIdentifier>{8247f518-9987-411e-9f4c-d294a80246f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\BossMonster">
+      <UniqueIdentifier>{a570d4de-a650-4c2c-b1b6-2a755e215171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Word">
+      <UniqueIdentifier>{776b8a8a-977d-46f7-8272-bf1ec0fc27a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\BossMonster\Balrog">
+      <UniqueIdentifier>{797cc6a7-057b-440d-ac67-a637cd3f11c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\BossMonster">
+      <UniqueIdentifier>{05093eaa-ce7f-4026-9558-a43022387325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\BossMonster\BalrogScript">
+      <UniqueIdentifier>{63aaa0ec-d8bf-4f48-9614-efacb8ae388f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

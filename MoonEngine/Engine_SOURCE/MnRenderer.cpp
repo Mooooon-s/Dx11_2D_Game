@@ -482,6 +482,11 @@ namespace renderer
 		coinAnimaterial->RenderingMode(eRenderingMode::Transparent);
 		Resources::Insert(L"CoinSpriteAnimaionMaterial", coinAnimaterial);
 
+		std::shared_ptr <Material> balrogAnimaterial = std::make_shared<Material>();
+		balrogAnimaterial->Shader(spriteShader);
+		balrogAnimaterial->RenderingMode(eRenderingMode::Transparent);
+		Resources::Insert(L"BalrogSpriteAnimaionMaterial", balrogAnimaterial);
+
 
 
 		//---------------------------------------------------------------------------------------------------------------------------------------

@@ -87,7 +87,7 @@ namespace Mn
 			sprite.size.x = size.x / width;
 			sprite.size.y = size.y / height;
 			sprite.offset = offset;
-			sprite.atlasSize = Vector2(100.0f / width, 100.0f / height);
+			sprite.atlasSize = Vector2(size.x / width, size.y / height);
 			sprite.duration = duration;
 
 			_Sprites.push_back(sprite);
@@ -111,7 +111,7 @@ namespace Mn
 			sprite.size.x = size.x / width;
 			sprite.size.y = size.y / height;
 			sprite.offset = offset;
-			sprite.atlasSize = Vector2(100.0f / width, 100.0f / height);
+			sprite.atlasSize = Vector2(size.x / width, size.y / height);
 			sprite.duration = duration;
 
 			_Sprites.push_back(sprite);

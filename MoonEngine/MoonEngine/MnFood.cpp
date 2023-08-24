@@ -18,7 +18,10 @@ namespace Mn
 	void Food::Initialize()
 	{
 		Collider2D* coll = AddComponent<Collider2D>();
-		coll->SetSize(Vector2(0.2f, 0.2f));
+		coll->SetSize(Vector2(0.5f, 0.5f));
+
+		Transform* tr = GetComponent<Transform>();
+		tr->Scale(Vector3(0.4f, 0.4f, 0.0f));
 
 		MeshRenderer* mr = AddComponent<MeshRenderer>();
 		mr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));

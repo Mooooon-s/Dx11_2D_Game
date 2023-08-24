@@ -11,6 +11,8 @@ namespace Mn
 		, _Transform(nullptr)
 		, _Size(Vector2::One)
 		, _Center(Vector2::Zero)
+		, _Type(eColliderType::Rect)
+		, _Check(false)
 	{
 	}
 	Collider2D::~Collider2D()
@@ -48,14 +50,7 @@ namespace Mn
 	}
 	void Collider2D::Render()
 	{
-		Vector4 intersect = Vector4::Zero;
-		if (_stay)
-			intersect = Vector4(1.0, 0.0, 0.0, 0.0);
-		else
-			intersect = Vector4(0.0, 0.0, 0.0, 0.0);
-		ConstantBuffer* cb = renderer::constantBuffer[(UINT)eCBType::Debug];
-		cb->setData(&intersect);
-		cb->Bind(eShaderStage::PS);
+		
 	}
 	void Collider2D::OnCollisionEnter(Collider2D* other)
 	{
@@ -67,9 +62,6 @@ namespace Mn
 	}
 	void Collider2D::OnCollisionStay(Collider2D* other)
 	{
-
-
-
 		const std::vector<Script*>& scripts = GetOwner()->GetComponents<Script>();
 
 		for (Script* script : scripts)

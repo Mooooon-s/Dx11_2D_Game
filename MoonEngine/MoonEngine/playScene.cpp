@@ -20,6 +20,7 @@
 #include "MnAquarimBG.h"
 #include "MnTopBar.h"
 
+#include "MnBalrog.h"
 
 #include "MnGuppy.h"
 
@@ -64,6 +65,8 @@ void Mn::playScene::Initialize()
 	Guppy* guppy3 = object::Instantiate<Guppy>(Vector3(1.0f, 1.0f, 0.02f),eLayerType::Fish);
 	guppy3->Initialize();
 
+	Balrog* balrog = object::Instantiate<Balrog>(eLayerType::Monster);
+	balrog->Initialize();
 
 	Niko* niko = object::Instantiate<Niko>(Vector3(-1.4f,-0.4f,100.0f),eLayerType::Pet);
 	niko->Initialize();
@@ -109,6 +112,8 @@ void Mn::playScene::Initialize()
 	Mouse* mouse = object::Instantiate<Mouse>(eLayerType::UI);
 	mouse->UICamera(camera);
 	mouse->Initialize();
+
+
 }
 
 void Mn::playScene::Update()

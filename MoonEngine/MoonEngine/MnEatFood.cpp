@@ -33,6 +33,7 @@ namespace Mn
 		_BlackBoard->SetData(L"Level_Stack", stack);
 		castFood->State(GameObject::eState::Dead);
 		
+
 		return enums::eBTState::SUCCESS;
 	}
 }
