@@ -296,6 +296,11 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnPaintShader.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnParticleSystem.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnParticleShader.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnAudioClip.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnAudioListener.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnAudioSource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnFmod.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnFontWrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h">
@@ -457,6 +462,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnPaintShader.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnParticleSystem.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnParticleShader.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnAudioClip.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnAudioListener.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnAudioSource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnFmod.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnFontWrapper.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl">

@@ -92,4 +92,7 @@ namespace Mn
 		}
 
 	}
+	void GameObject::Click()
+	{
+	}
 }

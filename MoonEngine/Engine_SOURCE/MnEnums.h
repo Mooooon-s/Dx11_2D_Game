@@ -13,6 +13,8 @@ namespace Mn::enums
 		Script,
 		Light,
 		Camera,
+		AudioListener,
+		AudioSource,
 		End,
 	};
 
@@ -39,6 +41,7 @@ namespace Mn::enums
 		Mesh,
 		Animation,
 		ComputeShader,
+		AudioClip,
 		End,
 	};
 

@@ -28,6 +28,7 @@ namespace Mn
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render();
+		virtual void Click();
 	public:
 		template <typename T>
 		T* GetComponent()

@@ -86,6 +86,7 @@ namespace Mn::graphics
 		void Present();
 
 		ID3D11Device* GetID3D11Device() { return _Device.Get(); }
+		ID3D11DeviceContext* GetID3D11DeviceContext() { return _Context.Get(); }
 	};
 
 	inline GraphicDevice_Dx11*& GetDevice()

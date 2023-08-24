@@ -26,7 +26,7 @@ namespace Mn
 		: Component(eComponentType::Camera)
 		, _Type(eProjectionType::OrthoGraphic)
 		, _AspectRatio(1.0f)
-		, _Near(1.0f)
+		, _Near(-10.0f)
 		, _Far(1000.0f)
 		, _Size(5.0f)
 		, _View(Matrix::Identity)
