@@ -31,17 +31,24 @@ namespace Mn
 		at->Create(L"Niko_Open", atlas, atlasAlpha, Vector2(0.0f, 80.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
 		at->CreateReverse(L"Niko_Close", atlas, atlasAlpha, Vector2(0.0f, 160.0f), Vector2(80.0f, 80.f), 10, Vector2::Zero, 0.1);
 
+		at->CompleteEvent(L"Niko_Close") = std::bind(&NikoRenderer::AfterClick, this);
+
 		at->PlayAnimation(L"Niko_Idle", true);
 	}
 	void NikoRenderer::Update()
 	{
 		MeshRenderer* mr = GetOwner()->GetComponent<MeshRenderer>();
-		mr->FlipX(1);
+		mr->FlipX(0);
 	}
 	void NikoRenderer::LateUpdate()
 	{
 	}
 	void NikoRenderer::Render()
 	{
+	}
+	void NikoRenderer::AfterClick()
+	{
+		Animator* at = GetOwner()->GetComponent<Animator>();
+		at->PlayAnimation(L"Niko_Idle", true);
 	}
 }

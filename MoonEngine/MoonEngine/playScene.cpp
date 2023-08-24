@@ -65,7 +65,7 @@ void Mn::playScene::Initialize()
 	guppy3->Initialize();
 
 
-	Niko* niko = object::Instantiate<Niko>(Vector3(-1.4f,-0.4f,0.03f),eLayerType::Pet);
+	Niko* niko = object::Instantiate<Niko>(Vector3(-1.4f,-0.4f,100.0f),eLayerType::Pet);
 	niko->Initialize();
 
 

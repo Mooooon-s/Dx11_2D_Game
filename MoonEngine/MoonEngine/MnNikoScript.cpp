@@ -43,4 +43,12 @@ namespace Mn
 	void NikoScript::OnCollisionExit(Collider2D* other)
 	{
 	}
+	void NikoScript::OnClick()
+	{
+		if (_Open == true)
+		{
+			Animator* at =GetOwner()->GetComponent<Animator>();
+			at->PlayAnimation(L"Niko_Close", true);
+		}
+	}
 }
