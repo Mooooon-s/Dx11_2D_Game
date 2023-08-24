@@ -18,7 +18,7 @@ namespace Mn
 		mr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
 		mr->SetMaterial(Resources::Find<Material>(StageName()));
 		Vector2 ratio = mr->GetMaterial()->GetTexture()->CalculateRatio();
-		GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 2.9f));
+		GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 900.0f));
 		GetComponent<Transform>()->Scale(Vector3(ratio.x * 3.6, ratio.y * 3.6, 1.0f));
 
 	}

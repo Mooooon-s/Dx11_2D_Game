@@ -58,7 +58,6 @@ namespace Mn
 
 		KdTree* foodtree =Mn::kdTree;
 
-
 		//setData
 		_BlackBoard->AddData<GameObject>(L"Guppy", GetOwner());
 		_BlackBoard->AddData<KdTree>(L"Food_Tree", foodtree);
@@ -189,13 +188,7 @@ namespace Mn
 	}
 	void GuppyBehaviorTree::OnCollisionStay(Collider2D* other)
 	{
-		//특정 노드를 바로 실행하는걸로
-		/*eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
-		if (state == eFishState::Hungry || state == eFishState::Starving)
-		{
-			_BlackBoard->SetData(L"CollisionEnter", false);
-			_BlackBoard->SetData(L"CollisionStay", true);
-		}*/
+
 	}
 	void GuppyBehaviorTree::OnCollisionExit(Collider2D* other)
 	{

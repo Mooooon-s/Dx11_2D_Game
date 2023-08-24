@@ -1,5 +1,8 @@
 #include "MnCoin.h"
 #include "MnTime.h"
+
+#include "MnCollider2D.h"
+
 #include "MnCoinRender.h"
 
 namespace Mn
@@ -14,9 +17,16 @@ namespace Mn
 	}
 	void Coin::Initialize()
 	{
+		Collider2D* coll = AddComponent<Collider2D>();
+		coll->SetSize(Vector2(0.5, 0.5));
+
+		Transform* tr = GetComponent<Transform>();
+		tr->Scale(Vector3(0.5, 0.5, 0.0f));
+
 		CoinRender* CR = AddComponent<CoinRender>();
 		CR->SetLevel(_Level);
-		CR->Initialize();
+		
+		GameObject::Initialize();
 	}
 	void Coin::Update()
 	{
@@ -43,5 +53,9 @@ namespace Mn
 	void Coin::Render()
 	{
 		GameObject::Render();
+	}
+	void Coin::Click()
+	{
+		this->State(eState::Dead);
 	}
 }
