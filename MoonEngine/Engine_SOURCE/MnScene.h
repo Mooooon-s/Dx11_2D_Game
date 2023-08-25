@@ -15,6 +15,7 @@ namespace Mn
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render();
+		virtual void FontRender();
 		virtual void Destroy();
 
 		virtual void OnEnter();

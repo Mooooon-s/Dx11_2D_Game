@@ -35,6 +35,10 @@ namespace Mn
 	{
 		_ActiveScene->Render();
 	}
+	void SceneManager::FontRender()
+	{
+		_ActiveScene->FontRender();
+	}
 	void SceneManager::Destroy()
 	{
 		_ActiveScene->Destroy();

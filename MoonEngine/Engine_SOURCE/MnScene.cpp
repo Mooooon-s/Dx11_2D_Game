@@ -34,6 +34,13 @@ namespace Mn
 			layer.Render();
 		}
 	}
+	void Scene::FontRender()
+	{
+		for (Layer& layer : _Layers)
+		{
+			layer.FontRender();
+		}
+	}
 	void Scene::Destroy()
 	{
 		for (Layer& layer : _Layers)

@@ -90,9 +90,11 @@ namespace Mn
 		{
 			script->Render();
 		}
-
 	}
-	void GameObject::Click()
+	void GameObject::FontRender()
+	{
+	}
+	void GameObject::OnClick()
 	{
 	}
 }

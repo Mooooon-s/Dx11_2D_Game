@@ -45,6 +45,15 @@ namespace Mn
 			gameObj->Render();
 		}
 	}
+	void Layer::FontRender()
+	{
+		for (GameObject* gameObj : _GameObjects)
+		{
+			if (gameObj->State() != GameObject::eState::Active)
+				continue;
+			gameObj->FontRender();
+		}
+	}
 	void Layer::Destroy()
 	{
 		std::set<GameObject*> deleteGameObj = {};

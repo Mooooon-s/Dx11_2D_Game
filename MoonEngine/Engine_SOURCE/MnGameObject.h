@@ -28,7 +28,8 @@ namespace Mn
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render();
-		virtual void Click();
+		virtual void FontRender();
+		virtual void OnClick();
 	public:
 		template <typename T>
 		T* GetComponent()

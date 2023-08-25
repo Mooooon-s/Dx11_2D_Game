@@ -11,6 +11,7 @@
 #pragma comment(lib, "..\\External\\FW1FontWrapper\\Library\\Debug\\FW1FontWrapper.lib")
 #endif
 
+
 //#include <SpriteFont.h>
 //#include <SpriteBatch.h>
 

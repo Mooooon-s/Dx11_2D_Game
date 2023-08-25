@@ -7,6 +7,7 @@
 #include "../Engine_SOURCE/MnRenderer.h"
 #include "../Engine_SOURCE/MnResources.h"
 #include "../Engine_SOURCE/MnSceneManager.h"
+#include "../Engine_SOURCE/MnFontWrapper.h"
 #include "LoadScene.h"
 #include "guiEditor.h"
 
@@ -142,6 +143,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    application.Initialize();
    Mn::InitializeScenes();
    gui::Editor::Initialize();
+
 
    return TRUE;
 }
