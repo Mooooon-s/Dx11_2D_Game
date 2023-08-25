@@ -1,5 +1,7 @@
 #pragma once
+#include "../Engine_SOURCE/MnRootNode.h"
 #include "MnScript.h"
+#include "MnGetDemaged.h"
 
 namespace Mn
 {
@@ -17,8 +19,12 @@ namespace Mn
 		virtual void OnCollisionEnter(Collider2D* other) {};
 		virtual void OnCollisionStay(Collider2D* other) {};
 		virtual void OnCollisionExit(Collider2D* other) {};
-	private:
 
+		void OnClick();
+	private:
+		RootNode* _Root;
+		BlackBoard* _BlackBorad;
+		GetDemaged* _GetDemage;
 	};
 
 }

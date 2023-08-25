@@ -4,6 +4,7 @@
 namespace Mn
 {
 	Balrog::Balrog()
+		:_BHT(nullptr)
 	{
 	}
 	Balrog::~Balrog()
@@ -12,7 +13,7 @@ namespace Mn
 	void Balrog::Initialize()
 	{
 		BalrogRenderScript* BRS = AddComponent<BalrogRenderScript>();
-
+		_BHT = AddComponent<BalrogBehaviorTree>();
 		GameObject::Initialize();
 	}
 	void Balrog::Update()
@@ -29,5 +30,6 @@ namespace Mn
 	}
 	void Balrog::OnClick()
 	{
+		_BHT->OnClick();
 	}
 }

@@ -4,6 +4,7 @@
 #include "MnMeshRenderer.h"
 #include "MnGameObject.h"
 #include "MnAnimator.h"
+#include "MnCollider2D.h"
 
 
 namespace Mn
@@ -16,6 +17,9 @@ namespace Mn
 	}
 	void BalrogRenderScript::Initialize()
 	{
+		Collider2D* coll = GetOwner()->AddComponent<Collider2D>();
+		coll->SetSize(Vector2(0.5f, 0.5f));
+
 		MeshRenderer* mr = GetOwner()->AddComponent<MeshRenderer>();
 		mr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
 		mr->SetMaterial(Resources::Find<Material>(L"BalrogSpriteAnimaionMaterial"));

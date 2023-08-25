@@ -9,11 +9,14 @@
 #include "..\Engine_SOURCE\MnInverter.h"
 
 #include "MnBalIsDead.h"
+#include "MnGetDemaged.h"
 
 
 namespace Mn
 {
 	BalrogBehaviorTree::BalrogBehaviorTree()
+		:_GetDemage(nullptr)
+		, _Root(nullptr)
 	{
 	}
 	BalrogBehaviorTree::~BalrogBehaviorTree()
@@ -21,14 +24,16 @@ namespace Mn
 	}
 	void BalrogBehaviorTree::Initialize()
 	{
-		BlackBoard* blackBorad = new BlackBoard();
+		_BlackBorad  = new BlackBoard();
 
-		blackBorad->AddData<GameObject>(L"Balrog", GetOwner());
-		blackBorad->MakeData<UINT>(L"Hp");
-		blackBorad->SetData(L"Hp", 20);
+		_GetDemage = new GetDemaged(_BlackBorad);
+		_BlackBorad->AddData<GameObject>(L"Balrog", GetOwner());
+		_BlackBorad->MakeData<UINT>(L"Hp");
+		_BlackBorad->SetData(L"Hp", 20);
 
-		RootNode* root = new RootNode(blackBorad);
-		Sequence* sequence = root->setChild<Sequence>();
+		_Root = new RootNode(_BlackBorad);
+		_Root->SetTimer();
+		Sequence* sequence = _Root->setChild<Sequence>();
 		Inverter* inverter = sequence->AddChild<Inverter>();
 		BalIsDead* isDead = inverter->SetChild<BalIsDead>();
 
@@ -36,11 +41,16 @@ namespace Mn
 	}
 	void BalrogBehaviorTree::Update()
 	{
+		_Root->Run();
 	}
 	void BalrogBehaviorTree::LateUpdate()
 	{
 	}
 	void BalrogBehaviorTree::Render()
 	{
+	}
+	void BalrogBehaviorTree::OnClick()
+	{
+		_GetDemage->Run();
 	}
 }

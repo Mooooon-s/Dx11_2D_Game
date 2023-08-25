@@ -182,6 +182,7 @@
     <ClInclude Include="MnEatFood.h" />
     <ClInclude Include="MnFindFood.h" />
     <ClInclude Include="MnFood.h" />
+    <ClInclude Include="MnGetDemaged.h" />
     <ClInclude Include="MnGridScript.h" />
     <ClInclude Include="MnGuppy.h" />
     <ClInclude Include="MnGuppyAnimationCntrl.h" />
@@ -203,6 +204,8 @@
     <ClInclude Include="MnNiko.h" />
     <ClInclude Include="MnNikoRenderer.h" />
     <ClInclude Include="MnNikoScript.h" />
+    <ClInclude Include="MnPearl.h" />
+    <ClInclude Include="MnPearlScript.h" />
     <ClInclude Include="MnPlayerHp.h" />
     <ClInclude Include="MnPumpkin.h" />
     <ClInclude Include="MnTitleScene.h" />
@@ -214,6 +217,7 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnGetDemaged.cpp" />
     <ClCompile Include="MnBalIsDead.cpp" />
     <ClCompile Include="MnBalrogBehaviorTree.cpp" />
     <ClCompile Include="MnBalrogRenderScript.cpp" />
@@ -258,6 +262,8 @@
     <ClCompile Include="MnNikoScript.cpp" />
     <ClCompile Include="MnNikoBehaviorTree.cpp" />
     <ClCompile Include="MnNikoRenderer.cpp" />
+    <ClCompile Include="MnPearl.cpp" />
+    <ClCompile Include="MnPearlScript.cpp" />
     <ClCompile Include="playScene.cpp" />
     <ClCompile Include="MnPumpkin.cpp" />
   </ItemGroup>

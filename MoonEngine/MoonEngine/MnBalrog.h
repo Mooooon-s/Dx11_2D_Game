@@ -1,5 +1,6 @@
 #pragma once
 #include "MnGameObject.h"
+#include "MnBalrogBehaviorTree.h"
 
 namespace Mn
 {
@@ -15,5 +16,6 @@ namespace Mn
 		void Render() override;
 		void OnClick() override;
 	private:
+		BalrogBehaviorTree* _BHT;
 	};
 }

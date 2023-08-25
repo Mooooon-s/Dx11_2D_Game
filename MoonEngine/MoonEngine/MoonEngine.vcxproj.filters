@@ -94,7 +94,7 @@
       <Filter>Contents\LeafNode\Guppy\EatFood</Filter>
     </ClInclude>
     <ClInclude Include="MnCoin.h">
-      <Filter>Contents\Coin</Filter>
+      <Filter>Contents\Money\Coin</Filter>
     </ClInclude>
     <ClInclude Include="MnFoodScript.h">
       <Filter>Contents\Scripts\FoodScript</Filter>
@@ -133,8 +133,17 @@
       <Filter>Contents\Scripts\BossMonster\BalrogScript</Filter>
     </ClInclude>
     <ClInclude Include="MnBalrogBehaviorTree.h" />
-    <ClInclude Include="MnBalIsDead.h" />
     <ClInclude Include="MnMoney.h" />
+    <ClInclude Include="MnBalIsDead.h">
+      <Filter>Contents\LeafNode\Balrog</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGetDemaged.h" />
+    <ClInclude Include="MnPearl.h">
+      <Filter>Contents\Money\Pearl</Filter>
+    </ClInclude>
+    <ClInclude Include="MnPearlScript.h">
+      <Filter>Contents\Scripts\Pearl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -226,7 +235,7 @@
       <Filter>Contents\LeafNode\Guppy\EatFood</Filter>
     </ClCompile>
     <ClCompile Include="MnCoin.cpp">
-      <Filter>Contents\Coin</Filter>
+      <Filter>Contents\Money\Coin</Filter>
     </ClCompile>
     <ClCompile Include="MnFoodScript.cpp">
       <Filter>Contents\Scripts\FoodScript</Filter>
@@ -265,8 +274,17 @@
       <Filter>Contents\Scripts\BossMonster\BalrogScript</Filter>
     </ClCompile>
     <ClCompile Include="MnBalrogBehaviorTree.cpp" />
-    <ClCompile Include="MnBalIsDead.cpp" />
     <ClCompile Include="MnMoney.cpp" />
+    <ClCompile Include="MnBalIsDead.cpp">
+      <Filter>Contents\LeafNode\Balrog</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGetDemaged.cpp" />
+    <ClCompile Include="MnPearl.cpp">
+      <Filter>Contents\Money\Pearl</Filter>
+    </ClCompile>
+    <ClCompile Include="MnPearlScript.cpp">
+      <Filter>Contents\Scripts\Pearl</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -368,9 +386,6 @@
     <Filter Include="Contents\Scripts\FoodScript">
       <UniqueIdentifier>{28acec9d-a6bc-4c37-983e-3da93687110d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\Coin">
-      <UniqueIdentifier>{35c78fda-ba5d-44ae-b6c5-cf6be622ef02}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\LeafNode\Guppy\AddLevel">
       <UniqueIdentifier>{24ec1fcc-a0b8-4206-a5d8-914778edbb04}</UniqueIdentifier>
     </Filter>
@@ -421,6 +436,18 @@
     </Filter>
     <Filter Include="Contents\PlayerMoney">
       <UniqueIdentifier>{0dfb8ea3-70b4-4305-8557-f2d16ebf4700}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Money">
+      <UniqueIdentifier>{e7ce8115-5c49-419c-9aef-bc85f48432ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Money\Coin">
+      <UniqueIdentifier>{35c78fda-ba5d-44ae-b6c5-cf6be622ef02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Money\Pearl">
+      <UniqueIdentifier>{21be6858-1533-48e5-b11c-0bc2eb4c9996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Pearl">
+      <UniqueIdentifier>{946ff12a-8a86-4920-87f9-e79a79297f73}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
