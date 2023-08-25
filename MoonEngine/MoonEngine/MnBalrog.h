@@ -13,7 +13,7 @@ namespace Mn
 		void Update() override;
 		void LateUpdate() override;
 		void Render() override;
-		void Click() override;
+		void OnClick() override;
 	private:
 	};
 }

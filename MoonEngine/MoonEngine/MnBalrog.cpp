@@ -27,7 +27,7 @@ namespace Mn
 	{
 		GameObject::Render();
 	}
-	void Balrog::Click()
+	void Balrog::OnClick()
 	{
 	}
 }
