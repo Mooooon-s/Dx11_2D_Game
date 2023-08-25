@@ -5,6 +5,9 @@
 #include "MnSceneManager.h"
 #include "MnMoney.h"
 
+#include "MnObject.h"
+#include "MnPearl.h"
+
 namespace Mn
 {
 	NikoScript::NikoScript()
@@ -22,7 +25,7 @@ namespace Mn
 	{
 		if(_Open==false)
 			_Time += Time::DeltaTime();
-		if (_Time >= 10)
+		if (_Time >= 5)
 		{
 			_Open = true;
 			Animator* at = GetOwner()->GetComponent<Animator>();
@@ -58,6 +61,10 @@ namespace Mn
 			}
 			Animator* at =GetOwner()->GetComponent<Animator>();
 			at->PlayAnimation(L"Niko_Close", true);
+			Transform* tr = GetOwner()->GetComponent<Transform>();
+			Vector3 pos = tr->Position();
+			Pearl* pearl = object::Instantiate<Pearl>(Vector3(pos.x,pos.y,5.0f),eLayerType::Coin);
+			pearl->Initialize();
 			_Open = false;
 		}
 	}
