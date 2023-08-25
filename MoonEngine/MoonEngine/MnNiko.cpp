@@ -35,7 +35,7 @@ namespace Mn
 	{
 		GameObject::Render();
 	}
-	void Niko::Click()
+	void Niko::OnClick()
 	{
 		NikoScript* NS = GetComponent<NikoScript>();
 		NS->OnClick();

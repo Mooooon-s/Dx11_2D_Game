@@ -13,7 +13,7 @@ namespace Mn
 		virtual void Update() override;
 		virtual void LateUpdate() override;
 		virtual void Render() override;
-		virtual void Click() override;
+		virtual void OnClick() override;
 	private:
 	};
 }

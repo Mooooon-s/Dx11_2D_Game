@@ -4,12 +4,15 @@
 #include "MnCollider2D.h"
 
 #include "MnCoinRender.h"
+#include "MnSceneManager.h"
+#include "MnMoney.h"
 
 namespace Mn
 {
 	Coin::Coin()
 		: _Speed(0.3f)
 		, _Time(0.0f)
+		, _Price(15)
 	{
 	}
 	Coin::~Coin()
@@ -54,8 +57,28 @@ namespace Mn
 	{
 		GameObject::Render();
 	}
-	void Coin::Click()
+	void Coin::OnClick()
 	{
+		Scene* scene = SceneManager::ActiveScene();
+		std::vector<GameObject*> gameObj = scene->GetLayer(eLayerType::UI).GetGameObjects();
+		for (GameObject* obj : gameObj)
+		{
+			if (dynamic_cast<Money*>(obj))
+			{
+				switch ((UINT)_Level)
+				{
+				case 2:
+					_Price = 15;
+					break;
+				case 3:
+					_Price = 35;
+					break;
+				default:
+					break;
+				}
+				dynamic_cast<Money*>(obj)->EarnMoney(_Price);
+			}
+		}
 		this->State(eState::Dead);
 	}
 }

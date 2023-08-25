@@ -3,6 +3,7 @@
 #include "MnPaintShader.h"
 #include "MnParticleSystem.h"
 
+#include "MnMoney.h"
 
 #include "../Engine_SOURCE/MnKdTree.h"
 
@@ -71,6 +72,8 @@ void Mn::playScene::Initialize()
 	Niko* niko = object::Instantiate<Niko>(Vector3(-1.4f,-0.4f,100.0f),eLayerType::Pet);
 	niko->Initialize();
 
+	Money* money = object::Instantiate<Money>(eLayerType::UI);
+	money->Initialize();
 
 	AquarimBG* aquarimBG = object::Instantiate<AquarimBG>(eLayerType::BackGround,enums::eAquarim::Stage1);
 	aquarimBG->Initialize();
@@ -136,6 +139,7 @@ void Mn::playScene::LateUpdate()
 
 void Mn::playScene::Render()
 {
+
 	Scene::Render();
 }
 

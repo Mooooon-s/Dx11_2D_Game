@@ -165,7 +165,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="MnAddLevel.h" />
+    <ClInclude Include="MnBalIsDead.h" />
     <ClInclude Include="MnBalrog.h" />
+    <ClInclude Include="MnBalrogBehaviorTree.h" />
     <ClInclude Include="MnBalrogRenderScript.h" />
     <ClInclude Include="MnCoin.h" />
     <ClInclude Include="MnCoinRender.h" />
@@ -194,6 +196,7 @@
     <ClInclude Include="MnIsTurn.h" />
     <ClInclude Include="MnMenuBG.h" />
     <ClInclude Include="MnMenuScene.h" />
+    <ClInclude Include="MnMoney.h" />
     <ClInclude Include="MnMountainStage.h" />
     <ClInclude Include="MnMove.h" />
     <ClInclude Include="MnMove2Food.h" />
@@ -211,6 +214,8 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnBalIsDead.cpp" />
+    <ClCompile Include="MnBalrogBehaviorTree.cpp" />
     <ClCompile Include="MnBalrogRenderScript.cpp" />
     <ClCompile Include="MnBalrog.cpp" />
     <ClCompile Include="MnDestroyFish.cpp" />
@@ -241,6 +246,7 @@
     <ClCompile Include="MnCameraScript.cpp" />
     <ClCompile Include="MnTitleScene.cpp" />
     <ClCompile Include="MnTopBar.cpp" />
+    <ClCompile Include="MnMoney.cpp" />
     <ClCompile Include="MoonEngine.cpp" />
     <ClCompile Include="MnPlayerHp.cpp" />
     <ClCompile Include="MnMountainStage.cpp" />

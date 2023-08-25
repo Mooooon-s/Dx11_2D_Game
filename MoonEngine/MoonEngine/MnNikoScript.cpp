@@ -2,6 +2,8 @@
 #include "MnTime.h"
 #include "MnAnimator.h"
 #include "MnGameObject.h"
+#include "MnSceneManager.h"
+#include "MnMoney.h"
 
 namespace Mn
 {
@@ -47,8 +49,16 @@ namespace Mn
 	{
 		if (_Open == true)
 		{
+			Scene* scene = SceneManager::ActiveScene();
+			std::vector<GameObject*> gameObj = scene->GetLayer(eLayerType::UI).GetGameObjects();
+			for (GameObject* obj : gameObj)
+			{
+				if (dynamic_cast<Money*>(obj))
+					dynamic_cast<Money*>(obj)->EarnMoney(250);
+			}
 			Animator* at =GetOwner()->GetComponent<Animator>();
 			at->PlayAnimation(L"Niko_Close", true);
+			_Open = false;
 		}
 	}
 }

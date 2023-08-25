@@ -12,13 +12,14 @@ namespace Mn
 		virtual void Update() override;
 		virtual void LateUpdate() override;
 		virtual void Render() override;
-		virtual void Click() override;
+		virtual void OnClick() override;
 
 		void SetLevel(float level) { _Level = level; }
 	private:
 		float _Speed;
 		float _Time;
 		float _Level;
+		UINT  _Price;
 	};
 
 }

@@ -129,7 +129,12 @@
     <ClInclude Include="MnBalrog.h">
       <Filter>Contents\BossMonster\Balrog</Filter>
     </ClInclude>
-    <ClInclude Include="MnBalrogRenderScript.h" />
+    <ClInclude Include="MnBalrogRenderScript.h">
+      <Filter>Contents\Scripts\BossMonster\BalrogScript</Filter>
+    </ClInclude>
+    <ClInclude Include="MnBalrogBehaviorTree.h" />
+    <ClInclude Include="MnBalIsDead.h" />
+    <ClInclude Include="MnMoney.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -256,7 +261,12 @@
     <ClCompile Include="MnBalrog.cpp">
       <Filter>Contents\BossMonster\Balrog</Filter>
     </ClCompile>
-    <ClCompile Include="MnBalrogRenderScript.cpp" />
+    <ClCompile Include="MnBalrogRenderScript.cpp">
+      <Filter>Contents\Scripts\BossMonster\BalrogScript</Filter>
+    </ClCompile>
+    <ClCompile Include="MnBalrogBehaviorTree.cpp" />
+    <ClCompile Include="MnBalIsDead.cpp" />
+    <ClCompile Include="MnMoney.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -405,6 +415,12 @@
     </Filter>
     <Filter Include="Contents\Scripts\BossMonster\BalrogScript">
       <UniqueIdentifier>{63aaa0ec-d8bf-4f48-9614-efacb8ae388f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Balrog">
+      <UniqueIdentifier>{48d4993c-af18-44c5-a2c9-7d1dd7bb7014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\PlayerMoney">
+      <UniqueIdentifier>{0dfb8ea3-70b4-4305-8557-f2d16ebf4700}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
