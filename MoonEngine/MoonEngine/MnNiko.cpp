@@ -15,10 +15,10 @@ namespace Mn
 	void Niko::Initialize()
 	{
 		Collider2D* coll = AddComponent<Collider2D>();
-		coll->SetSize(Vector2(0.35f, 0.35f));
+		coll->SetSize(Vector2(0.5f, 0.5f));
 
 		Transform* tr = GetComponent<Transform>();
-		tr->Scale(Vector3(0.5f, 0.5f, 0.0f));
+		tr->Scale(Vector3(0.6f, 0.6f, 0.0f));
 		NikoRenderer* NR = AddComponent<NikoRenderer>();
 		NikoScript* NS = AddComponent<NikoScript>();
 		GameObject::Initialize();

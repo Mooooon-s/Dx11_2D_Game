@@ -132,17 +132,41 @@
     <ClInclude Include="MnBalrogRenderScript.h">
       <Filter>Contents\Scripts\BossMonster\BalrogScript</Filter>
     </ClInclude>
-    <ClInclude Include="MnBalrogBehaviorTree.h" />
-    <ClInclude Include="MnMoney.h" />
     <ClInclude Include="MnBalIsDead.h">
       <Filter>Contents\LeafNode\Balrog</Filter>
     </ClInclude>
-    <ClInclude Include="MnGetDemaged.h" />
     <ClInclude Include="MnPearl.h">
       <Filter>Contents\Money\Pearl</Filter>
     </ClInclude>
     <ClInclude Include="MnPearlScript.h">
       <Filter>Contents\Scripts\Pearl</Filter>
+    </ClInclude>
+    <ClInclude Include="MnStinky.h">
+      <Filter>Contents\Pet\Stinky</Filter>
+    </ClInclude>
+    <ClInclude Include="MnStinkyScript.h">
+      <Filter>Contents\Scripts\Stinky</Filter>
+    </ClInclude>
+    <ClInclude Include="MnMoney.h">
+      <Filter>Contents\Money</Filter>
+    </ClInclude>
+    <ClInclude Include="MnBalrogBehaviorTree.h">
+      <Filter>Contents\LeafNode\Balrog</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGetDemaged.h">
+      <Filter>Contents\LeafNode\Balrog</Filter>
+    </ClInclude>
+    <ClInclude Include="MnStinkyRenderScript.h">
+      <Filter>Contents\Scripts\Stinky</Filter>
+    </ClInclude>
+    <ClInclude Include="MnStinkyBehaviorTree.h">
+      <Filter>Contents\Scripts\Stinky</Filter>
+    </ClInclude>
+    <ClInclude Include="MnFindCoin.h">
+      <Filter>Contents\LeafNode\Stinky</Filter>
+    </ClInclude>
+    <ClInclude Include="MnMove2Coin.h">
+      <Filter>Contents\LeafNode\Stinky</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -273,17 +297,41 @@
     <ClCompile Include="MnBalrogRenderScript.cpp">
       <Filter>Contents\Scripts\BossMonster\BalrogScript</Filter>
     </ClCompile>
-    <ClCompile Include="MnBalrogBehaviorTree.cpp" />
-    <ClCompile Include="MnMoney.cpp" />
     <ClCompile Include="MnBalIsDead.cpp">
       <Filter>Contents\LeafNode\Balrog</Filter>
     </ClCompile>
-    <ClCompile Include="MnGetDemaged.cpp" />
     <ClCompile Include="MnPearl.cpp">
       <Filter>Contents\Money\Pearl</Filter>
     </ClCompile>
     <ClCompile Include="MnPearlScript.cpp">
       <Filter>Contents\Scripts\Pearl</Filter>
+    </ClCompile>
+    <ClCompile Include="MnStinky.cpp">
+      <Filter>Contents\Pet\Stinky</Filter>
+    </ClCompile>
+    <ClCompile Include="MnStinkyScript.cpp">
+      <Filter>Contents\Scripts\Stinky</Filter>
+    </ClCompile>
+    <ClCompile Include="MnMoney.cpp">
+      <Filter>Contents\Money</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGetDemaged.cpp">
+      <Filter>Contents\LeafNode\Balrog</Filter>
+    </ClCompile>
+    <ClCompile Include="MnBalrogBehaviorTree.cpp">
+      <Filter>Contents\LeafNode\Balrog</Filter>
+    </ClCompile>
+    <ClCompile Include="MnStinkyRenderScript.cpp">
+      <Filter>Contents\Scripts\Stinky</Filter>
+    </ClCompile>
+    <ClCompile Include="MnStinkyBehaviorTree.cpp">
+      <Filter>Contents\Scripts\Stinky</Filter>
+    </ClCompile>
+    <ClCompile Include="MnFindCoin.cpp">
+      <Filter>Contents\LeafNode\Stinky</Filter>
+    </ClCompile>
+    <ClCompile Include="MnMove2Coin.cpp">
+      <Filter>Contents\LeafNode\Stinky</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -448,6 +496,15 @@
     </Filter>
     <Filter Include="Contents\Scripts\Pearl">
       <UniqueIdentifier>{946ff12a-8a86-4920-87f9-e79a79297f73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Pet\Stinky">
+      <UniqueIdentifier>{ded9e0d8-84b9-442d-a790-46eda064dc6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Stinky">
+      <UniqueIdentifier>{65855a0b-88e5-4c7c-a9aa-6479df3b930b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Stinky">
+      <UniqueIdentifier>{9bb67a64-5682-47e6-a6c8-b8bde0e7f98f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

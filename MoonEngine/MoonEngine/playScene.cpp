@@ -31,6 +31,7 @@
 #include "MnLight.h"
 
 #include "MnNiko.h"
+#include "MnStinky.h"
 
 namespace Mn
 {
@@ -71,6 +72,9 @@ void Mn::playScene::Initialize()
 
 	Niko* niko = object::Instantiate<Niko>(Vector3(-1.4f,-0.4f,100.0f),eLayerType::Pet);
 	niko->Initialize();
+
+	Stinky* stinky = object::Instantiate<Stinky>(Vector3(0.0f,-1.2f,100.1f),eLayerType::Pet);
+	stinky->Initialize();
 
 	Money* money = object::Instantiate<Money>(eLayerType::UI);
 	money->Initialize();
@@ -116,7 +120,6 @@ void Mn::playScene::Initialize()
 	mouse->UICamera(camera);
 	mouse->Initialize();
 
-
 }
 
 void Mn::playScene::Update()
@@ -151,6 +154,7 @@ void Mn::playScene::Destroy()
 void Mn::playScene::OnEnter()
 {
 	CollisionManager::SetLayer(eLayerType::Fish, eLayerType::Food, true);
+	CollisionManager::SetLayer(eLayerType::Pet, eLayerType::Coin, true);
 }
 
 void Mn::playScene::OnExit()

@@ -37,7 +37,6 @@ namespace Mn
 	}
 	void PearlScript::Update()
 	{
-		//1.9,1.4
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector3 pos = tr->Position();
 		Vector3 target = Vector3(1.9f, 1.4f, pos.z);

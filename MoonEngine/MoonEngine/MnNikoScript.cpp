@@ -63,7 +63,7 @@ namespace Mn
 			at->PlayAnimation(L"Niko_Close", true);
 			Transform* tr = GetOwner()->GetComponent<Transform>();
 			Vector3 pos = tr->Position();
-			Pearl* pearl = object::Instantiate<Pearl>(Vector3(pos.x,pos.y,5.0f),eLayerType::Coin);
+			Pearl* pearl = object::Instantiate<Pearl>(Vector3(pos.x,pos.y,-9.0f),eLayerType::UI);
 			pearl->Initialize();
 			_Open = false;
 		}

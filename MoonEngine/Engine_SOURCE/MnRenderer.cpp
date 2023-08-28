@@ -492,6 +492,11 @@ namespace renderer
 		balrogAnimaterial->RenderingMode(eRenderingMode::Transparent);
 		Resources::Insert(L"BalrogSpriteAnimaionMaterial", balrogAnimaterial);
 
+		std::shared_ptr <Material> stinkyAnimaterial = std::make_shared<Material>();
+		stinkyAnimaterial->Shader(spriteShader);
+		stinkyAnimaterial->RenderingMode(eRenderingMode::Transparent);
+		Resources::Insert(L"StinkySpriteAnimaionMaterial", stinkyAnimaterial);
+
 
 
 		//---------------------------------------------------------------------------------------------------------------------------------------

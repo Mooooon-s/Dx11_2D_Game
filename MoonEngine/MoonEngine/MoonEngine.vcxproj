@@ -173,6 +173,7 @@
     <ClInclude Include="MnCoinRender.h" />
     <ClInclude Include="MnDestroyFish.h" />
     <ClInclude Include="MnDropCoin.h" />
+    <ClInclude Include="MnFindCoin.h" />
     <ClInclude Include="MnFoodScript.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="LoadScene.h" />
@@ -208,15 +209,21 @@
     <ClInclude Include="MnPearlScript.h" />
     <ClInclude Include="MnPlayerHp.h" />
     <ClInclude Include="MnPumpkin.h" />
+    <ClInclude Include="MnStinky.h" />
+    <ClInclude Include="MnStinkyBehaviorTree.h" />
+    <ClInclude Include="MnStinkyRenderScript.h" />
+    <ClInclude Include="MnStinkyScript.h" />
     <ClInclude Include="MnTitleScene.h" />
     <ClInclude Include="MnTopBar.h" />
     <ClInclude Include="MnPlayAnimaion.h" />
     <ClInclude Include="MnMousePosScript.h" />
     <ClInclude Include="MnNikoBehaviorTree.h" />
+    <ClInclude Include="MnMove2Coin.h" />
     <ClInclude Include="playScene.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnFindCoin.cpp" />
     <ClCompile Include="MnGetDemaged.cpp" />
     <ClCompile Include="MnBalIsDead.cpp" />
     <ClCompile Include="MnBalrogBehaviorTree.cpp" />
@@ -264,8 +271,13 @@
     <ClCompile Include="MnNikoRenderer.cpp" />
     <ClCompile Include="MnPearl.cpp" />
     <ClCompile Include="MnPearlScript.cpp" />
+    <ClCompile Include="MnMove2Coin.cpp" />
     <ClCompile Include="playScene.cpp" />
     <ClCompile Include="MnPumpkin.cpp" />
+    <ClCompile Include="MnStinky.cpp" />
+    <ClCompile Include="MnStinkyScript.cpp" />
+    <ClCompile Include="MnStinkyRenderScript.cpp" />
+    <ClCompile Include="MnStinkyBehaviorTree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />
