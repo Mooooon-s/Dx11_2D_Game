@@ -33,8 +33,9 @@ namespace Mn
 		at->Create(L"Stinky_Hide", atlas, atlasAlpha, Vector2(0.0f,160.0f), Vector2(80.0f, 80.0f), 10,Vector2::Zero, 0.1f);
 		at->CreateReverse(L"Stinky_Hide_Reverse", atlas, atlasAlpha, Vector2(0.0f,160.0f), Vector2(80.0f, 80.0f), 10,Vector2::Zero, 0.1f);
 		
-		at->CompleteEvent(L"Stinky_Turn") = std::bind(&StinkyRenderScript::AfterTurn, this);
-		at->CompleteEvent(L"Stinky_Turn_Reverse") = std::bind(&StinkyRenderScript::AfterTurn, this);
+		at->CompleteEvent(L"Stinky_Turn") = std::bind(&StinkyRenderScript::AfterAction, this);
+		at->CompleteEvent(L"Stinky_Turn_Reverse") = std::bind(&StinkyRenderScript::AfterAction, this);
+		at->CompleteEvent(L"Stinky_Hide_Reverse") = std::bind(&StinkyRenderScript::AfterAction, this);
 		at->StartEvent(L"Stinky_Turn") = std::bind(&StinkyRenderScript::Direction2Right,this);
 		at->StartEvent(L"Stinky_Turn_Reverse") = std::bind(&StinkyRenderScript::Direction2Left,this);
 
@@ -60,7 +61,7 @@ namespace Mn
 		MeshRenderer* mr = GetOwner()->GetComponent<MeshRenderer>();
 		mr->FlipX(0);
 	}
-	void StinkyRenderScript::AfterTurn()
+	void StinkyRenderScript::AfterAction()
 	{
 		Animator* at = GetOwner()->GetComponent<Animator>();
 		at->PlayAnimation(L"Stinky_Move",true);

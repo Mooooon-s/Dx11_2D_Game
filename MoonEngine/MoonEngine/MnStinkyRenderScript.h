@@ -17,7 +17,7 @@ namespace Mn
 	public:
 		void Direction2Right();
 		void Direction2Left();
-		void AfterTurn();
+		void AfterAction();
 	private:
 	};
 

@@ -291,7 +291,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnLight.cpp">
       <Filter>GameObject\Component\Light</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MnStructedBuffer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnComputeShader.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnPaintShader.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnParticleSystem.cpp" />
@@ -301,6 +300,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnAudioSource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnFmod.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnFontWrapper.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnStructedBuffer.cpp">
+      <Filter>Graphics\StructedBuffer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h">
@@ -457,7 +459,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnLight.h">
       <Filter>GameObject\Component\Light</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MnStructedBuffer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnComputeShader.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnPaintShader.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnParticleSystem.h" />
@@ -467,6 +468,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnAudioSource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnFmod.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnFontWrapper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnStructedBuffer.h">
+      <Filter>Graphics\StructedBuffer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)MnMath.inl">
