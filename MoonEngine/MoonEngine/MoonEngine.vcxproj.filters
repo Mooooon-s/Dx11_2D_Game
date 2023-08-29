@@ -150,9 +150,6 @@
     <ClInclude Include="MnMoney.h">
       <Filter>Contents\Money</Filter>
     </ClInclude>
-    <ClInclude Include="MnBalrogBehaviorTree.h">
-      <Filter>Contents\LeafNode\Balrog</Filter>
-    </ClInclude>
     <ClInclude Include="MnGetDemaged.h">
       <Filter>Contents\LeafNode\Balrog</Filter>
     </ClInclude>
@@ -174,7 +171,16 @@
     <ClInclude Include="MnStinkyHide.h">
       <Filter>Contents\LeafNode\Stinky</Filter>
     </ClInclude>
-    <ClInclude Include="MnComeOut.h" />
+    <ClInclude Include="MnBalrogBehaviorTree.h">
+      <Filter>Contents\Scripts\BossMonster\BalrogScript</Filter>
+    </ClInclude>
+    <ClInclude Include="MnComeOut.h">
+      <Filter>Contents\LeafNode\Stinky</Filter>
+    </ClInclude>
+    <ClInclude Include="MnFindFish.h">
+      <Filter>Contents\LeafNode\Balrog</Filter>
+    </ClInclude>
+    <ClInclude Include="MnMove2Fish.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -325,9 +331,6 @@
     <ClCompile Include="MnGetDemaged.cpp">
       <Filter>Contents\LeafNode\Balrog</Filter>
     </ClCompile>
-    <ClCompile Include="MnBalrogBehaviorTree.cpp">
-      <Filter>Contents\LeafNode\Balrog</Filter>
-    </ClCompile>
     <ClCompile Include="MnStinkyRenderScript.cpp">
       <Filter>Contents\Scripts\Stinky</Filter>
     </ClCompile>
@@ -346,7 +349,16 @@
     <ClCompile Include="MnStinkyHide.cpp">
       <Filter>Contents\LeafNode\Stinky</Filter>
     </ClCompile>
-    <ClCompile Include="MnComeOut.cpp" />
+    <ClCompile Include="MnBalrogBehaviorTree.cpp">
+      <Filter>Contents\Scripts\BossMonster\BalrogScript</Filter>
+    </ClCompile>
+    <ClCompile Include="MnComeOut.cpp">
+      <Filter>Contents\LeafNode\Stinky</Filter>
+    </ClCompile>
+    <ClCompile Include="MnFindFish.cpp">
+      <Filter>Contents\LeafNode\Balrog</Filter>
+    </ClCompile>
+    <ClCompile Include="MnMove2Fish.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">

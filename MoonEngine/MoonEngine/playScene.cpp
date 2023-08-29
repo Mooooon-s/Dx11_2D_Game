@@ -36,7 +36,7 @@
 namespace Mn
 {
 	KdTree* kdTree = nullptr;
-
+	KdTree* GuppyTree = nullptr;
 }
 
 
@@ -57,6 +57,7 @@ void Mn::playScene::Initialize()
 	paintShader->OnExcute();
 
 	kdTree = new KdTree(1);
+	GuppyTree = new KdTree(1);
 
 	Guppy* guppy = object::Instantiate<Guppy>(eLayerType::Fish);
 	guppy->Initialize();
@@ -131,6 +132,14 @@ void Mn::playScene::Update()
 			_ActiveObjs.push_back(a);
 	}
 	kdTree->BuildTree(_ActiveObjs);
+
+	for (auto guppy : scene->GetLayer(eLayerType::Fish).GetGameObjects())
+	{
+		if (guppy->State() == GameObject::eState::Active)
+			_GuppyObjs.push_back(guppy);
+	}
+	GuppyTree->BuildTree(_GuppyObjs);
+
 	Scene::Update();
 }
 
@@ -138,11 +147,11 @@ void Mn::playScene::LateUpdate()
 {
 	Scene::LateUpdate();
 	_ActiveObjs.clear();
+	_GuppyObjs.clear();
 }
 
 void Mn::playScene::Render()
 {
-
 	Scene::Render();
 }
 

@@ -30,11 +30,9 @@ namespace Mn
 		std::shared_ptr<Mn::graphics::Texture> atlasAlpha
 			= Resources::Load<Mn::graphics::Texture>(L"Balrog_Atlas_Alpha", L"..\\Resources\\Texture\\Boss\\_balrog.jpg");
 
-		
-		
-		at->Create(L"Balrog_Swim", atlas, atlasAlpha, Vector2(0.0f, 0.0f), Vector2(160.0f,160.0f), 10, Vector2::Zero, 0.00001f);
-		at->Create(L"Balrog_Turn_Right", atlas, atlasAlpha, Vector2(0.0f, 160.0f), Vector2(160.0f,160.0f), 10, Vector2::Zero, 0.01f);
-		at->CreateReverse(L"Balrog_Turn_Left", atlas, atlasAlpha, Vector2(0.0f, 160.0f), Vector2(160.0f,160.0f), 10, Vector2::Zero, 0.01f);
+		at->Create(L"Balrog_Swim", atlas, atlasAlpha, Vector2(0.0f, 0.0f), Vector2(160.0f,160.0f), 10, Vector2::Zero, 0.1f);
+		at->Create(L"Balrog_Turn_Right", atlas, atlasAlpha, Vector2(0.0f, 160.0f), Vector2(160.0f,160.0f), 10, Vector2::Zero, 0.1f);
+		at->CreateReverse(L"Balrog_Turn_Left", atlas, atlasAlpha, Vector2(0.0f, 160.0f), Vector2(160.0f,160.0f), 10, Vector2::Zero, 0.1f);
 
 		at->PlayAnimation(L"Balrog_Swim", true);
 	}

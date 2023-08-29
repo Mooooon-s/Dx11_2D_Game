@@ -176,6 +176,7 @@
     <ClInclude Include="MnDropCoin.h" />
     <ClInclude Include="MnFindBoss.h" />
     <ClInclude Include="MnFindCoin.h" />
+    <ClInclude Include="MnFindFish.h" />
     <ClInclude Include="MnFoodScript.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="LoadScene.h" />
@@ -203,6 +204,7 @@
     <ClInclude Include="MnMoney.h" />
     <ClInclude Include="MnMountainStage.h" />
     <ClInclude Include="MnMove.h" />
+    <ClInclude Include="MnMove2Fish.h" />
     <ClInclude Include="MnMove2Food.h" />
     <ClInclude Include="MnNiko.h" />
     <ClInclude Include="MnNikoRenderer.h" />
@@ -226,6 +228,7 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnFindFish.cpp" />
     <ClCompile Include="MnComeOut.cpp" />
     <ClCompile Include="MnFindBoss.cpp" />
     <ClCompile Include="MnFindCoin.cpp" />
@@ -277,6 +280,7 @@
     <ClCompile Include="MnPearl.cpp" />
     <ClCompile Include="MnPearlScript.cpp" />
     <ClCompile Include="MnMove2Coin.cpp" />
+    <ClCompile Include="MnMove2Fish.cpp" />
     <ClCompile Include="playScene.cpp" />
     <ClCompile Include="MnPumpkin.cpp" />
     <ClCompile Include="MnStinky.cpp" />
