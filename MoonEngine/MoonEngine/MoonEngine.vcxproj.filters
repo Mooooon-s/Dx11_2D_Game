@@ -61,7 +61,7 @@
     </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="MnFindFood.h">
-      <Filter>Contents\LeafNode\Guppy\FindFood</Filter>
+      <Filter>Contents\LeafNode\Common\FindFood</Filter>
     </ClInclude>
     <ClInclude Include="MnPlayAnimaion.h">
       <Filter>Contents\LeafNode\Guppy\PlayAnimaion</Filter>
@@ -181,6 +181,9 @@
       <Filter>Contents\LeafNode\Balrog</Filter>
     </ClInclude>
     <ClInclude Include="MnMove2Fish.h" />
+    <ClInclude Include="MnSwim.h">
+      <Filter>Contents\LeafNode\Common\Swim</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -239,7 +242,7 @@
       <Filter>Contents\Scripts\GuppyBehaviorTree</Filter>
     </ClCompile>
     <ClCompile Include="MnFindFood.cpp">
-      <Filter>Contents\LeafNode\Guppy\FindFood</Filter>
+      <Filter>Contents\LeafNode\Common\FindFood</Filter>
     </ClCompile>
     <ClCompile Include="MnPlayAnimaion.cpp">
       <Filter>Contents\LeafNode\Guppy\PlayAnimaion</Filter>
@@ -359,6 +362,9 @@
       <Filter>Contents\LeafNode\Balrog</Filter>
     </ClCompile>
     <ClCompile Include="MnMove2Fish.cpp" />
+    <ClCompile Include="MnSwim.cpp">
+      <Filter>Contents\LeafNode\Common\Swim</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -426,9 +432,6 @@
     </Filter>
     <Filter Include="Contents\LeafNode\Guppy\IsHungry">
       <UniqueIdentifier>{52a33871-08a6-45f8-9ef3-8cbf4c719d04}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\LeafNode\Guppy\FindFood">
-      <UniqueIdentifier>{23dc3609-3f10-4a5d-955c-ed6f5b122911}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents\LeafNode\Guppy\PlayAnimaion">
       <UniqueIdentifier>{8bb735cd-1982-4777-8f5b-28bca9a84f6f}</UniqueIdentifier>
@@ -525,6 +528,15 @@
     </Filter>
     <Filter Include="Contents\LeafNode\Stinky">
       <UniqueIdentifier>{9bb67a64-5682-47e6-a6c8-b8bde0e7f98f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Common">
+      <UniqueIdentifier>{646ca4c6-da38-492a-9488-61512cf5d977}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Common\FindFood">
+      <UniqueIdentifier>{23dc3609-3f10-4a5d-955c-ed6f5b122911}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Common\Swim">
+      <UniqueIdentifier>{c364843a-0014-49c3-9b7a-3ffc811ca465}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

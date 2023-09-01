@@ -17,11 +17,11 @@ namespace Mn
 	}
 	enums::eBTState DestroyFish::Run()
 	{
-		GameObject* guppy = _BlackBoard->GetData<GameObject>(L"Guppy");
-		Animator* at = guppy->GetComponent<Animator>();
+		GameObject* owner = _BlackBoard->GetData<GameObject>(L"Owner");
+		Animator* at = owner->GetComponent<Animator>();
 		if (at->AnimationComplete())
 		{
-			guppy->State(GameObject::eState::Dead);
+			owner->State(GameObject::eState::Dead);
 			return enums::eBTState::FAILURE;
 		}
 		else

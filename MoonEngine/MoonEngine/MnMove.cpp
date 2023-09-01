@@ -21,10 +21,10 @@ namespace Mn
 	enums::eBTState Move::Run()
 	{
 		_Time += Time::DeltaTime();
-		GameObject* gameObj = _Blackboard->GetData<GameObject>(L"Guppy");
+		GameObject* owner = _Blackboard->GetData<GameObject>(L"Owner");
 		_Speed = _Blackboard->GetDataValue<float>(L"MoveSpeed");
 		eDir dir = _Blackboard->GetDataValue<eDir>(L"Dir");
-		Transform* tr =gameObj->GetComponent<Transform>();
+		Transform* tr =owner->GetComponent<Transform>();
 		Vector3 pos = tr->Position();
 		if (_Time <= 1.0f)
 		{

@@ -28,13 +28,21 @@ namespace Mn
 	}
 	bool FindFood::Food()
 	{
-		GameObject* guppy = _BlackBoard->GetData<GameObject>(L"Guppy");
+		GameObject* owner = _BlackBoard->GetData<GameObject>(L"Owner");
 
 		KdTree* kd = Mn::kdTree;
-		GameObject* food_ = kd->Query(guppy, 2.0f,0);
+		GameObject* food_ = kd->Query(owner, 2.0f,0);
+		Transform* ownerTr = owner->GetComponent<Transform>();
 		if (food_ != nullptr)
+		{
+			Transform* foodtr = food_->GetComponent<Transform>();
+			_BlackBoard->SetData<Vector3>(L"Food_Pos", foodtr->Position());
 			return true;
+		}
 		else
+		{
+			_BlackBoard->SetData<Vector3>(L"Food_Pos", ownerTr->Position());
 			return false;
+		}
 	}
 }

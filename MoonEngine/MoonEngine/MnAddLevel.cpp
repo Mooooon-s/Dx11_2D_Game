@@ -17,7 +17,7 @@ namespace Mn
 	enums::eBTState AddLevel::Run()
 	{
 		UINT stack = _BlackBoard->GetDataValue<UINT>(L"Level_Stack");
-		UINT level = _BlackBoard->GetDataValue<float>(L"Level");
+		UINT level = _BlackBoard->GetDataValue<UINT>(L"Level");
 
 		switch (level)
 		{
@@ -25,14 +25,14 @@ namespace Mn
 			if (stack >= 3)
 			{
 				_BlackBoard->SetData(L"Level_Stack", 0);
-				_BlackBoard->SetData(L"Level", (float)2);
+				_BlackBoard->SetData(L"Level", 2);
 			}
 			break;
 		case 2:
 			if (stack >= 3)
 			{
 				_BlackBoard->SetData(L"Level_Stack", 0);
-				_BlackBoard->SetData(L"Level", (float)3);
+				_BlackBoard->SetData(L"Level", 3);
 			}
 			break;
 		case 3:
@@ -44,7 +44,6 @@ namespace Mn
 		default:
 			break;
 		}
-
 		return enums::eBTState::SUCCESS;
 	}
 }

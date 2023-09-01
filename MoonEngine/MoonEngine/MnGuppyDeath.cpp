@@ -22,7 +22,7 @@ namespace Mn
 		int stack = _BlackBoard->GetDataValue<int>(L"HungryStack");
 		if (stack > 7)
 		{
-			GameObject* obj = _BlackBoard->GetData<GameObject>(L"Guppy");
+			GameObject* obj = _BlackBoard->GetData<GameObject>(L"Owner");
 			eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
 			if (state != eFishState::Death)
 			{

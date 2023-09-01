@@ -16,7 +16,7 @@ namespace Mn
 	}
 	enums::eBTState GuppyTurn::Run()
 	{
-		GameObject* gameObj = _Blackboard->GetData<GameObject>(L"Guppy");
+		GameObject* gameObj = _Blackboard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
 
 		if (at->AnimationComplete() == true)

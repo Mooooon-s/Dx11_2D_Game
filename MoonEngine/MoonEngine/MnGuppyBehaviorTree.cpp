@@ -52,19 +52,19 @@ namespace Mn
 		eBehavior behavior = eBehavior::Swim;
 		eFishState fishstate = eFishState::Full;
 		eDir dir = eDir::Left;
-		float level = 1;
+		UINT level = 1;
 		int HungryStack=0;
 		UINT levelStack = 0;
 
 		KdTree* foodtree =Mn::kdTree;
 
 		//setData
-		_BlackBoard->AddData<GameObject>(L"Guppy", GetOwner());
+		_BlackBoard->AddData<GameObject>(L"Owner", GetOwner());
 		_BlackBoard->AddData<KdTree>(L"Food_Tree", foodtree);
 
 		_BlackBoard->MakeData<int>(L"HungryStack");
 		_BlackBoard->SetData(L"HungryStack", HungryStack);
-		_BlackBoard->MakeData<float>(L"Level");
+		_BlackBoard->MakeData<UINT>(L"Level");
 		_BlackBoard->SetData(L"Level", level);
 		_BlackBoard->MakeData<float>(L"MoveSpeed");
 		_BlackBoard->SetData(L"MoveSpeed", speed);
@@ -83,6 +83,9 @@ namespace Mn
 		_BlackBoard->MakeData<bool>(L"CollisionEnter");
 		_BlackBoard->MakeData<bool>(L"CollisionStay");
 		_BlackBoard->MakeData<Collider2D>(L"other");
+
+		_BlackBoard->MakeData<Vector3>(L"Food_Pos");
+		_BlackBoard->SetData<Vector3>(L"Food_Pos", Vector3::Zero);
 
 
 		Selector* mainSelector;

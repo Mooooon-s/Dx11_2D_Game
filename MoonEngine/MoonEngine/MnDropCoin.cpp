@@ -19,11 +19,11 @@ namespace Mn
 	enums::eBTState DropCoin::Run()
 	{
 		float timer = _BlackBoard->GetDataValue<float>(L"Timer");
-		GameObject* guppy = _BlackBoard->GetData<GameObject>(L"Guppy");
+		GameObject* owner = _BlackBoard->GetData<GameObject>(L"Owner");
 		float level = _BlackBoard->GetDataValue<float>(L"Level");
 		if ((int)timer % 3 == 0 && level>1)
 		{
-			Transform* tr = guppy->GetComponent<Transform>();
+			Transform* tr = owner->GetComponent<Transform>();
 			Vector3 pos = tr->Position();
 			pos.z += 2.001;
 			Coin* coin =object::Instantiate<Coin>(pos,enums::eLayerType::Coin);

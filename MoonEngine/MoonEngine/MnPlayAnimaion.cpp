@@ -16,7 +16,7 @@ namespace Mn
 		:_BlackBoard(blackboard)
 		, _Behavior(eBehavior::Swim)
 	{
-		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Guppy");
+		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
 		at->CompleteEvent(L"Eat_Small") = std::bind(&PlayAnimaion::afterAction,this);
 		at->CompleteEvent(L"Eat_Middle") = std::bind(&PlayAnimaion::afterAction,this);
@@ -24,7 +24,7 @@ namespace Mn
 	}
 	enums::eBTState PlayAnimaion::Run()
 	{
-		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Guppy");
+		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
 		enums::eBehavior behavior =_BlackBoard->GetDataValue<eBehavior>(L"Behavior");
 		enums::eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
@@ -60,7 +60,7 @@ namespace Mn
 	}
 	void PlayAnimaion::FullAnimation(enums::eBehavior behavior)
 	{
-		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Guppy");
+		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
 
 		int level = _BlackBoard->GetDataValue<float>(L"Level");
@@ -134,7 +134,7 @@ namespace Mn
 	}
 	void PlayAnimaion::DeathAnimation()
 	{
-		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Guppy");
+		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
 
 		int level = _BlackBoard->GetDataValue<float>(L"Level");
@@ -165,7 +165,7 @@ namespace Mn
 	}
 	void PlayAnimaion::StarvingAnimation(enums::eBehavior behavior)
 	{
-		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Guppy");
+		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
 
 		int level = _BlackBoard->GetDataValue<float>(L"Level");
@@ -242,7 +242,7 @@ namespace Mn
 	}
 	void PlayAnimaion::afterAction()
 	{
-		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Guppy");
+		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
 		if (at->AnimationComplete())
 		{
