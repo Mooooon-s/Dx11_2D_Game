@@ -36,20 +36,21 @@ namespace Mn
 
 		//Find food에서 찾은 먹이의 위치를 계속해서 받아오는게 맞을듯
 
-		//KdTree* kd = Mn::kdTree;
+		KdTree* kd = Mn::kdTree;
 
-		//GameObject* food = kd->Query(owner, 2.0f, 0);
-		//if (food == nullptr)
-		//	return enums::eBTState::FAILURE;
+		GameObject* food = kd->Query(owner, 2.0f, 0);
+		if (food == nullptr)
+			return enums::eBTState::FAILURE;
 
-		//Transform* foodTr = food->GetComponent<Transform>();
-		Vector3 foodPos = _BlackBoard->GetDataValue<Vector3>(L"Food_Pos");
+		Transform* foodTr = food->GetComponent<Transform>();
+		Vector3 foodPos = foodTr->Position();
+			//_BlackBoard->GetDataValue<Vector3>(L"Food_Pos");
 
 		//좌우 확인 물고기 기준으로 먹이가 어디에 있는지
-		if (foodPos.x - ownerPos.x < 0)
-			_Dir = enums::eDir::Left;
-		else
-			_Dir = enums::eDir::Right;
+		//if (foodPos.x - ownerPos.x < 0)
+		//	_Dir = enums::eDir::Left;
+		//else
+		//	_Dir = enums::eDir::Right;
 
 		//방향 전환
 		//PlayAnimaion* anima = new PlayAnimaion(_BlackBoard);
@@ -93,12 +94,12 @@ namespace Mn
 		ownerPos += Vector3(moveVec.x, moveVec.y,0.0f)* speed * Time::DeltaTime();
 		tr->Position(ownerPos);
 
-		//if (ownerPos.x >= foodPos.x + 0.05 || ownerPos.x <= foodPos.x - 0.05
-		//	|| ownerPos.y >= foodPos.y + 0.05 || ownerPos.y <= foodPos.y - 0.05)
-		//{
-		//	_BlackBoard->SetRunningNode(this);
-		//	return enums::eBTState::RUNNING;
-		//}
+		if (ownerPos.x >= foodPos.x + 0.05 || ownerPos.x <= foodPos.x - 0.05
+			|| ownerPos.y >= foodPos.y + 0.05 || ownerPos.y <= foodPos.y - 0.05)
+		{
+			_BlackBoard->SetRunningNode(this);
+			return enums::eBTState::RUNNING;
+		}
 
 		return enums::eBTState::SUCCESS;
 	}

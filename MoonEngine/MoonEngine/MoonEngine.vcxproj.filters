@@ -184,6 +184,9 @@
     <ClInclude Include="MnSwim.h">
       <Filter>Contents\LeafNode\Common\Swim</Filter>
     </ClInclude>
+    <ClInclude Include="MnGuppyFoodTurn.h">
+      <Filter>Contents\LeafNode\Guppy\Turn</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -364,6 +367,9 @@
     <ClCompile Include="MnMove2Fish.cpp" />
     <ClCompile Include="MnSwim.cpp">
       <Filter>Contents\LeafNode\Common\Swim</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGuppyFoodTurn.cpp">
+      <Filter>Contents\LeafNode\Guppy\Turn</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

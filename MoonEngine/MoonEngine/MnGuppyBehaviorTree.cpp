@@ -17,6 +17,7 @@
 #include "MnAddHungryStack.h"
 #include "MnIsHungry.h"
 #include "MnFindFood.h"
+#include "MnGuppyFoodTurn.h"
 #include "MnMove2Food.h"
 #include "MnEatFood.h"
 #include "MnAddLevel.h"
@@ -108,6 +109,7 @@ namespace Mn
 		
 		Sequence* eatSequence_;
 		Inverter* eatInverter;
+		GuppyFoodTurn* foodTurn;
 		Move2Food* move2food;
 		EatFood* eatfood;
 		AddLevel* addlevel;
@@ -148,8 +150,9 @@ namespace Mn
 
 		eatSequence_ = eatInverter->SetChild<Sequence>();
 		
+		foodTurn = eatSequence_->AddChild<GuppyFoodTurn>();
 		move2food = eatSequence_->AddChild<Move2Food>();
-		eatfood = eatSequence_->AddChild<EatFood>();
+		//eatfood = eatSequence_->AddChild<EatFood>();
 		addlevel = eatSequence_->AddChild<AddLevel>();
 
 		turnSucceeder = _Sequence->AddChild<Succeeder>();
@@ -182,16 +185,7 @@ namespace Mn
 	}
 	void GuppyBehaviorTree::OnCollisionEnter(Collider2D* other)
 	{
-		//여러 오브젝트가 한번에 접근하게 됨......
-		//접근하려는 오브젝트가 없어지면 후에 접근하는 오브젝트에서는 오류가 발생
-		//누군가 접근중일때 접근 못하게???
-		//사라진 오브젝트의 데이터가 쓰레기 값으로 변경되어버림
-		eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
-		if (state == eFishState::Hungry || state == eFishState::Starving)
-		{
-			_BlackBoard->AddData(L"otherColl", other);
-			_BlackBoard->SetData(L"CollisionEnter", true);
-		}
+
 	}
 	void GuppyBehaviorTree::OnCollisionStay(Collider2D* other)
 	{
@@ -199,12 +193,6 @@ namespace Mn
 	}
 	void GuppyBehaviorTree::OnCollisionExit(Collider2D* other)
 	{
-		eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
-		if (state == eFishState::Hungry || state == eFishState::Starving)
-		{
-			_BlackBoard->SetData(L"CollisionEnter", false);
-			_BlackBoard->SetData(L"CollisionStay", false);
-		}
 	}
 	void GuppyBehaviorTree::Run()
 	{

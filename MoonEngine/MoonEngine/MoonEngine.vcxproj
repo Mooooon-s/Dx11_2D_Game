@@ -192,6 +192,7 @@
     <ClInclude Include="MnGuppyAnimationCntrl.h" />
     <ClInclude Include="MnGuppyBehaviorTree.h" />
     <ClInclude Include="MnGuppyDeath.h" />
+    <ClInclude Include="MnGuppyFoodTurn.h" />
     <ClInclude Include="MnGuppyRenderScript.h" />
     <ClInclude Include="MnGuppyScript.h" />
     <ClInclude Include="MnGuppyTurn.h" />
@@ -229,6 +230,7 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnGuppyFoodTurn.cpp" />
     <ClCompile Include="MnFindFish.cpp" />
     <ClCompile Include="MnComeOut.cpp" />
     <ClCompile Include="MnFindBoss.cpp" />

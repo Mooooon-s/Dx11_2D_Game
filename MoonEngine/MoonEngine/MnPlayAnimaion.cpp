@@ -63,7 +63,7 @@ namespace Mn
 		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
 
-		int level = _BlackBoard->GetDataValue<float>(L"Level");
+		UINT level = _BlackBoard->GetDataValue<UINT>(L"Level");
 
 		switch (behavior)
 		{
@@ -89,22 +89,22 @@ namespace Mn
 			case 1:
 				if (_BlackBoard->GetDataValue<eDir>(L"Dir") == eDir::Right)
 				{
-					at->PlayAnimation(L"Turn_Small_Revers", false);
+					at->PlayAnimation(L"Turn_Small_Revers", true);
 				}
 				else
-					at->PlayAnimation(L"Turn_Small", false);
+					at->PlayAnimation(L"Turn_Small", true);
 				break;
 			case 2:
 				if (_BlackBoard->GetDataValue<eDir>(L"Dir") == eDir::Right)
-					at->PlayAnimation(L"Turn_Middle_Revers", false);
+					at->PlayAnimation(L"Turn_Middle_Revers", true);
 				else
-					at->PlayAnimation(L"Turn_Middle", false);
+					at->PlayAnimation(L"Turn_Middle", true);
 				break;
 			case 3:
 				if (_BlackBoard->GetDataValue<eDir>(L"Dir") == eDir::Right)
-					at->PlayAnimation(L"Turn_Large_Revers", false);
+					at->PlayAnimation(L"Turn_Large_Revers", true);
 				else
-					at->PlayAnimation(L"Turn_Large", false);
+					at->PlayAnimation(L"Turn_Large", true);
 				break;
 			default:
 				break;

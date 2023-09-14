@@ -101,4 +101,9 @@ namespace Mn
 	void GuppyRender::Render()
 	{
 	}
+	void GuppyRender::AfterTurn()
+	{
+		Animator* at = GetOwner()->GetComponent<Animator>();
+		at->PlayAnimation(L"Stinky_Move", true);
+	}
 }
