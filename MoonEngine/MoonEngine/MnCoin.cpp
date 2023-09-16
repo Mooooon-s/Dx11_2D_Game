@@ -20,6 +20,7 @@ namespace Mn
 	}
 	void Coin::Initialize()
 	{
+		SetName(L"Coin");
 		Collider2D* coll = AddComponent<Collider2D>();
 		coll->SetSize(Vector2(0.5, 0.5));
 

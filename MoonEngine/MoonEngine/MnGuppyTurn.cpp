@@ -3,6 +3,7 @@
 #include "MnAnimator.h"
 #include "MnConstantBuffer.h"
 #include "MnRenderer.h"
+#include "MnPlayAnimaion.h"
 
 namespace Mn
 {
@@ -19,7 +20,9 @@ namespace Mn
 		GameObject* gameObj = _Blackboard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
 
-		if (at->AnimationComplete() == true)
+		PlayAnimaion* anima = new PlayAnimaion(_Blackboard);
+
+		if (at->AnimationComplete())
 		{
 			enums::eDir dir = _Blackboard->GetDataValue<enums::eDir>(L"Dir");
 			if (dir == enums::eDir::Left)
@@ -27,9 +30,8 @@ namespace Mn
 			else
 				_Blackboard->SetData<enums::eDir>(L"Dir", enums::eDir::Left);
 
-
-
 			_Blackboard->SetData(L"Behavior", enums::eBehavior::Swim);
+			anima->Run();
 			_Blackboard->ResetRunningNode();
 			return enums::eBTState::SUCCESS;
 		}

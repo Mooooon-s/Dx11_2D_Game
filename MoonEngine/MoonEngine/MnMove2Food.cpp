@@ -44,8 +44,17 @@ namespace Mn
 
 		Transform* foodTr = food->GetComponent<Transform>();
 		Vector3 foodPos = foodTr->Position();
-			//_BlackBoard->GetDataValue<Vector3>(L"Food_Pos");
 
+
+		PlayAnimaion* anima = new PlayAnimaion(_BlackBoard);
+		Animator* at = owner->GetComponent<Animator>();
+		if (at->AnimationComplete())
+		{
+			_BlackBoard->SetData(L"Behavior", enums::eBehavior::Swim);
+			anima->Run();
+		}
+
+		//_BlackBoard->GetDataValue<Vector3>(L"Food_Pos");
 		//좌우 확인 물고기 기준으로 먹이가 어디에 있는지
 		//if (foodPos.x - ownerPos.x < 0)
 		//	_Dir = enums::eDir::Left;
@@ -53,7 +62,6 @@ namespace Mn
 		//	_Dir = enums::eDir::Right;
 
 		//방향 전환
-		//PlayAnimaion* anima = new PlayAnimaion(_BlackBoard);
 
 		//turn에서 하면되나? 보류
 		//애니메이션을 노드로 사용하는것이 아니라 객채로 사용한다면??

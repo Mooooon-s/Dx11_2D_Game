@@ -15,6 +15,7 @@ namespace Mn
 	PlayAnimaion::PlayAnimaion(BlackBoard* blackboard)
 		:_BlackBoard(blackboard)
 		, _Behavior(eBehavior::Swim)
+		, _Level(1)
 	{
 		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
@@ -28,7 +29,12 @@ namespace Mn
 		Animator* at = gameObj->GetComponent<Animator>();
 		enums::eBehavior behavior =_BlackBoard->GetDataValue<eBehavior>(L"Behavior");
 		enums::eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
-		if (!at->AnimationComplete() && _Behavior == behavior && _State== state)
+		UINT level = _BlackBoard->GetDataValue<UINT>(L"Level");
+		if(_Level != level)
+			PlayAnimation(behavior);
+		if (!at->AnimationComplete() && _Behavior == behavior && _State != state)
+			PlayAnimation(behavior);
+		else if(!at->AnimationComplete() && _Behavior == behavior && _State == state)
 			return enums::eBTState::SUCCESS;
 
 		PlayAnimation(behavior);
@@ -36,6 +42,7 @@ namespace Mn
 
 		_State = state;
 		_Behavior = behavior;
+		_Level = level;
 		return enums::eBTState::SUCCESS;
 	}
 	void PlayAnimaion::PlayAnimation(enums::eBehavior behavior)
@@ -137,7 +144,7 @@ namespace Mn
 		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
 
-		int level = _BlackBoard->GetDataValue<float>(L"Level");
+		UINT level = _BlackBoard->GetDataValue<UINT>(L"Level");
 
 		switch (level)
 		{
@@ -168,7 +175,7 @@ namespace Mn
 		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
 
-		int level = _BlackBoard->GetDataValue<float>(L"Level");
+		UINT level = _BlackBoard->GetDataValue<UINT>(L"Level");
 
 		switch (behavior)
 		{

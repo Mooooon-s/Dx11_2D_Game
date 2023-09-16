@@ -21,6 +21,7 @@ namespace Mn
 		BlackBoard*		_BlackBoard;
 		eBehavior		_Behavior;
 		eFishState		_State;
+		UINT			_Level;
 	};
 
 }

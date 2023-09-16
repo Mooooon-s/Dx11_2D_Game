@@ -23,8 +23,15 @@ namespace Mn
 		Vector3 ownerPos = tr->Position();
 		Vector3 foodPos = _BlackBoard->GetDataValue<Vector3>(L"Food_Pos");
 
+
+
+
 		enums::eDir dir = _BlackBoard->GetDataValue<enums::eDir>(L"Dir");
 		enums::eDir foodDir;
+		
+		
+
+		
 		if (ownerPos != foodPos)
 		{
 			Vector3 MovePos = foodPos - ownerPos;
@@ -46,19 +53,17 @@ namespace Mn
 				_BlackBoard->SetData(L"Dir", enums::eDir::Right);
 			}
 			
-			Animator* at = owner->GetComponent<Animator>();
-			if (at->AnimationComplete())
-			{
-				_BlackBoard->SetData(L"Behavior", enums::eBehavior::Swim);
-				anima->Run();
-			}
-			
 			_BlackBoard->SetData(L"Dir", foodDir);
 		}
 
 
 
-
+		//Animator* at = owner->GetComponent<Animator>();
+		//if (at->AnimationComplete())
+		//{
+		//	_BlackBoard->SetData(L"Behavior", enums::eBehavior::Swim);
+		//	anima->Run();
+		//}
 
 
 

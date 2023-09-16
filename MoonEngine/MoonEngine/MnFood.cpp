@@ -17,6 +17,7 @@ namespace Mn
 	}
 	void Food::Initialize()
 	{
+		SetName(L"Food");
 		Collider2D* coll = AddComponent<Collider2D>();
 		coll->SetSize(Vector2(0.5f, 0.5f));
 
@@ -54,5 +55,9 @@ namespace Mn
 	void Food::Render()
 	{
 		GameObject::Render();
+	}
+	void Food::OnClick()
+	{
+		this->State(GameObject::eState::Dead);
 	}
 }

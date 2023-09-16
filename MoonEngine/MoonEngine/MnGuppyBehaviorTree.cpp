@@ -153,7 +153,7 @@ namespace Mn
 		foodTurn = eatSequence_->AddChild<GuppyFoodTurn>();
 		move2food = eatSequence_->AddChild<Move2Food>();
 		//eatfood = eatSequence_->AddChild<EatFood>();
-		addlevel = eatSequence_->AddChild<AddLevel>();
+		//addlevel = eatSequence_->AddChild<AddLevel>();
 
 		turnSucceeder = _Sequence->AddChild<Succeeder>();
 		turnSequence = turnSucceeder->SetChild<Sequence>();
@@ -185,7 +185,18 @@ namespace Mn
 	}
 	void GuppyBehaviorTree::OnCollisionEnter(Collider2D* other)
 	{
+		eFishState hungrystate = _BlackBoard->GetDataValue<eFishState>(L"HungryStack");
+		if (hungrystate!=eFishState::Full && other->GetOwner()->GetName() == L"Food")
+		{
+			other->GetOwner()->OnClick();
+			_BlackBoard->SetData(L"HungryStack", 0);
+			UINT stack = _BlackBoard->GetDataValue<UINT>(L"Level_Stack");
+			stack += 1;
+			_BlackBoard->SetData(L"Level_Stack", stack);
+			AddLevel* addlevel = new AddLevel(_BlackBoard.get());
+			addlevel->Run();
 
+		}
 	}
 	void GuppyBehaviorTree::OnCollisionStay(Collider2D* other)
 	{

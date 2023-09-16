@@ -20,7 +20,7 @@ namespace Mn
 	{
 		float timer = _BlackBoard->GetDataValue<float>(L"Timer");
 		GameObject* owner = _BlackBoard->GetData<GameObject>(L"Owner");
-		float level = _BlackBoard->GetDataValue<float>(L"Level");
+		UINT level = _BlackBoard->GetDataValue<UINT>(L"Level");
 		if ((int)timer % 3 == 0 && level>1)
 		{
 			Transform* tr = owner->GetComponent<Transform>();

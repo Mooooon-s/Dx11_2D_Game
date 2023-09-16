@@ -4,6 +4,7 @@
 namespace Mn
 {
 	IsHungry::IsHungry()
+		: _BlackBoard(nullptr)
 	{
 	}
 	IsHungry::IsHungry(BlackBoard* board)
@@ -19,9 +20,6 @@ namespace Mn
 		if (stack < 3)
 		{
 			_BlackBoard->SetData(L"Fish_State", enums::eFishState::Full);
-			_BlackBoard->SetData(L"CollisionEnter", false);
-			_BlackBoard->SetData(L"CollisionStay", false);
-			_BlackBoard->EraseData<Collider2D>(L"otherColl");
 			return enums::eBTState::FAILURE;
 		}
 		else if (stack >= 3 && stack <5 )

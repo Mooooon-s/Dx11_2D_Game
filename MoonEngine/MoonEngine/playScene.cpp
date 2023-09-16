@@ -62,11 +62,11 @@ void Mn::playScene::Initialize()
 	Guppy* guppy = object::Instantiate<Guppy>(eLayerType::Fish);
 	guppy->Initialize();
 
-	Guppy* guppy2 = object::Instantiate<Guppy>(Vector3(1.5f,0.0f,0.01f),eLayerType::Fish);
-	guppy2->Initialize();
+	//Guppy* guppy2 = object::Instantiate<Guppy>(Vector3(1.5f,0.0f,0.01f),eLayerType::Fish);
+	//guppy2->Initialize();
 
-	Guppy* guppy3 = object::Instantiate<Guppy>(Vector3(1.0f, 1.0f, 0.02f),eLayerType::Fish);
-	guppy3->Initialize();
+	//Guppy* guppy3 = object::Instantiate<Guppy>(Vector3(1.0f, 1.0f, 0.02f),eLayerType::Fish);
+	//guppy3->Initialize();
 
 	Balrog* balrog = object::Instantiate<Balrog>(eLayerType::Monster);
 	balrog->Initialize();

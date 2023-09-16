@@ -1,5 +1,6 @@
 #include "MnAddLevel.h"
 #include "MnGameObject.h"
+#include "MnPlayAnimaion.h"
 
 namespace Mn
 {
@@ -44,6 +45,10 @@ namespace Mn
 		default:
 			break;
 		}
+
+		PlayAnimaion* anima = new PlayAnimaion(_BlackBoard);
+		anima->Run();
+
 		return enums::eBTState::SUCCESS;
 	}
 }

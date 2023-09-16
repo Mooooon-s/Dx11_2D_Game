@@ -40,6 +40,12 @@ namespace Mn
 
 		double randomValue = dis(gen);
 
+		if (_BlackBoard->GetDataValue<enums::eBehavior>(L"Behavior") == enums::eBehavior::Turn)
+		{
+			return enums::eBTState::SUCCESS;
+		}
+
+
 		// 15% probability of success
 		if (randomValue <= 0.15) {
 			_Time = _BlackBoard->GetDataValue<float>(L"Timer");
