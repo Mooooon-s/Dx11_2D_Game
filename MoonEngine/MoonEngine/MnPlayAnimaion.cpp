@@ -30,6 +30,9 @@ namespace Mn
 		enums::eBehavior behavior =_BlackBoard->GetDataValue<eBehavior>(L"Behavior");
 		enums::eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
 		UINT level = _BlackBoard->GetDataValue<UINT>(L"Level");
+
+
+
 		if(_Level != level)
 			PlayAnimation(behavior);
 		if (!at->AnimationComplete() && _Behavior == behavior && _State != state)
@@ -38,7 +41,6 @@ namespace Mn
 			return enums::eBTState::SUCCESS;
 
 		PlayAnimation(behavior);
-		Bind();
 
 		_State = state;
 		_Behavior = behavior;
@@ -243,9 +245,6 @@ namespace Mn
 		default:
 			break;
 		}
-	}
-	void PlayAnimaion::Bind()
-	{
 	}
 	void PlayAnimaion::afterAction()
 	{
