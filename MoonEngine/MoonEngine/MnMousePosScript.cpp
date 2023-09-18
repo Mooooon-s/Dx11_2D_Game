@@ -55,7 +55,7 @@ namespace Mn
 			GameObject* Obj = PrimaryObj();
 
 			if (Obj != nullptr)
-				Obj->OnClick();
+				Obj->OnClick(_DotPos);
 			else
 				FeedFood();
 		}

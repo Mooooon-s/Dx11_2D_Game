@@ -20,7 +20,7 @@ namespace Mn
 		virtual void OnCollisionStay(Collider2D* other) {};
 		virtual void OnCollisionExit(Collider2D* other) {};
 
-		void OnClick();
+		void OnClick(Vector3 pos);
 	private:
 		RootNode* _Root;
 		BlackBoard* _BlackBorad;

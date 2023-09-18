@@ -28,8 +28,8 @@ namespace Mn
 	{
 		GameObject::Render();
 	}
-	void Balrog::OnClick()
+	void Balrog::OnClick(Vector3 pos)
 	{
-		_BHT->OnClick();
+		_BHT->OnClick(pos);
 	}
 }

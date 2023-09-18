@@ -13,6 +13,7 @@ namespace Mn
 
 		enums::eBTState Run() override;
 	private:
+		int _Count;
 		BlackBoard* _BlackBoard;
 	};
 }

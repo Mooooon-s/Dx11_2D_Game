@@ -13,6 +13,8 @@ namespace Mn
 		virtual void Update() override;
 		virtual void LateUpdate() override;
 		virtual void Render() override;
+	public:
+		void AfterTurn();
 	private:
 
 	};

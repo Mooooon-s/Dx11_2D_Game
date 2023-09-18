@@ -34,6 +34,9 @@ namespace Mn
 		at->Create(L"Balrog_Turn_Right", atlas, atlasAlpha, Vector2(0.0f, 160.0f), Vector2(160.0f,160.0f), 10, Vector2::Zero, 0.1f);
 		at->CreateReverse(L"Balrog_Turn_Left", atlas, atlasAlpha, Vector2(0.0f, 160.0f), Vector2(160.0f,160.0f), 10, Vector2::Zero, 0.1f);
 
+		at->CompleteEvent(L"Balrog_Turn_Right") = std::bind(&BalrogRenderScript::AfterTurn, this);
+		at->CompleteEvent(L"Balrog_Turn_Left") = std::bind(&BalrogRenderScript::AfterTurn, this);
+
 		at->PlayAnimation(L"Balrog_Swim", true);
 	}
 	void BalrogRenderScript::Update()
@@ -44,5 +47,10 @@ namespace Mn
 	}
 	void BalrogRenderScript::Render()
 	{
+	}
+	void BalrogRenderScript::AfterTurn()
+	{
+		Animator* at = GetOwner()->GetComponent<Animator>();
+		at->PlayAnimation(L"Balrog_Swim", true);
 	}
 }

@@ -39,6 +39,6 @@ namespace Mn
 		if (fish != nullptr)
 			return enums::eBTState::SUCCESS;
 		else
-			return enums::eBTState::FAILURE;
+			return enums::eBTState::SUCCESS;
 	}
 }
