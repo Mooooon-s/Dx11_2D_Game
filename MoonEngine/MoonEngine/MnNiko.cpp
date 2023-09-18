@@ -37,6 +37,11 @@ namespace Mn
 	}
 	void Niko::OnClick()
 	{
+		//NikoScript* NS = GetComponent<NikoScript>();
+		//NS->OnClick();
+	}
+	void Niko::OnClick(Vector3 pos)
+	{
 		NikoScript* NS = GetComponent<NikoScript>();
 		NS->OnClick();
 	}

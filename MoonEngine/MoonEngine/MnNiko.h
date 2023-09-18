@@ -14,6 +14,7 @@ namespace Mn
 		virtual void LateUpdate() override;
 		virtual void Render() override;
 		virtual void OnClick() override;
+		virtual void OnClick(Vector3 pos) override;
 	private:
 	};
 }

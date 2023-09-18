@@ -97,4 +97,7 @@ namespace Mn
 	void GameObject::OnClick()
 	{
 	}
+	void GameObject::OnClick(Vector3 pos)
+	{
+	}
 }
