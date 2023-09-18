@@ -213,7 +213,6 @@
     <ClInclude Include="MnPearl.h" />
     <ClInclude Include="MnPearlScript.h" />
     <ClInclude Include="MnPlayerHp.h" />
-    <ClInclude Include="MnPumpkin.h" />
     <ClInclude Include="MnStinky.h" />
     <ClInclude Include="MnStinkyBehaviorTree.h" />
     <ClInclude Include="MnStinkyHide.h" />
@@ -285,7 +284,6 @@
     <ClCompile Include="MnMove2Coin.cpp" />
     <ClCompile Include="MnMove2Fish.cpp" />
     <ClCompile Include="playScene.cpp" />
-    <ClCompile Include="MnPumpkin.cpp" />
     <ClCompile Include="MnStinky.cpp" />
     <ClCompile Include="MnStinkyScript.cpp" />
     <ClCompile Include="MnStinkyRenderScript.cpp" />

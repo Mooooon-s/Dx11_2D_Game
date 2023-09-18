@@ -81,9 +81,6 @@ namespace Mn
 
 		_BlackBoard->MakeData<double>(L"End");
 		_BlackBoard->SetData(L"End", 0.0f);
-		_BlackBoard->MakeData<bool>(L"CollisionEnter");
-		_BlackBoard->MakeData<bool>(L"CollisionStay");
-		_BlackBoard->MakeData<Collider2D>(L"other");
 
 		_BlackBoard->MakeData<Vector3>(L"Food_Pos");
 		_BlackBoard->SetData<Vector3>(L"Food_Pos", Vector3::Zero);
@@ -182,11 +179,12 @@ namespace Mn
 	}
 	void GuppyBehaviorTree::OnCollisionEnter(Collider2D* other)
 	{
-		eFishState hungrystate = _BlackBoard->GetDataValue<eFishState>(L"HungryStack");
+		eFishState hungrystate = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
 		if (hungrystate!=eFishState::Full && other->GetOwner()->GetName() == L"Food")
 		{
 			_BlackBoard->SetData(L"Behavior", enums::eBehavior::Eat);
 			_BlackBoard->SetData(L"HungryStack", 0);
+			_BlackBoard->SetData(L"Fish_State", eFishState::Full);
 
 			UINT stack = _BlackBoard->GetDataValue<UINT>(L"Level_Stack");
 			stack += 1;

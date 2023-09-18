@@ -8,9 +8,6 @@
     <ClInclude Include="MnPlayerHp.h">
       <Filter>Contents\UI</Filter>
     </ClInclude>
-    <ClInclude Include="MnPumpkin.h">
-      <Filter>Contents\Monster</Filter>
-    </ClInclude>
     <ClInclude Include="playScene.h">
       <Filter>Contents\Scene\Stage_1</Filter>
     </ClInclude>
@@ -192,9 +189,6 @@
     <ClCompile Include="MoonEngine.cpp" />
     <ClCompile Include="MnPlayerHp.cpp">
       <Filter>Contents\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="MnPumpkin.cpp">
-      <Filter>Contents\Monster</Filter>
     </ClCompile>
     <ClCompile Include="playScene.cpp">
       <Filter>Contents\Scene\Stage_1</Filter>
@@ -390,9 +384,6 @@
     </Filter>
     <Filter Include="Contents\BackGround">
       <UniqueIdentifier>{af507ee7-ecd2-43d5-9670-60b196a54a47}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Monster">
-      <UniqueIdentifier>{283dc678-6cf2-4112-8f44-0b0f17f8dad2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents\Scene\Stage_2">
       <UniqueIdentifier>{0a002c5d-f9da-4cb8-844b-00262e8ff083}</UniqueIdentifier>
