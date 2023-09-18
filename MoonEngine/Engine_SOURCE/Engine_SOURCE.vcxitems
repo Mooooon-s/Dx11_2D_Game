@@ -28,7 +28,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnFish.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnKdTree.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnBackGround.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)MnMainCharacter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCharacter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnMaterial.cpp" />
@@ -103,7 +102,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnKdTree.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnLight.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)MnMainCharacter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMaterial.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnMesh.h" />

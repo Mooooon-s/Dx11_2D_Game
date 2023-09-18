@@ -225,6 +225,9 @@
     <ClInclude Include="MnMousePosScript.h" />
     <ClInclude Include="MnNikoBehaviorTree.h" />
     <ClInclude Include="MnMove2Coin.h" />
+    <ClInclude Include="MnWarp.h" />
+    <ClInclude Include="MnWarpHole.h" />
+    <ClInclude Include="MnWarpRenderScript.h" />
     <ClInclude Include="playScene.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
@@ -290,6 +293,9 @@
     <ClCompile Include="MnStinkyBehaviorTree.cpp" />
     <ClCompile Include="MnStinkyHide.cpp" />
     <ClCompile Include="MnSwim.cpp" />
+    <ClCompile Include="MnWarp.cpp" />
+    <ClCompile Include="MnWarpRenderScript.cpp" />
+    <ClCompile Include="MnWarpHole.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />

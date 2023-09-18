@@ -177,13 +177,18 @@
     <ClInclude Include="MnFindFish.h">
       <Filter>Contents\LeafNode\Balrog</Filter>
     </ClInclude>
-    <ClInclude Include="MnMove2Fish.h" />
     <ClInclude Include="MnSwim.h">
       <Filter>Contents\LeafNode\Common\Swim</Filter>
     </ClInclude>
     <ClInclude Include="MnGuppyFoodTurn.h">
       <Filter>Contents\LeafNode\Guppy\Turn</Filter>
     </ClInclude>
+    <ClInclude Include="MnMove2Fish.h">
+      <Filter>Contents\LeafNode\Balrog</Filter>
+    </ClInclude>
+    <ClInclude Include="MnWarp.h" />
+    <ClInclude Include="MnWarpRenderScript.h" />
+    <ClInclude Include="MnWarpHole.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -358,13 +363,18 @@
     <ClCompile Include="MnFindFish.cpp">
       <Filter>Contents\LeafNode\Balrog</Filter>
     </ClCompile>
-    <ClCompile Include="MnMove2Fish.cpp" />
     <ClCompile Include="MnSwim.cpp">
       <Filter>Contents\LeafNode\Common\Swim</Filter>
     </ClCompile>
     <ClCompile Include="MnGuppyFoodTurn.cpp">
       <Filter>Contents\LeafNode\Guppy\Turn</Filter>
     </ClCompile>
+    <ClCompile Include="MnMove2Fish.cpp">
+      <Filter>Contents\LeafNode\Balrog</Filter>
+    </ClCompile>
+    <ClCompile Include="MnWarp.cpp" />
+    <ClCompile Include="MnWarpRenderScript.cpp" />
+    <ClCompile Include="MnWarpHole.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -534,6 +544,9 @@
     </Filter>
     <Filter Include="Contents\LeafNode\Common\Swim">
       <UniqueIdentifier>{c364843a-0014-49c3-9b7a-3ffc811ca465}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Warp">
+      <UniqueIdentifier>{593f92c3-992e-458b-ae0c-b4e84fc6c4dc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

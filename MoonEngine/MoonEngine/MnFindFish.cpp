@@ -20,7 +20,7 @@ namespace Mn
 	{
 		GameObject* boss = _BlackBoard->GetData<GameObject>(L"Balrog");
 
-		GameObject* fish = Mn::GuppyTree->Query(boss,1,0);
+		GameObject* fish = Mn::GuppyTree->Query(boss,5,0);
 
 		if (fish != nullptr)
 		{

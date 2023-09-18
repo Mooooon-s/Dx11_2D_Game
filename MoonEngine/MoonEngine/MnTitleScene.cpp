@@ -4,7 +4,6 @@
 #include "MnMeshRenderer.h"
 #include "MnResources.h"
 #include "MnTransform.h"
-#include "MnMainCharacter.h"
 #include "MnObject.h"
 
 #include "MnRenderer.h"

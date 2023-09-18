@@ -39,7 +39,7 @@ namespace Mn
 			return enums::eBTState::SUCCESS;
 
 
-		GameObject* food = kd->Query(owner, 2.0f, 0);
+		GameObject* food = kd->Query(owner, 5.0f, 0);
 		if (food == nullptr)
 			return enums::eBTState::FAILURE;
 

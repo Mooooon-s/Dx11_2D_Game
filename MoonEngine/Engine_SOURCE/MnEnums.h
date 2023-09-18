@@ -26,6 +26,7 @@ namespace Mn::enums
 		Food,
 		Coin,
 		Monster,
+		Effect,
 		Light,
 		Particle,
 		BackGround,

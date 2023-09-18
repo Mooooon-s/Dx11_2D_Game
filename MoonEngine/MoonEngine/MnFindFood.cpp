@@ -31,7 +31,7 @@ namespace Mn
 		GameObject* owner = _BlackBoard->GetData<GameObject>(L"Owner");
 
 		KdTree* kd = Mn::kdTree;
-		GameObject* food_ = kd->Query(owner, 2.0f,0);
+		GameObject* food_ = kd->Query(owner, 5.0f,0);
 		Transform* ownerTr = owner->GetComponent<Transform>();
 		if (food_ != nullptr)
 		{

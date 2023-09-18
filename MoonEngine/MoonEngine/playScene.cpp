@@ -33,6 +33,8 @@
 #include "MnNiko.h"
 #include "MnStinky.h"
 
+#include "MnWarp.h"
+
 namespace Mn
 {
 	KdTree* kdTree = nullptr;
@@ -68,9 +70,6 @@ void Mn::playScene::Initialize()
 	Guppy* guppy3 = object::Instantiate<Guppy>(Vector3(1.0f, 1.0f, 0.02f),eLayerType::Fish);
 	guppy3->Initialize();
 
-	Balrog* balrog = object::Instantiate<Balrog>(eLayerType::Monster);
-	balrog->Initialize();
-
 	Niko* niko = object::Instantiate<Niko>(Vector3(-1.4f,-0.4f,100.0f),eLayerType::Pet);
 	niko->Initialize();
 
@@ -85,6 +84,9 @@ void Mn::playScene::Initialize()
 
 	TopBar* topbar = object::Instantiate<TopBar>(eLayerType::UI);
 	topbar->Initialize();
+
+	Warp* warp = object::Instantiate<Warp>(Vector3(0.0f,0.0f,-0.01f),eLayerType::Effect);
+	warp->Initialize();
 
 	//GameObject* particle = new GameObject();
 	//particle->SetName(L"Particle");
