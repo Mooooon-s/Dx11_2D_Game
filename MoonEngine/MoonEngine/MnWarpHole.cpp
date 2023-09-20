@@ -16,6 +16,7 @@ namespace Mn
 	WarpHole::WarpHole()
 		: _Flag(true)
 		, _Time(0)
+		, _Type(eBossType::Barlog)
 	{
 	}
 	WarpHole::~WarpHole()
@@ -46,8 +47,7 @@ namespace Mn
 
 		if (_Time > 0.8 && _Flag)
 		{
-			Balrog* boss = object::Instantiate<Balrog>(pos,eLayerType::Monster);
-			boss->Initialize();
+			SpawnBoss(pos);
 			_Flag = false;
 		}
 
@@ -64,5 +64,15 @@ namespace Mn
 	void WarpHole::Render()
 	{
 		GameObject::Render();
+	}
+	void WarpHole::SpawnBoss(Vector3 pos)
+	{
+		switch (_Type)
+		{
+		case Mn::enums::eBossType::Barlog:
+			Balrog* boss = object::Instantiate<Balrog>(pos, eLayerType::Monster);
+			boss->Initialize();
+			break;
+		}
 	}
 }

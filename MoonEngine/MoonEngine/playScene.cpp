@@ -33,7 +33,8 @@
 #include "MnNiko.h"
 #include "MnStinky.h"
 
-#include "MnWarp.h"
+#include "MnEventManager.h"
+#include "MnButtonPanel.h"
 
 namespace Mn
 {
@@ -53,6 +54,9 @@ Mn::playScene::~playScene()
 
 void Mn::playScene::Initialize()
 {
+	EventManager* eventmanager = object::Instantiate<EventManager>(eLayerType::UI);
+	eventmanager->Initialize();
+
 	std::shared_ptr<PaintShader> paintShader = Resources::Find<PaintShader>(L"PaintShader");
 	std::shared_ptr<Mn::graphics::Texture> paintTexture = Resources::Find<Mn::graphics::Texture>(L"PaintTexuture");
 	paintShader->SetTarget(paintTexture);
@@ -60,6 +64,9 @@ void Mn::playScene::Initialize()
 
 	kdTree = new KdTree(1);
 	GuppyTree = new KdTree(1);
+
+	ButtonPanel* btp = object::Instantiate<ButtonPanel>(eLayerType::UI);
+	btp->Initialize();
 
 	Guppy* guppy = object::Instantiate<Guppy>(eLayerType::Fish);
 	guppy->Initialize();
@@ -85,8 +92,6 @@ void Mn::playScene::Initialize()
 	TopBar* topbar = object::Instantiate<TopBar>(eLayerType::UI);
 	topbar->Initialize();
 
-	Warp* warp = object::Instantiate<Warp>(Vector3(0.0f,0.0f,-0.01f),eLayerType::Effect);
-	warp->Initialize();
 
 	//GameObject* particle = new GameObject();
 	//particle->SetName(L"Particle");

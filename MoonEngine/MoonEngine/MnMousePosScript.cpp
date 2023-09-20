@@ -59,6 +59,30 @@ namespace Mn
 			else
 				FeedFood();
 		}
+		else
+		{
+			_DotPos = _UnProjectPos;
+			GatherObject();
+
+			for (auto Obj : _GameObjects)
+			{
+				if (Obj->GetComponent<Collider2D>() != nullptr)
+					InterSect(Obj->GetComponent<Collider2D>());
+			}
+
+			GameObject* Obj = PrimaryObj();
+
+			if (Obj != nullptr)
+				Obj->MouseOn();
+			else
+			{
+				for (auto otherObj : _GameObjects)
+				{
+					if(otherObj->GetName()!=L"Coin")
+						otherObj->MouseOff();
+				}
+			}
+		}
 	}
 	void MousePosScript::LateUpdate()
 	{

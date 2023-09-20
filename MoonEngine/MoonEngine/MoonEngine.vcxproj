@@ -169,11 +169,15 @@
     <ClInclude Include="MnBalrog.h" />
     <ClInclude Include="MnBalrogBehaviorTree.h" />
     <ClInclude Include="MnBalrogRenderScript.h" />
+    <ClInclude Include="MnButton.h" />
+    <ClInclude Include="MnButtonFrameRender.h" />
+    <ClInclude Include="MnButtonPanel.h" />
     <ClInclude Include="MnCoin.h" />
     <ClInclude Include="MnCoinRender.h" />
     <ClInclude Include="MnComeOut.h" />
     <ClInclude Include="MnDestroyFish.h" />
     <ClInclude Include="MnDropCoin.h" />
+    <ClInclude Include="MnEventManager.h" />
     <ClInclude Include="MnFindBoss.h" />
     <ClInclude Include="MnFindCoin.h" />
     <ClInclude Include="MnFindFish.h" />
@@ -198,6 +202,7 @@
     <ClInclude Include="MnGuppyTurn.h" />
     <ClInclude Include="MnHpBar.h" />
     <ClInclude Include="MnHpFrame.h" />
+    <ClInclude Include="MnInGameButton.h" />
     <ClInclude Include="MnIsHungry.h" />
     <ClInclude Include="MnIsTurn.h" />
     <ClInclude Include="MnMenuBG.h" />
@@ -232,6 +237,11 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnButtonPanel.cpp" />
+    <ClCompile Include="MnButtonFrameRender.cpp" />
+    <ClCompile Include="MnInGameButton.cpp" />
+    <ClCompile Include="MnButton.cpp" />
+    <ClCompile Include="MnEventManager.cpp" />
     <ClCompile Include="MnGuppyFoodTurn.cpp" />
     <ClCompile Include="MnFindFish.cpp" />
     <ClCompile Include="MnComeOut.cpp" />

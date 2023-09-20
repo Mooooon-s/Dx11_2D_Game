@@ -68,6 +68,6 @@ namespace Mn
 	}
 	void StinkyBehaviorTree::OnCollisionEnter(Collider2D* other)
 	{
-		other->GetOwner()->OnClick();
+		other->GetOwner()->OnClick(Vector3::Zero);
 	}
 }

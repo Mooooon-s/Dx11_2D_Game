@@ -77,6 +77,12 @@ namespace Mn::enums
 		End,
 	};
 
+	enum class eBossType
+	{
+		Barlog,
+		End,
+	};
+
 	enum class eAquarim
 	{
 		Stage1,

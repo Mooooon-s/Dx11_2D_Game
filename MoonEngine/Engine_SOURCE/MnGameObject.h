@@ -31,6 +31,8 @@ namespace Mn
 		virtual void FontRender();
 		virtual void OnClick();
 		virtual void OnClick(Vector3 pos);
+		virtual void MouseOn();
+		virtual void MouseOff();
 	public:
 		template <typename T>
 		T* GetComponent()

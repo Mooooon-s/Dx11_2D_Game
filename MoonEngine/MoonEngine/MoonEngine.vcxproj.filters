@@ -186,9 +186,26 @@
     <ClInclude Include="MnMove2Fish.h">
       <Filter>Contents\LeafNode\Balrog</Filter>
     </ClInclude>
-    <ClInclude Include="MnWarp.h" />
-    <ClInclude Include="MnWarpRenderScript.h" />
-    <ClInclude Include="MnWarpHole.h" />
+    <ClInclude Include="MnEventManager.h">
+      <Filter>Contents\EventManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MnWarp.h">
+      <Filter>Contents\Warp</Filter>
+    </ClInclude>
+    <ClInclude Include="MnWarpHole.h">
+      <Filter>Contents\Warp</Filter>
+    </ClInclude>
+    <ClInclude Include="MnWarpRenderScript.h">
+      <Filter>Contents\Warp</Filter>
+    </ClInclude>
+    <ClInclude Include="MnButton.h">
+      <Filter>Contents\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="MnInGameButton.h">
+      <Filter>Contents\Button\InGameButton</Filter>
+    </ClInclude>
+    <ClInclude Include="MnButtonFrameRender.h" />
+    <ClInclude Include="MnButtonPanel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -372,9 +389,26 @@
     <ClCompile Include="MnMove2Fish.cpp">
       <Filter>Contents\LeafNode\Balrog</Filter>
     </ClCompile>
-    <ClCompile Include="MnWarp.cpp" />
-    <ClCompile Include="MnWarpRenderScript.cpp" />
-    <ClCompile Include="MnWarpHole.cpp" />
+    <ClCompile Include="MnEventManager.cpp">
+      <Filter>Contents\EventManager</Filter>
+    </ClCompile>
+    <ClCompile Include="MnWarp.cpp">
+      <Filter>Contents\Warp</Filter>
+    </ClCompile>
+    <ClCompile Include="MnWarpHole.cpp">
+      <Filter>Contents\Warp</Filter>
+    </ClCompile>
+    <ClCompile Include="MnWarpRenderScript.cpp">
+      <Filter>Contents\Warp</Filter>
+    </ClCompile>
+    <ClCompile Include="MnButton.cpp">
+      <Filter>Contents\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="MnInGameButton.cpp">
+      <Filter>Contents\Button\InGameButton</Filter>
+    </ClCompile>
+    <ClCompile Include="MnButtonFrameRender.cpp" />
+    <ClCompile Include="MnButtonPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -547,6 +581,15 @@
     </Filter>
     <Filter Include="Contents\Warp">
       <UniqueIdentifier>{593f92c3-992e-458b-ae0c-b4e84fc6c4dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\EventManager">
+      <UniqueIdentifier>{bc9c115b-da65-4401-a780-3fd606926553}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Button">
+      <UniqueIdentifier>{58be3070-8e5a-4786-a096-119dd89d490f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Button\InGameButton">
+      <UniqueIdentifier>{b4977357-0433-41f7-a743-cabae1950faa}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -77,7 +77,7 @@ namespace renderer
 			, GridShader->GetVSCode()
 			, GridShader->GetInputLayoutAddressOf());
 
-		std::shared_ptr <Shader> MonShader = Mn::Resources::Find<Shader>(L"MonsterShader");
+		std::shared_ptr <Shader> MonShader = Mn::Resources::Find<Shader>(L"PanelShader");
 		Mn::graphics::GetDevice()->CreateInputLayout(arrLayout, 3
 			, MonShader->GetVSCode()
 			, MonShader->GetInputLayoutAddressOf());
@@ -359,10 +359,10 @@ namespace renderer
 		girdShader->Create(eShaderStage::PS, L"GridPS.hlsl", "main");
 		Mn::Resources::Insert(L"GridShader", girdShader);
 
-		std::shared_ptr<Shader> MonShader = std::make_shared<Shader>();
-		MonShader->Create(eShaderStage::VS, L"MonsterVS.hlsl", "main");
-		MonShader->Create(eShaderStage::PS, L"MonsterPS.hlsl", "main");
-		Mn::Resources::Insert(L"MonsterShader", MonShader);
+		std::shared_ptr<Shader> PanelShader = std::make_shared<Shader>();
+		PanelShader->Create(eShaderStage::VS, L"MonsterVS.hlsl", "main");
+		PanelShader->Create(eShaderStage::PS, L"MonsterPS.hlsl", "main");
+		Mn::Resources::Insert(L"PanelShader", PanelShader);
 
 		std::shared_ptr<Shader> debugShader = std::make_shared<Shader>();
 		debugShader->Create(eShaderStage::VS, L"DebugVS.hlsl", "main");
@@ -507,22 +507,22 @@ namespace renderer
 		// ---------------------------------------------------------------
 		//							Shader
 		// ---------------------------------------------------------------
-		std::shared_ptr<Shader> MonShader
-			= Resources::Find<Shader>(L"MonsterShader");
+		std::shared_ptr<Shader> PanelShader
+			= Resources::Find<Shader>(L"PanelShader");
 		// 
 		//----------------------------------------------------------------
 		//							Texture
 		//----------------------------------------------------------------
-		std::shared_ptr<Mn::graphics::Texture> Montexture = Resources::Load<Mn::graphics::Texture>(L"Monster_Pumpkin", L"..\\Resources\\Texture\\Monster\\Undead_pumpking_Sprites.png");
+		std::shared_ptr<Mn::graphics::Texture> Paneltexture = Resources::Load<Mn::graphics::Texture>(L"Monster_Pumpkin", L"..\\Resources\\Texture\\UI\\bar\\mbuttonu.jpg");
 
 		//----------------------------------------------------------------
 		//							Material
 		//----------------------------------------------------------------
-		std::shared_ptr <Material> MonMaterial = std::make_shared<Material>();
-		MonMaterial->SetTexture(Montexture);
-		MonMaterial->Shader(MonShader);
-		MonMaterial->RenderingMode(eRenderingMode::Transparent);
-		Mn::Resources::Insert(L"MonMaterial", MonMaterial);
+		std::shared_ptr <Material> PanelMaterial = std::make_shared<Material>();
+		PanelMaterial->SetTexture(Paneltexture);
+		PanelMaterial->Shader(PanelShader);
+		PanelMaterial->RenderingMode(eRenderingMode::Transparent);
+		Mn::Resources::Insert(L"PanelMaterial", PanelMaterial);
 
 		//---------------------------------------------------------------------------------------------------------------------------------------
 		//

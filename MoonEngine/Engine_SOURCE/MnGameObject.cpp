@@ -100,4 +100,10 @@ namespace Mn
 	void GameObject::OnClick(Vector3 pos)
 	{
 	}
+	void GameObject::MouseOn()
+	{
+	}
+	void GameObject::MouseOff()
+	{
+	}
 }

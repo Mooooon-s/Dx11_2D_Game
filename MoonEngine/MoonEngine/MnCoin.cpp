@@ -58,7 +58,7 @@ namespace Mn
 	{
 		GameObject::Render();
 	}
-	void Coin::OnClick()
+	void Coin::OnClick(Vector3 pos)
 	{
 		Scene* scene = SceneManager::ActiveScene();
 		std::vector<GameObject*> gameObj = scene->GetLayer(eLayerType::UI).GetGameObjects();

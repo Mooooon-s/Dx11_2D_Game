@@ -1,27 +1,22 @@
 #pragma once
 #include "MnGameObject.h"
-
 namespace Mn
 {
-	class WarpHole : public GameObject
+	class EventManager : public GameObject
 	{
 	public:
-		WarpHole();
-		~WarpHole();
+		EventManager();
+		~EventManager();
 
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;
 		void Render() override;
 	public:
-		void BossType(eBossType type) { _Type = type; }
-
-	public:
-		void SpawnBoss(Vector3 pos);
+		void Event();
+		void Timer();
 	private:
-		eBossType _Type;
 		float _Time;
-		bool _Flag;
+		int _EventStack;
 	};
-
 }
