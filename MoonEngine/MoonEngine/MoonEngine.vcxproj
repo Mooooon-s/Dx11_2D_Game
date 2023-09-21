@@ -170,6 +170,7 @@
     <ClInclude Include="MnBalrogBehaviorTree.h" />
     <ClInclude Include="MnBalrogRenderScript.h" />
     <ClInclude Include="MnButton.h" />
+    <ClInclude Include="MnButtonFrame.h" />
     <ClInclude Include="MnButtonFrameRender.h" />
     <ClInclude Include="MnButtonPanel.h" />
     <ClInclude Include="MnCoin.h" />
@@ -237,6 +238,7 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnButtonFrame.cpp" />
     <ClCompile Include="MnButtonPanel.cpp" />
     <ClCompile Include="MnButtonFrameRender.cpp" />
     <ClCompile Include="MnInGameButton.cpp" />

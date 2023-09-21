@@ -15,7 +15,10 @@ namespace Mn
 	public:
 		void Event();
 		void Timer();
+		float Random();
+		void ButtonEvent(eIcon icon);
 	private:
+		std::vector<float> _BarSlotCount;
 		float _Time;
 		int _EventStack;
 	};

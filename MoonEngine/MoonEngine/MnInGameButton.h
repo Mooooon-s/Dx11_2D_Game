@@ -15,5 +15,10 @@ namespace Mn
 		virtual void Render();
 		virtual void OnClick();
 		virtual void MouseOn();
+	public:
+		void SetIcon(eIcon icon) { _Icon = icon; }
+		eIcon GetIcon() { return _Icon; }
+	private:
+		eIcon _Icon;
 	};
 }

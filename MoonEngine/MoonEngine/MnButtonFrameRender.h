@@ -3,7 +3,7 @@
 
 namespace Mn
 {
-	class ButtonFrameRender : Script
+	class ButtonFrameRender : public Script
 	{
 	public:
 		ButtonFrameRender();
@@ -13,6 +13,8 @@ namespace Mn
 		virtual void Update() override;
 		virtual void LateUpdate() override;
 		virtual void Render() override;
+	public:
+		void Reflect();
 	private:
 
 	};

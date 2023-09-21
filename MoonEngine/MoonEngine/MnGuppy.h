@@ -18,7 +18,7 @@ namespace Mn
 		void SetFishState(eFishState state) { Mn::Fish::SetFishState(state); }
 		eFishState GetFishState() { return Mn::Fish::GetFishState(); }
 	private:
-		
+		int _Flag;
 	};
 
 }

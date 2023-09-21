@@ -30,6 +30,7 @@ namespace Mn::enums
 		Light,
 		Particle,
 		BackGround,
+		Button,
 		UI,
 		End=16,
 	};
@@ -115,5 +116,14 @@ namespace Mn::enums
 		SUCCESS,
 		FAILURE,
 		RUNNING,
+	};
+
+	enum class eIcon
+	{
+		Guppy,
+		Food,
+		FoodCount,
+		Egg,
+		End,
 	};
 }

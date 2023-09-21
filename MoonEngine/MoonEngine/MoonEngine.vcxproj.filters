@@ -206,6 +206,7 @@
     </ClInclude>
     <ClInclude Include="MnButtonFrameRender.h" />
     <ClInclude Include="MnButtonPanel.h" />
+    <ClInclude Include="MnButtonFrame.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -409,6 +410,7 @@
     </ClCompile>
     <ClCompile Include="MnButtonFrameRender.cpp" />
     <ClCompile Include="MnButtonPanel.cpp" />
+    <ClCompile Include="MnButtonFrame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">

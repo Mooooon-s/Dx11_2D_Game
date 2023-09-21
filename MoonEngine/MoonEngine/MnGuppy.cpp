@@ -12,9 +12,12 @@
 
 #include "MnGuppyBehaviorTree.h"
 
+#include "MnTime.h"
+
 namespace Mn
 {
 	Guppy::Guppy()
+		: _Flag(0)
 	{
 	}
 	Guppy::~Guppy()
@@ -37,7 +40,19 @@ namespace Mn
 	}
 	void Guppy::Update()
 	{
-		GameObject::Update();
+		Transform* tr = GetComponent<Transform>();
+		Vector3 pos = tr->Position();
+		if (pos.y >= 0.8f && _Flag == 0)
+		{
+			pos.y -= 0.5 * Time::DeltaTime();
+			tr->Position(pos);
+		}
+		else
+		{
+			_Flag = 1;
+		}
+		if(_Flag ==1)
+			GameObject::Update();
 	}
 	void Guppy::LateUpdate()
 	{

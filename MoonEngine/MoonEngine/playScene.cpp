@@ -34,7 +34,7 @@
 #include "MnStinky.h"
 
 #include "MnEventManager.h"
-#include "MnButtonPanel.h"
+#include "MnInGameButton.h"
 
 namespace Mn
 {
@@ -65,8 +65,7 @@ void Mn::playScene::Initialize()
 	kdTree = new KdTree(1);
 	GuppyTree = new KdTree(1);
 
-	ButtonPanel* btp = object::Instantiate<ButtonPanel>(eLayerType::UI);
-	btp->Initialize();
+
 
 	Guppy* guppy = object::Instantiate<Guppy>(eLayerType::Fish);
 	guppy->Initialize();

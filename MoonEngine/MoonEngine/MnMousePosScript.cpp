@@ -21,6 +21,7 @@ namespace Mn
 		_Setting.set((UINT)eLayerType::Coin, 1);
 		_Setting.set((UINT)eLayerType::Pet, 1);
 		_Setting.set((UINT)eLayerType::Monster, 1);
+		_Setting.set((UINT)eLayerType::UI, 1);
 	}
 	MousePosScript::MousePosScript(GameObject* cam)
 		: _Cam(cam)
@@ -31,6 +32,7 @@ namespace Mn
 		_Setting.set((UINT)eLayerType::Coin, 1);
 		_Setting.set((UINT)eLayerType::Pet, 1);
 		_Setting.set((UINT)eLayerType::Monster, 1);
+		_Setting.set((UINT)eLayerType::UI, 1);
 	}
 	MousePosScript::~MousePosScript()
 	{
@@ -147,7 +149,8 @@ namespace Mn
 				std::vector<GameObject*> LayerObj = scene->GetLayer(eLayerType(i)).GetGameObjects();
 				for (auto Obj : LayerObj)
 				{
-					_GameObjects.push_back(Obj);
+					if(Obj->GetComponent<Collider2D>()!=nullptr)
+						_GameObjects.push_back(Obj);
 				}
 			}
 		}
