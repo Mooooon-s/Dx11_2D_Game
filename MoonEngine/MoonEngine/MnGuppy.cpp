@@ -44,7 +44,7 @@ namespace Mn
 		Vector3 pos = tr->Position();
 		if (pos.y >= 0.8f && _Flag == 0)
 		{
-			pos.y -= 0.5 * Time::DeltaTime();
+			pos.y -= 1.5 * Time::DeltaTime();
 			tr->Position(pos);
 		}
 		else
