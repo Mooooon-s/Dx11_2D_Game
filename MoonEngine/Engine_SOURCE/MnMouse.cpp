@@ -33,4 +33,9 @@ namespace Mn
 	void Mouse::Render()
 	{
 	}
+	void Mouse::ScriptFoodLevel()
+	{
+		MousePosScript* MPS = GetComponent<MousePosScript>();
+		MPS->FoodLevel();
+	}
 }

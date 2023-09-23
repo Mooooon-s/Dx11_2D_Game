@@ -14,9 +14,10 @@ namespace Mn
 		void Update() override;
 		void LateUpdate() override;
 		void Render() override;
-
 	public:
 		void UICamera(GameObject* cam) { _Cam = cam; }
+	public:
+		void ScriptFoodLevel();
 	private:
 		GameObject* _Cam;
 	};

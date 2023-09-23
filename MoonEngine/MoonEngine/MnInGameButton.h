@@ -1,5 +1,6 @@
 #pragma once
 #include "MnButton.h"
+#include "MnObject.h"
 
 namespace Mn
 {
@@ -18,6 +19,15 @@ namespace Mn
 	public:
 		void SetIcon(eIcon icon) { _Icon = icon; }
 		eIcon GetIcon() { return _Icon; }
+	public:
+		void Icon(Vector3 pos);
+	public:
+		template <typename T>
+		T* CreateIcon(Vector3 pos)
+		{
+			T* icon = object::Instantiate<T>(pos, eLayerType::UI);
+			return icon;
+		}
 	private:
 		eIcon _Icon;
 	};

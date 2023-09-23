@@ -44,7 +44,7 @@ namespace Mn
 	{
 		Transform* tr = GetComponent<Transform>();
 		Vector3 pos = tr->Position();
-		if (pos.y <= -1.5f)
+		if (pos.y <= -1.3f)
 		{
 			_Time += Time::DeltaTime();
 			if (_Time >= 0.5)

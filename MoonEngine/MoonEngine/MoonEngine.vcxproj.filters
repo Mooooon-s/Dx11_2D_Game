@@ -204,9 +204,21 @@
     <ClInclude Include="MnInGameButton.h">
       <Filter>Contents\Button\InGameButton</Filter>
     </ClInclude>
-    <ClInclude Include="MnButtonFrameRender.h" />
-    <ClInclude Include="MnButtonPanel.h" />
-    <ClInclude Include="MnButtonFrame.h" />
+    <ClInclude Include="MnEggIcon.h">
+      <Filter>Contents\Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGuppyIcon.h">
+      <Filter>Contents\Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="MnButtonPanel.h">
+      <Filter>Contents\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="MnButtonFrameRender.h">
+      <Filter>Contents\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="MnButtonFrame.h">
+      <Filter>Contents\Button</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -408,9 +420,21 @@
     <ClCompile Include="MnInGameButton.cpp">
       <Filter>Contents\Button\InGameButton</Filter>
     </ClCompile>
-    <ClCompile Include="MnButtonFrameRender.cpp" />
-    <ClCompile Include="MnButtonPanel.cpp" />
-    <ClCompile Include="MnButtonFrame.cpp" />
+    <ClCompile Include="MnEggIcon.cpp">
+      <Filter>Contents\Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGuppyIcon.cpp">
+      <Filter>Contents\Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="MnButtonPanel.cpp">
+      <Filter>Contents\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="MnButtonFrameRender.cpp">
+      <Filter>Contents\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="MnButtonFrame.cpp">
+      <Filter>Contents\Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -592,6 +616,9 @@
     </Filter>
     <Filter Include="Contents\Button\InGameButton">
       <UniqueIdentifier>{b4977357-0433-41f7-a743-cabae1950faa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Icon">
+      <UniqueIdentifier>{26871126-e6e6-4986-8dd5-ff9479b66382}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

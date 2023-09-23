@@ -16,6 +16,7 @@ namespace Mn
 		: _Cam(nullptr)
 		, _Idx(1)
 		, _GameObjects{}
+		, _FoodLevel(1)
 	{
 		_Setting.reset();
 		_Setting.set((UINT)eLayerType::Coin, 1);
@@ -27,6 +28,7 @@ namespace Mn
 		: _Cam(cam)
 		, _Idx(1)
 		, _GameObjects{}
+		, _FoodLevel(1)
 	{
 		_Setting.reset();
 		_Setting.set((UINT)eLayerType::Coin, 1);
@@ -184,10 +186,15 @@ namespace Mn
 			float a = (0.0001 * _Idx) + 1;
 			Vector3 pos = Vector3(_UnProjectPos.x, _UnProjectPos.y, a);
 			Food* food = object::Instantiate<Food>(pos, eLayerType::Food);
+			food->FoodLevel(_FoodLevel);
 			food->Initialize();
 			_Idx += 1;
 			if (_Idx >= 100)
 				_Idx = 1;
 		}
+	}
+	void MousePosScript::FoodLevel()
+	{
+		_FoodLevel++;
 	}
 }

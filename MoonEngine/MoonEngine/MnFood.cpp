@@ -39,7 +39,21 @@ namespace Mn
 		at->Create(L"Level_2_Food", atlas, atlasAlpha, Vector2(0.0f, 40.0f), Vector2(40.0f, 40.f), 10, Vector2::Zero, 0.1);
 		at->Create(L"Level_3_Food", atlas, atlasAlpha, Vector2(0.0f, 80.0f), Vector2(40.0f, 40.f), 10, Vector2::Zero, 0.1);
 
-		at->PlayAnimation(L"Level_1_Food", true);
+		switch (_Level)
+		{
+		case 1:
+			at->PlayAnimation(L"Level_1_Food", true);
+			break;
+		case 2:
+			at->PlayAnimation(L"Level_2_Food", true);
+			break;
+		case 3:
+			at->PlayAnimation(L"Level_3_Food", true);
+			break;
+		default:
+			break;
+		}
+
 
 		FoodScript* foodscript = AddComponent<FoodScript>();
 		foodscript->Initialize();

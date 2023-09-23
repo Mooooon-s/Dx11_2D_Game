@@ -24,9 +24,11 @@ namespace Mn
 		void GatherObject();
 		GameObject* PrimaryObj();
 		void FeedFood();
+		void FoodLevel();
 	public:
 		void UICamera(GameObject* uicamera) { _Cam = uicamera; }
 	private:
+		UINT		_FoodLevel;
 		UINT		_Idx;
 		Vector3		_DotPos;
 		Vector3		_WinPos;

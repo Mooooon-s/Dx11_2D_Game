@@ -15,7 +15,7 @@ namespace Mn
 		void Render() override;
 		void OnClick() override;
 	public:
-
+		void FoodLevel(int level) { _Level = level; }
 	private:
 		int _Level;
 	};

@@ -19,6 +19,7 @@ namespace Mn
 		: _BlackBoard(nullptr)
 		, _Dir(enums::eDir::Right)
 		, _Flag(0)
+		, GFT(nullptr)
 	{
 	}
 	Move2Food::Move2Food(BlackBoard* board)

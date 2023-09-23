@@ -178,6 +178,7 @@
     <ClInclude Include="MnComeOut.h" />
     <ClInclude Include="MnDestroyFish.h" />
     <ClInclude Include="MnDropCoin.h" />
+    <ClInclude Include="MnEggIcon.h" />
     <ClInclude Include="MnEventManager.h" />
     <ClInclude Include="MnFindBoss.h" />
     <ClInclude Include="MnFindCoin.h" />
@@ -198,6 +199,7 @@
     <ClInclude Include="MnGuppyBehaviorTree.h" />
     <ClInclude Include="MnGuppyDeath.h" />
     <ClInclude Include="MnGuppyFoodTurn.h" />
+    <ClInclude Include="MnGuppyIcon.h" />
     <ClInclude Include="MnGuppyRenderScript.h" />
     <ClInclude Include="MnGuppyScript.h" />
     <ClInclude Include="MnGuppyTurn.h" />
@@ -238,6 +240,8 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnEggIcon.cpp" />
+    <ClCompile Include="MnGuppyIcon.cpp" />
     <ClCompile Include="MnButtonFrame.cpp" />
     <ClCompile Include="MnButtonPanel.cpp" />
     <ClCompile Include="MnButtonFrameRender.cpp" />

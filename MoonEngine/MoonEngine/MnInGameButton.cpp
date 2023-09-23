@@ -1,7 +1,9 @@
 #include "MnInGameButton.h"
 #include "MnButtonFrame.h"
 #include "MnButtonPanel.h"
+#include "MnGuppyIcon.h"
 #include "MnObject.h"
+#include "MnEggIcon.h"
 
 namespace Mn
 {
@@ -17,7 +19,13 @@ namespace Mn
 		Vector3 pos = tr->Position();
 		ButtonFrame* BF = object::Instantiate<ButtonFrame>(pos, eLayerType::UI);
 		pos.z += 0.01;
+		Icon(pos);
+		pos.z += 0.01;
 		ButtonPanel* BP = object::Instantiate<ButtonPanel>(pos, eLayerType::UI);
+		BP->SetIcon(_Icon);
+
+
+
 		BF->Initialize();
 		BP->Initialize();
 	}
@@ -38,5 +46,29 @@ namespace Mn
 	}
 	void InGameButton::MouseOn()
 	{
+	}
+	void InGameButton::Icon(Vector3 pos)
+	{
+		GameObject* icon= nullptr;
+		switch (_Icon)
+		{
+		case Mn::enums::eIcon::Guppy:
+			icon = CreateIcon<GuppyIcon>(pos);
+			icon->Initialize();
+			break;
+		case Mn::enums::eIcon::Food:
+
+			break;
+		case Mn::enums::eIcon::FoodCount:
+			break;
+		case Mn::enums::eIcon::Egg:
+			icon = CreateIcon<EggIcon>(pos);
+			icon->Initialize();
+			break;
+		case Mn::enums::eIcon::End:
+			break;
+		default:
+			break;
+		}
 	}
 }

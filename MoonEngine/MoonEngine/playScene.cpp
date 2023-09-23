@@ -54,8 +54,7 @@ Mn::playScene::~playScene()
 
 void Mn::playScene::Initialize()
 {
-	EventManager* eventmanager = object::Instantiate<EventManager>(eLayerType::UI);
-	eventmanager->Initialize();
+
 
 	std::shared_ptr<PaintShader> paintShader = Resources::Find<PaintShader>(L"PaintShader");
 	std::shared_ptr<Mn::graphics::Texture> paintTexture = Resources::Find<Mn::graphics::Texture>(L"PaintTexuture");
@@ -67,8 +66,8 @@ void Mn::playScene::Initialize()
 
 
 
-	Guppy* guppy = object::Instantiate<Guppy>(eLayerType::Fish);
-	guppy->Initialize();
+	//Guppy* guppy = object::Instantiate<Guppy>(eLayerType::Fish);
+	//guppy->Initialize();
 
 	Guppy* guppy2 = object::Instantiate<Guppy>(Vector3(1.5f,0.0f,0.01f),eLayerType::Fish);
 	guppy2->Initialize();
@@ -126,6 +125,10 @@ void Mn::playScene::Initialize()
 	Mouse* mouse = object::Instantiate<Mouse>(eLayerType::UI);
 	mouse->UICamera(camera);
 	mouse->Initialize();
+
+	EventManager* eventmanager = object::Instantiate<EventManager>(eLayerType::UI);
+	eventmanager->Initialize();
+
 
 }
 

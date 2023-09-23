@@ -17,6 +17,7 @@ namespace Mn
 		void Timer();
 		float Random();
 		void ButtonEvent(eIcon icon);
+		void FoodLevelUp();
 	private:
 		std::vector<float> _BarSlotCount;
 		float _Time;

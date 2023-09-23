@@ -5,6 +5,7 @@
 #include "MnTime.h"
 #include "MnWarp.h"
 #include "MnObject.h"
+#include "MnMouse.h"
 
 #include "MnGuppy.h"
 #include "MnInGameButton.h"
@@ -24,9 +25,14 @@ namespace Mn
 	{
 		_BarSlotCount.resize(7,0.000001f);
 
-		InGameButton* IGB = object::Instantiate<InGameButton>(Vector3(-2.035f, 1.56f, -0.001f), eLayerType::UI);
-		IGB->SetIcon(eIcon::Guppy);
-		IGB->Initialize();
+		InGameButton* IGBGuppy = object::Instantiate<InGameButton>(Vector3(-2.035f, 1.56f, -0.001f), eLayerType::UI);
+		IGBGuppy->SetIcon(eIcon::Guppy);
+		IGBGuppy->Initialize();
+
+		InGameButton* IGBEgg = object::Instantiate<InGameButton>(Vector3(1.085f, 1.56f, -0.001f), eLayerType::UI);
+		IGBEgg->SetIcon(eIcon::Egg);
+		IGBEgg->Initialize();
+
 	}
 	void EventManager::Update()
 	{
@@ -66,21 +72,39 @@ namespace Mn
 	void EventManager::ButtonEvent(eIcon icon)
 	{
 		float a = _BarSlotCount[(UINT)icon];
+		GameObject* button;
 		switch (icon)
 		{
 		case enums::eIcon::Guppy:
-			Guppy* guppy =
-				object::Instantiate<Guppy>(Vector3(Random(), 1.5f , a ),eLayerType::Fish);
-			guppy->Initialize();
+			button = object::Instantiate<Guppy>(Vector3(Random(), 1.5f , a ),eLayerType::Fish);
+			button->Initialize();
 			_BarSlotCount[(UINT)eIcon::Guppy] += 0.001f;
 			break;
-		//case enums::eIcon::Food:
-		//	break;
-		//case enums::eIcon::FoodCount:
-		//	break;
-		//case enums::eIcon::End:
-		//	break;
+		case enums::eIcon::Food:
+			FoodLevelUp();
+			break;
+		case enums::eIcon::FoodCount:
+			break;
+		case enums::eIcon::Egg:
+			break;
+		case enums::eIcon::End:
+			break;
 		}
+	}
+	void EventManager::FoodLevelUp()
+	{
+		Scene* scene = SceneManager::ActiveScene();
+		std::vector<GameObject*> UIobj = scene->GetLayer(eLayerType::UI).GetGameObjects();
+		Mouse* mouse = nullptr;
+		for (auto obj : UIobj)
+		{
+			if (dynamic_cast<Mouse*>(obj))
+			{
+				mouse = dynamic_cast<Mouse*>(obj);
+				break;
+			}
+		}
+		mouse->ScriptFoodLevel();
 	}
 	float EventManager::Random()
 	{
