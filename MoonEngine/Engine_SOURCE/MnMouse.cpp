@@ -38,4 +38,10 @@ namespace Mn
 		MousePosScript* MPS = GetComponent<MousePosScript>();
 		MPS->FoodLevel();
 	}
+	void Mouse::ScriptFoodCount()
+	{
+		MousePosScript* MPS = GetComponent<MousePosScript>();
+		if (MPS->GetFoodCount() < 5)
+			MPS->FoodCount();
+	}
 }

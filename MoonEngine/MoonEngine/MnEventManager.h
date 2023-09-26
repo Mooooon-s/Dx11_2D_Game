@@ -18,6 +18,8 @@ namespace Mn
 		float Random();
 		void ButtonEvent(eIcon icon);
 		void FoodLevelUp();
+		void FoodCountUp();
+		void EggEvent();
 	private:
 		std::vector<float> _BarSlotCount;
 		float _Time;

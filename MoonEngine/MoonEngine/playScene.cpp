@@ -36,6 +36,8 @@
 #include "MnEventManager.h"
 #include "MnInGameButton.h"
 
+#include "MnCaniboar.h"
+
 namespace Mn
 {
 	KdTree* kdTree = nullptr;
@@ -54,8 +56,6 @@ Mn::playScene::~playScene()
 
 void Mn::playScene::Initialize()
 {
-
-
 	std::shared_ptr<PaintShader> paintShader = Resources::Find<PaintShader>(L"PaintShader");
 	std::shared_ptr<Mn::graphics::Texture> paintTexture = Resources::Find<Mn::graphics::Texture>(L"PaintTexuture");
 	paintShader->SetTarget(paintTexture);
@@ -64,16 +64,14 @@ void Mn::playScene::Initialize()
 	kdTree = new KdTree(1);
 	GuppyTree = new KdTree(1);
 
-
-
-	//Guppy* guppy = object::Instantiate<Guppy>(eLayerType::Fish);
-	//guppy->Initialize();
-
 	Guppy* guppy2 = object::Instantiate<Guppy>(Vector3(1.5f,0.0f,0.01f),eLayerType::Fish);
 	guppy2->Initialize();
 
 	Guppy* guppy3 = object::Instantiate<Guppy>(Vector3(1.0f, 1.0f, 0.02f),eLayerType::Fish);
 	guppy3->Initialize();
+
+	Caniboar* cani = object::Instantiate<Caniboar>(Vector3(0.0f, 0.0f, 1.0f), eLayerType::Fish);
+	cani->Initialize();
 
 	Niko* niko = object::Instantiate<Niko>(Vector3(-1.4f,-0.4f,100.0f),eLayerType::Pet);
 	niko->Initialize();
@@ -128,7 +126,6 @@ void Mn::playScene::Initialize()
 
 	EventManager* eventmanager = object::Instantiate<EventManager>(eLayerType::UI);
 	eventmanager->Initialize();
-
 
 }
 

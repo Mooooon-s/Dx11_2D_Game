@@ -12,6 +12,7 @@ namespace Mn
 	public:
 		int RandomInt();
 		int Generate();
+		void AnimationPlay();
 		virtual enums::eBTState Run() override;
 	private:
 		float _Time;

@@ -79,6 +79,9 @@ namespace Mn
 		_BlackBoard->MakeData<eDir>(L"Dir");
 		_BlackBoard->SetData(L"Dir", dir);
 
+		_BlackBoard->MakeData<eFishType>(L"Fish_Type");
+		_BlackBoard->SetData(L"Fish_Type", eFishType::Guppy);
+
 		_BlackBoard->MakeData<double>(L"End");
 		_BlackBoard->SetData(L"End", 0.0f);
 

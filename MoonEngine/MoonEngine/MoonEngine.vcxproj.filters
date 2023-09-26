@@ -219,6 +219,16 @@
     <ClInclude Include="MnButtonFrame.h">
       <Filter>Contents\Button</Filter>
     </ClInclude>
+    <ClInclude Include="MnCaniboar.h">
+      <Filter>Contents\Fish\Caniboar</Filter>
+    </ClInclude>
+    <ClInclude Include="MnCaniboarRender.h">
+      <Filter>Contents\Scripts\Caniboare</Filter>
+    </ClInclude>
+    <ClInclude Include="MnCaniboarBehaviorTree.h">
+      <Filter>Contents\Scripts\Caniboare</Filter>
+    </ClInclude>
+    <ClInclude Include="MnCaniBoarAnimatonCntrl.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -435,6 +445,16 @@
     <ClCompile Include="MnButtonFrame.cpp">
       <Filter>Contents\Button</Filter>
     </ClCompile>
+    <ClCompile Include="MnCaniboar.cpp">
+      <Filter>Contents\Fish\Caniboar</Filter>
+    </ClCompile>
+    <ClCompile Include="MnCaniboarRender.cpp">
+      <Filter>Contents\Scripts\Caniboare</Filter>
+    </ClCompile>
+    <ClCompile Include="MnCaniboarBehaviorTree.cpp">
+      <Filter>Contents\Scripts\Caniboare</Filter>
+    </ClCompile>
+    <ClCompile Include="MnCaniBoarAnimatonCntrl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -619,6 +639,12 @@
     </Filter>
     <Filter Include="Contents\Icon">
       <UniqueIdentifier>{26871126-e6e6-4986-8dd5-ff9479b66382}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Fish\Caniboar">
+      <UniqueIdentifier>{c4028ea4-4449-4c65-a990-4435114532e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Caniboare">
+      <UniqueIdentifier>{fcc995a2-268c-4ebe-9bfb-37e7a81e6258}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

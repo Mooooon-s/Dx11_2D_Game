@@ -126,4 +126,20 @@ namespace Mn::enums
 		Egg,
 		End,
 	};
+
+	enum class eEggType
+	{
+		Stage1,
+		Stage2,
+		Stage3,
+		Stage4,
+		End,
+	};
+
+	enum class eFishType
+	{
+		Guppy,
+		CaniBoar,
+		End,
+	};
 }

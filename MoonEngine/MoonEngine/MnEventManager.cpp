@@ -84,6 +84,7 @@ namespace Mn
 			FoodLevelUp();
 			break;
 		case enums::eIcon::FoodCount:
+			FoodCountUp();
 			break;
 		case enums::eIcon::Egg:
 			break;
@@ -105,6 +106,24 @@ namespace Mn
 			}
 		}
 		mouse->ScriptFoodLevel();
+	}
+	void EventManager::FoodCountUp()
+	{
+		Scene* scene = SceneManager::ActiveScene();
+		std::vector<GameObject*> UIobj = scene->GetLayer(eLayerType::UI).GetGameObjects();
+		Mouse* mouse = nullptr;
+		for (auto obj : UIobj)
+		{
+			if (dynamic_cast<Mouse*>(obj))
+			{
+				mouse = dynamic_cast<Mouse*>(obj);
+				break;
+			}
+		}
+		mouse->ScriptFoodCount();
+	}
+	void EventManager::EggEvent()
+	{
 	}
 	float EventManager::Random()
 	{

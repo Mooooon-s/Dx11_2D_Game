@@ -17,6 +17,7 @@ namespace Mn
 		, _Idx(1)
 		, _GameObjects{}
 		, _FoodLevel(1)
+		, _FoodCount(3)
 	{
 		_Setting.reset();
 		_Setting.set((UINT)eLayerType::Coin, 1);
@@ -29,6 +30,7 @@ namespace Mn
 		, _Idx(1)
 		, _GameObjects{}
 		, _FoodLevel(1)
+		, _FoodCount(3)
 	{
 		_Setting.reset();
 		_Setting.set((UINT)eLayerType::Coin, 1);
@@ -180,6 +182,8 @@ namespace Mn
 	}
 	void MousePosScript::FeedFood()
 	{
+		if (!MaxFood())
+			return;
 		if (_UnProjectPos.x > -2.0f && _UnProjectPos.x < 2.0f
 			&& _UnProjectPos.y > -1.5f && _UnProjectPos.y < 1.0f)
 		{
@@ -196,5 +200,19 @@ namespace Mn
 	void MousePosScript::FoodLevel()
 	{
 		_FoodLevel++;
+	}
+	void MousePosScript::FoodCount()
+	{
+		if (_FoodCount < 5)
+			_FoodCount++;
+	}
+	bool MousePosScript::MaxFood()
+	{
+		Scene* scene = SceneManager::ActiveScene();
+		std::vector<GameObject*> food = scene->GetLayer(eLayerType::Food).GetGameObjects();
+		if (food.size() < _FoodCount)
+			return true;
+		else
+			return false;
 	}
 }

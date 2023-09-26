@@ -18,6 +18,7 @@ namespace Mn
 		void UICamera(GameObject* cam) { _Cam = cam; }
 	public:
 		void ScriptFoodLevel();
+		void ScriptFoodCount();
 	private:
 		GameObject* _Cam;
 	};

@@ -173,6 +173,10 @@
     <ClInclude Include="MnButtonFrame.h" />
     <ClInclude Include="MnButtonFrameRender.h" />
     <ClInclude Include="MnButtonPanel.h" />
+    <ClInclude Include="MnCaniboar.h" />
+    <ClInclude Include="MnCaniBoarAnimatonCntrl.h" />
+    <ClInclude Include="MnCaniboarBehaviorTree.h" />
+    <ClInclude Include="MnCaniboarRender.h" />
     <ClInclude Include="MnCoin.h" />
     <ClInclude Include="MnCoinRender.h" />
     <ClInclude Include="MnComeOut.h" />
@@ -240,6 +244,10 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnCaniBoarAnimatonCntrl.cpp" />
+    <ClCompile Include="MnCaniboarBehaviorTree.cpp" />
+    <ClCompile Include="MnCaniboarRender.cpp" />
+    <ClCompile Include="MnCaniboar.cpp" />
     <ClCompile Include="MnEggIcon.cpp" />
     <ClCompile Include="MnGuppyIcon.cpp" />
     <ClCompile Include="MnButtonFrame.cpp" />

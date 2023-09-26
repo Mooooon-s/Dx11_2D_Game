@@ -4,6 +4,7 @@
 #include <random>
 #include "MnTime.h"
 #include "MnPlayAnimaion.h"
+#include "MnCaniBoarAnimatonCntrl.h"
 
 namespace Mn
 {
@@ -28,6 +29,25 @@ namespace Mn
 		int y = RandomInt();
 		return (x&y);
 	}
+	void IsTurn::AnimationPlay()
+	{
+		eFishType type = _BlackBoard->GetDataValue<eFishType>(L"Fish_Type");
+		PlayAnimaion* anima; 
+		switch (type)
+		{
+		case Mn::enums::eFishType::Guppy:
+			anima = new PlayAnimaion(_BlackBoard);
+			anima->Run();
+			break;
+		case Mn::enums::eFishType::CaniBoar:
+			_BlackBoard->GetData<CaniBoarAnimatonCntrl>(L"AnimaCntrl")->Run();
+			break;
+		case Mn::enums::eFishType::End:
+			break;
+		default:
+			break;
+		}
+	}
 	enums::eBTState IsTurn::Run()
 	{
 		//최소 3초간은 방향전환을 하지 않음
@@ -50,8 +70,7 @@ namespace Mn
 		if (randomValue <= 0.15) {
 			_Time = _BlackBoard->GetDataValue<float>(L"Timer");
 			_BlackBoard->SetData(L"Behavior", enums::eBehavior::Turn);
-			PlayAnimaion* anima = new PlayAnimaion(_BlackBoard);
-			anima->Run();
+			AnimationPlay();
 			return enums::eBTState::SUCCESS;
 		}
 		else {

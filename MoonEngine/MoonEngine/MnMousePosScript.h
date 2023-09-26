@@ -25,10 +25,14 @@ namespace Mn
 		GameObject* PrimaryObj();
 		void FeedFood();
 		void FoodLevel();
+		void FoodCount();
+		bool MaxFood();
 	public:
 		void UICamera(GameObject* uicamera) { _Cam = uicamera; }
+		UINT GetFoodCount() { return _FoodCount; }
 	private:
 		UINT		_FoodLevel;
+		UINT		_FoodCount;
 		UINT		_Idx;
 		Vector3		_DotPos;
 		Vector3		_WinPos;
