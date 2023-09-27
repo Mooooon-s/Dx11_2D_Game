@@ -210,4 +210,8 @@ namespace Mn
 	{
 		_Root->Run();
 	}
+	UINT GuppyBehaviorTree::GetGuppyLevel()
+	{
+		return _BlackBoard->GetDataValue<UINT>(L"Level");
+	}
 }

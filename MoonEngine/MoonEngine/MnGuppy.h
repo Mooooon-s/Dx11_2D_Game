@@ -1,5 +1,6 @@
 #pragma once
 #include "MnFish.h"
+#include "MnGuppyBehaviorTree.h"
 
 namespace Mn
 {
@@ -17,7 +18,10 @@ namespace Mn
 
 		void SetFishState(eFishState state) { Mn::Fish::SetFishState(state); }
 		eFishState GetFishState() { return Mn::Fish::GetFishState(); }
+
+		UINT FishLevel();
 	private:
+		GuppyBehaviorTree* _GBT;
 		int _Flag;
 	};
 

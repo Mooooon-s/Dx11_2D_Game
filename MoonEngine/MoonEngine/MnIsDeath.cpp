@@ -6,6 +6,7 @@ namespace Mn
 {
 	IsDeath::IsDeath()
 		: _BlackBoard(nullptr)
+		, _Flag(0)
 	{
 	}
 	IsDeath::IsDeath(BlackBoard* board)
@@ -18,7 +19,6 @@ namespace Mn
 	}
 	enums::eBTState IsDeath::Run()
 	{
-
 		if (_Flag)
 		{
 			_BlackBoard->SetRunningNode<IsDeath>(this);
@@ -52,8 +52,6 @@ namespace Mn
 			_BlackBoard->GetData<CaniBoarAnimatonCntrl>(L"AnimaCntrl")->Run();
 			break;
 		case Mn::enums::eFishType::End:
-			break;
-		default:
 			break;
 		}
 	}

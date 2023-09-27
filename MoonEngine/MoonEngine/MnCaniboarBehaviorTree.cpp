@@ -7,6 +7,8 @@
 #include "MnInverter.h"
 #include "MnSucceeder.h"
 
+#include "MnFindSmallGuppy.h"
+
 #include "MnMeshRenderer.h"
 #include "MnGameObject.h"
 #include "MnCaniBoarAnimatonCntrl.h"
@@ -19,6 +21,8 @@
 #include "MnHungryCheck.h"
 
 #include "MnIsDeath.h"
+
+#include "MnRepeatUntilFail.h"
 
 namespace Mn
 {
@@ -64,11 +68,18 @@ namespace Mn
 		IsDeath* isDeath = rootSelector->AddChild<IsDeath>();
 		Sequence* sequence = rootSelector->AddChild<Sequence>();
 
+		
 
 		//Hungry
-		Sequence* HungrySequence = sequence->AddChild<Sequence>();
+		Succeeder* hungrySucceder = sequence->AddChild<Succeeder>();
+		Sequence* HungrySequence = hungrySucceder->SetChild<Sequence>();
 		HungryStack* hungryStack = HungrySequence->AddChild<HungryStack>();
 		HungryCheck* hungryCheck = HungrySequence->AddChild<HungryCheck>();
+
+		//Find Food
+		RepeatUntilFail* FindFoodUntilFail = HungrySequence->AddChild<RepeatUntilFail>();
+		Sequence* findSmallGuppySequence = FindFoodUntilFail->SetChild<Sequence>();
+		FindSmallGuppy* FSG = findSmallGuppySequence->AddChild<FindSmallGuppy>();
 
 		Sequence* swimSequence = sequence->AddChild<Sequence>();
 

@@ -10,8 +10,6 @@
 #include "MnGuppyRenderScript.h"
 #include "MnGuppyAnimationCntrl.h"
 
-#include "MnGuppyBehaviorTree.h"
-
 #include "MnTime.h"
 
 namespace Mn
@@ -33,7 +31,7 @@ namespace Mn
 
 		GuppyRender* GR = AddComponent<GuppyRender>();
 
-		GuppyBehaviorTree* GBT = AddComponent<GuppyBehaviorTree>();
+		_GBT = AddComponent<GuppyBehaviorTree>();
 
 		GameObject::Initialize();
 	}
@@ -60,5 +58,9 @@ namespace Mn
 	void Guppy::Render()
 	{
 		GameObject::Render();
+	}
+	UINT Guppy::FishLevel()
+	{
+		return _GBT->GetGuppyLevel();
 	}
 }

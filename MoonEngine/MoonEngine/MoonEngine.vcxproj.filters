@@ -234,9 +234,16 @@
     <ClInclude Include="MnHungryCheck.h">
       <Filter>Contents\LeafNode\Guppy\IsHungry</Filter>
     </ClInclude>
-    <ClInclude Include="MnHungryStack.h" />
-    <ClInclude Include="MnIsDeath.h" />
-    <ClInclude Include="MnFishTurn.h" />
+    <ClInclude Include="MnFishTurn.h">
+      <Filter>Contents\LeafNode\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="MnIsDeath.h">
+      <Filter>Contents\LeafNode\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="MnHungryStack.h">
+      <Filter>Contents\LeafNode\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="MnFindSmallGuppy.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -468,9 +475,16 @@
     <ClCompile Include="MnHungryCheck.cpp">
       <Filter>Contents\LeafNode\Guppy\IsHungry</Filter>
     </ClCompile>
-    <ClCompile Include="MnHungryStack.cpp" />
-    <ClCompile Include="MnIsDeath.cpp" />
-    <ClCompile Include="MnFishTurn.cpp" />
+    <ClCompile Include="MnFishTurn.cpp">
+      <Filter>Contents\LeafNode\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="MnIsDeath.cpp">
+      <Filter>Contents\LeafNode\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="MnHungryStack.cpp">
+      <Filter>Contents\LeafNode\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="MnFindSmallGuppy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">

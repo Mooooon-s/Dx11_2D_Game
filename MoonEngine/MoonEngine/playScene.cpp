@@ -141,7 +141,7 @@ void Mn::playScene::Update()
 
 	for (auto guppy : scene->GetLayer(eLayerType::Fish).GetGameObjects())
 	{
-		if (guppy->State() == GameObject::eState::Active)
+		if (guppy->State() == GameObject::eState::Active && dynamic_cast<Guppy*>(guppy)!=nullptr)
 			_GuppyObjs.push_back(guppy);
 	}
 	GuppyTree->BuildTree(_GuppyObjs);

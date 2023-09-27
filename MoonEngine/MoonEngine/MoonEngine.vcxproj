@@ -187,6 +187,7 @@
     <ClInclude Include="MnFindBoss.h" />
     <ClInclude Include="MnFindCoin.h" />
     <ClInclude Include="MnFindFish.h" />
+    <ClInclude Include="MnFindSmallGuppy.h" />
     <ClInclude Include="MnFishTurn.h" />
     <ClInclude Include="MnFoodScript.h" />
     <ClInclude Include="framework.h" />
@@ -248,6 +249,7 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnFindSmallGuppy.cpp" />
     <ClCompile Include="MnFishTurn.cpp" />
     <ClCompile Include="MnIsDeath.cpp" />
     <ClCompile Include="MnHungryStack.cpp" />
