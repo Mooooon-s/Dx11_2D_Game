@@ -11,9 +11,14 @@
 #include "MnGameObject.h"
 #include "MnCaniBoarAnimatonCntrl.h"
 #include "MnIsTurn.h"
+#include "MnFishTurn.h"
 
 #include "MnMove.h"
 
+#include "MnHungryStack.h"
+#include "MnHungryCheck.h"
+
+#include "MnIsDeath.h"
 
 namespace Mn
 {
@@ -48,13 +53,33 @@ namespace Mn
 		_BlackBoard->MakeData<eBehavior>(L"Behavior");
 		_BlackBoard->SetData(L"Behavior", eBehavior::Swim);
 
+		_BlackBoard->MakeData<int>(L"HungryStack");
+		_BlackBoard->SetData(L"HungryStack", 5);
+
+
 		_Root = new RootNode(_BlackBoard.get());
 		Selector* rootSelector = _Root->setChild<Selector>();
-		
-		
-		Sequence* swimSequence = rootSelector->AddChild<Sequence>();
+
+		//Sequence* deathSequence = rootSelector->AddChild<Sequence>();
+		IsDeath* isDeath = rootSelector->AddChild<IsDeath>();
+		Sequence* sequence = rootSelector->AddChild<Sequence>();
+
+
+		//Hungry
+		Sequence* HungrySequence = sequence->AddChild<Sequence>();
+		HungryStack* hungryStack = HungrySequence->AddChild<HungryStack>();
+		HungryCheck* hungryCheck = HungrySequence->AddChild<HungryCheck>();
+
+		Sequence* swimSequence = sequence->AddChild<Sequence>();
+
+		//turn
 		Succeeder* turnSucceder = swimSequence->AddChild<Succeeder>();
-		IsTurn* isturn = turnSucceder->SetChild<IsTurn>();
+		Sequence* turnSequence = turnSucceder->SetChild<Sequence>();
+		IsTurn* isturn = turnSequence->AddChild<IsTurn>();
+		FishTurn* fishTurn = turnSequence->AddChild<FishTurn>();
+		
+		//move
+		CaniBoarAnimatonCntrl* anima = swimSequence->AddChild<CaniBoarAnimatonCntrl>();
 		Move* swim = swimSequence->AddChild<Move>();
 
 		_Root->SetTimer();

@@ -64,6 +64,9 @@ namespace Mn
 		at->CompleteEvent(L"Caniboar_Turn_Reverse") = std::bind(&CaniboarRender::AfterSwim, this);
 		at->CompleteEvent(L"Caniboar_Hungry_Turn") = std::bind(&CaniboarRender::AfterSwim, this);
 		at->CompleteEvent(L"Caniboar_Hungry_Turn_Reverse") = std::bind(&CaniboarRender::AfterSwim, this);
+
+		at->CompleteEvent(L"Caniboar_Death") = std::bind(&CaniboarRender::AfterDeath, this);
+		at->CompleteEvent(L"Caniboar_Death_Reverse") = std::bind(&CaniboarRender::AfterDeath, this);
 	}
 	void CaniboarRender::Update()
 	{
@@ -76,7 +79,11 @@ namespace Mn
 	}
 	void CaniboarRender::AfterSwim()
 	{
-		Animator* at = GetOwner()->GetComponent<Animator>();
-		at->PlayAnimation(L"Caniboar_Swim", true);
+		//Animator* at = GetOwner()->GetComponent<Animator>();
+		//at->PlayAnimation(L"Caniboar_Swim", true);
+	}
+	void CaniboarRender::AfterDeath()
+	{
+		GetOwner()->State(GameObject::eState::Dead);
 	}
 }

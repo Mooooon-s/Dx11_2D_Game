@@ -187,6 +187,7 @@
     <ClInclude Include="MnFindBoss.h" />
     <ClInclude Include="MnFindCoin.h" />
     <ClInclude Include="MnFindFish.h" />
+    <ClInclude Include="MnFishTurn.h" />
     <ClInclude Include="MnFoodScript.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="LoadScene.h" />
@@ -209,7 +210,10 @@
     <ClInclude Include="MnGuppyTurn.h" />
     <ClInclude Include="MnHpBar.h" />
     <ClInclude Include="MnHpFrame.h" />
+    <ClInclude Include="MnHungryCheck.h" />
+    <ClInclude Include="MnHungryStack.h" />
     <ClInclude Include="MnInGameButton.h" />
+    <ClInclude Include="MnIsDeath.h" />
     <ClInclude Include="MnIsHungry.h" />
     <ClInclude Include="MnIsTurn.h" />
     <ClInclude Include="MnMenuBG.h" />
@@ -244,6 +248,10 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnFishTurn.cpp" />
+    <ClCompile Include="MnIsDeath.cpp" />
+    <ClCompile Include="MnHungryStack.cpp" />
+    <ClCompile Include="MnHungryCheck.cpp" />
     <ClCompile Include="MnCaniBoarAnimatonCntrl.cpp" />
     <ClCompile Include="MnCaniboarBehaviorTree.cpp" />
     <ClCompile Include="MnCaniboarRender.cpp" />

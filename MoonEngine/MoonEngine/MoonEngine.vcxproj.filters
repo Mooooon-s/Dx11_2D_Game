@@ -228,7 +228,15 @@
     <ClInclude Include="MnCaniboarBehaviorTree.h">
       <Filter>Contents\Scripts\Caniboare</Filter>
     </ClInclude>
-    <ClInclude Include="MnCaniBoarAnimatonCntrl.h" />
+    <ClInclude Include="MnCaniBoarAnimatonCntrl.h">
+      <Filter>Contents\Scripts\Caniboare</Filter>
+    </ClInclude>
+    <ClInclude Include="MnHungryCheck.h">
+      <Filter>Contents\LeafNode\Guppy\IsHungry</Filter>
+    </ClInclude>
+    <ClInclude Include="MnHungryStack.h" />
+    <ClInclude Include="MnIsDeath.h" />
+    <ClInclude Include="MnFishTurn.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -454,7 +462,15 @@
     <ClCompile Include="MnCaniboarBehaviorTree.cpp">
       <Filter>Contents\Scripts\Caniboare</Filter>
     </ClCompile>
-    <ClCompile Include="MnCaniBoarAnimatonCntrl.cpp" />
+    <ClCompile Include="MnCaniBoarAnimatonCntrl.cpp">
+      <Filter>Contents\Scripts\Caniboare</Filter>
+    </ClCompile>
+    <ClCompile Include="MnHungryCheck.cpp">
+      <Filter>Contents\LeafNode\Guppy\IsHungry</Filter>
+    </ClCompile>
+    <ClCompile Include="MnHungryStack.cpp" />
+    <ClCompile Include="MnIsDeath.cpp" />
+    <ClCompile Include="MnFishTurn.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">

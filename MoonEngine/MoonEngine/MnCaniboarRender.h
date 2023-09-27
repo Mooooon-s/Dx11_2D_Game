@@ -15,6 +15,7 @@ namespace Mn
 		void Render() override;
 
 		void AfterSwim();
+		void AfterDeath();
 	private:
 
 	};
