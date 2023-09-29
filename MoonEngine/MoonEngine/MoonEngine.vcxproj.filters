@@ -244,6 +244,7 @@
       <Filter>Contents\LeafNode\Common</Filter>
     </ClInclude>
     <ClInclude Include="MnFindSmallGuppy.h" />
+    <ClInclude Include="MnMove2Guppy.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -485,6 +486,7 @@
       <Filter>Contents\LeafNode\Common</Filter>
     </ClCompile>
     <ClCompile Include="MnFindSmallGuppy.cpp" />
+    <ClCompile Include="MnMove2Guppy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">

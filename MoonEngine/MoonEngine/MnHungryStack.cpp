@@ -1,4 +1,5 @@
 #include "MnHungryStack.h"
+#include "MnGameObject.h"
 
 namespace Mn
 {
@@ -16,8 +17,8 @@ namespace Mn
 	enums::eBTState HungryStack::Run()
 	{
 		float time = _BlackBoard->GetDataValue<float>(L"Timer");
-
-		if ((int)time % 3 == 0 && (int)time != 0)
+		UINT flag = _BlackBoard->GetDataValue<UINT>(L"StackFlag");
+		if ((int)time % 3 == 0 && (int)time != 0 && flag)
 		{
 			int hungrystack = _BlackBoard->GetDataValue<int>(L"HungryStack");
 			hungrystack -= 1;

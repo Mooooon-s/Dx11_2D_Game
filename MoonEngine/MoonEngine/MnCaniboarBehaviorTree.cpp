@@ -19,6 +19,8 @@
 
 #include "MnHungryStack.h"
 #include "MnHungryCheck.h"
+#include "MnMove2Guppy.h"
+
 
 #include "MnIsDeath.h"
 
@@ -60,6 +62,12 @@ namespace Mn
 		_BlackBoard->MakeData<int>(L"HungryStack");
 		_BlackBoard->SetData(L"HungryStack", 5);
 
+		_BlackBoard->MakeData<Vector3>(L"MoveVector");
+		_BlackBoard->SetData(L"MoveVector", Vector3::Zero);
+
+		_BlackBoard->MakeData<UINT>(L"StackFlag");
+		_BlackBoard->SetData(L"StackFlag", 1);
+
 
 		_Root = new RootNode(_BlackBoard.get());
 		Selector* rootSelector = _Root->setChild<Selector>();
@@ -73,6 +81,8 @@ namespace Mn
 		//Hungry
 		Succeeder* hungrySucceder = sequence->AddChild<Succeeder>();
 		Sequence* HungrySequence = hungrySucceder->SetChild<Sequence>();
+
+
 		HungryStack* hungryStack = HungrySequence->AddChild<HungryStack>();
 		HungryCheck* hungryCheck = HungrySequence->AddChild<HungryCheck>();
 
@@ -80,6 +90,7 @@ namespace Mn
 		RepeatUntilFail* FindFoodUntilFail = HungrySequence->AddChild<RepeatUntilFail>();
 		Sequence* findSmallGuppySequence = FindFoodUntilFail->SetChild<Sequence>();
 		FindSmallGuppy* FSG = findSmallGuppySequence->AddChild<FindSmallGuppy>();
+		Move2Guppy* M2G = findSmallGuppySequence->AddChild<Move2Guppy>();
 
 		Sequence* swimSequence = sequence->AddChild<Sequence>();
 
@@ -92,6 +103,8 @@ namespace Mn
 		//move
 		CaniBoarAnimatonCntrl* anima = swimSequence->AddChild<CaniBoarAnimatonCntrl>();
 		Move* swim = swimSequence->AddChild<Move>();
+
+		_BlackBoard->AddData<FindSmallGuppy>(L"FindGuppyNode", FSG);
 
 		_Root->SetTimer();
 	}
@@ -113,6 +126,15 @@ namespace Mn
 	}
 	void CaniboarBehaviorTree::OnCollisionEnter(Collider2D* other)
 	{
+		eFishState hungrystate = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
+		if (hungrystate != eFishState::Full && other->GetOwner()->GetName() == L"Guppy")
+		{
+			_BlackBoard->SetData(L"Behavior", enums::eBehavior::Eat);
+			_BlackBoard->SetData(L"HungryStack", 5);
+			_BlackBoard->SetData(L"Fish_State", eFishState::Full);
+			_BlackBoard->ResetRunningNode();
+			other->GetOwner()->OnClick();
+		}
 	}
 	void CaniboarBehaviorTree::OnCollisionStay(Collider2D* other)
 	{

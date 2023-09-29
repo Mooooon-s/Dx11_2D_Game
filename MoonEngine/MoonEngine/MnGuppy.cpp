@@ -59,6 +59,10 @@ namespace Mn
 	{
 		GameObject::Render();
 	}
+	void Guppy::OnClick()
+	{
+		this->State(GameObject::eState::Dead);
+	}
 	UINT Guppy::FishLevel()
 	{
 		return _GBT->GetGuppyLevel();

@@ -16,6 +16,10 @@ namespace Mn
 		Transform* tr = GetComponent<Transform>();
 		tr->Scale(Vector3(0.5, 0.5, 0.0f));
 		SetName(L"CaniBoar");
+
+		Collider2D* col = AddComponent<Collider2D>();
+		col->SetSize(Vector2(0.25f, 0.25f));
+
 		CaniboarRender* CR = AddComponent<CaniboarRender>();
 
 		CaniboarBehaviorTree* CBT = AddComponent<CaniboarBehaviorTree>();

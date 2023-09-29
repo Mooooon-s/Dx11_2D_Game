@@ -20,7 +20,7 @@ namespace Mn
 		if (hungrystack > 0)
 		{
 			_BlackBoard->SetData(L"Fish_State", eFishState::Full);
-			return enums::eBTState::SUCCESS;
+			return enums::eBTState::FAILURE;
 		}
 		else if (hungrystack < 0 && hungrystack > -5)
 		{

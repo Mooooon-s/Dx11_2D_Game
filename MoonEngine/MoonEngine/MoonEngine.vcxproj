@@ -245,6 +245,7 @@
     <ClInclude Include="MnWarp.h" />
     <ClInclude Include="MnWarpHole.h" />
     <ClInclude Include="MnWarpRenderScript.h" />
+    <ClInclude Include="MnMove2Guppy.h" />
     <ClInclude Include="playScene.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
@@ -320,6 +321,7 @@
     <ClCompile Include="MnPearlScript.cpp" />
     <ClCompile Include="MnMove2Coin.cpp" />
     <ClCompile Include="MnMove2Fish.cpp" />
+    <ClCompile Include="MnMove2Guppy.cpp" />
     <ClCompile Include="playScene.cpp" />
     <ClCompile Include="MnStinky.cpp" />
     <ClCompile Include="MnStinkyScript.cpp" />

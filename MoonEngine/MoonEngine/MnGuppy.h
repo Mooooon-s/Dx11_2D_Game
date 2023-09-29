@@ -16,6 +16,8 @@ namespace Mn
 		void LateUpdate() override;
 		void Render() override;
 
+		void OnClick() override;
+
 		void SetFishState(eFishState state) { Mn::Fish::SetFishState(state); }
 		eFishState GetFishState() { return Mn::Fish::GetFishState(); }
 

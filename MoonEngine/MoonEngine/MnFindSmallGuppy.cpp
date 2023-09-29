@@ -17,6 +17,11 @@ namespace Mn
 	}
 	enums::eBTState FindSmallGuppy::Run()
 	{
+		eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
+
+		if(state == eFishState::Full)
+			return enums::eBTState::FAILURE;
+
 		Scene* scene =SceneManager::ActiveScene();
 
 		GameObject* owner = _BlackBoard->GetData<GameObject>(L"Owner");
@@ -27,7 +32,16 @@ namespace Mn
 			{
 				Guppy* g = dynamic_cast<Guppy*>(f);
 				if (g->FishLevel() == 1)
+				{
+					Transform* tr = owner->GetComponent<Transform>();
+					Vector3 pos = tr->Position();
+					Transform* gtr = g->GetComponent<Transform>();
+					Vector3 gPos = gtr->Position();
+
+					Vector3 MoveVec = gPos - pos;
+					_BlackBoard->SetData(L"MoveVector", MoveVec);
 					return enums::eBTState::SUCCESS;
+				}
 			}
 		}
 		return enums::eBTState::FAILURE;
