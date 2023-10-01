@@ -4,16 +4,15 @@
 
 namespace Mn
 {
-	class HungryStack : public Node
+	class Turn2Food : public Node
 	{
 	public:
-		HungryStack();
-		HungryStack(BlackBoard* board);
-		~HungryStack();
+		Turn2Food();
+		Turn2Food(BlackBoard* board);
+		~Turn2Food();
 
 		enums::eBTState Run() override;
 	private:
 		BlackBoard* _BlackBoard;
-		float		_Time;
 	};
 }

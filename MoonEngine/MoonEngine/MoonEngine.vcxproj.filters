@@ -245,6 +245,7 @@
     </ClInclude>
     <ClInclude Include="MnFindSmallGuppy.h" />
     <ClInclude Include="MnMove2Guppy.h" />
+    <ClInclude Include="MnTurn2Food.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -487,6 +488,7 @@
     </ClCompile>
     <ClCompile Include="MnFindSmallGuppy.cpp" />
     <ClCompile Include="MnMove2Guppy.cpp" />
+    <ClCompile Include="MnTurn2Food.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">

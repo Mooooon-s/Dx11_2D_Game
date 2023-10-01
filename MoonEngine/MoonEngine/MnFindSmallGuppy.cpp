@@ -2,6 +2,9 @@
 #include "MnSceneManager.h"
 #include "MnGuppy.h"
 
+#include "MnAnimator.h"
+#include "MnCaniBoarAnimatonCntrl.h"
+
 namespace Mn
 {
 	FindSmallGuppy::FindSmallGuppy()
@@ -25,6 +28,18 @@ namespace Mn
 		Scene* scene =SceneManager::ActiveScene();
 
 		GameObject* owner = _BlackBoard->GetData<GameObject>(L"Owner");
+
+		Animator* at = owner->GetComponent<Animator>();
+		eBehavior behavior = _BlackBoard->GetDataValue<eBehavior>(L"Behavior");
+		
+		if (at->AnimationComplete() && behavior == eBehavior::Turn)
+		{
+			eDir dir = _BlackBoard->GetDataValue<eDir>(L"Dir");
+
+			_BlackBoard->SetData(L"Behavior", eBehavior::Swim);
+			_BlackBoard->GetData<CaniBoarAnimatonCntrl>(L"AnimaCntrl")->Run();
+		}
+
 		std::vector<GameObject*> fish = scene->GetLayer(eLayerType::Fish).GetGameObjects();
 		for (auto f : fish)
 		{

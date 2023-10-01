@@ -60,10 +60,8 @@ namespace Mn
 
 		at->PlayAnimation(L"Caniboar_Swim", true);
 
-		at->CompleteEvent(L"Caniboar_Turn") = std::bind(&CaniboarRender::AfterSwim, this);
-		at->CompleteEvent(L"Caniboar_Turn_Reverse") = std::bind(&CaniboarRender::AfterSwim, this);
-		at->CompleteEvent(L"Caniboar_Hungry_Turn") = std::bind(&CaniboarRender::AfterSwim, this);
-		at->CompleteEvent(L"Caniboar_Hungry_Turn_Reverse") = std::bind(&CaniboarRender::AfterSwim, this);
+		at->CompleteEvent(L"Caniboar_Hungry_Eat") = std::bind(&CaniboarRender::AfterEat, this);
+		at->CompleteEvent(L"Caniboar_Eat") = std::bind(&CaniboarRender::AfterEat, this);
 
 		at->CompleteEvent(L"Caniboar_Death") = std::bind(&CaniboarRender::AfterDeath, this);
 		at->CompleteEvent(L"Caniboar_Death_Reverse") = std::bind(&CaniboarRender::AfterDeath, this);
@@ -77,10 +75,10 @@ namespace Mn
 	void CaniboarRender::Render()
 	{
 	}
-	void CaniboarRender::AfterSwim()
+	void CaniboarRender::AfterEat()
 	{
-		//Animator* at = GetOwner()->GetComponent<Animator>();
-		//at->PlayAnimation(L"Caniboar_Swim", true);
+		Animator* at = GetOwner()->GetComponent<Animator>();
+		at->PlayAnimation(L"Caniboar_Swim", true);
 	}
 	void CaniboarRender::AfterDeath()
 	{

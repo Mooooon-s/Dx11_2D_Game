@@ -14,7 +14,7 @@ namespace Mn
 		void LateUpdate() override;
 		void Render() override;
 
-		void AfterSwim();
+		void AfterEat();
 		void AfterDeath();
 	private:
 

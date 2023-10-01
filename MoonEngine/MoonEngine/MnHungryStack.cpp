@@ -5,10 +5,12 @@ namespace Mn
 {
 	HungryStack::HungryStack()
 		: _BlackBoard(nullptr)
+		, _Time(0.0f)
 	{
 	}
 	HungryStack::HungryStack(BlackBoard* board)
 		: _BlackBoard(board)
+		, _Time(0.0f)
 	{
 	}
 	HungryStack::~HungryStack()
@@ -18,11 +20,15 @@ namespace Mn
 	{
 		float time = _BlackBoard->GetDataValue<float>(L"Timer");
 		UINT flag = _BlackBoard->GetDataValue<UINT>(L"StackFlag");
-		if ((int)time % 3 == 0 && (int)time != 0 && flag)
+
+		float afterTime = time - _Time;
+
+		if ((int)afterTime % 3 == 0 && (int)afterTime != 0)
 		{
 			int hungrystack = _BlackBoard->GetDataValue<int>(L"HungryStack");
 			hungrystack -= 1;
 			_BlackBoard->SetData(L"HungryStack", hungrystack);
+			_Time = time;
 		}
 		return enums::eBTState::SUCCESS;
 	}

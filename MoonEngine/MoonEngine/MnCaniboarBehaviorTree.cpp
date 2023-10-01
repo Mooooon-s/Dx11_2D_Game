@@ -19,6 +19,7 @@
 
 #include "MnHungryStack.h"
 #include "MnHungryCheck.h"
+#include "MnTurn2Food.h"
 #include "MnMove2Guppy.h"
 
 
@@ -90,6 +91,7 @@ namespace Mn
 		RepeatUntilFail* FindFoodUntilFail = HungrySequence->AddChild<RepeatUntilFail>();
 		Sequence* findSmallGuppySequence = FindFoodUntilFail->SetChild<Sequence>();
 		FindSmallGuppy* FSG = findSmallGuppySequence->AddChild<FindSmallGuppy>();
+		Turn2Food* T2F = findSmallGuppySequence->AddChild<Turn2Food>();
 		Move2Guppy* M2G = findSmallGuppySequence->AddChild<Move2Guppy>();
 
 		Sequence* swimSequence = sequence->AddChild<Sequence>();

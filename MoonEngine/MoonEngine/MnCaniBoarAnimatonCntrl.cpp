@@ -23,6 +23,9 @@ namespace Mn
 		enums::eBehavior behavior = _BlackBoard->GetDataValue<eBehavior>(L"Behavior");
 		enums::eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
 
+
+
+
 		if (!at->AnimationComplete() && _Behavior == behavior && _State != state)
 			PlayAnimation(behavior);
 		else if (!at->AnimationComplete() && _Behavior == behavior && _State == state)

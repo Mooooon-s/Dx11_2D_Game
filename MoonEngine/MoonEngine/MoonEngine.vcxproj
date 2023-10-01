@@ -242,6 +242,7 @@
     <ClInclude Include="MnMousePosScript.h" />
     <ClInclude Include="MnNikoBehaviorTree.h" />
     <ClInclude Include="MnMove2Coin.h" />
+    <ClInclude Include="MnTurn2Food.h" />
     <ClInclude Include="MnWarp.h" />
     <ClInclude Include="MnWarpHole.h" />
     <ClInclude Include="MnWarpRenderScript.h" />
@@ -332,6 +333,7 @@
     <ClCompile Include="MnWarp.cpp" />
     <ClCompile Include="MnWarpRenderScript.cpp" />
     <ClCompile Include="MnWarpHole.cpp" />
+    <ClCompile Include="MnTurn2Food.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />
