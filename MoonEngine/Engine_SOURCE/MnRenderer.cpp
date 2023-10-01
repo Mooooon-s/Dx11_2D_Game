@@ -482,6 +482,11 @@ namespace renderer
 		coinAnimaterial->RenderingMode(eRenderingMode::Transparent);
 		Resources::Insert(L"CoinSpriteAnimaionMaterial", coinAnimaterial);
 
+		std::shared_ptr <Material> DiamondAnimaterial = std::make_shared<Material>();
+		DiamondAnimaterial->Shader(spriteShader);
+		DiamondAnimaterial->RenderingMode(eRenderingMode::Transparent);
+		Resources::Insert(L"DiamondSpriteAnimaionMaterial", DiamondAnimaterial);
+
 		std::shared_ptr <Material> pearlAnimaterial = std::make_shared<Material>();
 		pearlAnimaterial->Shader(spriteShader);
 		pearlAnimaterial->RenderingMode(eRenderingMode::Transparent);

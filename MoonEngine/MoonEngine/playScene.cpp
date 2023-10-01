@@ -30,13 +30,19 @@
 #include "MnMouse.h"
 #include "MnLight.h"
 
-#include "MnNiko.h"
-#include "MnStinky.h"
 
 #include "MnEventManager.h"
 #include "MnInGameButton.h"
 
+
+//Test
+#include "MnStinky.h"
+#include "MnNiko.h"
 #include "MnCaniboar.h"
+#include "MnDiamond.h"
+
+
+
 
 namespace Mn
 {
@@ -76,8 +82,8 @@ void Mn::playScene::Initialize()
 	Niko* niko = object::Instantiate<Niko>(Vector3(-1.4f,-0.4f,100.0f),eLayerType::Pet);
 	niko->Initialize();
 
-	Stinky* stinky = object::Instantiate<Stinky>(Vector3(0.0f,-1.2f,100.1f),eLayerType::Pet);
-	stinky->Initialize();
+	//Stinky* stinky = object::Instantiate<Stinky>(Vector3(0.0f,-1.2f,100.1f),eLayerType::Pet);
+	//stinky->Initialize();
 
 	Money* money = object::Instantiate<Money>(eLayerType::UI);
 	money->Initialize();
@@ -88,6 +94,8 @@ void Mn::playScene::Initialize()
 	TopBar* topbar = object::Instantiate<TopBar>(eLayerType::UI);
 	topbar->Initialize();
 
+	Diamond* diamond = object::Instantiate<Diamond>(Vector3(0.0f,1.0f,5.0f),eLayerType::Coin);
+	diamond->Initialize();
 
 	//GameObject* particle = new GameObject();
 	//particle->SetName(L"Particle");

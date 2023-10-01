@@ -60,9 +60,6 @@
     <ClInclude Include="MnFindFood.h">
       <Filter>Contents\LeafNode\Common\FindFood</Filter>
     </ClInclude>
-    <ClInclude Include="MnPlayAnimaion.h">
-      <Filter>Contents\LeafNode\Guppy\PlayAnimaion</Filter>
-    </ClInclude>
     <ClInclude Include="MnMove.h">
       <Filter>Contents\LeafNode\Guppy\Move</Filter>
     </ClInclude>
@@ -243,9 +240,23 @@
     <ClInclude Include="MnHungryStack.h">
       <Filter>Contents\LeafNode\Common</Filter>
     </ClInclude>
-    <ClInclude Include="MnFindSmallGuppy.h" />
-    <ClInclude Include="MnMove2Guppy.h" />
-    <ClInclude Include="MnTurn2Food.h" />
+    <ClInclude Include="MnPlayAnimaion.h">
+      <Filter>Contents\Scripts\Caniboare</Filter>
+    </ClInclude>
+    <ClInclude Include="MnFindSmallGuppy.h">
+      <Filter>Contents\Scripts\Caniboare</Filter>
+    </ClInclude>
+    <ClInclude Include="MnMove2Guppy.h">
+      <Filter>Contents\Scripts\Caniboare</Filter>
+    </ClInclude>
+    <ClInclude Include="MnTurn2Food.h">
+      <Filter>Contents\Scripts\Caniboare</Filter>
+    </ClInclude>
+    <ClInclude Include="MnDiamond.h">
+      <Filter>Contents\Money\Diamond</Filter>
+    </ClInclude>
+    <ClInclude Include="MnDiamondRender.h" />
+    <ClInclude Include="MnDiamondScript.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -486,9 +497,20 @@
     <ClCompile Include="MnHungryStack.cpp">
       <Filter>Contents\LeafNode\Common</Filter>
     </ClCompile>
-    <ClCompile Include="MnFindSmallGuppy.cpp" />
-    <ClCompile Include="MnMove2Guppy.cpp" />
-    <ClCompile Include="MnTurn2Food.cpp" />
+    <ClCompile Include="MnFindSmallGuppy.cpp">
+      <Filter>Contents\Scripts\Caniboare</Filter>
+    </ClCompile>
+    <ClCompile Include="MnMove2Guppy.cpp">
+      <Filter>Contents\Scripts\Caniboare</Filter>
+    </ClCompile>
+    <ClCompile Include="MnTurn2Food.cpp">
+      <Filter>Contents\Scripts\Caniboare</Filter>
+    </ClCompile>
+    <ClCompile Include="MnDiamond.cpp">
+      <Filter>Contents\Money\Diamond</Filter>
+    </ClCompile>
+    <ClCompile Include="MnDiamondRender.cpp" />
+    <ClCompile Include="MnDiamondScript.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -679,6 +701,9 @@
     </Filter>
     <Filter Include="Contents\Scripts\Caniboare">
       <UniqueIdentifier>{fcc995a2-268c-4ebe-9bfb-37e7a81e6258}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Money\Diamond">
+      <UniqueIdentifier>{ac413b40-086c-44d1-aa9c-2f254f264af6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
