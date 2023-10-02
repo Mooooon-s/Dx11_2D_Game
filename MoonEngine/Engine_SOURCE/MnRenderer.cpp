@@ -502,6 +502,11 @@ namespace renderer
 		stinkyAnimaterial->RenderingMode(eRenderingMode::Transparent);
 		Resources::Insert(L"StinkySpriteAnimaionMaterial", stinkyAnimaterial);
 
+		std::shared_ptr <Material> zorfAnimaterial = std::make_shared<Material>();
+		zorfAnimaterial->Shader(spriteShader);
+		zorfAnimaterial->RenderingMode(eRenderingMode::Transparent);
+		Resources::Insert(L"ZorfSpriteAnimaionMaterial", zorfAnimaterial);
+
 
 
 		//---------------------------------------------------------------------------------------------------------------------------------------

@@ -79,7 +79,6 @@ namespace Mn
 			}
 			break;
 		case Mn::enums::eBehavior::Eat:
-			if (dir == eDir::Left)
 				at->PlayAnimation(L"Caniboar_Eat", true);
 			break;
 		}
@@ -106,7 +105,6 @@ namespace Mn
 			}
 			break;
 		case Mn::enums::eBehavior::Eat:
-			if (dir == eDir::Left)
 				at->PlayAnimation(L"Caniboar_Hungry_Eat", true);
 			break;
 		}

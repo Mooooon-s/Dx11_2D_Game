@@ -75,6 +75,7 @@ namespace Mn::enums
 		Swim,
 		Turn,
 		Eat,
+		Feed,
 		End,
 	};
 
@@ -140,6 +141,7 @@ namespace Mn::enums
 	{
 		Guppy,
 		CaniBoar,
+		Zorf,
 		End,
 	};
 }

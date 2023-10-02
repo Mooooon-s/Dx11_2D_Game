@@ -5,6 +5,7 @@
 #include "MnTime.h"
 #include "MnPlayAnimaion.h"
 #include "MnCaniBoarAnimatonCntrl.h"
+#include "MnZorfAnimationCntrl.h"
 
 namespace Mn
 {
@@ -41,6 +42,9 @@ namespace Mn
 			break;
 		case Mn::enums::eFishType::CaniBoar:
 			_BlackBoard->GetData<CaniBoarAnimatonCntrl>(L"AnimaCntrl")->Run();
+			break;
+		case Mn::enums::eFishType::Zorf:
+			_BlackBoard->GetData<ZorfAnimationCntrl>(L"AnimaCntrl")->Run();
 			break;
 		case Mn::enums::eFishType::End:
 			break;

@@ -40,6 +40,7 @@
 #include "MnNiko.h"
 #include "MnCaniboar.h"
 #include "MnDiamond.h"
+#include "MnZorf.h"
 
 
 
@@ -93,6 +94,9 @@ void Mn::playScene::Initialize()
 
 	TopBar* topbar = object::Instantiate<TopBar>(eLayerType::UI);
 	topbar->Initialize();
+
+	Zorf* zorf = object::Instantiate<Zorf>(eLayerType::Pet);
+	zorf->Initialize();
 
 	//GameObject* particle = new GameObject();
 	//particle->SetName(L"Particle");

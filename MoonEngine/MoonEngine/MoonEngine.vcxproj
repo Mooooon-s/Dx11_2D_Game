@@ -251,8 +251,12 @@
     <ClInclude Include="MnWarpHole.h" />
     <ClInclude Include="MnWarpRenderScript.h" />
     <ClInclude Include="MnMove2Guppy.h" />
+    <ClInclude Include="MnZorf.h" />
+    <ClInclude Include="MnZorfBehaviorTree.h" />
+    <ClInclude Include="MnZorfRender.h" />
     <ClInclude Include="playScene.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="MnZorfAnimationCntrl.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MnDropDiamond.cpp" />
@@ -342,6 +346,10 @@
     <ClCompile Include="MnWarpRenderScript.cpp" />
     <ClCompile Include="MnWarpHole.cpp" />
     <ClCompile Include="MnTurn2Food.cpp" />
+    <ClCompile Include="MnZorf.cpp" />
+    <ClCompile Include="MnZorfRender.cpp" />
+    <ClCompile Include="MnZorfBehaviorTree.cpp" />
+    <ClCompile Include="MnZorfAnimationCntrl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />

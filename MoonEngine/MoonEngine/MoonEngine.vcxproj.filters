@@ -255,9 +255,23 @@
     <ClInclude Include="MnDiamond.h">
       <Filter>Contents\Money\Diamond</Filter>
     </ClInclude>
-    <ClInclude Include="MnDiamondRender.h" />
-    <ClInclude Include="MnDiamondScript.h" />
-    <ClInclude Include="MnDropDiamond.h" />
+    <ClInclude Include="MnZorf.h">
+      <Filter>Contents\Pet\Zorf</Filter>
+    </ClInclude>
+    <ClInclude Include="MnDropDiamond.h">
+      <Filter>Contents\Scripts\Caniboare</Filter>
+    </ClInclude>
+    <ClInclude Include="MnDiamondRender.h">
+      <Filter>Contents\Scripts\Diamond</Filter>
+    </ClInclude>
+    <ClInclude Include="MnDiamondScript.h">
+      <Filter>Contents\Scripts\Diamond</Filter>
+    </ClInclude>
+    <ClInclude Include="MnZorfRender.h">
+      <Filter>Contents\Scripts\Zorf</Filter>
+    </ClInclude>
+    <ClInclude Include="MnZorfBehaviorTree.h" />
+    <ClInclude Include="MnZorfAnimationCntrl.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -510,9 +524,23 @@
     <ClCompile Include="MnDiamond.cpp">
       <Filter>Contents\Money\Diamond</Filter>
     </ClCompile>
-    <ClCompile Include="MnDiamondRender.cpp" />
-    <ClCompile Include="MnDiamondScript.cpp" />
-    <ClCompile Include="MnDropDiamond.cpp" />
+    <ClCompile Include="MnZorf.cpp">
+      <Filter>Contents\Pet\Zorf</Filter>
+    </ClCompile>
+    <ClCompile Include="MnDropDiamond.cpp">
+      <Filter>Contents\Scripts\Caniboare</Filter>
+    </ClCompile>
+    <ClCompile Include="MnDiamondRender.cpp">
+      <Filter>Contents\Scripts\Diamond</Filter>
+    </ClCompile>
+    <ClCompile Include="MnDiamondScript.cpp">
+      <Filter>Contents\Scripts\Diamond</Filter>
+    </ClCompile>
+    <ClCompile Include="MnZorfRender.cpp">
+      <Filter>Contents\Scripts\Zorf</Filter>
+    </ClCompile>
+    <ClCompile Include="MnZorfBehaviorTree.cpp" />
+    <ClCompile Include="MnZorfAnimationCntrl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -706,6 +734,15 @@
     </Filter>
     <Filter Include="Contents\Money\Diamond">
       <UniqueIdentifier>{ac413b40-086c-44d1-aa9c-2f254f264af6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Pet\Zorf">
+      <UniqueIdentifier>{89345e13-b881-4453-8f35-ab8461a4ceda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Zorf">
+      <UniqueIdentifier>{4b2b281b-ef98-47d3-95e2-9cb2988796ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Diamond">
+      <UniqueIdentifier>{10294fae-7ce4-482e-9944-994024b444dd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

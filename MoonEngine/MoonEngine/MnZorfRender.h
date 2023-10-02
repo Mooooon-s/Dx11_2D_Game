@@ -1,18 +1,19 @@
 #pragma once
-#include "MnGameObject.h"
+#include "MnScript.h"
 
 namespace Mn
 {
-	class Zorf : public GameObject
+	class ZorfRender : public Script
 	{
 	public:
-		Zorf();
-		~Zorf();
+		ZorfRender();
+		~ZorfRender();
 
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;
 		void Render() override;
 	private:
+
 	};
 }
