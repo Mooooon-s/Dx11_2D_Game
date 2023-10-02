@@ -15,7 +15,6 @@ namespace Mn
 	}
 	void Diamond::Initialize()
 	{
-
 		SetName(L"Diamond");
 		Collider2D* coll = AddComponent<Collider2D>();
 		coll->SetSize(Vector2(0.5, 0.5));
@@ -40,7 +39,7 @@ namespace Mn
 		GameObject::Render();
 	}
 	void Diamond::OnClick(Vector3 pos)
-	{
+	{ 
 		Scene* scene = SceneManager::ActiveScene();
 		std::vector<GameObject*> gameObj = scene->GetLayer(eLayerType::UI).GetGameObjects();
 		for (GameObject* obj : gameObj)

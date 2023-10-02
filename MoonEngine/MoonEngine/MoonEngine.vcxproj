@@ -185,6 +185,7 @@
     <ClInclude Include="MnDiamondRender.h" />
     <ClInclude Include="MnDiamondScript.h" />
     <ClInclude Include="MnDropCoin.h" />
+    <ClInclude Include="MnDropDiamond.h" />
     <ClInclude Include="MnEggIcon.h" />
     <ClInclude Include="MnEventManager.h" />
     <ClInclude Include="MnFindBoss.h" />
@@ -254,6 +255,7 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnDropDiamond.cpp" />
     <ClCompile Include="MnDiamondScript.cpp" />
     <ClCompile Include="MnDiamondRender.cpp" />
     <ClCompile Include="MnDiamond.cpp" />

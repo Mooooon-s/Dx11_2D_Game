@@ -257,6 +257,7 @@
     </ClInclude>
     <ClInclude Include="MnDiamondRender.h" />
     <ClInclude Include="MnDiamondScript.h" />
+    <ClInclude Include="MnDropDiamond.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -511,6 +512,7 @@
     </ClCompile>
     <ClCompile Include="MnDiamondRender.cpp" />
     <ClCompile Include="MnDiamondScript.cpp" />
+    <ClCompile Include="MnDropDiamond.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">

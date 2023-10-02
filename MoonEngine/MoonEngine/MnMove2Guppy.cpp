@@ -56,13 +56,11 @@ namespace Mn
 
 		if (state != eFishState::Full)
 		{
-			_BlackBoard->SetData(L"StackFlag", 0);
 			_BlackBoard->SetRunningNode<FindSmallGuppy>(_BlackBoard->GetData<FindSmallGuppy>(L"FindGuppyNode"));
 			return enums::eBTState::RUNNING;
 		}
 		else
 		{
-			_BlackBoard->SetData(L"StackFlag", 1);
 			return enums::eBTState::FAILURE;
 		}
 	}

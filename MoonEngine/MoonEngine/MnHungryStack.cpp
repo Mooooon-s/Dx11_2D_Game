@@ -19,7 +19,6 @@ namespace Mn
 	enums::eBTState HungryStack::Run()
 	{
 		float time = _BlackBoard->GetDataValue<float>(L"Timer");
-		UINT flag = _BlackBoard->GetDataValue<UINT>(L"StackFlag");
 
 		float afterTime = time - _Time;
 

@@ -18,10 +18,7 @@ namespace Mn
 	}
 	enums::eBTState Turn2Food::Run()
 	{
-
 		GameObject* owner = _BlackBoard->GetData<GameObject>(L"Owner");
-
-
 
 		Vector3 moveVec = _BlackBoard->GetDataValue<Vector3>(L"MoveVector");
 		eDir dir = _BlackBoard->GetDataValue<eDir>(L"Dir");

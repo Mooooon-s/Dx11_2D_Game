@@ -21,8 +21,9 @@ namespace Mn
 		Animator* at = GetOwner()->AddComponent<Animator>();
 		std::shared_ptr<Mn::graphics::Texture> atlas = Resources::Load<Mn::graphics::Texture>(L"Coin_Idle", L"..\\Resources\\Texture\\Item\\money\\money.jpg");
 		std::shared_ptr<Mn::graphics::Texture> atlasAlpha = Resources::Load<Mn::graphics::Texture>(L"Coin_Idle_alpha", L"..\\Resources\\Texture\\Item\\money\\money_.jpg");
-		at->Create(L"Diamond", atlas, atlasAlpha, Vector2(0.0f, 288.0f), Vector2(72.0f, 72.0f), 10, Vector2::Zero, 0.1f);
+		at->Create(L"Diamond", atlas, atlasAlpha, Vector2(0.0f, 216.0f), Vector2(72.0f, 72.0f), 10, Vector2::Zero, 0.1f);
 
+		at->PlayAnimation(L"Diamond",true);
 	}
 	void DiamondRender::Update()
 	{

@@ -21,6 +21,7 @@
 #include "MnHungryCheck.h"
 #include "MnTurn2Food.h"
 #include "MnMove2Guppy.h"
+#include "MnDropDiamond.h"
 
 
 #include "MnIsDeath.h"
@@ -67,7 +68,7 @@ namespace Mn
 		_BlackBoard->SetData(L"MoveVector", Vector3::Zero);
 
 		_BlackBoard->MakeData<UINT>(L"StackFlag");
-		_BlackBoard->SetData(L"StackFlag", 1);
+		_BlackBoard->SetData(L"StackFlag", 0);
 
 
 		_Root = new RootNode(_BlackBoard.get());
@@ -93,6 +94,8 @@ namespace Mn
 		FindSmallGuppy* FSG = findSmallGuppySequence->AddChild<FindSmallGuppy>();
 		Turn2Food* T2F = findSmallGuppySequence->AddChild<Turn2Food>();
 		Move2Guppy* M2G = findSmallGuppySequence->AddChild<Move2Guppy>();
+
+		DropDiamond* DD = sequence->AddChild<DropDiamond>();
 
 		Sequence* swimSequence = sequence->AddChild<Sequence>();
 
@@ -134,6 +137,7 @@ namespace Mn
 			_BlackBoard->SetData(L"Behavior", enums::eBehavior::Eat);
 			_BlackBoard->SetData(L"HungryStack", 5);
 			_BlackBoard->SetData(L"Fish_State", eFishState::Full);
+			_BlackBoard->SetData(L"StackFlag", 1);
 			_BlackBoard->ResetRunningNode();
 			other->GetOwner()->OnClick();
 		}
