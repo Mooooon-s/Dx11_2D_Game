@@ -67,4 +67,8 @@ namespace Mn
 	{
 		return _GBT->GetGuppyLevel();
 	}
+	bool Guppy::FishStarving()
+	{
+		return _GBT->GetGuppyStarving();
+	}
 }

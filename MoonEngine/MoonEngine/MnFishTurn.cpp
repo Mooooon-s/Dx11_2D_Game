@@ -22,7 +22,7 @@ namespace Mn
 		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
 
-		if (at->AnimationComplete())
+		if (at->AnimationComplete() && _BlackBoard->GetDataValue<eBehavior>(L"Behavior")== eBehavior::Turn)
 		{
 			enums::eDir dir = _BlackBoard->GetDataValue<enums::eDir>(L"Dir");
 			if (dir == enums::eDir::Left)

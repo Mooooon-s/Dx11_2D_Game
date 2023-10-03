@@ -4,17 +4,15 @@
 
 namespace Mn
 {
-	class Move2Fish : public Node
+	class ZorfFeedFood : public Node
 	{
 	public:
-		Move2Fish();
-		Move2Fish(BlackBoard* board);
-		~Move2Fish();
+		ZorfFeedFood();
+		ZorfFeedFood(BlackBoard* board);
+		~ZorfFeedFood();
 
 		enums::eBTState Run() override;
 	private:
-		float _Time;
-		int _Count;
 		BlackBoard* _BlackBoard;
 	};
 }

@@ -51,16 +51,25 @@ namespace Mn
 					_BlackBoard->SetData(L"Dir", eDir::Right);
 				}
 			}
-			Vec.Normalize();
-			pos += Vec * -1 * 0.5 * Time::DeltaTime();
-			tr->Position(pos);
-			_Count++;
-
-			if (_Count > 5)
+			float time = _BlackBoard->GetDataValue<float>(L"Timer");
+			float calculTime = time - _Time;
+			if (calculTime >= 1.0)
 			{
-				_Count = 0;
+				_Time = time;
 				_BlackBoard->SetData(L"GetDamege", false);
+				_BlackBoard->ResetRunningNode();
+				return enums::eBTState::SUCCESS;
 			}
+			else
+			{
+				_BlackBoard->SetRunningNode<Move2Fish>(this);
+				return enums::eBTState::RUNNING;
+			}
+
+			//Vec.Normalize();
+			//pos += Vec * -1 * 0.5 * Time::DeltaTime();
+			//tr->Position(pos);
+
 		}
 		else
 		{

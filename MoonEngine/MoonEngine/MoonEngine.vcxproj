@@ -169,6 +169,7 @@
     <ClInclude Include="MnBalrog.h" />
     <ClInclude Include="MnBalrogBehaviorTree.h" />
     <ClInclude Include="MnBalrogRenderScript.h" />
+    <ClInclude Include="MnBossStun.h" />
     <ClInclude Include="MnButton.h" />
     <ClInclude Include="MnButtonFrame.h" />
     <ClInclude Include="MnButtonFrameRender.h" />
@@ -188,9 +189,11 @@
     <ClInclude Include="MnDropDiamond.h" />
     <ClInclude Include="MnEggIcon.h" />
     <ClInclude Include="MnEventManager.h" />
+    <ClInclude Include="MnFeedTimer.h" />
     <ClInclude Include="MnFindBoss.h" />
     <ClInclude Include="MnFindCoin.h" />
     <ClInclude Include="MnFindFish.h" />
+    <ClInclude Include="MnFindHungryGuppy.h" />
     <ClInclude Include="MnFindSmallGuppy.h" />
     <ClInclude Include="MnFishTurn.h" />
     <ClInclude Include="MnFoodScript.h" />
@@ -253,12 +256,17 @@
     <ClInclude Include="MnMove2Guppy.h" />
     <ClInclude Include="MnZorf.h" />
     <ClInclude Include="MnZorfBehaviorTree.h" />
+    <ClInclude Include="MnZorfFeedDone.h" />
+    <ClInclude Include="MnZorfFeedFood.h" />
     <ClInclude Include="MnZorfRender.h" />
     <ClInclude Include="playScene.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="MnZorfAnimationCntrl.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnBossStun.cpp" />
+    <ClCompile Include="MnFeedTimer.cpp" />
+    <ClCompile Include="MnFindHungryGuppy.cpp" />
     <ClCompile Include="MnDropDiamond.cpp" />
     <ClCompile Include="MnDiamondScript.cpp" />
     <ClCompile Include="MnDiamondRender.cpp" />
@@ -350,6 +358,8 @@
     <ClCompile Include="MnZorfRender.cpp" />
     <ClCompile Include="MnZorfBehaviorTree.cpp" />
     <ClCompile Include="MnZorfAnimationCntrl.cpp" />
+    <ClCompile Include="MnZorfFeedFood.cpp" />
+    <ClCompile Include="MnZorfFeedDone.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />

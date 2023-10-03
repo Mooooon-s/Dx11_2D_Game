@@ -22,6 +22,7 @@ namespace Mn
 		eFishState GetFishState() { return Mn::Fish::GetFishState(); }
 
 		UINT FishLevel();
+		bool FishStarving();
 	private:
 		GuppyBehaviorTree* _GBT;
 		int _Flag;

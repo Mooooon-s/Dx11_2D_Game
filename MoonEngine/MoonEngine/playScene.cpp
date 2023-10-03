@@ -95,7 +95,7 @@ void Mn::playScene::Initialize()
 	TopBar* topbar = object::Instantiate<TopBar>(eLayerType::UI);
 	topbar->Initialize();
 
-	Zorf* zorf = object::Instantiate<Zorf>(eLayerType::Pet);
+	Zorf* zorf = object::Instantiate<Zorf>( Vector3(0.0f,0.0f,4.0f), eLayerType::Pet);
 	zorf->Initialize();
 
 	//GameObject* particle = new GameObject();

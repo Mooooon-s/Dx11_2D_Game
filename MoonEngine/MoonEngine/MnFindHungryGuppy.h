@@ -4,17 +4,15 @@
 
 namespace Mn
 {
-	class Move2Fish : public Node
+	class FindHungryGuppy : public Node
 	{
 	public:
-		Move2Fish();
-		Move2Fish(BlackBoard* board);
-		~Move2Fish();
+		FindHungryGuppy();
+		FindHungryGuppy(BlackBoard* board);
+		~FindHungryGuppy();
 
 		enums::eBTState Run() override;
 	private:
-		float _Time;
-		int _Count;
 		BlackBoard* _BlackBoard;
 	};
 }

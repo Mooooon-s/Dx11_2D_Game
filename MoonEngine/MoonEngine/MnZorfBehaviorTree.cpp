@@ -10,6 +10,12 @@
 #include "MnFishTurn.h"
 
 #include "MnZorfAnimationCntrl.h"
+#include "MnMove.h"
+#include "MnFindHungryGuppy.h"
+#include "MnZorfFeedFood.h"
+#include "MnFeedTimer.h"
+#include "MnZorfFeedDone.h"
+
 
 namespace Mn
 {
@@ -45,11 +51,19 @@ namespace Mn
 		_BlackBoard->MakeData<eFishState>(L"Fish_State");
 		_BlackBoard->SetData(L"Fish_State", eFishState::Full);
 
+		_BlackBoard->MakeData<bool>(L"FeedReady");
+		_BlackBoard->SetData(L"FeedReady", true);
+
 		_Root = new RootNode(_BlackBoard.get());
 		_Root->SetTimer();
 
 		Selector* selector = _Root->setChild<Selector>();
 
+		Sequence* feedSequence = selector->AddChild<Sequence>();
+		FindHungryGuppy* FHG = feedSequence->AddChild<FindHungryGuppy>();
+		FeedTimer* FT = feedSequence->AddChild<FeedTimer>();
+		ZorfFeedFood* ZFF = feedSequence->AddChild<ZorfFeedFood>();
+		ZorfFeedDone* ZFD = feedSequence->AddChild<ZorfFeedDone>();
 
 		Sequence* swimSequence = selector->AddChild<Sequence>();
 		Succeeder* turnSucceder = swimSequence->AddChild<Succeeder>();
@@ -57,6 +71,9 @@ namespace Mn
 		IsTurn* isturn = turnSequence->AddChild<IsTurn>();
 		FishTurn* fishTurn = turnSequence->AddChild<FishTurn>();
 
+
+		ZorfAnimationCntrl* ZACnode = swimSequence->AddChild<ZorfAnimationCntrl>();
+		Move* swim = swimSequence->AddChild<Move>();
 
 
 	}

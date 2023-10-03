@@ -14,5 +14,6 @@ namespace Mn
 		virtual enums::eBTState Run() override;
 	private:
 		BlackBoard* _BlackBoard;
+		float		_Time;
 	};
 }

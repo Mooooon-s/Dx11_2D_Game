@@ -126,9 +126,6 @@
     <ClInclude Include="MnBalrogRenderScript.h">
       <Filter>Contents\Scripts\BossMonster\BalrogScript</Filter>
     </ClInclude>
-    <ClInclude Include="MnBalIsDead.h">
-      <Filter>Contents\LeafNode\Balrog</Filter>
-    </ClInclude>
     <ClInclude Include="MnPearl.h">
       <Filter>Contents\Money\Pearl</Filter>
     </ClInclude>
@@ -143,9 +140,6 @@
     </ClInclude>
     <ClInclude Include="MnMoney.h">
       <Filter>Contents\Money</Filter>
-    </ClInclude>
-    <ClInclude Include="MnGetDemaged.h">
-      <Filter>Contents\LeafNode\Balrog</Filter>
     </ClInclude>
     <ClInclude Include="MnStinkyRenderScript.h">
       <Filter>Contents\Scripts\Stinky</Filter>
@@ -171,17 +165,11 @@
     <ClInclude Include="MnComeOut.h">
       <Filter>Contents\LeafNode\Stinky</Filter>
     </ClInclude>
-    <ClInclude Include="MnFindFish.h">
-      <Filter>Contents\LeafNode\Balrog</Filter>
-    </ClInclude>
     <ClInclude Include="MnSwim.h">
       <Filter>Contents\LeafNode\Common\Swim</Filter>
     </ClInclude>
     <ClInclude Include="MnGuppyFoodTurn.h">
       <Filter>Contents\LeafNode\Guppy\Turn</Filter>
-    </ClInclude>
-    <ClInclude Include="MnMove2Fish.h">
-      <Filter>Contents\LeafNode\Balrog</Filter>
     </ClInclude>
     <ClInclude Include="MnEventManager.h">
       <Filter>Contents\EventManager</Filter>
@@ -270,8 +258,37 @@
     <ClInclude Include="MnZorfRender.h">
       <Filter>Contents\Scripts\Zorf</Filter>
     </ClInclude>
-    <ClInclude Include="MnZorfBehaviorTree.h" />
-    <ClInclude Include="MnZorfAnimationCntrl.h" />
+    <ClInclude Include="MnZorfFeedDone.h">
+      <Filter>Contents\LeafNode\Zorf\FeedDone</Filter>
+    </ClInclude>
+    <ClInclude Include="MnFeedTimer.h">
+      <Filter>Contents\LeafNode\Zorf\FeedTimer</Filter>
+    </ClInclude>
+    <ClInclude Include="MnFindHungryGuppy.h">
+      <Filter>Contents\LeafNode\Zorf\FindHungryGuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="MnZorfFeedFood.h">
+      <Filter>Contents\LeafNode\Zorf\FeedFood</Filter>
+    </ClInclude>
+    <ClInclude Include="MnZorfAnimationCntrl.h">
+      <Filter>Contents\Scripts\Zorf</Filter>
+    </ClInclude>
+    <ClInclude Include="MnZorfBehaviorTree.h">
+      <Filter>Contents\Scripts\Zorf</Filter>
+    </ClInclude>
+    <ClInclude Include="MnBalIsDead.h">
+      <Filter>Contents\LeafNode\Balrog\BallsDead</Filter>
+    </ClInclude>
+    <ClInclude Include="MnFindFish.h">
+      <Filter>Contents\LeafNode\Balrog\FindFish</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGetDemaged.h">
+      <Filter>Contents\LeafNode\Balrog\GetDamaged</Filter>
+    </ClInclude>
+    <ClInclude Include="MnMove2Fish.h">
+      <Filter>Contents\LeafNode\Balrog\Move2Fish</Filter>
+    </ClInclude>
+    <ClInclude Include="MnBossStun.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -398,9 +415,6 @@
     <ClCompile Include="MnBalrogRenderScript.cpp">
       <Filter>Contents\Scripts\BossMonster\BalrogScript</Filter>
     </ClCompile>
-    <ClCompile Include="MnBalIsDead.cpp">
-      <Filter>Contents\LeafNode\Balrog</Filter>
-    </ClCompile>
     <ClCompile Include="MnPearl.cpp">
       <Filter>Contents\Money\Pearl</Filter>
     </ClCompile>
@@ -415,9 +429,6 @@
     </ClCompile>
     <ClCompile Include="MnMoney.cpp">
       <Filter>Contents\Money</Filter>
-    </ClCompile>
-    <ClCompile Include="MnGetDemaged.cpp">
-      <Filter>Contents\LeafNode\Balrog</Filter>
     </ClCompile>
     <ClCompile Include="MnStinkyRenderScript.cpp">
       <Filter>Contents\Scripts\Stinky</Filter>
@@ -443,17 +454,11 @@
     <ClCompile Include="MnComeOut.cpp">
       <Filter>Contents\LeafNode\Stinky</Filter>
     </ClCompile>
-    <ClCompile Include="MnFindFish.cpp">
-      <Filter>Contents\LeafNode\Balrog</Filter>
-    </ClCompile>
     <ClCompile Include="MnSwim.cpp">
       <Filter>Contents\LeafNode\Common\Swim</Filter>
     </ClCompile>
     <ClCompile Include="MnGuppyFoodTurn.cpp">
       <Filter>Contents\LeafNode\Guppy\Turn</Filter>
-    </ClCompile>
-    <ClCompile Include="MnMove2Fish.cpp">
-      <Filter>Contents\LeafNode\Balrog</Filter>
     </ClCompile>
     <ClCompile Include="MnEventManager.cpp">
       <Filter>Contents\EventManager</Filter>
@@ -539,8 +544,37 @@
     <ClCompile Include="MnZorfRender.cpp">
       <Filter>Contents\Scripts\Zorf</Filter>
     </ClCompile>
-    <ClCompile Include="MnZorfBehaviorTree.cpp" />
-    <ClCompile Include="MnZorfAnimationCntrl.cpp" />
+    <ClCompile Include="MnZorfFeedDone.cpp">
+      <Filter>Contents\LeafNode\Zorf\FeedDone</Filter>
+    </ClCompile>
+    <ClCompile Include="MnFeedTimer.cpp">
+      <Filter>Contents\LeafNode\Zorf\FeedTimer</Filter>
+    </ClCompile>
+    <ClCompile Include="MnFindHungryGuppy.cpp">
+      <Filter>Contents\LeafNode\Zorf\FindHungryGuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="MnZorfFeedFood.cpp">
+      <Filter>Contents\LeafNode\Zorf\FeedFood</Filter>
+    </ClCompile>
+    <ClCompile Include="MnZorfAnimationCntrl.cpp">
+      <Filter>Contents\Scripts\Zorf</Filter>
+    </ClCompile>
+    <ClCompile Include="MnZorfBehaviorTree.cpp">
+      <Filter>Contents\Scripts\Zorf</Filter>
+    </ClCompile>
+    <ClCompile Include="MnBalIsDead.cpp">
+      <Filter>Contents\LeafNode\Balrog\BallsDead</Filter>
+    </ClCompile>
+    <ClCompile Include="MnFindFish.cpp">
+      <Filter>Contents\LeafNode\Balrog\FindFish</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGetDemaged.cpp">
+      <Filter>Contents\LeafNode\Balrog\GetDamaged</Filter>
+    </ClCompile>
+    <ClCompile Include="MnMove2Fish.cpp">
+      <Filter>Contents\LeafNode\Balrog\Move2Fish</Filter>
+    </ClCompile>
+    <ClCompile Include="MnBossStun.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -743,6 +777,33 @@
     </Filter>
     <Filter Include="Contents\Scripts\Diamond">
       <UniqueIdentifier>{10294fae-7ce4-482e-9944-994024b444dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Zorf">
+      <UniqueIdentifier>{c9d7e2f1-3d36-40c9-8cb0-21d8687828db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Zorf\FeedDone">
+      <UniqueIdentifier>{bc37e429-91e2-442e-b40f-65696c0d8e46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Zorf\FeedTimer">
+      <UniqueIdentifier>{69272d62-1cb7-42e2-a9fe-ca1310e9cb85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Zorf\FindHungryGuppy">
+      <UniqueIdentifier>{0b73006e-6768-4abb-bb6d-b00caa44c9dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Zorf\FeedFood">
+      <UniqueIdentifier>{8e0bbebf-753c-4c70-8e2f-2dab6d130f38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Balrog\BallsDead">
+      <UniqueIdentifier>{7fe5492c-3134-4b4f-a5a6-ccb38d767b15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Balrog\FindFish">
+      <UniqueIdentifier>{b7e1e848-9218-45ae-8fac-e9b8f2e5c584}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Balrog\GetDamaged">
+      <UniqueIdentifier>{e0c6db11-018d-45ae-89be-d253d218f2b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Balrog\Move2Fish">
+      <UniqueIdentifier>{a854cc6c-a9b8-4515-9d1e-57f4b2ffc451}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

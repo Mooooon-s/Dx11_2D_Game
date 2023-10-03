@@ -26,7 +26,7 @@ namespace Mn
 
 		at->Create(L"Zorf_Swim",atlas, atlasAlpha,Vector2::Zero,Vector2( 80.0f,80.0f),10,Vector2::Zero,0.1f);
 		at->Create(L"Zorf_Turn",atlas, atlasAlpha,Vector2(0.0f,80.0f),Vector2( 80.0f,80.0f),10,Vector2::Zero,0.1f);
-		at->CreateReverse(L"Zorf_turn_Reverse",atlas, atlasAlpha,Vector2(0.0f, 80.0f),Vector2( 80.0f,80.0f),10,Vector2::Zero,0.1f);
+		at->CreateReverse(L"Zorf_Turn_Reverse",atlas, atlasAlpha,Vector2(0.0f, 80.0f),Vector2( 80.0f,80.0f),10,Vector2::Zero,0.1f);
 		at->Create(L"Zorf_Feed",atlas, atlasAlpha,Vector2(0.0f, 160.0f),Vector2( 80.0f,80.0f),10,Vector2::Zero,0.1f);
 
 		at->PlayAnimation(L"Zorf_Swim", true);

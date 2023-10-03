@@ -18,10 +18,11 @@ namespace Mn
 	}
 	enums::eBTState DropCoin::Run()
 	{
-		float timer = _BlackBoard->GetDataValue<float>(L"Timer");
+		float time = _BlackBoard->GetDataValue<float>(L"Timer");
+		float afterTime = time - _Time;
 		GameObject* owner = _BlackBoard->GetData<GameObject>(L"Owner");
 		UINT level = _BlackBoard->GetDataValue<UINT>(L"Level");
-		if ((int)timer % 3 == 0 && level>1)
+		if ((int)afterTime % 3 == 0 && level>1 && (int)afterTime!=0)
 		{
 			Transform* tr = owner->GetComponent<Transform>();
 			Vector3 pos = tr->Position();
@@ -29,6 +30,7 @@ namespace Mn
 			Coin* coin =object::Instantiate<Coin>(pos,enums::eLayerType::Coin);
 			coin->SetLevel(level);
 			coin->Initialize();
+			_Time = time;
 		}
 		return enums::eBTState::SUCCESS;
 	}

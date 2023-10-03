@@ -3,6 +3,7 @@
 #include "MnGameObject.h"
 #include "MnTransform.h"
 #include "MnTime.h"
+#include <random>
 
 namespace Mn
 {
@@ -26,6 +27,14 @@ namespace Mn
 		eDir dir = _Blackboard->GetDataValue<eDir>(L"Dir");
 		Transform* tr =owner->GetComponent<Transform>();
 		Vector3 pos = tr->Position();
+
+		//std::random_device rd;
+		//std::mt19937 gen(rd());
+		//std::uniform_real_distribution<> dis(0.0, 3.0);
+
+		//double randomValue = dis(gen);
+
+
 		if (_Time <= 1.0f)
 		{
 			if (dir == eDir::Left)

@@ -32,6 +32,7 @@ namespace Mn
 	public:
 		void Run();
 		UINT GetGuppyLevel();
+		bool GetGuppyStarving();
 	public:
 		RootNode* _Root;
 		Sequence* _Sequence;

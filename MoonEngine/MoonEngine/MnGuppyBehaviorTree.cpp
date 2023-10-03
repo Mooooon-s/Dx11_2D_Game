@@ -214,4 +214,11 @@ namespace Mn
 	{
 		return _BlackBoard->GetDataValue<UINT>(L"Level");
 	}
+	bool GuppyBehaviorTree::GetGuppyStarving()
+	{
+		if (_BlackBoard->GetDataValue<eFishState>(L"Fish_State") == eFishState::Starving)
+			return true;
+		else
+			return false;
+	}
 }

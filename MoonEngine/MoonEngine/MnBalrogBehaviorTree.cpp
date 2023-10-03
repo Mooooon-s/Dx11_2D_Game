@@ -14,6 +14,7 @@
 #include "MnMove2Fish.h"
 #include "MnMeshRenderer.h"
 #include "MnGameObject.h"
+#include "MnBossStun.h"
 
 namespace Mn
 {
@@ -36,7 +37,7 @@ namespace Mn
 		_BlackBorad->MakeData<eDir>(L"Dir");
 		_BlackBorad->SetData(L"Dir", eDir::Left);
 		_BlackBorad->MakeData<UINT>(L"Hp");
-		_BlackBorad->SetData(L"Hp", 20);
+		_BlackBorad->SetData(L"Hp", 50);
 		_BlackBorad->MakeData<bool>(L"GetDamege");
 		_BlackBorad->SetData(L"GetDamege", false);
 		_BlackBorad->MakeData<Vector3>(L"MousePos");
@@ -49,13 +50,14 @@ namespace Mn
 		_Root = new RootNode(_BlackBorad);
 		_Root->SetTimer();
 		Sequence* sequence = _Root->setChild<Sequence>();
+
+
 		Inverter* inverter = sequence->AddChild<Inverter>();
 		BalIsDead* isDead = inverter->SetChild<BalIsDead>();
 
 		FindFish* findFish = sequence->AddChild<FindFish>();
 		Move2Fish* move2Fish = sequence->AddChild<Move2Fish>();
-
-		 
+		//BossStun* stun = sequence->AddChild<BossStun>();
 	}
 	void BalrogBehaviorTree::Update()
 	{

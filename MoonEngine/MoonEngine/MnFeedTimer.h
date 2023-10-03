@@ -4,17 +4,16 @@
 
 namespace Mn
 {
-	class Move2Fish : public Node
+	class FeedTimer : public Node
 	{
 	public:
-		Move2Fish();
-		Move2Fish(BlackBoard* board);
-		~Move2Fish();
+		FeedTimer();
+		FeedTimer(BlackBoard* board);
+		~FeedTimer();
 
 		enums::eBTState Run() override;
 	private:
-		float _Time;
-		int _Count;
 		BlackBoard* _BlackBoard;
+		float _Timer;
 	};
 }
