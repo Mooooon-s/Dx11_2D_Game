@@ -17,7 +17,7 @@ namespace Mn
 	enums::eBTState BalIsDead::Run()
 	{
 		GameObject* balrog = _BlackBoard->GetData<GameObject>(L"Balrog");
-		UINT hp = _BlackBoard->GetDataValue<UINT>(L"Hp");
+		int hp = _BlackBoard->GetDataValue<int>(L"Hp");
 		if (hp <= 0)
 		{
 			balrog->State(GameObject::eState::Dead);

@@ -16,6 +16,8 @@
 #include "MnGameObject.h"
 #include "MnBossStun.h"
 
+#include "MnFish.h"
+
 namespace Mn
 {
 	BalrogBehaviorTree::BalrogBehaviorTree()
@@ -36,7 +38,7 @@ namespace Mn
 
 		_BlackBorad->MakeData<eDir>(L"Dir");
 		_BlackBorad->SetData(L"Dir", eDir::Left);
-		_BlackBorad->MakeData<UINT>(L"Hp");
+		_BlackBorad->MakeData<int>(L"Hp");
 		_BlackBorad->SetData(L"Hp", 50);
 		_BlackBorad->MakeData<bool>(L"GetDamege");
 		_BlackBorad->SetData(L"GetDamege", false);
@@ -57,7 +59,7 @@ namespace Mn
 
 		FindFish* findFish = sequence->AddChild<FindFish>();
 		Move2Fish* move2Fish = sequence->AddChild<Move2Fish>();
-		//BossStun* stun = sequence->AddChild<BossStun>();
+
 	}
 	void BalrogBehaviorTree::Update()
 	{
@@ -74,6 +76,16 @@ namespace Mn
 	}
 	void BalrogBehaviorTree::Render()
 	{
+	}
+	void BalrogBehaviorTree::OnCollisionEnter(Collider2D* other)
+	{
+		if (!_BlackBorad->GetDataValue<bool>(L"GetDamege"))
+		{
+			if (dynamic_cast<Fish*>(other->GetOwner()))
+			{
+				dynamic_cast<Fish*>(other->GetOwner())->State(GameObject::eState::Dead);
+			}
+		}
 	}
 	void BalrogBehaviorTree::OnClick(Vector3 pos)
 	{

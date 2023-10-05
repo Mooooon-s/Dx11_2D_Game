@@ -180,6 +180,7 @@ void Mn::playScene::OnEnter()
 	CollisionManager::SetLayer(eLayerType::Fish, eLayerType::Food, true);
 	CollisionManager::SetLayer(eLayerType::Fish, eLayerType::Fish, true);
 	CollisionManager::SetLayer(eLayerType::Pet, eLayerType::Coin, true);
+	CollisionManager::SetLayer(eLayerType::Fish, eLayerType::Monster, true);
 }
 
 void Mn::playScene::OnExit()

@@ -16,7 +16,7 @@ namespace Mn
 	}
 	enums::eBTState GetDemaged::Run()
 	{
-		UINT hp =_BlackBoard->GetDataValue<UINT>(L"Hp");
+		int hp =_BlackBoard->GetDataValue<int>(L"Hp");
 		hp -= 2;
 		_BlackBoard->SetData(L"Hp", hp);
 		return enums::eBTState::SUCCESS;
