@@ -3,6 +3,8 @@
 #include "MnAnimator.h"
 #include "MnTime.h"
 
+#include "MnBalIsDead.h"
+
 namespace Mn
 {
 	Move2Fish::Move2Fish()
@@ -23,6 +25,10 @@ namespace Mn
 		GameObject* boss = _BlackBoard->GetData<GameObject>(L"Balrog");
 		Transform* tr = boss->GetComponent<Transform>();
 		eDir dir = _BlackBoard->GetDataValue<eDir>(L"Dir");
+
+		BalIsDead* BDD = new BalIsDead(_BlackBoard);
+		BDD->Run();
+
 
 		bool hunting = _BlackBoard->GetDataValue<bool>(L"GetDamege");
 		if (hunting)
@@ -51,25 +57,26 @@ namespace Mn
 					_BlackBoard->SetData(L"Dir", eDir::Right);
 				}
 			}
-			float time = _BlackBoard->GetDataValue<float>(L"Timer");
-			float calculTime = time - _Time;
-			if (calculTime >= 1.0)
+			_Time = _BlackBoard->GetDataValue<float>(L"StunTime");
+			//float calculTime = time - _Time;
+			if (_Time >= 1.0)
 			{
-				_Time = time;
+				_Time = 0;
+				_BlackBoard->SetData(L"StunTime", _Time);
 				_BlackBoard->SetData(L"GetDamege", false);
 				_BlackBoard->ResetRunningNode();
 				return enums::eBTState::SUCCESS;
 			}
 			else
 			{
+				_Time += Time::DeltaTime();
+				_BlackBoard->SetData(L"StunTime", _Time);
+				Vec.Normalize();
+				pos += Vec * -1 * 0.5 * Time::DeltaTime();
+				tr->Position(pos);
 				_BlackBoard->SetRunningNode<Move2Fish>(this);
 				return enums::eBTState::RUNNING;
 			}
-
-			//Vec.Normalize();
-			//pos += Vec * -1 * 0.5 * Time::DeltaTime();
-			//tr->Position(pos);
-
 		}
 		else
 		{

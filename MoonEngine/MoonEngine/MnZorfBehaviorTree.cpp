@@ -40,7 +40,7 @@ namespace Mn
 		_BlackBoard->SetData(L"Dir", eDir::Left);
 
 		_BlackBoard->MakeData<float>(L"MoveSpeed");
-		_BlackBoard->SetData(L"MoveSpeed", 0.8f);
+		_BlackBoard->SetData(L"MoveSpeed", 0.2f);
 
 		_BlackBoard->MakeData<eBehavior>(L"Behavior");
 		_BlackBoard->SetData(L"Behavior", eBehavior::Swim);

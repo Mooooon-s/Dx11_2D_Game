@@ -4,10 +4,12 @@ namespace Mn
 {
 	FeedTimer::FeedTimer()
 		: _BlackBoard(nullptr)
+		, _Timer(0.0f)
 	{
 	}
 	FeedTimer::FeedTimer(BlackBoard* board)
 		: _BlackBoard(board)
+		, _Timer(0.0f)
 	{
 	}
 	FeedTimer::~FeedTimer()
@@ -21,13 +23,12 @@ namespace Mn
 		{
 			float time = _BlackBoard->GetDataValue<float>(L"Timer");
 			float calcuTime = time - _Timer;
-			if ((int)(calcuTime) % 2 == 0 && calcuTime != 0)
+			if ((int)(calcuTime) % 3 == 0 && calcuTime != 0)
 			{
 				_BlackBoard->SetData(L"FeedReady", true);
 			}
 			_Timer = time;
 		}
 		return enums::eBTState::FAILURE;
-
 	}
 }

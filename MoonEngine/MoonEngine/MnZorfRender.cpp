@@ -14,6 +14,9 @@ namespace Mn
 	}
 	void ZorfRender::Initialize()
 	{
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		tr->Scale(Vector3(0.5f, 0.5f, 0.0f));
+
 		MeshRenderer* mr = GetOwner()->AddComponent<MeshRenderer>();
 		mr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
 		mr->SetMaterial(Resources::Find<Material>(L"ZorfSpriteAnimaionMaterial"));

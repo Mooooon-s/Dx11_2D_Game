@@ -30,11 +30,6 @@ namespace Mn
 
 		if (at->AnimationComplete())
 		{
-			//eDir dir = _BlackBoard->GetDataValue<eDir>(L"Dir");
-			//if (dir == eDir::Left)
-			//	_BlackBoard->SetData(L"Dir", eDir::Right);
-			//else
-			//	_BlackBoard->SetData(L"Dir", eDir::Left);
 
 			_BlackBoard->SetData(L"Behavior", eBehavior::Swim);
 			_BlackBoard->GetData<CaniBoarAnimatonCntrl>(L"AnimaCntrl")->Run();
@@ -49,9 +44,9 @@ namespace Mn
 		Transform* tr = owner->GetComponent<Transform>();
 		Vector3 pos = tr->Position();
 		Vector3 moveVec = _BlackBoard->GetDataValue<Vector3>(L"MoveVector");
+		moveVec.z = 0;
 		moveVec.Normalize();
-		float speed = _BlackBoard->GetDataValue<float>(L"MoveSpeed");
-		pos += Vector3(moveVec.x, moveVec.y, 0.0f) * speed * Time::DeltaTime();
+		pos += Vector3(moveVec.x, moveVec.y, 0.0f) * 2 * Time::DeltaTime();
 		tr->Position(pos);
 
 		if (state != eFishState::Full)

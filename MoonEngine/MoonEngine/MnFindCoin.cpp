@@ -29,7 +29,6 @@ namespace Mn
 				return enums::eBTState::FAILURE;
 			return enums::eBTState::SUCCESS;
 		}
-
 	}
 	void FindCoin::NearestCoin(std::vector<GameObject*> coin)
 	{
@@ -44,7 +43,7 @@ namespace Mn
 			Vector3 objPos = tr->Position();
 			objPos.z = 0;
 			Vector3 distance = Vector3(std::fabs( objPos.x - pos.x), std::fabs(objPos.y - pos.y),0.0f);
-			if (distance.x < minDistance.x ) //&& distance.y < minDistance.y
+			if (distance.x < minDistance.x && distance.y < minDistance.y)
 			{
 				minDistance = distance;
 				minObjpos = objPos;

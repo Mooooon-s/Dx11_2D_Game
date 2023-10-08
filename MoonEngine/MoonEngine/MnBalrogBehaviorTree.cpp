@@ -45,6 +45,10 @@ namespace Mn
 		_BlackBorad->MakeData<Vector3>(L"MousePos");
 		_BlackBorad->SetData(L"MousePos", Vector3::Zero);
 
+		_BlackBorad->MakeData<float>(L"StunTime");
+		_BlackBorad->SetData(L"StunTime", 0.0f);
+
+
 		Vector3 targetPos = Vector3::Zero;
 		_BlackBorad->MakeData<Vector3>(L"Target_Pos");
 		_BlackBorad->SetData(L"Target_Pos", targetPos);
@@ -90,6 +94,7 @@ namespace Mn
 	void BalrogBehaviorTree::OnClick(Vector3 pos)
 	{
 		_BlackBorad->SetData(L"GetDamege", true);
+		_BlackBorad->SetData(L"StunTime", 0.0f);
 		_BlackBorad->SetData(L"MousePos", pos);
 		_GetDemage->Run();
 	}
