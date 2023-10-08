@@ -33,6 +33,9 @@ namespace Mn
 		at->Create(L"Sylv_Turn_Right", atlas, atlasAlpha, Vector2(0.0f,160.0f), Vector2(160.0f, 160.0f), 10, Vector2::Zero, 0.1f);
 		at->CreateReverse(L"Sylv_Turn_Left", atlas, atlasAlpha, Vector2(0.0f,160.0f), Vector2(160.0f, 160.0f), 10, Vector2::Zero, 0.1f);
 
+		at->CompleteEvent(L"Sylv_Turn_Right") = std::bind(&SylvRender::AfterTurn, this);
+		at->CompleteEvent(L"Sylv_Turn_Left") = std::bind(&SylvRender::AfterTurn, this);
+
 		at->PlayAnimation(L"Sylv_Idle",true);
 	}
 	void SylvRender::Update()
@@ -43,5 +46,10 @@ namespace Mn
 	}
 	void SylvRender::Render()
 	{
+	}
+	void SylvRender::AfterTurn()
+	{
+		Animator* at = GetOwner()->GetComponent<Animator>();
+		at->PlayAnimation(L"Sylv_Idle",true);
 	}
 }

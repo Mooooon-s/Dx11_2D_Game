@@ -1,5 +1,6 @@
 #pragma once
 #include "MnGameObject.h"
+#include "MnSylvBehaviorTree.h"
 
 namespace Mn
 {
@@ -16,5 +17,6 @@ namespace Mn
 
 		virtual void OnClick(Vector3 pos);
 	private:
+		SylvBehaviorTree* _SBT;
 	};
 }

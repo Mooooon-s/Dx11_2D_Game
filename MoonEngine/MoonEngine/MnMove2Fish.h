@@ -14,6 +14,7 @@ namespace Mn
 		enums::eBTState Run() override;
 	public:
 		void SetRunningNode();
+		std::wstring AnimationName();
 	private:
 		float _Time;
 		int _Count;

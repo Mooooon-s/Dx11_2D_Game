@@ -53,12 +53,15 @@ namespace Mn
 		switch (_EventStack)
 		{
 		case 1:
-			warp->BossType(eBossType::Barlog);
+			warp->BossType(eBossType::Sylv);
 			break;
+		case 2:
+			warp->BossType(eBossType::Barlog);
 		default:
 			break;
 		}
 		warp->Initialize();
+		_EventStack++;
 	}
 	void EventManager::Timer()
 	{

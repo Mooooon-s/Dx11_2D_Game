@@ -16,6 +16,9 @@
 namespace Mn
 {
 	SylvBehaviorTree::SylvBehaviorTree()
+		: _BlackBorad(nullptr)
+		, _GetDemage(nullptr)
+		, _Root(nullptr)
 	{
 	}
 	SylvBehaviorTree::~SylvBehaviorTree()
@@ -31,7 +34,7 @@ namespace Mn
 		_BlackBorad->MakeData<eDir>(L"Dir");
 		_BlackBorad->SetData(L"Dir", eDir::Left);
 		_BlackBorad->MakeData<int>(L"Hp");
-		_BlackBorad->SetData(L"Hp", 50);
+		_BlackBorad->SetData(L"Hp", 25);
 		_BlackBorad->MakeData<bool>(L"GetDamege");
 		_BlackBorad->SetData(L"GetDamege", false);
 		_BlackBorad->MakeData<Vector3>(L"MousePos");
@@ -39,6 +42,9 @@ namespace Mn
 
 		_BlackBorad->MakeData<float>(L"StunTime");
 		_BlackBorad->SetData(L"StunTime", 0.0f);
+
+		_BlackBorad->MakeData<eBossType>(L"BossType");
+		_BlackBorad->SetData(L"BossType", eBossType::Sylv);
 
 
 		Vector3 targetPos = Vector3::Zero;
@@ -54,6 +60,8 @@ namespace Mn
 
 		FindFish* findFish = sequence->AddChild<FindFish>();
 		Move2Fish* move2Fish = sequence->AddChild<Move2Fish>();
+
+		_BlackBorad->AddData<MonIsDead>(L"IsDeadNode", isDead);
 	}
 	void SylvBehaviorTree::Update()
 	{

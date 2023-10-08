@@ -7,9 +7,11 @@
 #include "MnMaterial.h"
 #include "MnGameObject.h"
 #include "MnTime.h"
-#include "MnBalrog.h"
 #include "MnObject.h"
 
+//Boss Type
+#include "MnBalrog.h"
+#include "MnSylv.h"
 
 namespace Mn
 {
@@ -67,10 +69,15 @@ namespace Mn
 	}
 	void WarpHole::SpawnBoss(Vector3 pos)
 	{
+		GameObject* boss;
 		switch (_Type)
 		{
 		case Mn::enums::eBossType::Barlog:
-			Balrog* boss = object::Instantiate<Balrog>(pos, eLayerType::Monster);
+			boss = object::Instantiate<Balrog>(pos, eLayerType::Monster);
+			boss->Initialize();
+			break;
+		case Mn::enums::eBossType::Sylv:
+			boss = object::Instantiate<Sylv>(pos, eLayerType::Monster);
 			boss->Initialize();
 			break;
 		}
