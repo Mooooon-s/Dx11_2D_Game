@@ -1,37 +1,29 @@
-#include "MnBalrogBehaviorTree.h"
+#include "MnSylvBehaviorTree.h"
 
-
-#include "..\Engine_SOURCE\MnBlackBoard.h"
-#include "..\Engine_SOURCE\MnRootNode.h"
-#include "..\Engine_SOURCE\MnSequence.h"
-#include "..\Engine_SOURCE\MnSelector.h"
-#include "..\Engine_SOURCE\MnSucceeder.h"
-#include "..\Engine_SOURCE\MnInverter.h"
-
-#include "MnMonIsDead.h"
-#include "MnGetDemaged.h"
-#include "MnFindFish.h"
-#include "MnMove2Fish.h"
 #include "MnMeshRenderer.h"
 #include "MnGameObject.h"
-#include "MnBossStun.h"
-
 #include "MnFish.h"
+#include "MnMonIsDead.h"
+
+#include "MnInverter.h"
+#include "MnSucceeder.h"
+#include "MnSequence.h"
+#include "MnSelector.h"
+
+#include "MnFindFish.h"
+#include "MnMove2Fish.h"
 
 namespace Mn
 {
-	BalrogBehaviorTree::BalrogBehaviorTree()
-		: _BlackBorad(nullptr)
-		, _GetDemage(nullptr)
-		, _Root(nullptr)
+	SylvBehaviorTree::SylvBehaviorTree()
 	{
 	}
-	BalrogBehaviorTree::~BalrogBehaviorTree()
+	SylvBehaviorTree::~SylvBehaviorTree()
 	{
 	}
-	void BalrogBehaviorTree::Initialize()
+	void SylvBehaviorTree::Initialize()
 	{
-		_BlackBorad  = new BlackBoard();
+		_BlackBorad = new BlackBoard();
 
 		_GetDemage = new GetDemaged(_BlackBorad);
 		_BlackBorad->AddData<GameObject>(L"Owner", GetOwner());
@@ -48,8 +40,6 @@ namespace Mn
 		_BlackBorad->MakeData<float>(L"StunTime");
 		_BlackBorad->SetData(L"StunTime", 0.0f);
 
-		_BlackBorad->MakeData<eBossType>(L"BossType");
-		_BlackBorad->SetData(L"BossType", eBossType::Barlog);
 
 		Vector3 targetPos = Vector3::Zero;
 		_BlackBorad->MakeData<Vector3>(L"Target_Pos");
@@ -64,10 +54,8 @@ namespace Mn
 
 		FindFish* findFish = sequence->AddChild<FindFish>();
 		Move2Fish* move2Fish = sequence->AddChild<Move2Fish>();
-
-		_BlackBorad->AddData<MonIsDead>(L"IsDeadNode", isDead);
 	}
-	void BalrogBehaviorTree::Update()
+	void SylvBehaviorTree::Update()
 	{
 		_Root->Run();
 		MeshRenderer* MR = GetOwner()->GetComponent<MeshRenderer>();
@@ -77,13 +65,13 @@ namespace Mn
 		else
 			MR->FlipX(0);
 	}
-	void BalrogBehaviorTree::LateUpdate()
+	void SylvBehaviorTree::LateUpdate()
 	{
 	}
-	void BalrogBehaviorTree::Render()
+	void SylvBehaviorTree::Render()
 	{
 	}
-	void BalrogBehaviorTree::OnCollisionEnter(Collider2D* other)
+	void SylvBehaviorTree::OnCollisionEnter(Collider2D* other)
 	{
 		if (!_BlackBorad->GetDataValue<bool>(L"GetDamege"))
 		{
@@ -93,7 +81,7 @@ namespace Mn
 			}
 		}
 	}
-	void BalrogBehaviorTree::OnClick(Vector3 pos)
+	void SylvBehaviorTree::OnClick(Vector3 pos)
 	{
 		_BlackBorad->SetData(L"GetDamege", true);
 		_BlackBorad->SetData(L"StunTime", 0.0f);

@@ -41,6 +41,7 @@
 #include "MnCaniboar.h"
 #include "MnDiamond.h"
 #include "MnZorf.h"
+#include "MnSylv.h"
 
 
 
@@ -97,6 +98,9 @@ void Mn::playScene::Initialize()
 
 	Zorf* zorf = object::Instantiate<Zorf>( Vector3(0.0f,0.0f,4.0f), eLayerType::Pet);
 	zorf->Initialize();
+
+	Sylv* sylv = object::Instantiate<Sylv>(Vector3(0.0f, 0.0f, 5.0f), eLayerType::Monster);
+	sylv->Initialize();
 
 	//GameObject* particle = new GameObject();
 	//particle->SetName(L"Particle");

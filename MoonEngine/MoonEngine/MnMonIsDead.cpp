@@ -1,22 +1,22 @@
-#include "MnBalIsDead.h"
+#include "MnMonIsDead.h"
 #include "MnGameObject.h"
 
 namespace Mn
 {
-	BalIsDead::BalIsDead()
+	MonIsDead::MonIsDead()
 		: _BlackBoard(nullptr)
 	{
 	}
-	BalIsDead::BalIsDead(BlackBoard* board)
+	MonIsDead::MonIsDead(BlackBoard* board)
 		: _BlackBoard(board)
 	{
 	}
-	BalIsDead::~BalIsDead()
+	MonIsDead::~MonIsDead()
 	{
 	}
-	enums::eBTState BalIsDead::Run()
+	enums::eBTState MonIsDead::Run()
 	{
-		GameObject* balrog = _BlackBoard->GetData<GameObject>(L"Balrog");
+		GameObject* balrog = _BlackBoard->GetData<GameObject>(L"Owner");
 		int hp = _BlackBoard->GetDataValue<int>(L"Hp");
 		if (hp <= 0)
 		{

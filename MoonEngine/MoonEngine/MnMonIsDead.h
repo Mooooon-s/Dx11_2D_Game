@@ -3,12 +3,12 @@
 #include "..\Engine_SOURCE\MnBlackBoard.h"
 namespace Mn
 {
-	class BalIsDead : public Node
+	class MonIsDead : public Node
 	{
 	public:
-		BalIsDead();
-		BalIsDead(BlackBoard* board);
-		~BalIsDead();
+		MonIsDead();
+		MonIsDead(BlackBoard* board);
+		~MonIsDead();
 
 		virtual enums::eBTState Run() override;
 	private:

@@ -82,6 +82,7 @@ namespace Mn::enums
 	enum class eBossType
 	{
 		Barlog,
+		Sylv,
 		End,
 	};
 

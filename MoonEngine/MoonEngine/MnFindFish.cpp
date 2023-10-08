@@ -18,7 +18,7 @@ namespace Mn
 	}
 	enums::eBTState FindFish::Run()
 	{
-		GameObject* boss = _BlackBoard->GetData<GameObject>(L"Balrog");
+		GameObject* boss = _BlackBoard->GetData<GameObject>(L"Owner");
 
 		GameObject* fish = Mn::GuppyTree->Query(boss,5,0);
 

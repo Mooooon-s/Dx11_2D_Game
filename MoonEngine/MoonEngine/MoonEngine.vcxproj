@@ -165,7 +165,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="MnAddLevel.h" />
-    <ClInclude Include="MnBalIsDead.h" />
+    <ClInclude Include="MnMonIsDead.h" />
     <ClInclude Include="MnBalrog.h" />
     <ClInclude Include="MnBalrogBehaviorTree.h" />
     <ClInclude Include="MnBalrogRenderScript.h" />
@@ -243,6 +243,10 @@
     <ClInclude Include="MnStinkyRenderScript.h" />
     <ClInclude Include="MnStinkyScript.h" />
     <ClInclude Include="MnSwim.h" />
+    <ClInclude Include="MnSylv.h" />
+    <ClInclude Include="MnSylvBehaviorTree.h" />
+    <ClInclude Include="MnSylvIsDead.h" />
+    <ClInclude Include="MnSylvRender.h" />
     <ClInclude Include="MnTitleScene.h" />
     <ClInclude Include="MnTopBar.h" />
     <ClInclude Include="MnPlayAnimaion.h" />
@@ -294,7 +298,7 @@
     <ClCompile Include="MnFindBoss.cpp" />
     <ClCompile Include="MnFindCoin.cpp" />
     <ClCompile Include="MnGetDemaged.cpp" />
-    <ClCompile Include="MnBalIsDead.cpp" />
+    <ClCompile Include="MnMonIsDead.cpp" />
     <ClCompile Include="MnBalrogBehaviorTree.cpp" />
     <ClCompile Include="MnBalrogRenderScript.cpp" />
     <ClCompile Include="MnBalrog.cpp" />
@@ -360,6 +364,10 @@
     <ClCompile Include="MnZorfAnimationCntrl.cpp" />
     <ClCompile Include="MnZorfFeedFood.cpp" />
     <ClCompile Include="MnZorfFeedDone.cpp" />
+    <ClCompile Include="MnSylv.cpp" />
+    <ClCompile Include="MnSylvRender.cpp" />
+    <ClCompile Include="MnSylvBehaviorTree.cpp" />
+    <ClCompile Include="SylvIsDead.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />

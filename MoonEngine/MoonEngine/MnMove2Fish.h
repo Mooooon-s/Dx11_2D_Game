@@ -12,6 +12,8 @@ namespace Mn
 		~Move2Fish();
 
 		enums::eBTState Run() override;
+	public:
+		void SetRunningNode();
 	private:
 		float _Time;
 		int _Count;

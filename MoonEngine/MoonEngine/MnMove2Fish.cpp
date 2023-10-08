@@ -3,7 +3,7 @@
 #include "MnAnimator.h"
 #include "MnTime.h"
 
-#include "MnBalIsDead.h"
+#include "MnMonIsDead.h"
 
 namespace Mn
 {
@@ -22,13 +22,9 @@ namespace Mn
 	}
 	enums::eBTState Move2Fish::Run()
 	{
-		GameObject* boss = _BlackBoard->GetData<GameObject>(L"Balrog");
+		GameObject* boss = _BlackBoard->GetData<GameObject>(L"Owner");
 		Transform* tr = boss->GetComponent<Transform>();
 		eDir dir = _BlackBoard->GetDataValue<eDir>(L"Dir");
-
-		BalIsDead* BDD = new BalIsDead(_BlackBoard);
-		BDD->Run();
-
 
 		bool hunting = _BlackBoard->GetDataValue<bool>(L"GetDamege");
 		if (hunting)
@@ -37,6 +33,7 @@ namespace Mn
 			Vector3 pos = tr->Position();
 			Vector3 Vec = mousePos - pos;
 			
+			//Animation Play Cntrl 만들기
 			if (Vec.x > 0)
 			{
 				//마우스가 오른쪽
@@ -58,7 +55,7 @@ namespace Mn
 				}
 			}
 			_Time = _BlackBoard->GetDataValue<float>(L"StunTime");
-			//float calculTime = time - _Time;
+
 			if (_Time >= 1.0)
 			{
 				_Time = 0;
@@ -74,7 +71,7 @@ namespace Mn
 				Vec.Normalize();
 				pos += Vec * -1 * 0.5 * Time::DeltaTime();
 				tr->Position(pos);
-				_BlackBoard->SetRunningNode<Move2Fish>(this);
+				SetRunningNode();
 				return enums::eBTState::RUNNING;
 			}
 		}
@@ -88,6 +85,8 @@ namespace Mn
 			pos += Vec * 0.2 * Time::DeltaTime();
 			tr->Position(pos);
 
+
+			//AnimationCntrl 만들기
 			if (Vec.x  > 0 && dir == eDir::Left)
 			{
 				Animator* at = boss->GetComponent<Animator>();
@@ -103,5 +102,10 @@ namespace Mn
 
 		}
 		return enums::eBTState::SUCCESS;
+	}
+	void Move2Fish::SetRunningNode()
+	{
+		MonIsDead* dead = _BlackBoard->GetData<MonIsDead>(L"IsDeadNode");
+		_BlackBoard->SetRunningNode<MonIsDead>(dead);
 	}
 }

@@ -276,8 +276,8 @@
     <ClInclude Include="MnZorfBehaviorTree.h">
       <Filter>Contents\Scripts\Zorf</Filter>
     </ClInclude>
-    <ClInclude Include="MnBalIsDead.h">
-      <Filter>Contents\LeafNode\Balrog\BallsDead</Filter>
+    <ClInclude Include="MnMonIsDead.h">
+      <Filter>Contents\LeafNode\Common\MonlsDead</Filter>
     </ClInclude>
     <ClInclude Include="MnFindFish.h">
       <Filter>Contents\LeafNode\Balrog\FindFish</Filter>
@@ -289,6 +289,12 @@
       <Filter>Contents\LeafNode\Balrog\Move2Fish</Filter>
     </ClInclude>
     <ClInclude Include="MnBossStun.h" />
+    <ClInclude Include="MnSylvRender.h" />
+    <ClInclude Include="MnSylv.h">
+      <Filter>Contents\BossMonster\Sylv</Filter>
+    </ClInclude>
+    <ClInclude Include="MnSylvBehaviorTree.h" />
+    <ClInclude Include="MnSylvIsDead.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -562,8 +568,8 @@
     <ClCompile Include="MnZorfBehaviorTree.cpp">
       <Filter>Contents\Scripts\Zorf</Filter>
     </ClCompile>
-    <ClCompile Include="MnBalIsDead.cpp">
-      <Filter>Contents\LeafNode\Balrog\BallsDead</Filter>
+    <ClCompile Include="MnMonIsDead.cpp">
+      <Filter>Contents\LeafNode\Common\MonlsDead</Filter>
     </ClCompile>
     <ClCompile Include="MnFindFish.cpp">
       <Filter>Contents\LeafNode\Balrog\FindFish</Filter>
@@ -575,6 +581,12 @@
       <Filter>Contents\LeafNode\Balrog\Move2Fish</Filter>
     </ClCompile>
     <ClCompile Include="MnBossStun.cpp" />
+    <ClCompile Include="MnSylvRender.cpp" />
+    <ClCompile Include="MnSylv.cpp">
+      <Filter>Contents\BossMonster\Sylv</Filter>
+    </ClCompile>
+    <ClCompile Include="MnSylvBehaviorTree.cpp" />
+    <ClCompile Include="SylvIsDead.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -793,9 +805,6 @@
     <Filter Include="Contents\LeafNode\Zorf\FeedFood">
       <UniqueIdentifier>{8e0bbebf-753c-4c70-8e2f-2dab6d130f38}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\LeafNode\Balrog\BallsDead">
-      <UniqueIdentifier>{7fe5492c-3134-4b4f-a5a6-ccb38d767b15}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\LeafNode\Balrog\FindFish">
       <UniqueIdentifier>{b7e1e848-9218-45ae-8fac-e9b8f2e5c584}</UniqueIdentifier>
     </Filter>
@@ -804,6 +813,12 @@
     </Filter>
     <Filter Include="Contents\LeafNode\Balrog\Move2Fish">
       <UniqueIdentifier>{a854cc6c-a9b8-4515-9d1e-57f4b2ffc451}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\BossMonster\Sylv">
+      <UniqueIdentifier>{1f02ab4e-fbdc-4a6d-b4ab-ab1d5e57df8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Common\MonlsDead">
+      <UniqueIdentifier>{7fe5492c-3134-4b4f-a5a6-ccb38d767b15}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
