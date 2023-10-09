@@ -27,6 +27,7 @@
 #include "MnIsDeath.h"
 
 #include "MnRepeatUntilFail.h"
+#include "MnAnimator.h"
 
 namespace Mn
 {
@@ -132,6 +133,8 @@ namespace Mn
 		eFishState hungrystate = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
 		if (hungrystate != eFishState::Full && other->GetOwner()->GetName() == L"Guppy")
 		{
+			GetOwner()->GetComponent<Animator>()->ResetActiveAnimationPlaySpeed();
+
 			_BlackBoard->SetData(L"Behavior", enums::eBehavior::Eat);
 			_BlackBoard->SetData(L"HungryStack", 5);
 			_BlackBoard->SetData(L"Fish_State", eFishState::Full);

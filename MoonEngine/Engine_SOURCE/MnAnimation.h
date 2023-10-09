@@ -79,7 +79,8 @@ namespace Mn
 		void Reset();
 
 		bool IsComplete() { return _Complete; }
-
+		void PlaySpeed(float speed) { _PlaySpeed = speed; }
+		void ResetPlaySpeed() { _PlaySpeed = 1.0f; }
 	private:
 		std::shared_ptr<graphics::Texture> _Atlas;
 		std::shared_ptr<graphics::Texture> _AtlasAlpha;
@@ -88,5 +89,6 @@ namespace Mn
 		int _Index;
 		float _Time;
 		bool _Complete;
+		float _PlaySpeed;
 	};
 }

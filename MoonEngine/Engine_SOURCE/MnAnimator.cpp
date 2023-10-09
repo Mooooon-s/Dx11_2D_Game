@@ -207,4 +207,12 @@ namespace Mn
 
 		return events->endEvent._Event;
 	}
+	void Animator::ActiveAnimationPlaySpeed(float speed)
+	{
+		_ActiveAnimation->PlaySpeed(speed);
+	}
+	void Animator::ResetActiveAnimationPlaySpeed()
+	{
+		_ActiveAnimation->ResetPlaySpeed();
+	}
 }

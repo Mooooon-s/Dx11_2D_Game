@@ -40,7 +40,7 @@ namespace Mn
 
 		Scene* scene = SceneManager::ActiveScene();
 
-
+		at->ActiveAnimationPlaySpeed(3);
 		Transform* tr = owner->GetComponent<Transform>();
 		Vector3 pos = tr->Position();
 		Vector3 moveVec = _BlackBoard->GetDataValue<Vector3>(L"MoveVector");

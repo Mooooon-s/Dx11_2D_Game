@@ -15,6 +15,7 @@ namespace Mn
 		, _Index(-1)
 		, _Time(0)
 		, _Complete(false)
+		, _PlaySpeed(1.0f)
 	{
 	}
 	Animation::~Animation()
@@ -30,11 +31,10 @@ namespace Mn
 
 		_Time += Time::DeltaTime();
 
-		if (_Sprites[_Index].duration <= _Time)
+		if (_Sprites[_Index].duration / _PlaySpeed <= _Time)
 		{
 			_Index++;
 			_Time = 0.0f;
-
 
 			if (_Sprites.size() <= _Index)
 			{

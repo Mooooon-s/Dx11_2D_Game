@@ -59,11 +59,13 @@ namespace Mn
 			anima->Run();
 		}
 	
+
+		at->ActiveAnimationPlaySpeed(3.0f);
 		Vector3 moveVec = foodPos - ownerPos;
 		moveVec.z = 0.0f;
 		moveVec.Normalize();
 		float speed = _BlackBoard->GetDataValue<float>(L"MoveSpeed");
-		ownerPos += Vector3(moveVec.x, moveVec.y,0.0f)* speed * Time::DeltaTime();
+		ownerPos += Vector3(moveVec.x, moveVec.y,0.0f)* 2 * Time::DeltaTime();
 		tr->Position(ownerPos);
 
 		if (ownerPos.x >= foodPos.x + 0.05 || ownerPos.x <= foodPos.x - 0.05

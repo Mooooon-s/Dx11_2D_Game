@@ -29,7 +29,7 @@ namespace Mn
 		eDir dir = _Blackboard->GetDataValue<eDir>(L"Dir");
 		Transform* tr =owner->GetComponent<Transform>();
 		Vector3 pos = tr->Position();
-
+		owner->GetComponent<Animator>()->ResetActiveAnimationPlaySpeed();
 		if (_Time <= 1.0f)
 		{
 			if (dir == eDir::Left)
