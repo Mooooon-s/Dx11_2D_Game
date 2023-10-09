@@ -66,6 +66,15 @@ namespace Mn
 			, Vector2 offset = Vector2::Zero
 			, float duration = 0.0f);
 
+		void CreateVertical(std::wstring name
+			, std::shared_ptr<graphics::Texture> atlas
+			, std::shared_ptr<graphics::Texture> atlasAlpha
+			, Vector2 leftTop
+			, Vector2 size
+			, UINT rowLength
+			, Vector2 offset = Vector2::Zero
+			, float duration = 0.0f);
+
 		void Binds();
 		void Reset();
 

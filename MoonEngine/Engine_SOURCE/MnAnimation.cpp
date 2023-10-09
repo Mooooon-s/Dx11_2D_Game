@@ -118,6 +118,29 @@ namespace Mn
 
 		}
 	}
+	void Animation::CreateVertical(std::wstring name, std::shared_ptr<graphics::Texture> atlas, std::shared_ptr<graphics::Texture> atlasAlpha, Vector2 leftTop, Vector2 size, UINT rowLength, Vector2 offset, float duration)
+	{
+		Key(name);
+		_Atlas = atlas;
+		_AtlasAlpha = atlasAlpha;
+
+		float width = (float)atlas->GetImageWidth();
+		float height = (float)atlas->GetImageHeight();
+
+		for (size_t i = 0; i < rowLength; i++)
+		{
+			Sprite sprite = {};
+			sprite.leftTop.x = leftTop.x  / width;
+			sprite.leftTop.y = leftTop.y + (float)(i * size.y) / height;
+			sprite.size.x = size.x / width;
+			sprite.size.y = size.y / height;
+			sprite.offset = offset;
+			sprite.atlasSize = Vector2(size.x / width, size.y / height);
+			sprite.duration = duration;
+
+			_Sprites.push_back(sprite);
+		}
+	}
 	void Animation::Binds()
 	{
 		//TextureBinds

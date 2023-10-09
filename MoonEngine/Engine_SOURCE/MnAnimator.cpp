@@ -115,6 +115,27 @@ namespace Mn
 		_Events.insert(std::make_pair(name, events));
 
 	}
+	void Animator::CreateVertical(const std::wstring& name, std::shared_ptr<graphics::Texture> atlas, std::shared_ptr<graphics::Texture> atlasAlpha, Vector2 leftTop, Vector2 size, UINT rowLength, Vector2 offset, float duration)
+	{
+		Animation* animation = FindAnimation(name);
+		if (nullptr != animation)
+			return;
+
+		animation = new Animation();
+		animation->Key(name);
+
+		animation->CreateVertical(name, atlas, atlasAlpha, leftTop, size, rowLength, offset, duration);
+
+		_Animations.insert(std::make_pair(name, animation));
+
+		Events* events = FindEvents(name);
+		if (events != nullptr)
+			return;
+
+		events = new Events();
+		_Events.insert(std::make_pair(name, events));
+
+	}
 	Animation* Animator::FindAnimation(const std::wstring& name)
 	{
 		std::map<std::wstring, Animation*>::iterator iter 
