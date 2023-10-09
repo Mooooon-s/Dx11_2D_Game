@@ -288,13 +288,26 @@
     <ClInclude Include="MnMove2Fish.h">
       <Filter>Contents\LeafNode\Balrog\Move2Fish</Filter>
     </ClInclude>
-    <ClInclude Include="MnBossStun.h" />
-    <ClInclude Include="MnSylvRender.h" />
     <ClInclude Include="MnSylv.h">
       <Filter>Contents\BossMonster\Sylv</Filter>
     </ClInclude>
-    <ClInclude Include="MnSylvBehaviorTree.h" />
-    <ClInclude Include="MnSylvIsDead.h" />
+    <ClInclude Include="MnSylvBehaviorTree.h">
+      <Filter>Contents\Scripts\BossMonster\SylvScript</Filter>
+    </ClInclude>
+    <ClInclude Include="MnSylvRender.h">
+      <Filter>Contents\Scripts\BossMonster\SylvScript</Filter>
+    </ClInclude>
+    <ClInclude Include="MnUltravore.h">
+      <Filter>Contents\Fish\Ultravore</Filter>
+    </ClInclude>
+    <ClInclude Include="MnUltravoreRender.h">
+      <Filter>Contents\Scripts\Ultrabore</Filter>
+    </ClInclude>
+    <ClInclude Include="MnUltravoreBehaviorTree.h" />
+    <ClInclude Include="MnUltravoreAnimationCntrl.h" />
+    <ClInclude Include="MnFindCaniboar.h" />
+    <ClInclude Include="MnMove2Caniboar.h" />
+    <ClInclude Include="MnDropTresure.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -580,13 +593,26 @@
     <ClCompile Include="MnMove2Fish.cpp">
       <Filter>Contents\LeafNode\Balrog\Move2Fish</Filter>
     </ClCompile>
-    <ClCompile Include="MnBossStun.cpp" />
-    <ClCompile Include="MnSylvRender.cpp" />
     <ClCompile Include="MnSylv.cpp">
       <Filter>Contents\BossMonster\Sylv</Filter>
     </ClCompile>
-    <ClCompile Include="MnSylvBehaviorTree.cpp" />
-    <ClCompile Include="SylvIsDead.cpp" />
+    <ClCompile Include="MnSylvBehaviorTree.cpp">
+      <Filter>Contents\Scripts\BossMonster\SylvScript</Filter>
+    </ClCompile>
+    <ClCompile Include="MnSylvRender.cpp">
+      <Filter>Contents\Scripts\BossMonster\SylvScript</Filter>
+    </ClCompile>
+    <ClCompile Include="MnUltravore.cpp">
+      <Filter>Contents\Fish\Ultravore</Filter>
+    </ClCompile>
+    <ClCompile Include="MnUltravoreRender.cpp">
+      <Filter>Contents\Scripts\Ultrabore</Filter>
+    </ClCompile>
+    <ClCompile Include="MnUltravoreBehaviorTree.cpp" />
+    <ClCompile Include="MnUltravoreAnimationCntrl.cpp" />
+    <ClCompile Include="MnFindCaniboar.cpp" />
+    <ClCompile Include="MnMove2Caniboar.cpp" />
+    <ClCompile Include="MnDropTresure.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -819,6 +845,15 @@
     </Filter>
     <Filter Include="Contents\LeafNode\Common\MonlsDead">
       <UniqueIdentifier>{7fe5492c-3134-4b4f-a5a6-ccb38d767b15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\BossMonster\SylvScript">
+      <UniqueIdentifier>{56f14430-9330-47e4-9791-f1f1378d505d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Fish\Ultravore">
+      <UniqueIdentifier>{ec07d051-59b3-4ca6-b8f2-f5b4ac3264f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Ultrabore">
+      <UniqueIdentifier>{e78b4473-02ca-4460-b537-f61f57f10de9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

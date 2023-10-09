@@ -29,7 +29,8 @@ namespace Mn
 			= Resources::Load<Mn::graphics::Texture>(L"Coin_Idle_alpha", L"..\\Resources\\Texture\\Item\\money\\money_.jpg");
 		at->Create(L"Coin_Silver", atlas, atlasAlpha, Vector2(0.0f,0.0f), Vector2(72.0f, 72.0f), 10, Vector2::Zero, 0.1f);
 		at->Create(L"Coin_Gold", atlas, atlasAlpha, Vector2(0.0f,72.0f), Vector2(72.0f, 72.0f), 10, Vector2::Zero, 0.1f);
-
+		at->Create(L"Treasure", atlas, atlasAlpha, Vector2(0.0f,288.0f), Vector2(72.0f, 72.0f), 10, Vector2::Zero, 0.1f);
+		
 		switch (_Level)
 		{
 		case 2:
@@ -37,6 +38,9 @@ namespace Mn
 			break;
 		case 3:
 			at->PlayAnimation(L"Coin_Gold", true);
+			break;
+		case 4:
+			at->PlayAnimation(L"Treasure", true);
 			break;
 		default:
 			at->PlayAnimation(L"Coin_Silver", true);

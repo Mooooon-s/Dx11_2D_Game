@@ -4,16 +4,14 @@
 
 namespace Mn
 {
-	class Turn2Food : public Node
+	class FindCaniboar : public Node
 	{
 	public:
-		Turn2Food();
-		Turn2Food(BlackBoard* board);
-		~Turn2Food();
+		FindCaniboar();
+		FindCaniboar(BlackBoard* board);
+		~FindCaniboar();
 
 		enums::eBTState Run() override;
-	public:
-		void AnimationPlay();
 	private:
 		BlackBoard* _BlackBoard;
 	};

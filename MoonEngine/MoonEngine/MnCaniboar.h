@@ -13,6 +13,7 @@ namespace Mn
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render();
+		virtual void OnClick();
 	public:
 		void SetFishState(eFishState state) { Mn::Fish::SetFishState(state); }
 		eFishState GetFishState() { return Mn::Fish::GetFishState(); }

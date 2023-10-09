@@ -1,6 +1,7 @@
 #include "MnIsDeath.h"
 #include "MnGameObject.h"
 #include "MnCaniBoarAnimatonCntrl.h"
+#include "MnUltravoreAnimationCntrl.h"
 
 namespace Mn
 {
@@ -50,6 +51,9 @@ namespace Mn
 		{
 		case Mn::enums::eFishType::CaniBoar:
 			_BlackBoard->GetData<CaniBoarAnimatonCntrl>(L"AnimaCntrl")->Run();
+			break;
+		case Mn::enums::eFishType::Ultravore:
+			_BlackBoard->GetData<UltravoreAnimationCntrl>(L"AnimaCntrl")->Run();
 			break;
 		case Mn::enums::eFishType::End:
 			break;

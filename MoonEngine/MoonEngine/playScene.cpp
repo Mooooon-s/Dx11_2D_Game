@@ -42,6 +42,7 @@
 #include "MnDiamond.h"
 #include "MnZorf.h"
 #include "MnSylv.h"
+#include "MnUltravore.h"
 
 
 
@@ -98,6 +99,9 @@ void Mn::playScene::Initialize()
 
 	Zorf* zorf = object::Instantiate<Zorf>( Vector3(0.0f,0.0f,4.0f), eLayerType::Pet);
 	zorf->Initialize();
+
+	Ultravore* ultravore = object::Instantiate<Ultravore>(Vector3(0.0f, 0.0f, 5.0f), eLayerType::Fish);
+	ultravore->Initialize();
 
 	//GameObject* particle = new GameObject();
 	//particle->SetName(L"Particle");

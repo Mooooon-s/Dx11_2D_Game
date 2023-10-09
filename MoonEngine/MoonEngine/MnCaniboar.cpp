@@ -18,7 +18,7 @@ namespace Mn
 		SetName(L"CaniBoar");
 
 		Collider2D* col = AddComponent<Collider2D>();
-		col->SetSize(Vector2(0.25f, 0.25f));
+		col->SetSize(Vector2(0.3f, 0.3f));
 
 		CaniboarRender* CR = AddComponent<CaniboarRender>();
 
@@ -37,5 +37,9 @@ namespace Mn
 	void Caniboar::Render()
 	{
 		GameObject::Render();
+	}
+	void Caniboar::OnClick()
+	{
+		this->State(GameObject::eState::Dead);
 	}
 }

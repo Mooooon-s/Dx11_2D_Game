@@ -165,11 +165,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="MnAddLevel.h" />
+    <ClInclude Include="MnDropTresure.h" />
+    <ClInclude Include="MnFindCaniboar.h" />
     <ClInclude Include="MnMonIsDead.h" />
     <ClInclude Include="MnBalrog.h" />
     <ClInclude Include="MnBalrogBehaviorTree.h" />
     <ClInclude Include="MnBalrogRenderScript.h" />
-    <ClInclude Include="MnBossStun.h" />
     <ClInclude Include="MnButton.h" />
     <ClInclude Include="MnButtonFrame.h" />
     <ClInclude Include="MnButtonFrameRender.h" />
@@ -229,6 +230,7 @@
     <ClInclude Include="MnMoney.h" />
     <ClInclude Include="MnMountainStage.h" />
     <ClInclude Include="MnMove.h" />
+    <ClInclude Include="MnMove2Caniboar.h" />
     <ClInclude Include="MnMove2Fish.h" />
     <ClInclude Include="MnMove2Food.h" />
     <ClInclude Include="MnNiko.h" />
@@ -245,7 +247,6 @@
     <ClInclude Include="MnSwim.h" />
     <ClInclude Include="MnSylv.h" />
     <ClInclude Include="MnSylvBehaviorTree.h" />
-    <ClInclude Include="MnSylvIsDead.h" />
     <ClInclude Include="MnSylvRender.h" />
     <ClInclude Include="MnTitleScene.h" />
     <ClInclude Include="MnTopBar.h" />
@@ -254,6 +255,10 @@
     <ClInclude Include="MnNikoBehaviorTree.h" />
     <ClInclude Include="MnMove2Coin.h" />
     <ClInclude Include="MnTurn2Food.h" />
+    <ClInclude Include="MnUltravore.h" />
+    <ClInclude Include="MnUltravoreAnimationCntrl.h" />
+    <ClInclude Include="MnUltravoreBehaviorTree.h" />
+    <ClInclude Include="MnUltravoreRender.h" />
     <ClInclude Include="MnWarp.h" />
     <ClInclude Include="MnWarpHole.h" />
     <ClInclude Include="MnWarpRenderScript.h" />
@@ -268,7 +273,8 @@
     <ClInclude Include="MnZorfAnimationCntrl.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MnBossStun.cpp" />
+    <ClCompile Include="MnDropTresure.cpp" />
+    <ClCompile Include="MnFindCaniboar.cpp" />
     <ClCompile Include="MnFeedTimer.cpp" />
     <ClCompile Include="MnFindHungryGuppy.cpp" />
     <ClCompile Include="MnDropDiamond.cpp" />
@@ -347,6 +353,7 @@
     <ClCompile Include="MnMove2Coin.cpp" />
     <ClCompile Include="MnMove2Fish.cpp" />
     <ClCompile Include="MnMove2Guppy.cpp" />
+    <ClCompile Include="MnMove2Caniboar.cpp" />
     <ClCompile Include="playScene.cpp" />
     <ClCompile Include="MnStinky.cpp" />
     <ClCompile Include="MnStinkyScript.cpp" />
@@ -367,7 +374,10 @@
     <ClCompile Include="MnSylv.cpp" />
     <ClCompile Include="MnSylvRender.cpp" />
     <ClCompile Include="MnSylvBehaviorTree.cpp" />
-    <ClCompile Include="SylvIsDead.cpp" />
+    <ClCompile Include="MnUltravore.cpp" />
+    <ClCompile Include="MnUltravoreRender.cpp" />
+    <ClCompile Include="MnUltravoreBehaviorTree.cpp" />
+    <ClCompile Include="MnUltravoreAnimationCntrl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />

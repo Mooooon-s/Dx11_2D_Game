@@ -14,7 +14,6 @@
 #include "MnMove2Fish.h"
 #include "MnMeshRenderer.h"
 #include "MnGameObject.h"
-#include "MnBossStun.h"
 
 #include "MnFish.h"
 

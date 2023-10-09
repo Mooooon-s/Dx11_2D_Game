@@ -1,22 +1,22 @@
-#include "MnCaniBoarAnimatonCntrl.h"
+#include "MnUltravoreAnimationCntrl.h"
 
 #include "MnGameObject.h"
 #include "MnAnimator.h"
 
 namespace Mn
 {
-	CaniBoarAnimatonCntrl::CaniBoarAnimatonCntrl()
+	UltravoreAnimationCntrl::UltravoreAnimationCntrl()
 		: _BlackBoard(nullptr)
 	{
 	}
-	CaniBoarAnimatonCntrl::CaniBoarAnimatonCntrl(BlackBoard* board)
+	UltravoreAnimationCntrl::UltravoreAnimationCntrl(BlackBoard* board)
 		: _BlackBoard(board)
 	{
 	}
-	CaniBoarAnimatonCntrl::~CaniBoarAnimatonCntrl()
+	UltravoreAnimationCntrl::~UltravoreAnimationCntrl()
 	{
 	}
-	enums::eBTState CaniBoarAnimatonCntrl::Run()
+	enums::eBTState UltravoreAnimationCntrl::Run()
 	{
 		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
@@ -34,7 +34,7 @@ namespace Mn
 		_Behavior = behavior;
 		return enums::eBTState::SUCCESS;
 	}
-	void CaniBoarAnimatonCntrl::PlayAnimation(enums::eBehavior behavior)
+	void UltravoreAnimationCntrl::PlayAnimation(enums::eBehavior behavior)
 	{
 		enums::eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
 
@@ -42,10 +42,8 @@ namespace Mn
 		{
 		case eFishState::Full:
 		case eFishState::Hungry:
-			FullAnimation(behavior);
-			break;
 		case eFishState::Starving:
-			StarvingAnimation(behavior);
+			FullAnimation(behavior);
 			break;
 		case eFishState::Death:
 			DeathAnimation();
@@ -54,7 +52,7 @@ namespace Mn
 			break;
 		}
 	}
-	void CaniBoarAnimatonCntrl::FullAnimation(enums::eBehavior behavior)
+	void UltravoreAnimationCntrl::FullAnimation(enums::eBehavior behavior)
 	{
 		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
@@ -63,61 +61,34 @@ namespace Mn
 		switch (behavior)
 		{
 		case Mn::enums::eBehavior::Swim:
-				at->PlayAnimation(L"Caniboar_Swim", true);
+			at->PlayAnimation(L"Ultravore_Swim", true);
 			break;
 		case Mn::enums::eBehavior::Turn:
 			if (dir == eDir::Left)
 			{
-				at->PlayAnimation(L"Caniboar_Turn", true);
+				at->PlayAnimation(L"Ultravore_Turn_Right", true);
 			}
 			else
 			{
-				at->PlayAnimation(L"Caniboar_Turn_Reverse", true);
+				at->PlayAnimation(L"Ultravore_Turn_Left", true);
 			}
 			break;
 		case Mn::enums::eBehavior::Eat:
-				at->PlayAnimation(L"Caniboar_Eat", true);
+			at->PlayAnimation(L"Ultravore_Eat", true);
 			break;
 		}
 	}
-	void CaniBoarAnimatonCntrl::StarvingAnimation(enums::eBehavior behavior)
-	{
-		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
-		Animator* at = gameObj->GetComponent<Animator>();
-		eDir dir = _BlackBoard->GetDataValue<eDir>(L"Dir");
-
-		switch (behavior)
-		{
-		case Mn::enums::eBehavior::Swim:
-				at->PlayAnimation(L"Caniboar_Hungry_Swim", true);
-			break;
-		case Mn::enums::eBehavior::Turn:
-			if (dir == eDir::Left)
-			{
-				at->PlayAnimation(L"Caniboar_Hungry_Turn", true);
-			}
-			else
-			{
-				at->PlayAnimation(L"Caniboar_Hungry_Turn_Reverse", true);
-			}
-			break;
-		case Mn::enums::eBehavior::Eat:
-				at->PlayAnimation(L"Caniboar_Hungry_Eat", true);
-			break;
-		}
-	}
-	void CaniBoarAnimatonCntrl::DeathAnimation()
+	void UltravoreAnimationCntrl::DeathAnimation()
 	{
 		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
 		eDir dir = _BlackBoard->GetDataValue<eDir>(L"Dir");
 		if (dir == eDir::Left)
-			at->PlayAnimation(L"Caniboar_Death", true);
+			at->PlayAnimation(L"Ultravore_Death", true);
 		else
-			at->PlayAnimation(L"Caniboar_Death_Reverse", true);
+			at->PlayAnimation(L"Ultravore_Death_Reverse", true);
 	}
-
-	void CaniBoarAnimatonCntrl::afterAction()
+	void UltravoreAnimationCntrl::afterAction()
 	{
 		GameObject* gameObj = _BlackBoard->GetData<GameObject>(L"Owner");
 		Animator* at = gameObj->GetComponent<Animator>();
@@ -128,10 +99,8 @@ namespace Mn
 			{
 			case eFishState::Full:
 			case eFishState::Hungry:
-				FullAnimation(eBehavior::Swim);
-				break;
 			case eFishState::Starving:
-				StarvingAnimation(eBehavior::Swim);
+				FullAnimation(eBehavior::Swim);
 				break;
 			case eFishState::Death:
 				DeathAnimation();

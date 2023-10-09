@@ -125,6 +125,8 @@ namespace Mn::enums
 		Guppy,
 		Food,
 		FoodCount,
+		Ultravore,
+		Weapon,
 		Egg,
 		End,
 	};
@@ -142,6 +144,7 @@ namespace Mn::enums
 	{
 		Guppy,
 		CaniBoar,
+		Ultravore,
 		Zorf,
 		End,
 	};

@@ -4,16 +4,15 @@
 
 namespace Mn
 {
-	class BossStun : public Node
+	class Move2Caniboar : public Node
 	{
 	public:
-		BossStun();
-		BossStun(BlackBoard* board);
-		~BossStun();
+		Move2Caniboar();
+		Move2Caniboar(BlackBoard* board);
+		~Move2Caniboar();
 
 		enums::eBTState Run() override;
 	private:
-		float _Time;
 		BlackBoard* _BlackBoard;
 	};
 }

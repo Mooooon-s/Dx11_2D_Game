@@ -74,6 +74,9 @@ namespace Mn
 				case 3:
 					_Price = 35;
 					break;
+				case 4:
+					_Price = 2000;
+					break;
 				default:
 					break;
 				}
