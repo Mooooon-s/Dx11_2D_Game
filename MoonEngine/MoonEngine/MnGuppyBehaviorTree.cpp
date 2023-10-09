@@ -162,6 +162,10 @@ namespace Mn
 		playanima[1] = swimSequence->AddChild<PlayAnimaion>();
 		move = swimSequence->AddChild<Move>();
 
+
+		//노드 저장
+		_BlackBoard->AddData<GuppyFoodTurn>(L"FoodTurnNode", foodTurn);
+
 	}
 	void GuppyBehaviorTree::Update()
 	{

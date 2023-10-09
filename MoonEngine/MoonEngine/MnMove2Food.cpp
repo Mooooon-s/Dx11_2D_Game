@@ -12,6 +12,7 @@
 #include "MnTime.h"
 #include "MnPlayAnimaion.h"
 
+#include "MnGuppyFoodTurn.h"
 
 namespace Mn
 {
@@ -19,7 +20,6 @@ namespace Mn
 		: _BlackBoard(nullptr)
 		, _Dir(enums::eDir::Right)
 		, _Flag(0)
-		, GFT(nullptr)
 	{
 	}
 	Move2Food::Move2Food(BlackBoard* board)
@@ -27,7 +27,6 @@ namespace Mn
 		, _Dir(enums::eDir::Right)
 		, _Flag(0)
 	{
-		GFT = new GuppyFoodTurn(_BlackBoard);
 	}
 	Move2Food::~Move2Food()
 	{
@@ -42,12 +41,7 @@ namespace Mn
 		eFishState hungrystate = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
 		if (hungrystate == eFishState::Full)
 		{
-			_Flag = 0;
 			return enums::eBTState::SUCCESS;
-		}
-		if (_Flag == 1)
-		{
-			GFT->Run();
 		}
 
 		GameObject* food = kd->Query(owner, 5.0f, 0);
@@ -75,12 +69,10 @@ namespace Mn
 		if (ownerPos.x >= foodPos.x + 0.05 || ownerPos.x <= foodPos.x - 0.05
 			|| ownerPos.y >= foodPos.y + 0.05 || ownerPos.y <= foodPos.y - 0.05)
 		{
-			_Flag = 1;
-			_BlackBoard->SetRunningNode(this);
+			_BlackBoard->SetRunningNode(_BlackBoard->GetData<GuppyFoodTurn>(L"FoodTurnNode"));
 			return enums::eBTState::RUNNING;
 		}
 
-		_Flag = 0;
 		return enums::eBTState::SUCCESS;
 	}
 }

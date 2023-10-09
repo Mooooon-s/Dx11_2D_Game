@@ -2,7 +2,6 @@
 #include "../Engine_SOURCE/MnBtNode.h"
 #include "../Engine_SOURCE/MnBlackBoard.h"
 
-#include "MnGuppyFoodTurn.h"
 
 namespace Mn
 {
@@ -19,7 +18,6 @@ namespace Mn
 		BlackBoard* _BlackBoard;
 		enums::eDir _Dir;
 		int _Flag;
-		GuppyFoodTurn* GFT;
 	};
 
 }
