@@ -303,11 +303,23 @@
     <ClInclude Include="MnUltravoreRender.h">
       <Filter>Contents\Scripts\Ultrabore</Filter>
     </ClInclude>
-    <ClInclude Include="MnUltravoreBehaviorTree.h" />
-    <ClInclude Include="MnUltravoreAnimationCntrl.h" />
-    <ClInclude Include="MnFindCaniboar.h" />
-    <ClInclude Include="MnMove2Caniboar.h" />
-    <ClInclude Include="MnDropTresure.h" />
+    <ClInclude Include="MnUltravoreBehaviorTree.h">
+      <Filter>Contents\Scripts\Ultrabore</Filter>
+    </ClInclude>
+    <ClInclude Include="MnUltravoreAnimationCntrl.h">
+      <Filter>Contents\Scripts\Ultrabore</Filter>
+    </ClInclude>
+    <ClInclude Include="MnDropTresure.h">
+      <Filter>Contents\LeafNode\Ultravore\DropTresure</Filter>
+    </ClInclude>
+    <ClInclude Include="MnFindCaniboar.h">
+      <Filter>Contents\LeafNode\Ultravore\FindCaniboar</Filter>
+    </ClInclude>
+    <ClInclude Include="MnMove2Caniboar.h">
+      <Filter>Contents\LeafNode\Ultravore\Move2Caniboar</Filter>
+    </ClInclude>
+    <ClInclude Include="MnWaterWave.h" />
+    <ClInclude Include="MnWaterWaveRender.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -608,11 +620,23 @@
     <ClCompile Include="MnUltravoreRender.cpp">
       <Filter>Contents\Scripts\Ultrabore</Filter>
     </ClCompile>
-    <ClCompile Include="MnUltravoreBehaviorTree.cpp" />
-    <ClCompile Include="MnUltravoreAnimationCntrl.cpp" />
-    <ClCompile Include="MnFindCaniboar.cpp" />
-    <ClCompile Include="MnMove2Caniboar.cpp" />
-    <ClCompile Include="MnDropTresure.cpp" />
+    <ClCompile Include="MnUltravoreBehaviorTree.cpp">
+      <Filter>Contents\Scripts\Ultrabore</Filter>
+    </ClCompile>
+    <ClCompile Include="MnUltravoreAnimationCntrl.cpp">
+      <Filter>Contents\Scripts\Ultrabore</Filter>
+    </ClCompile>
+    <ClCompile Include="MnDropTresure.cpp">
+      <Filter>Contents\LeafNode\Ultravore\DropTresure</Filter>
+    </ClCompile>
+    <ClCompile Include="MnFindCaniboar.cpp">
+      <Filter>Contents\LeafNode\Ultravore\FindCaniboar</Filter>
+    </ClCompile>
+    <ClCompile Include="MnMove2Caniboar.cpp">
+      <Filter>Contents\LeafNode\Ultravore\Move2Caniboar</Filter>
+    </ClCompile>
+    <ClCompile Include="MnWaterWave.cpp" />
+    <ClCompile Include="MnWaterWaveRender.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -854,6 +878,21 @@
     </Filter>
     <Filter Include="Contents\Scripts\Ultrabore">
       <UniqueIdentifier>{e78b4473-02ca-4460-b537-f61f57f10de9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Ultravore">
+      <UniqueIdentifier>{864530cb-5e82-42fe-ba4e-e34ecf44ef3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Ultravore\DropTresure">
+      <UniqueIdentifier>{50b2e345-5e8f-4c0b-85c4-92e59efad0ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Ultravore\FindCaniboar">
+      <UniqueIdentifier>{5cb5754c-acfb-4c54-8941-c606876eb5a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Ultravore\Move2Caniboar">
+      <UniqueIdentifier>{87a93c02-5f81-422a-a69d-628f54f768ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\BackGround\WaterWave">
+      <UniqueIdentifier>{3a3d8dea-9316-46df-9a8c-2d605ca11a29}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

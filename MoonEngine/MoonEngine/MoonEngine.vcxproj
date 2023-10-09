@@ -263,6 +263,8 @@
     <ClInclude Include="MnWarpHole.h" />
     <ClInclude Include="MnWarpRenderScript.h" />
     <ClInclude Include="MnMove2Guppy.h" />
+    <ClInclude Include="MnWaterWave.h" />
+    <ClInclude Include="MnWaterWaveRender.h" />
     <ClInclude Include="MnZorf.h" />
     <ClInclude Include="MnZorfBehaviorTree.h" />
     <ClInclude Include="MnZorfFeedDone.h" />
@@ -378,6 +380,8 @@
     <ClCompile Include="MnUltravoreRender.cpp" />
     <ClCompile Include="MnUltravoreBehaviorTree.cpp" />
     <ClCompile Include="MnUltravoreAnimationCntrl.cpp" />
+    <ClCompile Include="MnWaterWave.cpp" />
+    <ClCompile Include="MnWaterWaveRender.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />

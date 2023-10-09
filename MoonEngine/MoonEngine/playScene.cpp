@@ -43,6 +43,7 @@
 #include "MnZorf.h"
 #include "MnSylv.h"
 #include "MnUltravore.h"
+#include "MnWaterWave.h"
 
 
 
@@ -102,6 +103,9 @@ void Mn::playScene::Initialize()
 
 	Ultravore* ultravore = object::Instantiate<Ultravore>(Vector3(0.0f, 0.0f, 5.0f), eLayerType::Fish);
 	ultravore->Initialize();
+
+	WaterWave* WW = object::Instantiate<WaterWave>(eLayerType::UI);
+	WW->Initialize();
 
 	//GameObject* particle = new GameObject();
 	//particle->SetName(L"Particle");
