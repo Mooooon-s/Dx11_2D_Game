@@ -54,6 +54,9 @@ namespace Mn
 		_BlackBorad->MakeData<Vector3>(L"Target_Pos");
 		_BlackBorad->SetData(L"Target_Pos", targetPos);
 
+		_BlackBorad->MakeData<float>(L"Alpha");
+		_BlackBorad->SetData(L"Alpha", 1.0f);
+
 		_Root = new RootNode(_BlackBorad);
 		_Root->SetTimer();
 		Sequence* sequence = _Root->setChild<Sequence>();
@@ -71,10 +74,13 @@ namespace Mn
 		_Root->Run();
 		MeshRenderer* MR = GetOwner()->GetComponent<MeshRenderer>();
 		enums::eDir dir = _BlackBorad->GetDataValue<enums::eDir>(L"Dir");
+		float alpha = _BlackBorad->GetDataValue<float>(L"Alpha");
 		if (dir == eDir::Right)
 			MR->FlipX(1);
 		else
 			MR->FlipX(0);
+
+		MR->AlphaValue(alpha);
 	}
 	void BalrogBehaviorTree::LateUpdate()
 	{

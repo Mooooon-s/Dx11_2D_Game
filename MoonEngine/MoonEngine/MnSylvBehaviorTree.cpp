@@ -46,6 +46,9 @@ namespace Mn
 		_BlackBorad->MakeData<eBossType>(L"BossType");
 		_BlackBorad->SetData(L"BossType", eBossType::Sylv);
 
+		_BlackBorad->MakeData<float>(L"Alpha");
+		_BlackBorad->SetData(L"Alpha", 1.0f);
+
 
 		Vector3 targetPos = Vector3::Zero;
 		_BlackBorad->MakeData<Vector3>(L"Target_Pos");
@@ -68,10 +71,13 @@ namespace Mn
 		_Root->Run();
 		MeshRenderer* MR = GetOwner()->GetComponent<MeshRenderer>();
 		enums::eDir dir = _BlackBorad->GetDataValue<enums::eDir>(L"Dir");
+		float alpha = _BlackBorad->GetDataValue<float>(L"Alpha");
 		if (dir == eDir::Right)
 			MR->FlipX(1);
 		else
 			MR->FlipX(0);
+
+		MR->AlphaValue(alpha);
 	}
 	void SylvBehaviorTree::LateUpdate()
 	{
