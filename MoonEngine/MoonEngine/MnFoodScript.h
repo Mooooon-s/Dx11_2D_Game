@@ -16,6 +16,7 @@ namespace Mn
 		void Render() override;
 	private:
 		float _Speed;
+		float _Alpha;
 	};
 
 }

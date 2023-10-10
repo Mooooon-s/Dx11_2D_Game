@@ -17,6 +17,7 @@
 #define CBSLOT_FLIPX			6
 #define CBSLOT_PARTICLE			7
 #define CBSLOT_NOISE			8
+#define CBSLOT_ALPHA			9
 
 #include "../Engine_SOURCE/MnMath.h"
 #include "../Engine_SOURCE/MnEnums.h"
@@ -48,6 +49,7 @@ namespace Mn::graphics
 		Flip,
 		Particle,
 		Noise,
+		Alpha,
 		End,
 	};
 

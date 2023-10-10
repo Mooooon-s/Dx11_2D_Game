@@ -320,6 +320,9 @@ namespace renderer
 		constantBuffer[(UINT)eCBType::Noise] = new ConstantBuffer(eCBType::Noise);
 		constantBuffer[(UINT)eCBType::Noise]->Create(sizeof(NoiseCB));
 
+		constantBuffer[(UINT)eCBType::Alpha] = new ConstantBuffer(eCBType::Alpha);
+		constantBuffer[(UINT)eCBType::Alpha]->Create(sizeof(AlphaCB));
+
 	}
 
 	void LoadShader()

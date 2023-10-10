@@ -70,6 +70,10 @@ namespace renderer
 		Vector4 size;
 	};
 
+	CBUFFER(AlphaCB, CBSLOT_ALPHA)
+	{
+		float alpha;
+	};
 
 	extern Mn::graphics::ConstantBuffer* constantBuffer[(UINT)eCBType::End];
 	extern Microsoft::WRL::ComPtr<ID3D11SamplerState> samplerState[];

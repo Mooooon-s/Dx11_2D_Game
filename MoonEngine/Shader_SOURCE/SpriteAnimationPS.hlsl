@@ -49,5 +49,6 @@ float4 main(VSOut In) : SV_TARGET
     float alphaValue = alpha.r;
     color = lerp(float4(0.0f, 0.0f, 0.0f, 0.0f), color, alphaValue);
     color *= lightsAttribute[0].color;
+    color.a *= Inalpha;
     return color;
 }

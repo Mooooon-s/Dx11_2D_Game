@@ -11,6 +11,7 @@ namespace Mn
 		, _Mesh(nullptr)
 		, _Material(nullptr)
 		, _FlipX(0)
+		, _Alpha(1.0f)
 	{
 	}
 
@@ -38,6 +39,12 @@ namespace Mn
 		data.FlipX = _FlipX;
 		cb->setData(&data);
 		cb->Bind(eShaderStage::PS);
+
+		ConstantBuffer* alphaCb = renderer::constantBuffer[(UINT)eCBType::Alpha];
+		renderer::AlphaCB alphaData = {};
+		alphaData.alpha = _Alpha;
+		alphaCb->setData(&alphaData);
+		alphaCb->Bind(eShaderStage::PS);
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		tr->BindConstantBuffer();

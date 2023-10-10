@@ -6,6 +6,7 @@ namespace Mn
 {
 	FoodScript::FoodScript()
 		: _Speed(0.3f)
+		, _Alpha(1.0f)
 	{
 	}
 	FoodScript::~FoodScript()
@@ -18,19 +19,26 @@ namespace Mn
 	{
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector3 pos = tr->Position();
-		pos += Vector3(0.0f, -1.0f, 0.0f) * _Speed * Time::DeltaTime();
+		if(tr->Position().y >= -1.3f)
+			pos += Vector3(0.0f, -1.0f, 0.0f) * _Speed * Time::DeltaTime();
+		else
+		{
+			MeshRenderer* mr = GetOwner()->GetComponent<MeshRenderer>();
+			_Alpha -= 0.8f * Time::DeltaTime();
+			mr->AlphaValue(_Alpha);
+		}
 		tr->Position(pos);
-		Script::Update();
 	}
 	void FoodScript::LateUpdate()
 	{
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		if (tr->Position().y <= -1.0f)
-			GetOwner()->State(GameObject::eState::Dead);
-		Script::LateUpdate();
+		{
+			if(_Alpha<=0.0f)
+				GetOwner()->State(GameObject::eState::Dead);
+		}
 	}
 	void FoodScript::Render()
 	{
-		Script::Render();
 	}
 }

@@ -54,6 +54,11 @@ cbuffer Noise : register(b8)
     float4 noiseTextureSize;
 }
 
+cbuffer Alpha : register(b9)
+{
+    float Inalpha;
+}
+
 struct LightAttribute
 {
     float4 color;
