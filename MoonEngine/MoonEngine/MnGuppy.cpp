@@ -9,6 +9,8 @@
 
 #include "MnGuppyRenderScript.h"
 #include "MnGuppyAnimationCntrl.h"
+#include "MnChomp.h"
+#include "MnObject.h"
 
 #include "MnTime.h"
 
@@ -61,6 +63,12 @@ namespace Mn
 	}
 	void Guppy::OnClick()
 	{
+		Transform* tr = GetComponent<Transform>();
+		Vector3 pos = tr->Position();
+		pos.z -= 0.01f;
+		Chomp* chomp = object::Instantiate<Chomp>(pos, eLayerType::Effect);
+		chomp->Initialize();
+
 		this->State(GameObject::eState::Dead);
 	}
 	UINT Guppy::FishLevel()

@@ -45,6 +45,7 @@
 #include "MnUltravore.h"
 #include "MnWaterWave.h"
 #include "MnItchy.h"
+#include "MnChomp.h"
 
 
 

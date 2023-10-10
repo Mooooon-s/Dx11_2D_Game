@@ -1,6 +1,8 @@
 #include "MnCaniboar.h"
 #include "MnCaniboarRender.h"
 #include "MnCaniboarBehaviorTree.h"
+#include "MnChomp.h"
+#include "MnObject.h"
 
 namespace Mn
 {
@@ -40,6 +42,12 @@ namespace Mn
 	}
 	void Caniboar::OnClick()
 	{
+		Transform* tr = GetComponent<Transform>();
+		Vector3 pos = tr->Position();
+		pos.z -= 0.01f;
+		Chomp* chomp = object::Instantiate<Chomp>(pos, eLayerType::Effect);
+		chomp->Initialize();
+
 		this->State(GameObject::eState::Dead);
 	}
 }

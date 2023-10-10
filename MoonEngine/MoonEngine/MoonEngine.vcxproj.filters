@@ -342,6 +342,7 @@
     <ClInclude Include="MnGetBossPosition.h" />
     <ClInclude Include="MnMove2Boss.h" />
     <ClInclude Include="MnRush2Boss.h" />
+    <ClInclude Include="MnChomp.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -681,6 +682,7 @@
     <ClCompile Include="MnGetBossPosition.cpp" />
     <ClCompile Include="MnMove2Boss.cpp" />
     <ClCompile Include="MnRush2Boss.cpp" />
+    <ClCompile Include="MnChomp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
