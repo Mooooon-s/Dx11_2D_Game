@@ -35,15 +35,17 @@ namespace Mn
 		GameObject* stinky = _BlackBoard->GetData<GameObject>(L"Stinky");
 		Vector3 pos = stinky->GetComponent<Transform>()->Position();
 		pos.z = 0;
-		Vector3 minDistance= Vector3(999.0f,999.0f,999.0f);
+		float minDistance = 999.0f;
 		Vector3 minObjpos = Vector3::Zero;
 		for (auto obj : coin)
 		{
 			Transform* tr = obj->GetComponent<Transform>();
 			Vector3 objPos = tr->Position();
 			objPos.z = 0;
-			Vector3 distance = Vector3(std::fabs( objPos.x - pos.x), std::fabs(objPos.y - pos.y),0.0f);
-			if (distance.x < minDistance.x && distance.y < minDistance.y)
+
+			Vector3 Vec = objPos - pos;
+			float distance = sqrtf(pow(Vec.x, 2) + pow(Vec.y, 2) + pow(Vec.z, 2));
+			if (distance < minDistance )
 			{
 				minDistance = distance;
 				minObjpos = objPos;

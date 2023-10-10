@@ -146,6 +146,7 @@ namespace Mn::enums
 		CaniBoar,
 		Ultravore,
 		Zorf,
+		Itchy,
 		End,
 	};
 }

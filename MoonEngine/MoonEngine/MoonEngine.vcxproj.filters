@@ -54,7 +54,7 @@
       <Filter>Contents\Scripts\Guppy\AnimationCntrl</Filter>
     </ClInclude>
     <ClInclude Include="MnGuppyBehaviorTree.h">
-      <Filter>Contents\Scripts\GuppyBehaviorTree</Filter>
+      <Filter>Contents\Scripts\Guppy\GuppyBehaviorTree</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="MnFindFood.h">
@@ -219,15 +219,6 @@
     <ClInclude Include="MnHungryCheck.h">
       <Filter>Contents\LeafNode\Guppy\IsHungry</Filter>
     </ClInclude>
-    <ClInclude Include="MnFishTurn.h">
-      <Filter>Contents\LeafNode\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="MnIsDeath.h">
-      <Filter>Contents\LeafNode\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="MnHungryStack.h">
-      <Filter>Contents\LeafNode\Common</Filter>
-    </ClInclude>
     <ClInclude Include="MnPlayAnimaion.h">
       <Filter>Contents\Scripts\Caniboare</Filter>
     </ClInclude>
@@ -318,8 +309,39 @@
     <ClInclude Include="MnMove2Caniboar.h">
       <Filter>Contents\LeafNode\Ultravore\Move2Caniboar</Filter>
     </ClInclude>
-    <ClInclude Include="MnWaterWave.h" />
-    <ClInclude Include="MnWaterWaveRender.h" />
+    <ClInclude Include="MnWaterWave.h">
+      <Filter>Contents\BackGround\WaterWave</Filter>
+    </ClInclude>
+    <ClInclude Include="MnWaterWaveRender.h">
+      <Filter>Contents\BackGround\WaterWave</Filter>
+    </ClInclude>
+    <ClInclude Include="MnItchy.h">
+      <Filter>Contents\Pet\Itchy</Filter>
+    </ClInclude>
+    <ClInclude Include="MnItchyAnimationCntrl.h">
+      <Filter>Contents\Scripts\Itchy</Filter>
+    </ClInclude>
+    <ClInclude Include="MnItchyBehaviorTree.h">
+      <Filter>Contents\Scripts\Itchy</Filter>
+    </ClInclude>
+    <ClInclude Include="MnItchyRender.h">
+      <Filter>Contents\Scripts\Itchy</Filter>
+    </ClInclude>
+    <ClInclude Include="MnDetectBoss.h">
+      <Filter>Contents\LeafNode\Common\DetectBoss</Filter>
+    </ClInclude>
+    <ClInclude Include="MnFishTurn.h">
+      <Filter>Contents\LeafNode\Common\FishTurn</Filter>
+    </ClInclude>
+    <ClInclude Include="MnIsDeath.h">
+      <Filter>Contents\LeafNode\Common\IsDeath</Filter>
+    </ClInclude>
+    <ClInclude Include="MnHungryStack.h">
+      <Filter>Contents\LeafNode\Common\HungryStack</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGetBossPosition.h" />
+    <ClInclude Include="MnMove2Boss.h" />
+    <ClInclude Include="MnRush2Boss.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -372,7 +394,7 @@
       <Filter>Contents\Scripts\Guppy\AnimationCntrl</Filter>
     </ClCompile>
     <ClCompile Include="MnGuppyBehaviorTree.cpp">
-      <Filter>Contents\Scripts\GuppyBehaviorTree</Filter>
+      <Filter>Contents\Scripts\Guppy\GuppyBehaviorTree</Filter>
     </ClCompile>
     <ClCompile Include="MnFindFood.cpp">
       <Filter>Contents\LeafNode\Common\FindFood</Filter>
@@ -539,15 +561,6 @@
     <ClCompile Include="MnHungryCheck.cpp">
       <Filter>Contents\LeafNode\Guppy\IsHungry</Filter>
     </ClCompile>
-    <ClCompile Include="MnFishTurn.cpp">
-      <Filter>Contents\LeafNode\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="MnIsDeath.cpp">
-      <Filter>Contents\LeafNode\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="MnHungryStack.cpp">
-      <Filter>Contents\LeafNode\Common</Filter>
-    </ClCompile>
     <ClCompile Include="MnFindSmallGuppy.cpp">
       <Filter>Contents\Scripts\Caniboare</Filter>
     </ClCompile>
@@ -635,8 +648,39 @@
     <ClCompile Include="MnMove2Caniboar.cpp">
       <Filter>Contents\LeafNode\Ultravore\Move2Caniboar</Filter>
     </ClCompile>
-    <ClCompile Include="MnWaterWave.cpp" />
-    <ClCompile Include="MnWaterWaveRender.cpp" />
+    <ClCompile Include="MnWaterWave.cpp">
+      <Filter>Contents\BackGround\WaterWave</Filter>
+    </ClCompile>
+    <ClCompile Include="MnWaterWaveRender.cpp">
+      <Filter>Contents\BackGround\WaterWave</Filter>
+    </ClCompile>
+    <ClCompile Include="MnItchy.cpp">
+      <Filter>Contents\Pet\Itchy</Filter>
+    </ClCompile>
+    <ClCompile Include="MnItchyAnimationCntrl.cpp">
+      <Filter>Contents\Scripts\Itchy</Filter>
+    </ClCompile>
+    <ClCompile Include="MnItchyBehaviorTree.cpp">
+      <Filter>Contents\Scripts\Itchy</Filter>
+    </ClCompile>
+    <ClCompile Include="MnItchyRender.cpp">
+      <Filter>Contents\Scripts\Itchy</Filter>
+    </ClCompile>
+    <ClCompile Include="MnDetectBoss.cpp">
+      <Filter>Contents\LeafNode\Common\DetectBoss</Filter>
+    </ClCompile>
+    <ClCompile Include="MnFishTurn.cpp">
+      <Filter>Contents\LeafNode\Common\FishTurn</Filter>
+    </ClCompile>
+    <ClCompile Include="MnIsDeath.cpp">
+      <Filter>Contents\LeafNode\Common\IsDeath</Filter>
+    </ClCompile>
+    <ClCompile Include="MnHungryStack.cpp">
+      <Filter>Contents\LeafNode\Common\HungryStack</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGetBossPosition.cpp" />
+    <ClCompile Include="MnMove2Boss.cpp" />
+    <ClCompile Include="MnRush2Boss.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -689,9 +733,6 @@
     </Filter>
     <Filter Include="Contents\Scripts\Guppy\AnimationCntrl">
       <UniqueIdentifier>{f4f05190-345c-43e0-b323-2ef95a2169d5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scripts\GuppyBehaviorTree">
-      <UniqueIdentifier>{846405bb-df90-4774-9f98-75e70204c3bb}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents\LeafNode">
       <UniqueIdentifier>{5b209fe8-25b7-4e4a-846c-537d2715d244}</UniqueIdentifier>
@@ -893,6 +934,27 @@
     </Filter>
     <Filter Include="Contents\BackGround\WaterWave">
       <UniqueIdentifier>{3a3d8dea-9316-46df-9a8c-2d605ca11a29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Pet\Itchy">
+      <UniqueIdentifier>{e82d5044-f738-4ddf-a2be-f388f74ffb20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Itchy">
+      <UniqueIdentifier>{f6356d28-966b-437e-adc8-c1d8d0f454cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Guppy\GuppyBehaviorTree">
+      <UniqueIdentifier>{846405bb-df90-4774-9f98-75e70204c3bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Common\DetectBoss">
+      <UniqueIdentifier>{a25835b1-acd8-4b88-8ce4-bf41f735f2d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Common\FishTurn">
+      <UniqueIdentifier>{b6b4851a-a2f4-4b99-bbf2-ea2d178547d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Common\IsDeath">
+      <UniqueIdentifier>{cd2ba977-56ed-4e00-80c2-324bc837983b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Common\HungryStack">
+      <UniqueIdentifier>{be42af3a-8b31-4396-a2bb-83d876a2836b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

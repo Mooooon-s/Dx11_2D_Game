@@ -36,9 +36,8 @@ namespace Mn
 		if (state == eFishState::Full)
 			return enums::eBTState::FAILURE;
 
+		at->ActiveAnimationPlaySpeed(3.0f);
 		Scene* scene = SceneManager::ActiveScene();
-
-
 		Transform* tr = owner->GetComponent<Transform>();
 		Vector3 pos = tr->Position();
 		Vector3 moveVec = _BlackBoard->GetDataValue<Vector3>(L"MoveVector");

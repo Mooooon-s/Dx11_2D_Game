@@ -44,6 +44,7 @@
 #include "MnSylv.h"
 #include "MnUltravore.h"
 #include "MnWaterWave.h"
+#include "MnItchy.h"
 
 
 
@@ -101,8 +102,11 @@ void Mn::playScene::Initialize()
 	Zorf* zorf = object::Instantiate<Zorf>( Vector3(0.0f,0.0f,4.0f), eLayerType::Pet);
 	zorf->Initialize();
 
-	//Ultravore* ultravore = object::Instantiate<Ultravore>(Vector3(0.0f, 0.0f, 5.0f), eLayerType::Fish);
-	//ultravore->Initialize();
+	Ultravore* ultravore = object::Instantiate<Ultravore>(Vector3(0.0f, 0.0f, 5.0f), eLayerType::Fish);
+	ultravore->Initialize();
+
+	Itchy* itchy = object::Instantiate<Itchy>(Vector3(0.0f, 0.0f, -3.0f), eLayerType::Pet);
+	itchy->Initialize();
 
 	WaterWave* WW = object::Instantiate<WaterWave>(eLayerType::UI);
 	WW->Initialize();

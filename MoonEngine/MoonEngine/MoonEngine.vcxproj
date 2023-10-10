@@ -165,8 +165,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="MnAddLevel.h" />
+    <ClInclude Include="MnDetectBoss.h" />
     <ClInclude Include="MnDropTresure.h" />
     <ClInclude Include="MnFindCaniboar.h" />
+    <ClInclude Include="MnGetBossPosition.h" />
+    <ClInclude Include="MnItchy.h" />
+    <ClInclude Include="MnItchyAnimationCntrl.h" />
+    <ClInclude Include="MnItchyBehaviorTree.h" />
+    <ClInclude Include="MnItchyRender.h" />
     <ClInclude Include="MnMonIsDead.h" />
     <ClInclude Include="MnBalrog.h" />
     <ClInclude Include="MnBalrogBehaviorTree.h" />
@@ -230,6 +236,7 @@
     <ClInclude Include="MnMoney.h" />
     <ClInclude Include="MnMountainStage.h" />
     <ClInclude Include="MnMove.h" />
+    <ClInclude Include="MnMove2Boss.h" />
     <ClInclude Include="MnMove2Caniboar.h" />
     <ClInclude Include="MnMove2Fish.h" />
     <ClInclude Include="MnMove2Food.h" />
@@ -239,6 +246,7 @@
     <ClInclude Include="MnPearl.h" />
     <ClInclude Include="MnPearlScript.h" />
     <ClInclude Include="MnPlayerHp.h" />
+    <ClInclude Include="MnRush2Boss.h" />
     <ClInclude Include="MnStinky.h" />
     <ClInclude Include="MnStinkyBehaviorTree.h" />
     <ClInclude Include="MnStinkyHide.h" />
@@ -275,6 +283,12 @@
     <ClInclude Include="MnZorfAnimationCntrl.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnGetBossPosition.cpp" />
+    <ClCompile Include="MnDetectBoss.cpp" />
+    <ClCompile Include="MnItchyAnimationCntrl.cpp" />
+    <ClCompile Include="MnItchyBehaviorTree.cpp" />
+    <ClCompile Include="MnItchyRender.cpp" />
+    <ClCompile Include="MnItchy.cpp" />
     <ClCompile Include="MnDropTresure.cpp" />
     <ClCompile Include="MnFindCaniboar.cpp" />
     <ClCompile Include="MnFeedTimer.cpp" />
@@ -356,6 +370,7 @@
     <ClCompile Include="MnMove2Fish.cpp" />
     <ClCompile Include="MnMove2Guppy.cpp" />
     <ClCompile Include="MnMove2Caniboar.cpp" />
+    <ClCompile Include="MnMove2Boss.cpp" />
     <ClCompile Include="playScene.cpp" />
     <ClCompile Include="MnStinky.cpp" />
     <ClCompile Include="MnStinkyScript.cpp" />
@@ -382,6 +397,7 @@
     <ClCompile Include="MnUltravoreAnimationCntrl.cpp" />
     <ClCompile Include="MnWaterWave.cpp" />
     <ClCompile Include="MnWaterWaveRender.cpp" />
+    <ClCompile Include="MnRush2Boss.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />
