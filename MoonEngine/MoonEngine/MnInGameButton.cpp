@@ -4,10 +4,12 @@
 #include "MnGuppyIcon.h"
 #include "MnObject.h"
 #include "MnEggIcon.h"
+#include "MnFoodIcon.h"
 
 namespace Mn
 {
 	InGameButton::InGameButton()
+	: _IconObject(nullptr)
 	{
 	}
 	InGameButton::~InGameButton()
@@ -43,27 +45,29 @@ namespace Mn
 	}
 	void InGameButton::OnClick()
 	{
+		if (_Icon == eIcon::Food)
+			_IconObject->OnClick();
 	}
 	void InGameButton::MouseOn()
 	{
 	}
 	void InGameButton::Icon(Vector3 pos)
 	{
-		GameObject* icon= nullptr;
 		switch (_Icon)
 		{
 		case Mn::enums::eIcon::Guppy:
-			icon = CreateIcon<GuppyIcon>(pos);
-			icon->Initialize();
+			_IconObject = CreateIcon<GuppyIcon>(pos);
+			_IconObject->Initialize();
 			break;
 		case Mn::enums::eIcon::Food:
-
+			_IconObject = CreateIcon<FoodIcon>(pos);
+			_IconObject->Initialize();
 			break;
 		case Mn::enums::eIcon::FoodCount:
 			break;
 		case Mn::enums::eIcon::Egg:
-			icon = CreateIcon<EggIcon>(pos);
-			icon->Initialize();
+			_IconObject = CreateIcon<EggIcon>(pos);
+			_IconObject->Initialize();
 			break;
 		case Mn::enums::eIcon::End:
 			break;

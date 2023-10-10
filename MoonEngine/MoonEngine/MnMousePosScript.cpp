@@ -199,7 +199,8 @@ namespace Mn
 	}
 	void MousePosScript::FoodLevel()
 	{
-		_FoodLevel++;
+		if (_FoodLevel < 3)
+			_FoodLevel++;
 	}
 	void MousePosScript::FoodCount()
 	{

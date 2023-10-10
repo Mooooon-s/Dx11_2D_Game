@@ -15,7 +15,9 @@ namespace Mn
 	EventManager::EventManager()
 		: _Time(0.0f)
 		, _EventStack(0)
+		, _BossStack(0)
 		, _BarSlotCount()
+		, _FoodLevel(nullptr)
 	{
 	}
 	EventManager::~EventManager()
@@ -36,6 +38,7 @@ namespace Mn
 	}
 	void EventManager::Update()
 	{
+		OpenButton();
 		_Time += Time::DeltaTime();
 		Timer();
 		GameObject::Update();
@@ -50,7 +53,7 @@ namespace Mn
 	{
 		Warp* warp = object::Instantiate<Warp>(Vector3(0.0f, 0.0f, -0.01f), eLayerType::Effect);
 
-		switch (_EventStack)
+		switch (_BossStack)
 		{
 		case 1:
 			warp->BossType(eBossType::Sylv);
@@ -61,13 +64,12 @@ namespace Mn
 			break;
 		}
 		warp->Initialize();
-		_EventStack++;
 	}
 	void EventManager::Timer()
 	{
 		if (_Time / 30 >= 1.0f)
 		{
-			_EventStack++;
+			_BossStack++;
 			Event();
 			_Time = 0;
 		}
@@ -109,6 +111,7 @@ namespace Mn
 			}
 		}
 		mouse->ScriptFoodLevel();
+		_FoodLevel->OnClick();
 	}
 	void EventManager::FoodCountUp()
 	{
@@ -127,6 +130,38 @@ namespace Mn
 	}
 	void EventManager::EggEvent()
 	{
+	}
+	void EventManager::OpenButton()
+	{
+		switch (_EventStack)
+		{
+		case 0:
+			FindOldGuppy();
+			break;
+		default:
+			break;
+		}
+	}
+	void EventManager::FindOldGuppy()
+	{
+		Scene* scene = SceneManager::ActiveScene();
+		std::vector<GameObject*> fishObj = scene->GetLayer(eLayerType::Fish).GetGameObjects();
+		for (GameObject* obj : fishObj)
+		{
+			if (dynamic_cast<Guppy*>(obj))
+			{
+				if (dynamic_cast<Guppy*>(obj)->FishLevel() == 3)
+				{
+					_FoodLevel = object::Instantiate<InGameButton>(Vector3(-1.525f, 1.56f, -0.001f), eLayerType::UI);
+					_FoodLevel->SetIcon(eIcon::Food);
+					_FoodLevel->Initialize();
+					//InGameButton* IGBFoodCount = object::Instantiate<InGameButton>(Vector3(-1.1f, 1.56f, -0.001f), eLayerType::UI);
+					//IGBFoodCount->SetIcon(eIcon::FoodCount);
+					//IGBFoodCount->Initialize();
+					_EventStack++;
+				}
+			}
+		}
 	}
 	float EventManager::Random()
 	{

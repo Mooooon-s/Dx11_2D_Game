@@ -30,5 +30,6 @@ namespace Mn
 		}
 	private:
 		eIcon _Icon;
+		GameObject* _IconObject;
 	};
 }

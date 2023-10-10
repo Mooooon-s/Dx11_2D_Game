@@ -169,6 +169,7 @@
     <ClInclude Include="MnDetectBoss.h" />
     <ClInclude Include="MnDropTresure.h" />
     <ClInclude Include="MnFindCaniboar.h" />
+    <ClInclude Include="MnFoodIcon.h" />
     <ClInclude Include="MnGetBossPosition.h" />
     <ClInclude Include="MnItchy.h" />
     <ClInclude Include="MnItchyAnimationCntrl.h" />
@@ -284,6 +285,7 @@
     <ClInclude Include="MnZorfAnimationCntrl.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnFoodIcon.cpp" />
     <ClCompile Include="MnChomp.cpp" />
     <ClCompile Include="MnGetBossPosition.cpp" />
     <ClCompile Include="MnDetectBoss.cpp" />
