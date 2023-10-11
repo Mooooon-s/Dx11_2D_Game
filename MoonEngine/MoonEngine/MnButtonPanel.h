@@ -20,11 +20,16 @@ namespace Mn
 		void MouseOn() override;
 		void MouseOff() override;
 	public:
+		void PriceSetting();
+	public:
 		void SetIcon(eIcon icon) { _Icon = icon; }
 		eIcon GetIcon() { return _Icon; }
+		void SetPrice(int price) { _Price = price; }
+		int GetPrice() { return _Price; }
 	private:
-		eIcon _Icon;
-		Animator* _Animator;
-		EventManager* _EventManager;
+		EventManager*	_EventManager;
+		Animator*		_Animator;
+		eIcon			_Icon;
+		int				_Price;
 	};
 }

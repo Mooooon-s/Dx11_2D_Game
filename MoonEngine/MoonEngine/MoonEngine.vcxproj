@@ -250,6 +250,7 @@
     <ClInclude Include="MnPearl.h" />
     <ClInclude Include="MnPearlScript.h" />
     <ClInclude Include="MnPlayerHp.h" />
+    <ClInclude Include="MnPriceTag.h" />
     <ClInclude Include="MnRush2Boss.h" />
     <ClInclude Include="MnStinky.h" />
     <ClInclude Include="MnStinkyBehaviorTree.h" />
@@ -406,6 +407,7 @@
     <ClCompile Include="MnWaterWave.cpp" />
     <ClCompile Include="MnWaterWaveRender.cpp" />
     <ClCompile Include="MnRush2Boss.cpp" />
+    <ClCompile Include="MnPriceTag.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />

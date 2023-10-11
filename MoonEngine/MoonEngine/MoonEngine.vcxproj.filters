@@ -348,6 +348,7 @@
     </ClInclude>
     <ClInclude Include="MnFoodLevelIcon.h" />
     <ClInclude Include="MnCaniboarIcon.h" />
+    <ClInclude Include="MnPriceTag.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -693,6 +694,7 @@
     </ClCompile>
     <ClCompile Include="MnFoodLevelIcon.cpp" />
     <ClCompile Include="MnCaniboarIcon.cpp" />
+    <ClCompile Include="MnPriceTag.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">

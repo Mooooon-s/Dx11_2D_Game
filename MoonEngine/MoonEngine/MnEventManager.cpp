@@ -10,6 +10,7 @@
 #include "MnGuppy.h"
 #include "MnCaniboar.h"
 #include "MnInGameButton.h"
+#include "MnMoney.h"
 
 namespace Mn
 {
@@ -36,6 +37,18 @@ namespace Mn
 		InGameButton* IGBEgg = object::Instantiate<InGameButton>(Vector3(1.085f, 1.56f, -0.001f), eLayerType::UI);
 		IGBEgg->SetIcon(eIcon::Egg);
 		IGBEgg->Initialize();
+
+		//_FoodLevel = object::Instantiate<InGameButton>(Vector3(-1.525f, 1.56f, -0.001f), eLayerType::UI);
+		//_FoodLevel->SetIcon(eIcon::Food);
+		//_FoodLevel->Initialize();
+
+		//_FoodCount = object::Instantiate<InGameButton>(Vector3(-1.1f, 1.56f, -0.001f), eLayerType::UI);
+		//_FoodCount->SetIcon(eIcon::FoodCount);
+		//_FoodCount->Initialize();
+
+		//_CaniboarButton = object::Instantiate<InGameButton>(Vector3(-0.55, 1.56, -0.001f), eLayerType::UI);
+		//_CaniboarButton->SetIcon(eIcon::Caniboar);
+		//_CaniboarButton->Initialize();
 	}
 	void EventManager::Update()
 	{
@@ -77,51 +90,54 @@ namespace Mn
 			_Time = 0;
 		}
 	}
-	void EventManager::ButtonEvent(eIcon icon)
+	void EventManager::ButtonEvent(eIcon icon,int price)
 	{
-		float a = _BarSlotCount[(UINT)icon];
-		GameObject* button;
-		switch (icon)
+		if (MoneyCheck(price))
 		{
-		case enums::eIcon::Guppy:
-			button = object::Instantiate<Guppy>(Vector3(Random(), 1.5f , a ),eLayerType::Fish);
-			dynamic_cast<Guppy*>(button)->SetFlag(0);
-			button->Initialize();
-			_BarSlotCount[(UINT)eIcon::Guppy] += 0.001f;
-			break;
-		case enums::eIcon::Food:
-			FoodLevelUp();
-			break;
-		case enums::eIcon::FoodCount:
-			FoodCountUp();
-			break;
-		case enums::eIcon::Caniboar:
-			button = object::Instantiate<Caniboar>(Vector3(Random(), 1.5f, a), eLayerType::Fish);
-			dynamic_cast<Caniboar*>(button)->SetFlag(0);
-			button->Initialize();
-			_BarSlotCount[(UINT)eIcon::Caniboar] += 0.001f;
-			break;
-		case enums::eIcon::Egg:
-			break;
-		case enums::eIcon::End:
-			break;
+			float a = _BarSlotCount[(UINT)icon];
+			GameObject* button;
+			switch (icon)
+			{
+			case enums::eIcon::Guppy:
+				button = object::Instantiate<Guppy>(Vector3(Random(), 1.5f, a), eLayerType::Fish);
+				dynamic_cast<Guppy*>(button)->SetFlag(0);
+				button->Initialize();
+				_BarSlotCount[(UINT)eIcon::Guppy] += 0.001f;
+				break;
+			case enums::eIcon::Food:
+				FoodLevelUp();
+				break;
+			case enums::eIcon::FoodCount:
+				FoodCountUp();
+				break;
+			case enums::eIcon::Caniboar:
+				button = object::Instantiate<Caniboar>(Vector3(Random(), 1.5f, a), eLayerType::Fish);
+				dynamic_cast<Caniboar*>(button)->SetFlag(0);
+				button->Initialize();
+				_BarSlotCount[(UINT)eIcon::Caniboar] += 0.001f;
+				break;
+			case enums::eIcon::Egg:
+				break;
+			case enums::eIcon::End:
+				break;
+			}
 		}
 	}
 	void EventManager::FoodLevelUp()
 	{
-		Scene* scene = SceneManager::ActiveScene();
-		std::vector<GameObject*> UIobj = scene->GetLayer(eLayerType::UI).GetGameObjects();
-		Mouse* mouse = nullptr;
-		for (auto obj : UIobj)
-		{
-			if (dynamic_cast<Mouse*>(obj))
+			Scene* scene = SceneManager::ActiveScene();
+			std::vector<GameObject*> UIobj = scene->GetLayer(eLayerType::UI).GetGameObjects();
+			Mouse* mouse = nullptr;
+			for (auto obj : UIobj)
 			{
-				mouse = dynamic_cast<Mouse*>(obj);
-				break;
+				if (dynamic_cast<Mouse*>(obj))
+				{
+					mouse = dynamic_cast<Mouse*>(obj);
+					break;
+				}
 			}
-		}
-		mouse->ScriptFoodLevel();
-		_FoodLevel->OnClick();
+			mouse->ScriptFoodLevel();
+			_FoodLevel->OnClick();
 	}
 	void EventManager::FoodCountUp()
 	{
@@ -178,6 +194,23 @@ namespace Mn
 					_EventStack++;
 					break;
 				}
+			}
+		}
+	}
+	bool EventManager::MoneyCheck(int money)
+	{
+		Scene* scene = SceneManager::ActiveScene();
+		std::vector<GameObject*> moneyObj = scene->GetLayer(eLayerType::UI).GetGameObjects();
+		for (auto obj : moneyObj)
+		{
+			if (dynamic_cast<Money*>(obj))
+			{
+				if (dynamic_cast<Money*>(obj)->UseableMoney(money))
+				{
+					dynamic_cast<Money*>(obj)->UseMoney(money);
+					return true;
+				}
+				return false;
 			}
 		}
 	}

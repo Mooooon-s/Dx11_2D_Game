@@ -14,6 +14,7 @@ namespace Mn
 		: _Animator(nullptr)
 		, _Icon(eIcon::Guppy)
 		, _EventManager(nullptr)
+		, _Price(0)
 	{
 	}
 	ButtonPanel::~ButtonPanel()
@@ -21,6 +22,7 @@ namespace Mn
 	}
 	void ButtonPanel::Initialize()
 	{
+		PriceSetting();
 		Scene* scene = SceneManager::ActiveScene();
 		std::vector<GameObject*> gameObj = scene->GetLayer(eLayerType::Manager).GetGameObjects();
 		for (auto obj : gameObj)
@@ -75,7 +77,7 @@ namespace Mn
 	void ButtonPanel::OnClick(Vector3 pos)
 	{
 		_Animator->PlayAnimation(L"PanelOnClick", true);
-		_EventManager->ButtonEvent(_Icon);
+		_EventManager->ButtonEvent(_Icon,_Price);
 	}
 	void ButtonPanel::MouseOn()
 	{
@@ -86,5 +88,36 @@ namespace Mn
 	{
 		if (_Animator->AnimationComplete())
 			_Animator->PlayAnimation(L"PanelIdle", true);
+	}
+	void ButtonPanel::PriceSetting()
+	{
+		switch (_Icon)
+		{
+		case Mn::enums::eIcon::Guppy:
+			SetPrice(50);
+			break;
+		case Mn::enums::eIcon::Food:
+			SetPrice(200);
+			break;
+		case Mn::enums::eIcon::FoodCount:
+			SetPrice(200);
+			break;
+		case Mn::enums::eIcon::Caniboar:
+			SetPrice(1000);
+			break;
+		case Mn::enums::eIcon::Ultravore:
+			SetPrice(2000);
+			break;
+		case Mn::enums::eIcon::Weapon:
+			SetPrice(1000);
+			break;
+		case Mn::enums::eIcon::Egg:
+			SetPrice(5000);
+			break;
+		case Mn::enums::eIcon::End:
+			break;
+		default:
+			break;
+		}
 	}
 }

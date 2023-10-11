@@ -1,6 +1,7 @@
 #include "MnInGameButton.h"
 #include "MnButtonFrame.h"
 #include "MnButtonPanel.h"
+#include "MnPriceTag.h"
 #include "MnObject.h"
 
 
@@ -24,16 +25,21 @@ namespace Mn
 		Transform* tr = GetComponent<Transform>();
 		Vector3 pos = tr->Position();
 		ButtonFrame* BF = object::Instantiate<ButtonFrame>(pos, eLayerType::UI);
+		BF->Initialize();
+
 		pos.z += 0.01;
 		Icon(pos);
 		pos.z += 0.01;
+		
 		ButtonPanel* BP = object::Instantiate<ButtonPanel>(pos, eLayerType::UI);
 		BP->SetIcon(_Icon);
-
-
-
-		BF->Initialize();
 		BP->Initialize();
+		
+		PriceTag* PT = object::Instantiate<PriceTag>(pos, eLayerType::UI);
+		PT->SetPrice(BP->GetPrice());
+		PT->SetIcon(_Icon);
+		PT->SetPosition();
+		PT->Initialize();
 	}
 	void InGameButton::Update()
 	{

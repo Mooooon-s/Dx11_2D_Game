@@ -17,12 +17,13 @@ namespace Mn
 		void Event();
 		void Timer();
 		float Random();
-		void ButtonEvent(eIcon icon);
+		void ButtonEvent(eIcon icon, int money);
 		void FoodLevelUp();
 		void FoodCountUp();
 		void EggEvent();
 		void OpenButton();
 		void FindOldGuppy();
+		bool MoneyCheck(int money);
 	private:
 		std::vector<float> _BarSlotCount;
 		float _Time;
