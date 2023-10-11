@@ -13,6 +13,9 @@ namespace Mn
 		void Update() override;
 		void LateUpdate() override;
 		void Render() override;
+
+		void OnClick() override;
 	private:
+		int _EggLevel;
 	};
 }

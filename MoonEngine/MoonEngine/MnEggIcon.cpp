@@ -7,6 +7,7 @@
 namespace Mn
 {
 	EggIcon::EggIcon()
+		: _EggLevel(1)
 	{
 	}
 	EggIcon::~EggIcon()
@@ -32,8 +33,8 @@ namespace Mn
 
 		Animator* at = AddComponent<Animator>();
 		at->Create(L"Egg_Icon_1", atlas, atlasAlpha, Vector2(0.0f, 0.0f), Vector2(46.0f, 39.0f), 1, Vector2::Zero, 0.1);
-		at->Create(L"Egg_Icon_2", atlas, atlasAlpha, Vector2(46.0f, 0.0f), Vector2(46.0f, 39.0f), 1, Vector2::Zero, 0.1);
-		at->Create(L"Egg_Icon_3", atlas, atlasAlpha, Vector2(92.0f, 0.0f), Vector2(46.0f, 39.0f), 1, Vector2::Zero, 0.1);
+		at->Create(L"Egg_Icon_2", atlas, atlasAlpha, Vector2(46.0f, 0.0f), Vector2(46.0f, 39.0f), 2, Vector2::Zero, 0.1);
+		at->Create(L"Egg_Icon_3", atlas, atlasAlpha, Vector2(92.0f, 0.0f), Vector2(46.0f, 39.0f), 3, Vector2::Zero, 0.1);
 
 		at->PlayAnimation(L"Egg_Icon_1", true);
 	}
@@ -48,5 +49,28 @@ namespace Mn
 	void EggIcon::Render()
 	{
 		GameObject::Render();
+	}
+	void EggIcon::OnClick()
+	{
+		Animator* at = GetComponent<Animator>();
+		if (_EggLevel < 3)
+			_EggLevel++;
+		else
+			_EggLevel = 1;
+
+		switch (_EggLevel)
+		{
+		case 1:
+			at->PlayAnimation(L"Egg_Icon_1", false);
+			break;
+		case 2:
+			at->PlayAnimation(L"Egg_Icon_2", false);
+			break;
+		case 3:
+			at->PlayAnimation(L"Egg_Icon_3", false);
+			break;
+		default:
+			break;
+		}
 	}
 }

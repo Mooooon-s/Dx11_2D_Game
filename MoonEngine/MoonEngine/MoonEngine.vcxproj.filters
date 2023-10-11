@@ -346,9 +346,18 @@
     <ClInclude Include="MnFoodIcon.h">
       <Filter>Contents\Icon</Filter>
     </ClInclude>
-    <ClInclude Include="MnFoodLevelIcon.h" />
-    <ClInclude Include="MnCaniboarIcon.h" />
-    <ClInclude Include="MnPriceTag.h" />
+    <ClInclude Include="MnCaniboarIcon.h">
+      <Filter>Contents\Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="MnPriceTag.h">
+      <Filter>Contents\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="MnFoodLevelIcon.h">
+      <Filter>Contents\Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="MnUltravoreIcon.h">
+      <Filter>Contents\Icon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -692,9 +701,18 @@
     <ClCompile Include="MnFoodIcon.cpp">
       <Filter>Contents\Icon</Filter>
     </ClCompile>
-    <ClCompile Include="MnFoodLevelIcon.cpp" />
-    <ClCompile Include="MnCaniboarIcon.cpp" />
-    <ClCompile Include="MnPriceTag.cpp" />
+    <ClCompile Include="MnCaniboarIcon.cpp">
+      <Filter>Contents\Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="MnPriceTag.cpp">
+      <Filter>Contents\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MnFoodLevelIcon.cpp">
+      <Filter>Contents\Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="MnUltravoreIcon.cpp">
+      <Filter>Contents\Icon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">

@@ -1,6 +1,7 @@
 #include "MnUltravore.h"
 #include "MnUltravoreRender.h"
 #include "MnUltravoreBehaviorTree.h"
+#include "MnTime.h"
 
 namespace Mn
 {
@@ -18,7 +19,10 @@ namespace Mn
 	}
 	void Ultravore::Update()
 	{
-		GameObject::Update();
+		if (_Flag != 2)
+			DropIntoTank();
+		else
+			GameObject::Update();
 	}
 	void Ultravore::LateUpdate()
 	{
@@ -30,5 +34,26 @@ namespace Mn
 	}
 	void Ultravore::OnClick(Vector3 pos)
 	{
+	}
+	void Ultravore::DropIntoTank()
+	{
+		Transform* tr = GetComponent<Transform>();
+		Vector3 pos = tr->Position();
+		if (pos.y >= 0.6f && _Flag == 0)
+		{
+			pos.y -= 1.5 * Time::DeltaTime();
+			tr->Position(pos);
+		}
+		else if (pos.y <= 0.6f && _Flag == 0)
+			_Flag = 1;
+
+		if (pos.y <= 0.8f && _Flag == 1)
+		{
+			pos.x += -0.5 * Time::DeltaTime();
+			pos.y += 0.5 * Time::DeltaTime();
+			tr->Position(pos);
+		}
+		else if (pos.y >= 0.8f && _Flag == 1)
+			_Flag = 2;
 	}
 }

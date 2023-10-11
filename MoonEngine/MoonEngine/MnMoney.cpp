@@ -4,7 +4,7 @@
 namespace Mn
 {
 	Money::Money()
-		: _Money(400)
+		: _Money(99999999)
 		, _szFloat(L"000")
 	{
 	}

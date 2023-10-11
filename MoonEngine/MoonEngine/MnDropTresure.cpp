@@ -27,11 +27,11 @@ namespace Mn
 		{
 			Transform* tr = owner->GetComponent<Transform>();
 			Vector3 pos = tr->Position();
-			pos.z = _ZPositon;
+			pos.z += 6.001;
 			Coin* money = object::Instantiate<Coin>(pos, eLayerType::Coin);
 			money->SetLevel(4);
 			money->Initialize();
-			_ZPositon += 0.000000001;
+			_ZPositon += 0.000001;
 			_BlackBoard->SetData(L"StackFlag", 0);
 		}
 		return enums::eBTState::SUCCESS;

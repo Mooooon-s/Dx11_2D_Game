@@ -9,6 +9,7 @@
 
 #include "MnGuppy.h"
 #include "MnCaniboar.h"
+#include "MnUltravore.h"
 #include "MnInGameButton.h"
 #include "MnMoney.h"
 
@@ -29,14 +30,16 @@ namespace Mn
 	void EventManager::Initialize()
 	{
 		_BarSlotCount.resize(7,(float)0.00001f);
+		_BarSlotCount[(UINT)eIcon::Caniboar] = (float)eIcon::Caniboar+0.0001;
+		_BarSlotCount[(UINT)eIcon::Ultravore] = (float)eIcon::Ultravore+0.0001;
 
 		InGameButton* IGBGuppy = object::Instantiate<InGameButton>(Vector3(-2.035f, 1.56f, -0.001f), eLayerType::UI);
 		IGBGuppy->SetIcon(eIcon::Guppy);
 		IGBGuppy->Initialize();
 
-		InGameButton* IGBEgg = object::Instantiate<InGameButton>(Vector3(1.085f, 1.56f, -0.001f), eLayerType::UI);
-		IGBEgg->SetIcon(eIcon::Egg);
-		IGBEgg->Initialize();
+		_EggButton = object::Instantiate<InGameButton>(Vector3(1.085f, 1.56f, -0.001f), eLayerType::UI);
+		_EggButton->SetIcon(eIcon::Egg);
+		_EggButton->Initialize();
 
 		//_FoodLevel = object::Instantiate<InGameButton>(Vector3(-1.525f, 1.56f, -0.001f), eLayerType::UI);
 		//_FoodLevel->SetIcon(eIcon::Food);
@@ -47,7 +50,7 @@ namespace Mn
 		//_FoodCount->Initialize();
 
 		//_CaniboarButton = object::Instantiate<InGameButton>(Vector3(-0.55, 1.56, -0.001f), eLayerType::UI);
-		//_CaniboarButton->SetIcon(eIcon::Caniboar);
+		//_CaniboarButton->SetIcon(eIcon::Ultravore);
 		//_CaniboarButton->Initialize();
 	}
 	void EventManager::Update()
@@ -116,7 +119,14 @@ namespace Mn
 				button->Initialize();
 				_BarSlotCount[(UINT)eIcon::Caniboar] += 0.001f;
 				break;
+			case enums::eIcon::Ultravore:
+				button = object::Instantiate<Ultravore>(Vector3(Random(), 1.5f, a), eLayerType::Fish);
+				dynamic_cast<Ultravore*>(button)->SetFlag(0);
+				button->Initialize();
+				_BarSlotCount[(UINT)eIcon::Ultravore] += 0.001f;
+				break;
 			case enums::eIcon::Egg:
+				BuyEgg();
 				break;
 			case enums::eIcon::End:
 				break;
@@ -164,6 +174,10 @@ namespace Mn
 		{
 		case 0:
 			FindOldGuppy();
+			break;
+		case 1:
+			if (_EggFlag == 1)
+				BuyEggOnce();
 			break;
 		default:
 			break;
@@ -213,6 +227,19 @@ namespace Mn
 				return false;
 			}
 		}
+	}
+	void EventManager::BuyEggOnce()
+	{
+		_EggFlag++;
+		_UltravoreButton = object::Instantiate<InGameButton>(Vector3(-0.005f, 1.56, -0.001f), eLayerType::UI);
+		_UltravoreButton->SetIcon(eIcon::Ultravore);
+		_UltravoreButton->Initialize();
+	}
+	void EventManager::BuyEgg()
+	{
+		if(_EggFlag==0)
+			_EggFlag++;
+		_EggButton->OnClick();
 	}
 	float EventManager::Random()
 	{

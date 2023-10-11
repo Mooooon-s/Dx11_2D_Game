@@ -28,10 +28,10 @@ namespace Mn
 		{
 			Transform* tr = owner->GetComponent<Transform>();
 			Vector3 pos = tr->Position();
-			pos.z = _ZPositon;
+			pos.z += 7.001;
 			Diamond* diamond = object::Instantiate<Diamond>(pos, eLayerType::Coin);
 			diamond->Initialize();
-			_ZPositon += 0.000000001;
+			_ZPositon += 0.000001;
 			_BlackBoard->SetData(L"StackFlag", 0);
 		}
 		return enums::eBTState::SUCCESS;

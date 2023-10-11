@@ -106,7 +106,7 @@ namespace Mn
 			SetPrice(1000);
 			break;
 		case Mn::enums::eIcon::Ultravore:
-			SetPrice(2000);
+			SetPrice(10000);
 			break;
 		case Mn::enums::eIcon::Weapon:
 			SetPrice(1000);

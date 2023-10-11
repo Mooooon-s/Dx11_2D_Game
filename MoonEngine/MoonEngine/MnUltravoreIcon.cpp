@@ -1,18 +1,18 @@
-#include "MnCaniboarIcon.h"
+#include "MnUltravoreIcon.h"
+
+#include "MnMeshRenderer.h"
 #include "MnResources.h"
 #include "MnAnimator.h"
 
 namespace Mn
 {
-	CaniboarIcon::CaniboarIcon()
+	UltravoreIcon::UltravoreIcon()
 	{
 	}
-
-	CaniboarIcon::~CaniboarIcon()
+	UltravoreIcon::~UltravoreIcon()
 	{
 	}
-
-	void CaniboarIcon::Initialize()
+	void UltravoreIcon::Initialize()
 	{
 		Transform* tr = GetComponent<Transform>();
 		tr->Scale(0.25f, 0.25f, 0.0f);
@@ -25,27 +25,24 @@ namespace Mn
 		mr->SetMaterial(Resources::Find<Material>(L"SpriteAnimaionMaterial"));
 		mr->FlipX(0);
 		std::shared_ptr<Mn::graphics::Texture> atlas
-			= Resources::Load< Mn::graphics::Texture>(L"Caniboar_Icon_Sprite",L"..\\Resources\\Texture\\Fish\\scl_oscar.jpg");
+			= Resources::Load< Mn::graphics::Texture>(L"Ultravore_Icon_Sprite", L"..\\Resources\\Texture\\Fish\\scl_ultra.jpg");
 		std::shared_ptr<Mn::graphics::Texture> atlasAlpha
-			= Resources::Load<Mn::graphics::Texture>(L"Caniboar_Icon_Sprite_Alpha", L"..\\Resources\\Texture\\Fish\\_scl_oscar.jpg");
+			= Resources::Load<Mn::graphics::Texture>(L"Ultravore_Icon_Sprite_Alpha", L"..\\Resources\\Texture\\Fish\\_scl_ultra.jpg");
 
 		Animator* at = AddComponent<Animator>();
-		at->Create(L"Caniboar_Icon", atlas, atlasAlpha, Vector2::Zero, Vector2(40,40), 10, Vector2::Zero, 0.1f);
-		at->PlayAnimation(L"Caniboar_Icon", true);
+		at->Create(L"Ultravore_Icon", atlas, atlasAlpha, Vector2::Zero, Vector2(40, 40), 10, Vector2::Zero, 0.1f);
+		at->PlayAnimation(L"Ultravore_Icon", true);
 
 	}
-
-	void CaniboarIcon::Update()
+	void UltravoreIcon::Update()
 	{
 		GameObject::Update();
 	}
-
-	void CaniboarIcon::LateUpdate()
+	void UltravoreIcon::LateUpdate()
 	{
 		GameObject::LateUpdate();
 	}
-
-	void CaniboarIcon::Render()
+	void UltravoreIcon::Render()
 	{
 		GameObject::Render();
 	}

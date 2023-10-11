@@ -50,6 +50,7 @@ namespace Mn
 			_Pos = Vector2(350, 70);
 			break;
 		case Mn::enums::eIcon::Ultravore:
+			_Pos = Vector2(450, 70);
 			break;
 		case Mn::enums::eIcon::Weapon:
 			break;

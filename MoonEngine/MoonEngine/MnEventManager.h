@@ -24,14 +24,18 @@ namespace Mn
 		void OpenButton();
 		void FindOldGuppy();
 		bool MoneyCheck(int money);
+		void BuyEggOnce();
+		void BuyEgg();
 	private:
 		std::vector<float> _BarSlotCount;
 		float _Time;
 		int _EventStack;
 		int _BossStack;
+		int _EggFlag;
 		InGameButton* _FoodLevel;
 		InGameButton* _FoodCount;
 		InGameButton* _CaniboarButton;
-
+		InGameButton* _UltravoreButton;
+		InGameButton* _EggButton;
 	};
 }

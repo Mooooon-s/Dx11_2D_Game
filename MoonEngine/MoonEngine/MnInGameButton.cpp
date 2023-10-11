@@ -10,6 +10,7 @@
 #include "MnFoodIcon.h"
 #include "MnFoodLevelIcon.h"
 #include "MnCaniboarIcon.h"
+#include "MnUltravoreIcon.h"
 
 namespace Mn
 {
@@ -59,6 +60,8 @@ namespace Mn
 			_IconObject->OnClick();
 		if (_Icon == eIcon::FoodCount)
 			_IconObject->OnClick();
+		if (_Icon == eIcon::Egg)
+			_IconObject->OnClick();
 	}
 	void InGameButton::MouseOn()
 	{
@@ -79,8 +82,12 @@ namespace Mn
 			_IconObject = CreateIcon<FoodLevelIcon>(pos);
 			_IconObject->Initialize();
 			break;
-		case ::Mn::enums::eIcon::Caniboar:
+		case Mn::enums::eIcon::Caniboar:
 			_IconObject = CreateIcon<CaniboarIcon>(pos);
+			_IconObject->Initialize();
+			break;
+		case Mn::enums::eIcon::Ultravore:
+			_IconObject = CreateIcon<UltravoreIcon>(pos);
 			_IconObject->Initialize();
 			break;
 		case Mn::enums::eIcon::Egg:

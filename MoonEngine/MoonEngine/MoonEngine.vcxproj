@@ -271,6 +271,7 @@
     <ClInclude Include="MnUltravore.h" />
     <ClInclude Include="MnUltravoreAnimationCntrl.h" />
     <ClInclude Include="MnUltravoreBehaviorTree.h" />
+    <ClInclude Include="MnUltravoreIcon.h" />
     <ClInclude Include="MnUltravoreRender.h" />
     <ClInclude Include="MnWarp.h" />
     <ClInclude Include="MnWarpHole.h" />
@@ -408,6 +409,7 @@
     <ClCompile Include="MnWaterWaveRender.cpp" />
     <ClCompile Include="MnRush2Boss.cpp" />
     <ClCompile Include="MnPriceTag.cpp" />
+    <ClCompile Include="MnUltravoreIcon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />
