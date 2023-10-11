@@ -20,11 +20,13 @@ namespace Mn
 	}
 	void Layer::Update()
 	{
+		int a = 0;
 		for (GameObject* gameObj : _GameObjects)
 		{
 			if (gameObj->State() != GameObject::eState::Active)
 				continue;
 			gameObj->Update();
+			a++;
 		}
 	}
 	void Layer::LateUpdate()

@@ -22,7 +22,7 @@ namespace Mn
 	void ButtonPanel::Initialize()
 	{
 		Scene* scene = SceneManager::ActiveScene();
-		std::vector<GameObject*> gameObj = scene->GetLayer(eLayerType::UI).GetGameObjects();
+		std::vector<GameObject*> gameObj = scene->GetLayer(eLayerType::Manager).GetGameObjects();
 		for (auto obj : gameObj)
 		{
 			if (dynamic_cast<EventManager*>(obj))
@@ -76,8 +76,6 @@ namespace Mn
 	{
 		_Animator->PlayAnimation(L"PanelOnClick", true);
 		_EventManager->ButtonEvent(_Icon);
-
-
 	}
 	void ButtonPanel::MouseOn()
 	{

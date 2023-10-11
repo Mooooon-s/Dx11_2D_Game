@@ -165,11 +165,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="MnAddLevel.h" />
+    <ClInclude Include="MnCaniboarIcon.h" />
     <ClInclude Include="MnChomp.h" />
     <ClInclude Include="MnDetectBoss.h" />
     <ClInclude Include="MnDropTresure.h" />
     <ClInclude Include="MnFindCaniboar.h" />
     <ClInclude Include="MnFoodIcon.h" />
+    <ClInclude Include="MnFoodLevelIcon.h" />
     <ClInclude Include="MnGetBossPosition.h" />
     <ClInclude Include="MnItchy.h" />
     <ClInclude Include="MnItchyAnimationCntrl.h" />
@@ -285,6 +287,8 @@
     <ClInclude Include="MnZorfAnimationCntrl.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnCaniboarIcon.cpp" />
+    <ClCompile Include="MnFoodLevelIcon.cpp" />
     <ClCompile Include="MnFoodIcon.cpp" />
     <ClCompile Include="MnChomp.cpp" />
     <ClCompile Include="MnGetBossPosition.cpp" />

@@ -23,6 +23,9 @@ namespace Mn
 
 		UINT FishLevel();
 		bool FishStarving();
+		void SetFlag(int flag) { _Flag = flag; }
+
+		void DropIntoTank();
 	private:
 		GuppyBehaviorTree* _GBT;
 		int _Flag;

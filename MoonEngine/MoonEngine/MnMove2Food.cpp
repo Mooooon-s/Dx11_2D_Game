@@ -39,10 +39,6 @@ namespace Mn
 		KdTree* kd = Mn::kdTree;
 
 		eFishState hungrystate = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
-		if (hungrystate == eFishState::Full)
-		{
-			return enums::eBTState::SUCCESS;
-		}
 
 		GameObject* food = kd->Query(owner, 5.0f, 0);
 		if (food == nullptr)
@@ -51,12 +47,12 @@ namespace Mn
 		Transform* foodTr = food->GetComponent<Transform>();
 		Vector3 foodPos = foodTr->Position();
 
-		PlayAnimaion* anima = new PlayAnimaion(_BlackBoard);
+		
 		Animator* at = owner->GetComponent<Animator>();
 		if (at->AnimationComplete())
 		{
 			_BlackBoard->SetData(L"Behavior", enums::eBehavior::Swim);
-			anima->Run();
+			_BlackBoard->GetData<PlayAnimaion>(L"AnimationPlay")->Run();
 		}
 	
 
@@ -68,13 +64,14 @@ namespace Mn
 		ownerPos += Vector3(moveVec.x, moveVec.y,0.0f)* 2 * Time::DeltaTime();
 		tr->Position(ownerPos);
 
-		if (ownerPos.x >= foodPos.x + 0.05 || ownerPos.x <= foodPos.x - 0.05
-			|| ownerPos.y >= foodPos.y + 0.05 || ownerPos.y <= foodPos.y - 0.05)
+		if (hungrystate != eFishState::Full)
 		{
 			_BlackBoard->SetRunningNode(_BlackBoard->GetData<GuppyFoodTurn>(L"FoodTurnNode"));
 			return enums::eBTState::RUNNING;
 		}
-
-		return enums::eBTState::SUCCESS;
+		else
+		{
+			return enums::eBTState::SUCCESS;
+		}
 	}
 }

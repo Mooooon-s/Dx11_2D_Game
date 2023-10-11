@@ -22,6 +22,18 @@ namespace Mn
 		at->CompleteEvent(L"Eat_Small") = std::bind(&PlayAnimaion::afterAction,this);
 		at->CompleteEvent(L"Eat_Middle") = std::bind(&PlayAnimaion::afterAction,this);
 		at->CompleteEvent(L"Eat_Large") = std::bind(&PlayAnimaion::afterAction,this);
+		at->CompleteEvent(L"Turn_Small_Revers") = std::bind(&PlayAnimaion::afterAction,this);
+		at->CompleteEvent(L"Turn_Small") = std::bind(&PlayAnimaion::afterAction,this);
+		at->CompleteEvent(L"Turn_Middle_Revers") = std::bind(&PlayAnimaion::afterAction,this);
+		at->CompleteEvent(L"Turn_Middle") = std::bind(&PlayAnimaion::afterAction,this);
+		at->CompleteEvent(L"Turn_Large_Revers") = std::bind(&PlayAnimaion::afterAction,this);
+		at->CompleteEvent(L"Turn_Large") = std::bind(&PlayAnimaion::afterAction,this);
+		at->CompleteEvent(L"Hungry_Turn_Small_Revers") = std::bind(&PlayAnimaion::afterAction,this);
+		at->CompleteEvent(L"Hungry_Turn_Small") = std::bind(&PlayAnimaion::afterAction,this);
+		at->CompleteEvent(L"Hungry_Turn_Middle_Revers") = std::bind(&PlayAnimaion::afterAction,this);
+		at->CompleteEvent(L"Hungry_Turn_Middle") = std::bind(&PlayAnimaion::afterAction,this);
+		at->CompleteEvent(L"Hungry_Turn_Large_Revers") = std::bind(&PlayAnimaion::afterAction,this);
+		at->CompleteEvent(L"Hungry_Turn_Large") = std::bind(&PlayAnimaion::afterAction,this);
 	}
 	enums::eBTState PlayAnimaion::Run()
 	{

@@ -63,6 +63,9 @@ namespace Mn
 		_BlackBoard->AddData<GameObject>(L"Owner", GetOwner());
 		_BlackBoard->AddData<KdTree>(L"Food_Tree", foodtree);
 
+		PlayAnimaion* anima = new PlayAnimaion(_BlackBoard.get());
+		_BlackBoard->AddData<PlayAnimaion>(L"AnimationPlay", anima);
+
 		_BlackBoard->MakeData<int>(L"HungryStack");
 		_BlackBoard->SetData(L"HungryStack", HungryStack);
 		_BlackBoard->MakeData<UINT>(L"Level");

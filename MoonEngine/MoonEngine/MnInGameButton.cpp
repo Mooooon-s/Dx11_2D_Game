@@ -1,10 +1,14 @@
 #include "MnInGameButton.h"
 #include "MnButtonFrame.h"
 #include "MnButtonPanel.h"
-#include "MnGuppyIcon.h"
 #include "MnObject.h"
+
+
+#include "MnGuppyIcon.h"
 #include "MnEggIcon.h"
 #include "MnFoodIcon.h"
+#include "MnFoodLevelIcon.h"
+#include "MnCaniboarIcon.h"
 
 namespace Mn
 {
@@ -47,6 +51,8 @@ namespace Mn
 	{
 		if (_Icon == eIcon::Food)
 			_IconObject->OnClick();
+		if (_Icon == eIcon::FoodCount)
+			_IconObject->OnClick();
 	}
 	void InGameButton::MouseOn()
 	{
@@ -64,6 +70,12 @@ namespace Mn
 			_IconObject->Initialize();
 			break;
 		case Mn::enums::eIcon::FoodCount:
+			_IconObject = CreateIcon<FoodLevelIcon>(pos);
+			_IconObject->Initialize();
+			break;
+		case ::Mn::enums::eIcon::Caniboar:
+			_IconObject = CreateIcon<CaniboarIcon>(pos);
+			_IconObject->Initialize();
 			break;
 		case Mn::enums::eIcon::Egg:
 			_IconObject = CreateIcon<EggIcon>(pos);

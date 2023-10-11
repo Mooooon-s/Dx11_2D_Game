@@ -79,11 +79,11 @@ void Mn::playScene::Initialize()
 	Guppy* guppy2 = object::Instantiate<Guppy>(Vector3(1.5f,0.0f,0.01f),eLayerType::Fish);
 	guppy2->Initialize();
 
-	Guppy* guppy3 = object::Instantiate<Guppy>(Vector3(1.0f, 1.0f, 0.02f),eLayerType::Fish);
-	guppy3->Initialize();
+	//Guppy* guppy3 = object::Instantiate<Guppy>(Vector3(1.0f, 1.0f, 0.02f),eLayerType::Fish);
+	//guppy3->Initialize();
 
-	Caniboar* cani = object::Instantiate<Caniboar>(Vector3(0.0f, 0.0f, 1.0f), eLayerType::Fish);
-	cani->Initialize();
+	//Caniboar* cani = object::Instantiate<Caniboar>(Vector3(0.0f, 0.0f, 1.0f), eLayerType::Fish);
+	//cani->Initialize();
 
 	Niko* niko = object::Instantiate<Niko>(Vector3(-1.4f,-0.4f,100.0f),eLayerType::Pet);
 	niko->Initialize();
@@ -100,14 +100,14 @@ void Mn::playScene::Initialize()
 	TopBar* topbar = object::Instantiate<TopBar>(eLayerType::UI);
 	topbar->Initialize();
 
-	Zorf* zorf = object::Instantiate<Zorf>( Vector3(0.0f,0.0f,4.0f), eLayerType::Pet);
-	zorf->Initialize();
+	//Zorf* zorf = object::Instantiate<Zorf>( Vector3(0.0f,0.0f,4.0f), eLayerType::Pet);
+	//zorf->Initialize();
 
-	Ultravore* ultravore = object::Instantiate<Ultravore>(Vector3(0.0f, 0.0f, 5.0f), eLayerType::Fish);
-	ultravore->Initialize();
+	//Ultravore* ultravore = object::Instantiate<Ultravore>(Vector3(0.0f, 0.0f, 5.0f), eLayerType::Fish);
+	//ultravore->Initialize();
 
-	Itchy* itchy = object::Instantiate<Itchy>(Vector3(0.0f, 0.0f, -3.0f), eLayerType::Pet);
-	itchy->Initialize();
+	//Itchy* itchy = object::Instantiate<Itchy>(Vector3(0.0f, 0.0f, -3.0f), eLayerType::Pet);
+	//itchy->Initialize();
 
 	WaterWave* WW = object::Instantiate<WaterWave>(eLayerType::UI);
 	WW->Initialize();
@@ -147,7 +147,7 @@ void Mn::playScene::Initialize()
 	mouse->UICamera(camera);
 	mouse->Initialize();
 
-	EventManager* eventmanager = object::Instantiate<EventManager>(eLayerType::UI);
+	EventManager* eventmanager = object::Instantiate<EventManager>(eLayerType::Manager);
 	eventmanager->Initialize();
 
 }

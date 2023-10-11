@@ -29,5 +29,8 @@ namespace Mn
 		int _EventStack;
 		int _BossStack;
 		InGameButton* _FoodLevel;
+		InGameButton* _FoodCount;
+		InGameButton* _CaniboarButton;
+
 	};
 }

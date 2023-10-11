@@ -8,6 +8,7 @@
 #include "MnMouse.h"
 
 #include "MnGuppy.h"
+#include "MnCaniboar.h"
 #include "MnInGameButton.h"
 
 namespace Mn
@@ -18,6 +19,7 @@ namespace Mn
 		, _BossStack(0)
 		, _BarSlotCount()
 		, _FoodLevel(nullptr)
+		, _FoodCount(nullptr)
 	{
 	}
 	EventManager::~EventManager()
@@ -25,7 +27,7 @@ namespace Mn
 	}
 	void EventManager::Initialize()
 	{
-		_BarSlotCount.resize(7,0.000001f);
+		_BarSlotCount.resize(7,(float)0.00001f);
 
 		InGameButton* IGBGuppy = object::Instantiate<InGameButton>(Vector3(-2.035f, 1.56f, -0.001f), eLayerType::UI);
 		IGBGuppy->SetIcon(eIcon::Guppy);
@@ -34,6 +36,7 @@ namespace Mn
 		InGameButton* IGBEgg = object::Instantiate<InGameButton>(Vector3(1.085f, 1.56f, -0.001f), eLayerType::UI);
 		IGBEgg->SetIcon(eIcon::Egg);
 		IGBEgg->Initialize();
+
 
 	}
 	void EventManager::Update()
@@ -45,9 +48,11 @@ namespace Mn
 	}
 	void EventManager::LateUpdate()
 	{
+		GameObject::LateUpdate();
 	}
 	void EventManager::Render()
 	{
+		GameObject::Render();
 	}
 	void EventManager::Event()
 	{
@@ -83,6 +88,7 @@ namespace Mn
 		case enums::eIcon::Guppy:
 			button = object::Instantiate<Guppy>(Vector3(Random(), 1.5f , a ),eLayerType::Fish);
 			button->Initialize();
+			dynamic_cast<Guppy*>(button)->SetFlag(0);
 			_BarSlotCount[(UINT)eIcon::Guppy] += 0.001f;
 			break;
 		case enums::eIcon::Food:
@@ -90,6 +96,11 @@ namespace Mn
 			break;
 		case enums::eIcon::FoodCount:
 			FoodCountUp();
+			break;
+		case enums::eIcon::Caniboar:
+			button = object::Instantiate<Caniboar>(Vector3(Random(), 1.5f, a), eLayerType::Fish);
+			button->Initialize();
+			_BarSlotCount[(UINT)eIcon::Caniboar] += 0.001f;
 			break;
 		case enums::eIcon::Egg:
 			break;
@@ -127,6 +138,7 @@ namespace Mn
 			}
 		}
 		mouse->ScriptFoodCount();
+		_FoodCount->OnClick();
 	}
 	void EventManager::EggEvent()
 	{
@@ -155,10 +167,17 @@ namespace Mn
 					_FoodLevel = object::Instantiate<InGameButton>(Vector3(-1.525f, 1.56f, -0.001f), eLayerType::UI);
 					_FoodLevel->SetIcon(eIcon::Food);
 					_FoodLevel->Initialize();
-					//InGameButton* IGBFoodCount = object::Instantiate<InGameButton>(Vector3(-1.1f, 1.56f, -0.001f), eLayerType::UI);
-					//IGBFoodCount->SetIcon(eIcon::FoodCount);
-					//IGBFoodCount->Initialize();
+
+					_FoodCount = object::Instantiate<InGameButton>(Vector3(-1.1f, 1.56f, -0.001f), eLayerType::UI);
+					_FoodCount->SetIcon(eIcon::FoodCount);
+					_FoodCount->Initialize();
+					
+					_CaniboarButton = object::Instantiate<InGameButton>(Vector3(-0.55, 1.56, -0.001f), eLayerType::UI);
+					_CaniboarButton->SetIcon(eIcon::Caniboar);
+					_CaniboarButton->Initialize();
+					
 					_EventStack++;
+					break;
 				}
 			}
 		}

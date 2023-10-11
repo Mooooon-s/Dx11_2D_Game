@@ -37,13 +37,13 @@ namespace Mn
 			if (dir == enums::eDir::Right && foodDir == enums::eDir::Left)
 			{
 				_BlackBoard->SetData(L"Behavior", enums::eBehavior::Turn);
-				anima->Run();
+				_BlackBoard->GetData<PlayAnimaion>(L"AnimationPlay")->Run();
 				_BlackBoard->SetData(L"Dir", enums::eDir::Left);
 			}
 			else if (dir == enums::eDir::Left && foodDir == enums::eDir::Right)
 			{
 				_BlackBoard->SetData(L"Behavior", enums::eBehavior::Turn);
-				anima->Run();
+				_BlackBoard->GetData<PlayAnimaion>(L"AnimationPlay")->Run();
 				_BlackBoard->SetData(L"Dir", enums::eDir::Right);
 			}
 			
