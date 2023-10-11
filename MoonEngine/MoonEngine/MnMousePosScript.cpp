@@ -8,6 +8,8 @@
 #include "MnFood.h"
 #include "MnInput.h"
 
+#include "MnMoney.h"
+
 extern Mn::Application application;
 
 namespace Mn
@@ -187,14 +189,17 @@ namespace Mn
 		if (_UnProjectPos.x > -2.0f && _UnProjectPos.x < 2.0f
 			&& _UnProjectPos.y > -1.5f && _UnProjectPos.y < 1.0f)
 		{
-			float a = (0.0001 * _Idx) + 1;
-			Vector3 pos = Vector3(_UnProjectPos.x, _UnProjectPos.y, a);
-			Food* food = object::Instantiate<Food>(pos, eLayerType::Food);
-			food->FoodLevel(_FoodLevel);
-			food->Initialize();
-			_Idx += 1;
-			if (_Idx >= 100)
-				_Idx = 1;
+			if (MoneyCheck())
+			{
+				float a = (0.0001 * _Idx) + 1;
+				Vector3 pos = Vector3(_UnProjectPos.x, _UnProjectPos.y, a);
+				Food* food = object::Instantiate<Food>(pos, eLayerType::Food);
+				food->FoodLevel(_FoodLevel);
+				food->Initialize();
+				_Idx += 1;
+				if (_Idx >= 100)
+					_Idx = 1;
+			}
 		}
 	}
 	void MousePosScript::FoodLevel()
@@ -215,5 +220,22 @@ namespace Mn
 			return true;
 		else
 			return false;
+	}
+	bool MousePosScript::MoneyCheck()
+	{
+		Scene* scene = SceneManager::ActiveScene();
+		std::vector<GameObject*> moneyObj = scene->GetLayer(eLayerType::UI).GetGameObjects();
+		for (auto obj : moneyObj)
+		{
+			if (dynamic_cast<Money*>(obj))
+			{
+				if (dynamic_cast<Money*>(obj)->UseableMoney(5))
+				{
+					dynamic_cast<Money*>(obj)->UseMoney(5);
+					return true;
+				}
+				return false;
+			}
+		}
 	}
 }

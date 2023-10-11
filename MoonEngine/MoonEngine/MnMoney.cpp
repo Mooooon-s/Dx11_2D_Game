@@ -37,8 +37,18 @@ namespace Mn
 	void Money::OnClick()
 	{
 	}
-	void Money::EarnMoney(UINT money)
+	void Money::EarnMoney(int money)
 	{
 		_Money += money;
+	}
+	void Money::UseMoney(int money)
+	{
+		_Money -= money;
+	}
+	bool Money::UseableMoney(int money)
+	{
+		if(_Money-money < 0)
+			return false;
+		return true;
 	}
 }

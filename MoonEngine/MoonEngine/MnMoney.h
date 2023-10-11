@@ -17,9 +17,11 @@ namespace Mn
 		void FontRender() override;
 		void OnClick() override;
 	public:
-		void EarnMoney(UINT money);
+		void EarnMoney(int money);
+		void UseMoney(int money);
+		bool UseableMoney(int money);
 	private:
-		UINT _Money;
+		int _Money;
 		wchar_t _szFloat[50];
 	};
 
