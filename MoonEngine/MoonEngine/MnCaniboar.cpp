@@ -3,11 +3,12 @@
 #include "MnCaniboarBehaviorTree.h"
 #include "MnChomp.h"
 #include "MnObject.h"
+#include "MnTime.h"
 
 namespace Mn
 {
 	Caniboar::Caniboar()
-		: _Flag(0)
+		: _Flag(2)
 	{
 	}
 	Caniboar::~Caniboar()
@@ -30,7 +31,10 @@ namespace Mn
 	}
 	void Caniboar::Update()
 	{
-		GameObject::Update();
+		if (_Flag != 2)
+			DropIntoTank();
+		else
+			GameObject::Update();
 	}
 	void Caniboar::LateUpdate()
 	{
@@ -49,5 +53,26 @@ namespace Mn
 		chomp->Initialize();
 
 		this->State(GameObject::eState::Dead);
+	}
+	void Caniboar::DropIntoTank()
+	{
+		Transform* tr = GetComponent<Transform>();
+		Vector3 pos = tr->Position();
+		if (pos.y >= 0.6f && _Flag == 0)
+		{
+			pos.y -= 1.5 * Time::DeltaTime();
+			tr->Position(pos);
+		}
+		else if (pos.y <= 0.6f && _Flag == 0)
+			_Flag = 1;
+
+		if (pos.y <= 0.8f && _Flag == 1)
+		{
+			pos.x += -0.5 * Time::DeltaTime();
+			pos.y += 0.5 * Time::DeltaTime();
+			tr->Position(pos);
+		}
+		else if (pos.y >= 0.8f && _Flag == 1)
+			_Flag = 2;
 	}
 }

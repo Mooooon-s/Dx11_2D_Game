@@ -39,11 +39,10 @@ namespace Mn
 	}
 	void Guppy::Update()
 	{
-		DropIntoTank();
-		if (_Flag == 2)
-		{
+		if(_Flag!=2)
+			DropIntoTank();
+		else
 			GameObject::Update();
-		}
 	}
 	void Guppy::LateUpdate()
 	{

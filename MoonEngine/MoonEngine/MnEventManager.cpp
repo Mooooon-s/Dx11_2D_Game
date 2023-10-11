@@ -36,8 +36,6 @@ namespace Mn
 		InGameButton* IGBEgg = object::Instantiate<InGameButton>(Vector3(1.085f, 1.56f, -0.001f), eLayerType::UI);
 		IGBEgg->SetIcon(eIcon::Egg);
 		IGBEgg->Initialize();
-
-
 	}
 	void EventManager::Update()
 	{
@@ -87,8 +85,8 @@ namespace Mn
 		{
 		case enums::eIcon::Guppy:
 			button = object::Instantiate<Guppy>(Vector3(Random(), 1.5f , a ),eLayerType::Fish);
-			button->Initialize();
 			dynamic_cast<Guppy*>(button)->SetFlag(0);
+			button->Initialize();
 			_BarSlotCount[(UINT)eIcon::Guppy] += 0.001f;
 			break;
 		case enums::eIcon::Food:
@@ -99,6 +97,7 @@ namespace Mn
 			break;
 		case enums::eIcon::Caniboar:
 			button = object::Instantiate<Caniboar>(Vector3(Random(), 1.5f, a), eLayerType::Fish);
+			dynamic_cast<Caniboar*>(button)->SetFlag(0);
 			button->Initialize();
 			_BarSlotCount[(UINT)eIcon::Caniboar] += 0.001f;
 			break;

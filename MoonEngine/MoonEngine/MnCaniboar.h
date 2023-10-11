@@ -15,8 +15,11 @@ namespace Mn
 		virtual void Render();
 		virtual void OnClick();
 	public:
+		void DropIntoTank();
+	public:
 		void SetFishState(eFishState state) { Mn::Fish::SetFishState(state); }
 		eFishState GetFishState() { return Mn::Fish::GetFishState(); }
+		void SetFlag(int flag) { _Flag = flag; }
 	private:
 		int _Flag;
 	};
