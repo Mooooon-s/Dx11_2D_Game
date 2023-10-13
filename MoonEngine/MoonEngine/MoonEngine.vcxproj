@@ -238,7 +238,6 @@
     <ClInclude Include="MnMenuBG.h" />
     <ClInclude Include="MnMenuScene.h" />
     <ClInclude Include="MnMoney.h" />
-    <ClInclude Include="MnMountainStage.h" />
     <ClInclude Include="MnMove.h" />
     <ClInclude Include="MnMove2Boss.h" />
     <ClInclude Include="MnMove2Caniboar.h" />
@@ -249,6 +248,7 @@
     <ClInclude Include="MnNikoScript.h" />
     <ClInclude Include="MnPearl.h" />
     <ClInclude Include="MnPearlScript.h" />
+    <ClInclude Include="MnPlayButton.h" />
     <ClInclude Include="MnPlayerHp.h" />
     <ClInclude Include="MnPriceTag.h" />
     <ClInclude Include="MnRush2Boss.h" />
@@ -261,6 +261,7 @@
     <ClInclude Include="MnSylv.h" />
     <ClInclude Include="MnSylvBehaviorTree.h" />
     <ClInclude Include="MnSylvRender.h" />
+    <ClInclude Include="MnTailFlop.h" />
     <ClInclude Include="MnTitleScene.h" />
     <ClInclude Include="MnTopBar.h" />
     <ClInclude Include="MnPlayAnimaion.h" />
@@ -365,7 +366,6 @@
     <ClCompile Include="MnMoney.cpp" />
     <ClCompile Include="MoonEngine.cpp" />
     <ClCompile Include="MnPlayerHp.cpp" />
-    <ClCompile Include="MnMountainStage.cpp" />
     <ClCompile Include="MnMove.cpp" />
     <ClCompile Include="MnPlayAnimaion.cpp" />
     <ClCompile Include="MnMousePosScript.cpp" />
@@ -381,6 +381,7 @@
     <ClCompile Include="MnMove2Guppy.cpp" />
     <ClCompile Include="MnMove2Caniboar.cpp" />
     <ClCompile Include="MnMove2Boss.cpp" />
+    <ClCompile Include="MnPlayButton.cpp" />
     <ClCompile Include="playScene.cpp" />
     <ClCompile Include="MnStinky.cpp" />
     <ClCompile Include="MnStinkyScript.cpp" />
@@ -410,6 +411,7 @@
     <ClCompile Include="MnRush2Boss.cpp" />
     <ClCompile Include="MnPriceTag.cpp" />
     <ClCompile Include="MnUltravoreIcon.cpp" />
+    <ClCompile Include="MnTailFlop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />

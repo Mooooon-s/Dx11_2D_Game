@@ -28,6 +28,8 @@ namespace Mn
 		void FoodCount();
 		bool MaxFood();
 		bool MoneyCheck();
+		void PlaySceneMouse();
+		void TitleSceneMouse();
 	public:
 		void UICamera(GameObject* uicamera) { _Cam = uicamera; }
 		UINT GetFoodCount() { return _FoodCount; }

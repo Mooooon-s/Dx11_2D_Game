@@ -68,6 +68,7 @@ Mn::playScene::~playScene()
 
 void Mn::playScene::Initialize()
 {
+	SetName(L"PlayScene");
 	std::shared_ptr<PaintShader> paintShader = Resources::Find<PaintShader>(L"PaintShader");
 	std::shared_ptr<Mn::graphics::Texture> paintTexture = Resources::Find<Mn::graphics::Texture>(L"PaintTexuture");
 	paintShader->SetTarget(paintTexture);
@@ -123,26 +124,7 @@ void Mn::playScene::Initialize()
 	lightComp->SetType(eLightType::Directional);
 	lightComp->SetColor(Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 
-	//Main Camera
-	GameObject* camera = new GameObject();
-	AddGameObject(eLayerType::UI, camera);
-	camera->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, -10.0f));
-	Camera* cameraComp = camera->AddComponent<Camera>();
-	CameraScript* cs = camera->AddComponent<CameraScript>();
-	cameraComp->TurnLayerMask(eLayerType::UI, false);
-	renderer::cameras.push_back(cameraComp);
-	renderer::mainCamera = cameraComp;
 
-	GameObject* UICam = new GameObject();
-	UICam->SetName(L"UICam");
-	AddGameObject(eLayerType::UI, UICam);
-	Camera* camComp = UICam->AddComponent<Camera>();
-	camComp->DisableLayerMasks();
-	camComp->TurnLayerMask(eLayerType::UI, true);
-
-	Mouse* mouse = object::Instantiate<Mouse>(eLayerType::UI);
-	mouse->UICamera(camera);
-	mouse->Initialize();
 
 	EventManager* eventmanager = object::Instantiate<EventManager>(eLayerType::Manager);
 	eventmanager->Initialize();
@@ -188,6 +170,27 @@ void Mn::playScene::Destroy()
 
 void Mn::playScene::OnEnter()
 {
+	//Main Camera
+	GameObject* camera = new GameObject();
+	AddGameObject(eLayerType::UI, camera);
+	camera->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, -10.0f));
+	Camera* cameraComp = camera->AddComponent<Camera>();
+	CameraScript* cs = camera->AddComponent<CameraScript>();
+	cameraComp->TurnLayerMask(eLayerType::UI, false);
+	renderer::cameras.push_back(cameraComp);
+	renderer::mainCamera = cameraComp;
+
+	GameObject* UICam = new GameObject();
+	UICam->SetName(L"UICam");
+	AddGameObject(eLayerType::UI, UICam);
+	Camera* camComp = UICam->AddComponent<Camera>();
+	camComp->DisableLayerMasks();
+	camComp->TurnLayerMask(eLayerType::UI, true);
+
+	Mouse* mouse = object::Instantiate<Mouse>(eLayerType::UI);
+	mouse->UICamera(camera);
+	mouse->Initialize();
+
 	CollisionManager::SetLayer(eLayerType::Fish, eLayerType::Food, true);
 	CollisionManager::SetLayer(eLayerType::Fish, eLayerType::Fish, true);
 	CollisionManager::SetLayer(eLayerType::Pet, eLayerType::Coin, true);

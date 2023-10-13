@@ -83,6 +83,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     renderer::Release();
     Mn::SceneManager::Release();
     gui::Editor::Release();
+    Mn::FontWrapper::Release();
     return (int) msg.wParam;
 }
 

@@ -32,4 +32,7 @@ namespace Mn
 	void Button::MouseOn()
 	{
 	}
+	void Button::MouseOff()
+	{
+	}
 }

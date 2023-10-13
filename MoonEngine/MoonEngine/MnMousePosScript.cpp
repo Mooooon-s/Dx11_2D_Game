@@ -26,6 +26,7 @@ namespace Mn
 		_Setting.set((UINT)eLayerType::Pet, 1);
 		_Setting.set((UINT)eLayerType::Monster, 1);
 		_Setting.set((UINT)eLayerType::UI, 1);
+		_Setting.set((UINT)eLayerType::Button, 1);
 	}
 	MousePosScript::MousePosScript(GameObject* cam)
 		: _Cam(cam)
@@ -39,6 +40,7 @@ namespace Mn
 		_Setting.set((UINT)eLayerType::Pet, 1);
 		_Setting.set((UINT)eLayerType::Monster, 1);
 		_Setting.set((UINT)eLayerType::UI, 1);
+		_Setting.set((UINT)eLayerType::Button, 1);
 	}
 	MousePosScript::~MousePosScript()
 	{
@@ -49,47 +51,14 @@ namespace Mn
 	}
 	void MousePosScript::Update()
 	{
-		if (Input::GetKeyDown(eKeyCode::LBUTTON))
+		Scene* scene = SceneManager::ActiveScene();
+		if (scene->GetName() == L"PlayScene")
 		{
-			_DotPos = _UnProjectPos;
-			GatherObject();
-
-			for (auto Obj : _GameObjects)
-			{
-				if (Obj->GetComponent<Collider2D>() != nullptr)
-					InterSect(Obj->GetComponent<Collider2D>());
-			}
-
-			GameObject* Obj = PrimaryObj();
-
-			if (Obj != nullptr)
-				Obj->OnClick(_DotPos);
-			else
-				FeedFood();
+			PlaySceneMouse();
 		}
-		else
+		if (scene->GetName() == L"TitleScene")
 		{
-			_DotPos = _UnProjectPos;
-			GatherObject();
-
-			for (auto Obj : _GameObjects)
-			{
-				if (Obj->GetComponent<Collider2D>() != nullptr)
-					InterSect(Obj->GetComponent<Collider2D>());
-			}
-
-			GameObject* Obj = PrimaryObj();
-
-			if (Obj != nullptr)
-				Obj->MouseOn();
-			else
-			{
-				for (auto otherObj : _GameObjects)
-				{
-					if(otherObj->GetName()!=L"Coin")
-						otherObj->MouseOff();
-				}
-			}
+			TitleSceneMouse();
 		}
 	}
 	void MousePosScript::LateUpdate()
@@ -235,6 +204,93 @@ namespace Mn
 					return true;
 				}
 				return false;
+			}
+		}
+	}
+	void MousePosScript::PlaySceneMouse()
+	{
+		if (Input::GetKeyDown(eKeyCode::LBUTTON))
+		{
+			_DotPos = _UnProjectPos;
+			GatherObject();
+
+			for (auto Obj : _GameObjects)
+			{
+				if (Obj->GetComponent<Collider2D>() != nullptr)
+					InterSect(Obj->GetComponent<Collider2D>());
+			}
+
+			GameObject* Obj = PrimaryObj();
+
+			if (Obj != nullptr)
+				Obj->OnClick(_DotPos);
+			else
+				FeedFood();
+		}
+		else
+		{
+			_DotPos = _UnProjectPos;
+			GatherObject();
+
+			for (auto Obj : _GameObjects)
+			{
+				if (Obj->GetComponent<Collider2D>() != nullptr)
+					InterSect(Obj->GetComponent<Collider2D>());
+			}
+
+			GameObject* Obj = PrimaryObj();
+
+			if (Obj != nullptr)
+				Obj->MouseOn();
+			else
+			{
+				for (auto otherObj : _GameObjects)
+				{
+					if (otherObj->GetName() != L"Coin")
+						otherObj->MouseOff();
+				}
+			}
+		}
+	}
+	void MousePosScript::TitleSceneMouse()
+	{
+		if (Input::GetKeyDown(eKeyCode::LBUTTON))
+		{
+			_DotPos = _UnProjectPos;
+			GatherObject();
+
+			for (auto Obj : _GameObjects)
+			{
+				if (Obj->GetComponent<Collider2D>() != nullptr)
+					InterSect(Obj->GetComponent<Collider2D>());
+			}
+
+			GameObject* Obj = PrimaryObj();
+
+			if (Obj != nullptr)
+				Obj->OnClick(_DotPos);
+		}
+		else
+		{
+			_DotPos = _UnProjectPos;
+			GatherObject();
+
+			for (auto Obj : _GameObjects)
+			{
+				if (Obj->GetComponent<Collider2D>() != nullptr)
+					InterSect(Obj->GetComponent<Collider2D>());
+			}
+
+			GameObject* Obj = PrimaryObj();
+
+			if (Obj != nullptr)
+				Obj->MouseOn();
+			else
+			{
+				for (auto otherObj : _GameObjects)
+				{
+						otherObj->MouseOff();
+				}
 			}
 		}
 	}

@@ -10,6 +10,9 @@
 #include "MnCameraScript.h"
 #include "MnTransform.h"
 
+#include "MnInput.h"
+#include "MnSceneManager.h"
+
 namespace Mn
 {
 	TitleScene::TitleScene()
@@ -39,11 +42,14 @@ namespace Mn
 		cameraComp->TurnLayerMask(eLayerType::UI, false);
 		renderer::cameras.push_back(cameraComp);
 		renderer::mainCamera = cameraComp;
-
 	}
 	void TitleScene::Update()
 	{
 		Scene::Update();
+		if (Input::GetKeyDown(eKeyCode::I))
+		{
+			SceneManager::LoadScene(L"MenuScene");
+		}
 	}
 	void TitleScene::LateUpdate()
 	{

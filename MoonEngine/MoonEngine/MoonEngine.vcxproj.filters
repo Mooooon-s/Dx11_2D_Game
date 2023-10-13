@@ -20,9 +20,6 @@
     <ClInclude Include="MnHpFrame.h">
       <Filter>Contents\UI</Filter>
     </ClInclude>
-    <ClInclude Include="MnMountainStage.h">
-      <Filter>Contents\Scene\Stage_3</Filter>
-    </ClInclude>
     <ClInclude Include="MnAquarimBG.h">
       <Filter>Contents\BackGround\Aquarim</Filter>
     </ClInclude>
@@ -358,6 +355,8 @@
     <ClInclude Include="MnUltravoreIcon.h">
       <Filter>Contents\Icon</Filter>
     </ClInclude>
+    <ClInclude Include="MnPlayButton.h" />
+    <ClInclude Include="MnTailFlop.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -375,9 +374,6 @@
     </ClCompile>
     <ClCompile Include="MnHpFrame.cpp">
       <Filter>Contents\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="MnMountainStage.cpp">
-      <Filter>Contents\Scene\Stage_3</Filter>
     </ClCompile>
     <ClCompile Include="MnAquarimBG.cpp">
       <Filter>Contents\BackGround\Aquarim</Filter>
@@ -713,6 +709,8 @@
     <ClCompile Include="MnUltravoreIcon.cpp">
       <Filter>Contents\Icon</Filter>
     </ClCompile>
+    <ClCompile Include="MnPlayButton.cpp" />
+    <ClCompile Include="MnTailFlop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -733,17 +731,11 @@
     <Filter Include="Contents\BackGround">
       <UniqueIdentifier>{af507ee7-ecd2-43d5-9670-60b196a54a47}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\Scene\Stage_2">
-      <UniqueIdentifier>{0a002c5d-f9da-4cb8-844b-00262e8ff083}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\Scene\Stage_1">
       <UniqueIdentifier>{dc460d1a-f75f-46ff-9485-a951339f9cdc}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents\Scene\Title">
       <UniqueIdentifier>{17c2c4b5-a802-43df-8cb1-304b6a905951}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scene\Stage_3">
-      <UniqueIdentifier>{c66f6439-7e6c-450a-9a5b-fb546cef4f86}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents\BackGround\Aquarim">
       <UniqueIdentifier>{fd3b9dc8-cd9c-46f8-9979-950cf5ee3ca8}</UniqueIdentifier>
@@ -987,6 +979,9 @@
     </Filter>
     <Filter Include="Contents\LeafNode\Common\HungryStack">
       <UniqueIdentifier>{be42af3a-8b31-4396-a2bb-83d876a2836b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Button\MenuButton">
+      <UniqueIdentifier>{8ba0919b-595b-4295-a246-a4bcf5ea3ee1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

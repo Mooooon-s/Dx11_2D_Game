@@ -1,13 +1,13 @@
 #pragma once
-#include "MnGameObject.h"
+#include "MnButton.h"
 
 namespace Mn
 {
-	class Button : public GameObject
+	class PlayButton : public Button
 	{
 	public:
-		Button();
-		virtual ~Button();
+		PlayButton();
+		~PlayButton();
 
 		virtual void Initialize();
 		virtual void Update();
@@ -19,5 +19,7 @@ namespace Mn
 		virtual void MouseOn();
 		virtual void MouseOff();
 	private:
+		class Animator* _Animator;
+		wchar_t _szFloat[50];
 	};
 }

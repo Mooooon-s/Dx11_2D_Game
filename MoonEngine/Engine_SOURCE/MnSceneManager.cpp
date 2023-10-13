@@ -8,6 +8,7 @@ namespace Mn
 	std::map<std::wstring, Scene* > SceneManager::_Scenes;
 	void SceneManager::Initialize()
 	{
+
 	}
 	void SceneManager::Update()
 	{
@@ -18,10 +19,6 @@ namespace Mn
 		if (Input::GetKeyDown(eKeyCode::O))
 		{
 			LoadScene(L"PlayScene");
-		}
-		if (Input::GetKeyDown(eKeyCode::I))
-		{
-			LoadScene(L"MenuScene");
 		}
 
 		_ActiveScene->Update();
@@ -62,6 +59,7 @@ namespace Mn
 		_ActiveScene->OnExit();
 		_ActiveScene = iter->second;
 		_ActiveScene->OnEnter();
+
 
 		return iter->second;
 	}

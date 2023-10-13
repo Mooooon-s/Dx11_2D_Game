@@ -10,11 +10,9 @@ namespace Mn
 	}
 	Money::~Money()
 	{
-		FontWrapper::Release();
 	}
 	void Money::Initialize()
 	{
-		FontWrapper::Initialize();
 		GameObject::Initialize();
 	}
 	void Money::Update()

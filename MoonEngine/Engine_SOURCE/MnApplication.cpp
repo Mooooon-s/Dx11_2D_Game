@@ -36,6 +36,7 @@ namespace Mn
 		SceneManager::Initialize();
 		
 		CollisionManager::Initialize();
+		FontWrapper::Initialize();
 	}
 
 	void Application::Update()

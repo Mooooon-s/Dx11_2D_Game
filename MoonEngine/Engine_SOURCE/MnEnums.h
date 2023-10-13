@@ -31,8 +31,8 @@ namespace Mn::enums
 		Particle,
 		BackGround,
 		Manager,
-		Button,
 		UI,
+		Button,
 		End=16,
 	};
 
