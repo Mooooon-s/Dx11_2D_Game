@@ -240,6 +240,33 @@ namespace Mn::graphics
 	{
 		_Context->RSSetViewports(1, viewPort);
 	}
+	void GraphicDevice_Dx11::BindRasterizeState(ID3D11RasterizerState* pRasterizerState)
+	{
+		_Context->RSSetState(pRasterizerState);
+	}
+	void GraphicDevice_Dx11::BindDepthStencilState(ID3D11DepthStencilState* pDepthStencilState)
+	{
+		_Context->OMSetDepthStencilState(pDepthStencilState, 0);
+	}
+
+	void GraphicDevice_Dx11::BindBlendState(ID3D11BlendState* pBlendState)
+	{
+		_Context->OMSetBlendState(pBlendState, nullptr, 0xffffffff);
+	}
+
+	void GraphicDevice_Dx11::CopyResource(ID3D11Resource* pDstResource, ID3D11Resource* pSrcResource)
+	{
+		_Context->CopyResource(pDstResource, pSrcResource);
+	}
+
+	void GraphicDevice_Dx11::DrawIndexed(UINT IndexCount, UINT StartIndexLocation, INT BaseVertexLocation)
+	{
+		_Context->DrawIndexed(IndexCount, StartIndexLocation, BaseVertexLocation);
+	}
+	void GraphicDevice_Dx11::DrawIndexedInstanced(UINT IndexCountPerInstance, UINT InstanceCount, UINT StartIndexLocation, INT BaseVertexLocation, UINT StartInstanceLocation)
+	{
+		_Context->DrawIndexedInstanced(IndexCountPerInstance, InstanceCount, StartIndexLocation, BaseVertexLocation, StartInstanceLocation);
+	}
 	void GraphicDevice_Dx11::BindInputLayout(ID3D11InputLayout* pInputlayout)
 	{
 		_Context->IASetInputLayout(pInputlayout);
@@ -252,6 +279,10 @@ namespace Mn::graphics
 	{
 		_Context->IASetVertexBuffers(StartSlot, 1, ppVertexBuffers, pStrides, pOffsets);
 	}
+	void GraphicDevice_Dx11::BindIndexBuffer(ID3D11Buffer* pIndexBuffer, DXGI_FORMAT Format, UINT Offset)
+	{
+		_Context->IASetIndexBuffer(pIndexBuffer, Format, Offset);
+	}
 	void GraphicDevice_Dx11::BindHullShader(ID3D11HullShader* pHullShader)
 	{
 		_Context->HSSetShader(pHullShader, 0, 0);
@@ -260,17 +291,13 @@ namespace Mn::graphics
 	{
 		_Context->DSSetShader(pDomainShader, 0, 0);
 	}
-	void GraphicDevice_Dx11::BindGeometryShader(ID3D11GeometryShader* pGeometryShader)
-	{
-		_Context->GSSetShader(pGeometryShader, 0, 0);
-	}
-	void GraphicDevice_Dx11::BindIndexBuffer(ID3D11Buffer* pIndexBuffer, DXGI_FORMAT Format, UINT Offset)
-	{
-		_Context->IASetIndexBuffer(pIndexBuffer, Format, Offset);
-	}
 	void GraphicDevice_Dx11::BindVertexShader(ID3D11VertexShader* vs)
 	{
 		_Context->VSSetShader(vs, 0, 0);
+	}
+	void GraphicDevice_Dx11::BindGeometryShader(ID3D11GeometryShader* pGeometryShader)
+	{
+		_Context->GSSetShader(pGeometryShader, 0, 0);
 	}
 
 	void GraphicDevice_Dx11::BindPixelShader(ID3D11PixelShader* ps)
@@ -400,34 +427,9 @@ namespace Mn::graphics
 		}
 	}
 
-	void GraphicDevice_Dx11::BindRasterizeState(ID3D11RasterizerState* pRasterizerState)
-	{
-		_Context->RSSetState(pRasterizerState);
-	}
 
-	void GraphicDevice_Dx11::BindDepthStencilState(ID3D11DepthStencilState* pDepthStencilState)
-	{
-		_Context->OMSetDepthStencilState(pDepthStencilState, 0);
-	}
 
-	void GraphicDevice_Dx11::BindBlendState(ID3D11BlendState* pBlendState)
-	{
-		_Context->OMSetBlendState(pBlendState, nullptr, 0xffffffff);
-	}
-
-	void GraphicDevice_Dx11::CopyResource(ID3D11Resource* pDstResource, ID3D11Resource* pSrcResource)
-	{
-		_Context->CopyResource(pDstResource, pSrcResource);
-	}
-
-	void GraphicDevice_Dx11::DrawIndexed(UINT IndexCount, UINT StartIndexLocation, INT BaseVertexLocation)
-	{
-		_Context->DrawIndexed(IndexCount, StartIndexLocation, BaseVertexLocation);
-	}
-	void GraphicDevice_Dx11::DrawIndexedInstanced(UINT IndexCountPerInstance, UINT InstanceCount, UINT StartIndexLocation, INT BaseVertexLocation, UINT StartInstanceLocation)
-	{
-		_Context->DrawIndexedInstanced(IndexCountPerInstance, InstanceCount, StartIndexLocation, BaseVertexLocation, StartInstanceLocation);
-	}
+	
 	void GraphicDevice_Dx11::ClearTarget()
 	{
 		FLOAT bgColor[4] = { 0.2f, 0.2f, 0.2f, 1.0f };

@@ -6,10 +6,10 @@
 #include "../Engine_SOURCE/MnApplication.h"
 #include "../Engine_SOURCE/MnRenderer.h"
 #include "../Engine_SOURCE/MnResources.h"
-#include "../Engine_SOURCE/MnSceneManager.h"
 #include "../Engine_SOURCE/MnFontWrapper.h"
 #include "LoadScene.h"
 #include "guiEditor.h"
+
 
 Mn::Application application;
 
@@ -82,8 +82,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     renderer::Release();
     Mn::SceneManager::Release();
-    gui::Editor::Release();
     Mn::FontWrapper::Release();
+    gui::Editor::Release();
     return (int) msg.wParam;
 }
 
@@ -141,6 +141,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
+   Mn::FontWrapper::Initialize();
    application.Initialize();
    Mn::InitializeScenes();
    gui::Editor::Initialize();

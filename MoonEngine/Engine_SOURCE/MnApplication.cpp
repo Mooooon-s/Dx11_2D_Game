@@ -4,7 +4,6 @@
 #include "MnRenderer.h"
 #include "MnSceneManager.h"
 #include "MnCollisionManager.h"
-#include "MnFontWrapper.h"
 
 namespace Mn
 {
@@ -36,7 +35,6 @@ namespace Mn
 		SceneManager::Initialize();
 		
 		CollisionManager::Initialize();
-		FontWrapper::Initialize();
 	}
 
 	void Application::Update()
@@ -58,10 +56,10 @@ namespace Mn
 		Time::Render();
 		graphicDevice->ClearTarget();
 		graphicDevice->UpdateViewPort();
-		renderer::Render();
 
-		SceneManager::FontRender();
 		//SceneManager::Render();
+		renderer::Render();
+		SceneManager::FontRender();
 		//graphicDevice->Draw();
 		//graphicDevice->Present();
 	}

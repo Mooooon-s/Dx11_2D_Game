@@ -49,7 +49,6 @@ namespace renderer
 		Vector2 SpriteOffset;
 		Vector2 atlasSize;
 		UINT animationType;
-		//UINT Flipx;
 	};
 
 	CBUFFER(FlipCB, CBSLOT_FLIPX)
@@ -81,8 +80,7 @@ namespace renderer
 	extern Microsoft::WRL::ComPtr<ID3D11DepthStencilState> depthStencilStates[];
 	extern Microsoft::WRL::ComPtr<ID3D11BlendState> blendStates[];
 
-
-	extern std::vector<Mn::Light*> lights;
+	extern std::multimap<std::wstring, Mn::Light*> Lights;
 	extern Mn::Camera* mainCamera;
 	extern std::vector<Mn::Camera*> cameras;
 	extern std::vector<DebugMesh> debugMeshs;

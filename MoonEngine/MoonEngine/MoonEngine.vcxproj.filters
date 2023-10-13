@@ -192,15 +192,6 @@
     <ClInclude Include="MnGuppyIcon.h">
       <Filter>Contents\Icon</Filter>
     </ClInclude>
-    <ClInclude Include="MnButtonPanel.h">
-      <Filter>Contents\Button</Filter>
-    </ClInclude>
-    <ClInclude Include="MnButtonFrameRender.h">
-      <Filter>Contents\Button</Filter>
-    </ClInclude>
-    <ClInclude Include="MnButtonFrame.h">
-      <Filter>Contents\Button</Filter>
-    </ClInclude>
     <ClInclude Include="MnCaniboar.h">
       <Filter>Contents\Fish\Caniboar</Filter>
     </ClInclude>
@@ -336,10 +327,6 @@
     <ClInclude Include="MnHungryStack.h">
       <Filter>Contents\LeafNode\Common\HungryStack</Filter>
     </ClInclude>
-    <ClInclude Include="MnGetBossPosition.h" />
-    <ClInclude Include="MnMove2Boss.h" />
-    <ClInclude Include="MnRush2Boss.h" />
-    <ClInclude Include="MnChomp.h" />
     <ClInclude Include="MnFoodIcon.h">
       <Filter>Contents\Icon</Filter>
     </ClInclude>
@@ -355,8 +342,42 @@
     <ClInclude Include="MnUltravoreIcon.h">
       <Filter>Contents\Icon</Filter>
     </ClInclude>
-    <ClInclude Include="MnPlayButton.h" />
-    <ClInclude Include="MnTailFlop.h" />
+    <ClInclude Include="MnPlayButton.h">
+      <Filter>Contents\Button\MenuButton</Filter>
+    </ClInclude>
+    <ClInclude Include="MnButtonFrame.h">
+      <Filter>Contents\Button\InGameButton</Filter>
+    </ClInclude>
+    <ClInclude Include="MnButtonFrameRender.h">
+      <Filter>Contents\Button\InGameButton</Filter>
+    </ClInclude>
+    <ClInclude Include="MnButtonPanel.h">
+      <Filter>Contents\Button\InGameButton</Filter>
+    </ClInclude>
+    <ClInclude Include="MnChomp.h">
+      <Filter>Contents\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGameStartButton.h">
+      <Filter>Contents\Button\TitleButton</Filter>
+    </ClInclude>
+    <ClInclude Include="MnTailFlop.h">
+      <Filter>Contents\BackGround\TailFlop</Filter>
+    </ClInclude>
+    <ClInclude Include="MnTailFlopRender.h">
+      <Filter>Contents\BackGround\TailFlop</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGetBossPosition.h">
+      <Filter>Contents\LeafNode\Common\GetBossPosition</Filter>
+    </ClInclude>
+    <ClInclude Include="MnMove2Boss.h">
+      <Filter>Contents\LeafNode\Common\Move2Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="MnRush2Boss.h">
+      <Filter>Contents\LeafNode\Common\Rush2Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="MnStartButtonRender.h">
+      <Filter>Contents\Button\TitleButton</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -549,15 +570,6 @@
     <ClCompile Include="MnGuppyIcon.cpp">
       <Filter>Contents\Icon</Filter>
     </ClCompile>
-    <ClCompile Include="MnButtonPanel.cpp">
-      <Filter>Contents\Button</Filter>
-    </ClCompile>
-    <ClCompile Include="MnButtonFrameRender.cpp">
-      <Filter>Contents\Button</Filter>
-    </ClCompile>
-    <ClCompile Include="MnButtonFrame.cpp">
-      <Filter>Contents\Button</Filter>
-    </ClCompile>
     <ClCompile Include="MnCaniboar.cpp">
       <Filter>Contents\Fish\Caniboar</Filter>
     </ClCompile>
@@ -690,10 +702,6 @@
     <ClCompile Include="MnHungryStack.cpp">
       <Filter>Contents\LeafNode\Common\HungryStack</Filter>
     </ClCompile>
-    <ClCompile Include="MnGetBossPosition.cpp" />
-    <ClCompile Include="MnMove2Boss.cpp" />
-    <ClCompile Include="MnRush2Boss.cpp" />
-    <ClCompile Include="MnChomp.cpp" />
     <ClCompile Include="MnFoodIcon.cpp">
       <Filter>Contents\Icon</Filter>
     </ClCompile>
@@ -709,8 +717,42 @@
     <ClCompile Include="MnUltravoreIcon.cpp">
       <Filter>Contents\Icon</Filter>
     </ClCompile>
-    <ClCompile Include="MnPlayButton.cpp" />
-    <ClCompile Include="MnTailFlop.cpp" />
+    <ClCompile Include="MnPlayButton.cpp">
+      <Filter>Contents\Button\MenuButton</Filter>
+    </ClCompile>
+    <ClCompile Include="MnButtonFrame.cpp">
+      <Filter>Contents\Button\InGameButton</Filter>
+    </ClCompile>
+    <ClCompile Include="MnButtonFrameRender.cpp">
+      <Filter>Contents\Button\InGameButton</Filter>
+    </ClCompile>
+    <ClCompile Include="MnButtonPanel.cpp">
+      <Filter>Contents\Button\InGameButton</Filter>
+    </ClCompile>
+    <ClCompile Include="MnChomp.cpp">
+      <Filter>Contents\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGameStartButton.cpp">
+      <Filter>Contents\Button\TitleButton</Filter>
+    </ClCompile>
+    <ClCompile Include="MnTailFlop.cpp">
+      <Filter>Contents\BackGround\TailFlop</Filter>
+    </ClCompile>
+    <ClCompile Include="MnTailFlopRender.cpp">
+      <Filter>Contents\BackGround\TailFlop</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGetBossPosition.cpp">
+      <Filter>Contents\LeafNode\Common\GetBossPosition</Filter>
+    </ClCompile>
+    <ClCompile Include="MnMove2Boss.cpp">
+      <Filter>Contents\LeafNode\Common\Move2Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="MnRush2Boss.cpp">
+      <Filter>Contents\LeafNode\Common\Rush2Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="MnStartButtonRender.cpp">
+      <Filter>Contents\Button\TitleButton</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -982,6 +1024,24 @@
     </Filter>
     <Filter Include="Contents\Button\MenuButton">
       <UniqueIdentifier>{8ba0919b-595b-4295-a246-a4bcf5ea3ee1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Effect">
+      <UniqueIdentifier>{10ac789a-fcbc-46d8-a5c6-aa58a9913f0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Button\TitleButton">
+      <UniqueIdentifier>{39a85bf6-7f12-4485-95f1-e271c3cdc940}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\BackGround\TailFlop">
+      <UniqueIdentifier>{e7c4a7be-46f6-405b-a82e-bf73f86ed93b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Common\GetBossPosition">
+      <UniqueIdentifier>{f6088b82-bad1-45dc-bf5d-a6ac95c25962}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Common\Move2Boss">
+      <UniqueIdentifier>{22bd7bdb-851e-4e2f-9383-d8f501877699}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Common\Rush2Boss">
+      <UniqueIdentifier>{029d266f-0e88-46ba-83ef-142a44e87f9a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

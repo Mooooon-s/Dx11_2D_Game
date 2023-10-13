@@ -7,6 +7,7 @@ namespace Mn
 {
 	Light::Light()
 		:Component(enums::eComponentType::Light)
+		, _SceneName(L"000")
 	{
 	}
 	Light::~Light()
@@ -14,14 +15,15 @@ namespace Mn
 	}
 	void Light::Initialize()
 	{
+
 	}
 	void Light::Update()
 	{
 	}
 	void Light::LateUpdate()
 	{
-		renderer::lights.push_back(this);
-
+		if (_SceneName != L"000")
+			renderer::Lights.insert(std::make_pair(_SceneName, this));
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector3 pos = tr->Position();
 		_Attribute.position = Vector4(pos.x, pos.y, pos.z, 1.0f);

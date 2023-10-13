@@ -6,6 +6,7 @@
 #include "MnStructedBuffer.h"
 #include "MnPaintShader.h"
 #include "MnParticleShader.h"
+#include "MnSceneManager.h"
 
 namespace renderer
 {
@@ -20,6 +21,7 @@ namespace renderer
 	Microsoft::WRL::ComPtr<ID3D11BlendState> blendStates[(UINT)eBSType::End] = {};
 
 	//Light
+	std::multimap<std::wstring, Mn::Light*> Lights = {};
 	std::vector<Light*> lights = {};
 	StructedBuffer* lightsBuffer = nullptr;
 
@@ -125,6 +127,10 @@ namespace renderer
 		rasterizerDesc.FillMode = D3D11_FILL_MODE::D3D11_FILL_SOLID;
 		rasterizerDesc.CullMode = D3D11_CULL_MODE::D3D11_CULL_NONE;
 		GetDevice()->CreateRasterizeState(&rasterizerDesc, rasterizerStates[(UINT)eRSType::SolidNone].GetAddressOf());
+		rasterizerDesc.FillMode = D3D11_FILL_MODE::D3D11_FILL_WIREFRAME;
+		rasterizerDesc.CullMode = D3D11_CULL_MODE::D3D11_CULL_NONE;
+		GetDevice()->CreateRasterizeState(&rasterizerDesc
+			, rasterizerStates[(UINT)eRSType::WireframeNone].GetAddressOf());
 #pragma endregion
 #pragma region DepthStencil State
 		D3D11_DEPTH_STENCIL_DESC depthStencilDesc = {};
@@ -510,6 +516,11 @@ namespace renderer
 		zorfAnimaterial->RenderingMode(eRenderingMode::Transparent);
 		Resources::Insert(L"ZorfSpriteAnimaionMaterial", zorfAnimaterial);
 
+		std::shared_ptr <Material> TailAnimaterial = std::make_shared<Material>();
+		TailAnimaterial->Shader(spriteShader);
+		TailAnimaterial->RenderingMode(eRenderingMode::Transparent);
+		Resources::Insert(L"TailSpriteAnimaionMaterial", TailAnimaterial);
+
 
 
 		//---------------------------------------------------------------------------------------------------------------------------------------
@@ -685,18 +696,35 @@ namespace renderer
 		LoadMaterial();
 	}
 
+	void PushDebugMeshAttribute(DebugMesh mesh)
+	{
+		debugMeshs.push_back(mesh);
+	}
+
 	void BindLights()
 	{
 		std::vector<LightAttribute> lightsAttributes = {};
-		for (Light* light : lights)
+		lightsAttributes.clear();
+		Scene* activescene = SceneManager::ActiveScene();
+		for (auto l : Lights)
 		{
-			LightAttribute attribute = light->GetAttribute();
-			lightsAttributes.push_back(attribute);
-		}
+			if (l.first == activescene->GetName())
+			{
+				LightAttribute attribute = l.second->GetAttribute();
+				lightsAttributes.push_back(attribute);
+			}
+			else
+			{
+				LightAttribute attribute = {};
+				lightsAttributes.push_back(attribute);
+			}
+		}		
 
 		lightsBuffer->SetData(lightsAttributes.data(), lightsAttributes.size());
 		lightsBuffer->BindSRV(eShaderStage::VS, 14);
 		lightsBuffer->BindSRV(eShaderStage::PS, 14);
+
+		renderer::Lights.clear();
 	}
 
 	void BindNoiseTexture()
@@ -723,10 +751,7 @@ namespace renderer
 		cb->Bind(eShaderStage::CS);
 	}
 
-	void PushDebugMeshAttribute(DebugMesh mesh)
-	{
-		debugMeshs.push_back(mesh);
-	}
+
 
 	void Render()
 	{
@@ -747,13 +772,13 @@ namespace renderer
 
 	void Release()
 	{
-		for (auto cb : constantBuffer)
+		for (ConstantBuffer* buff : constantBuffer)
 		{
-			if (cb == nullptr)
+			if (buff == nullptr)
 				continue;
 
-			delete cb;
-			cb = nullptr;
+			delete buff;
+			buff = nullptr;
 		}
 
 		delete lightsBuffer;

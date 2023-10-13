@@ -1,6 +1,7 @@
 #pragma once
 #include "MnComponent.h"
 #include "MnGraphics.h"
+#include "MnScene.h"
 
 namespace Mn
 {
@@ -26,8 +27,10 @@ namespace Mn
 		eLightType GetType() { return _Attribute.type; }
 		float GetRadius() { return _Attribute.radius; }
 		float GetAngle() { return _Attribute.angle; }
+		void SetScene(std::wstring scenename) { _SceneName = scenename; }
 	private:
 		LightAttribute _Attribute;
+		std::wstring _SceneName;
 	};
 
 }

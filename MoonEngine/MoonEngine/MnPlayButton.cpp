@@ -26,7 +26,6 @@ namespace Mn
 		mr->FlipX(0);
 
 		Collider2D* coll = AddComponent<Collider2D>();
-		coll->SetSize(Vector2(1,1));
 
 		_Animator = AddComponent<Animator>();
 

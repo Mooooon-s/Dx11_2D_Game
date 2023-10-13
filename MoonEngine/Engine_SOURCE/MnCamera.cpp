@@ -29,6 +29,10 @@ namespace Mn
 		, _Near(-10.0f)
 		, _Far(1000.0f)
 		, _Size(5.0f)
+		, _LayerMask{}
+		, _OpaqueGameObjects{}
+		, _CutOutGameObjects{}
+		, _TransparentGameObjects{}
 		, _View(Matrix::Identity)
 		, _Projection(Matrix::Identity)
 	{

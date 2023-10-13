@@ -23,15 +23,45 @@ namespace Mn
 	}
 	void MenuScene::Initialize()
 	{
-		SetName(L"TitleScene");
+		SetName(L"MenuScene");
+
+		//std::shared_ptr<PaintShader> paintShader = Resources::Find<PaintShader>(L"PaintShader");
+		//std::shared_ptr<Mn::graphics::Texture> paintTexture = Resources::Find<Mn::graphics::Texture>(L"PaintTexuture");
+		//paintShader->SetTarget(paintTexture);
+		//paintShader->OnExcute();
+
 		MenuBG* BG = object::Instantiate<MenuBG>(eLayerType::BackGround);
 		BG->Initialize();
 
 		PlayButton* PB = object::Instantiate<PlayButton>(Vector3(1.1f,1.2f,-1.0f), eLayerType::Button);
 		PB->Initialize();
 
-		TailFlop* TF = object::Instantiate<TailFlop>(Vector3(0.0f,0.0f,-1.0f),eLayerType::BackGround);
+		TailFlop* TF = object::Instantiate<TailFlop>(Vector3(0.0f,0.0f,-2.0f),eLayerType::Effect);
 		TF->Initialize();
+
+		//Main Camera
+		GameObject* camera = new GameObject();
+		camera->SetName(L"MenuCamera");
+		AddGameObject(eLayerType::UI, camera);
+		camera->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, -10.0f));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		CameraScript* cs = camera->AddComponent<CameraScript>();
+		cameraComp->TurnLayerMask(eLayerType::UI, false);
+		renderer::cameras.push_back(cameraComp);
+		renderer::mainCamera = cameraComp;
+
+		Mouse* mouse = object::Instantiate<Mouse>(eLayerType::UI);
+		mouse->UICamera(camera);
+		mouse->Initialize();
+
+		GameObject* light = new GameObject();
+		light->SetName(L"Light");
+		AddGameObject(eLayerType::Light, light);
+		Light* lightComp = light->AddComponent<Light>();
+		lightComp->SetType(eLightType::Directional);
+		lightComp->SetColor(Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+		lightComp->SetScene(this->GetName());
+
 	}
 	void MenuScene::Update()
 	{
@@ -47,19 +77,7 @@ namespace Mn
 	}
 	void MenuScene::OnEnter()
 	{
-		//Main Camera
-		GameObject* camera = new GameObject();
-		AddGameObject(eLayerType::UI, camera);
-		camera->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, -10.0f));
-		Camera* cameraComp = camera->AddComponent<Camera>();
-		CameraScript* cs = camera->AddComponent<CameraScript>();
-		cameraComp->TurnLayerMask(eLayerType::UI, false);
-		renderer::cameras.push_back(cameraComp);
-		renderer::mainCamera = cameraComp;
 
-		Mouse* mouse = object::Instantiate<Mouse>(eLayerType::UI);
-		mouse->UICamera(camera);
-		mouse->Initialize();
 	}
 	void MenuScene::OnExit()
 	{

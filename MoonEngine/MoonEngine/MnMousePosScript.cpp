@@ -56,9 +56,13 @@ namespace Mn
 		{
 			PlaySceneMouse();
 		}
+		if (scene->GetName() == L"MenuScene")
+		{
+			MenuSceneMouse();
+		}
 		if (scene->GetName() == L"TitleScene")
 		{
-			TitleSceneMouse();
+			//TitleSceneMouse();
 		}
 	}
 	void MousePosScript::LateUpdate()
@@ -252,7 +256,7 @@ namespace Mn
 			}
 		}
 	}
-	void MousePosScript::TitleSceneMouse()
+	void MousePosScript::MenuSceneMouse()
 	{
 		if (Input::GetKeyDown(eKeyCode::LBUTTON))
 		{

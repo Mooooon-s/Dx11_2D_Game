@@ -32,13 +32,13 @@ namespace gui
 		mr->SetMesh(mesh);
 
 
-		mesh = Mn::Resources::Find<Mn::Mesh>(L"DebugCircle");
+		//mesh = Mn::Resources::Find<Mn::Mesh>(L"DebugCircle");
 
-		_DebugOjbects[(UINT)eColliderType::Circle] = new DebugObject();
-		_DebugOjbects[(UINT)eColliderType::Circle]->AddComponent<Mn::Transform>();
-		mr	= _DebugOjbects[(UINT)eColliderType::Circle]->AddComponent<Mn::MeshRenderer>();
-		mr->SetMaterial(material);
-		mr->SetMesh(mesh);
+		//_DebugOjbects[(UINT)eColliderType::Circle] = new DebugObject();
+		//_DebugOjbects[(UINT)eColliderType::Circle]->AddComponent<Mn::Transform>();
+		//mr	= _DebugOjbects[(UINT)eColliderType::Circle]->AddComponent<Mn::MeshRenderer>();
+		//mr->SetMaterial(material);
+		//mr->SetMesh(mesh);
 
 
 		//EditorObject* grid = new EditorObject();

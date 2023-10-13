@@ -172,6 +172,7 @@
     <ClInclude Include="MnFindCaniboar.h" />
     <ClInclude Include="MnFoodIcon.h" />
     <ClInclude Include="MnFoodLevelIcon.h" />
+    <ClInclude Include="MnGameStartButton.h" />
     <ClInclude Include="MnGetBossPosition.h" />
     <ClInclude Include="MnItchy.h" />
     <ClInclude Include="MnItchyAnimationCntrl.h" />
@@ -249,6 +250,7 @@
     <ClInclude Include="MnPearl.h" />
     <ClInclude Include="MnPearlScript.h" />
     <ClInclude Include="MnPlayButton.h" />
+    <ClInclude Include="MnStartButtonRender.h" />
     <ClInclude Include="MnPlayerHp.h" />
     <ClInclude Include="MnPriceTag.h" />
     <ClInclude Include="MnRush2Boss.h" />
@@ -262,6 +264,7 @@
     <ClInclude Include="MnSylvBehaviorTree.h" />
     <ClInclude Include="MnSylvRender.h" />
     <ClInclude Include="MnTailFlop.h" />
+    <ClInclude Include="MnTailFlopRender.h" />
     <ClInclude Include="MnTitleScene.h" />
     <ClInclude Include="MnTopBar.h" />
     <ClInclude Include="MnPlayAnimaion.h" />
@@ -290,6 +293,7 @@
     <ClInclude Include="MnZorfAnimationCntrl.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnGameStartButton.cpp" />
     <ClCompile Include="MnCaniboarIcon.cpp" />
     <ClCompile Include="MnFoodLevelIcon.cpp" />
     <ClCompile Include="MnFoodIcon.cpp" />
@@ -382,6 +386,7 @@
     <ClCompile Include="MnMove2Caniboar.cpp" />
     <ClCompile Include="MnMove2Boss.cpp" />
     <ClCompile Include="MnPlayButton.cpp" />
+    <ClCompile Include="MnStartButtonRender.cpp" />
     <ClCompile Include="playScene.cpp" />
     <ClCompile Include="MnStinky.cpp" />
     <ClCompile Include="MnStinkyScript.cpp" />
@@ -412,6 +417,7 @@
     <ClCompile Include="MnPriceTag.cpp" />
     <ClCompile Include="MnUltravoreIcon.cpp" />
     <ClCompile Include="MnTailFlop.cpp" />
+    <ClCompile Include="MnTailFlopRender.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />

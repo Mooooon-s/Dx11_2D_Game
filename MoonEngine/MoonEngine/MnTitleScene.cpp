@@ -13,6 +13,8 @@
 #include "MnInput.h"
 #include "MnSceneManager.h"
 
+#include "MnGameStartButton.h"
+
 namespace Mn
 {
 	TitleScene::TitleScene()
@@ -23,6 +25,7 @@ namespace Mn
 	}
 	void TitleScene::Initialize()
 	{
+		SetName(L"TitleScene");
 		GameObject* titleScene = new GameObject();
 		AddGameObject(eLayerType::BackGround, titleScene);
 		MeshRenderer* tmr = titleScene->AddComponent<MeshRenderer>();
@@ -42,6 +45,18 @@ namespace Mn
 		cameraComp->TurnLayerMask(eLayerType::UI, false);
 		renderer::cameras.push_back(cameraComp);
 		renderer::mainCamera = cameraComp;
+
+		GameStartButton* GSB = object::Instantiate<GameStartButton>(Vector3(0.0f,0.0f,-1.0f), eLayerType::Button);
+		GSB->Initialize();
+
+		GameObject* light = new GameObject();
+		light->SetName(L"Light");
+		AddGameObject(eLayerType::Light, light);
+		Light* lightComp = light->AddComponent<Light>();
+		lightComp->SetType(eLightType::Directional);
+		lightComp->SetColor(Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+		lightComp->SetScene(this->GetName());
+
 	}
 	void TitleScene::Update()
 	{
@@ -58,6 +73,10 @@ namespace Mn
 	void TitleScene::Render()
 	{
 		Scene::Render();
+	}
+	void TitleScene::Destroy()
+	{
+		Scene::Destroy();
 	}
 	void TitleScene::OnEnter()
 	{
