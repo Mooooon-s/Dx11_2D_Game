@@ -13,5 +13,6 @@ namespace Mn
 		virtual void LateUpdate() override;
 		virtual void Render() override;
 	private:
+		float _Time;
 	};
 }

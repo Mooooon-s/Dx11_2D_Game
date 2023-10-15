@@ -22,6 +22,7 @@ namespace Mn
 		, _BarSlotCount()
 		, _FoodLevel(nullptr)
 		, _FoodCount(nullptr)
+		, _EggStack(1)
 	{
 	}
 	EventManager::~EventManager()

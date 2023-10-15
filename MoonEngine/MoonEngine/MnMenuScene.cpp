@@ -36,7 +36,7 @@ namespace Mn
 		PlayButton* PB = object::Instantiate<PlayButton>(Vector3(1.1f,1.2f,-1.0f), eLayerType::Button);
 		PB->Initialize();
 
-		TailFlop* TF = object::Instantiate<TailFlop>(Vector3(0.0f,0.0f,-2.0f),eLayerType::Effect);
+		TailFlop* TF = object::Instantiate<TailFlop>(Vector3(-1.21f,-1.10f,-1.0f),eLayerType::Effect);
 		TF->Initialize();
 
 		//Main Camera

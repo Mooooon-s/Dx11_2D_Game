@@ -165,15 +165,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="MnAddLevel.h" />
+    <ClInclude Include="MnBirthGuppy.h" />
     <ClInclude Include="MnCaniboarIcon.h" />
     <ClInclude Include="MnChomp.h" />
     <ClInclude Include="MnDetectBoss.h" />
     <ClInclude Include="MnDropTresure.h" />
+    <ClInclude Include="MnEggCrackButton.h" />
+    <ClInclude Include="MnEggCrackEvent.h" />
+    <ClInclude Include="MnEggCrackPanel.h" />
     <ClInclude Include="MnFindCaniboar.h" />
     <ClInclude Include="MnFoodIcon.h" />
     <ClInclude Include="MnFoodLevelIcon.h" />
     <ClInclude Include="MnGameStartButton.h" />
     <ClInclude Include="MnGetBossPosition.h" />
+    <ClInclude Include="MnIsBirth.h" />
+    <ClInclude Include="MnIsPregMent.h" />
     <ClInclude Include="MnItchy.h" />
     <ClInclude Include="MnItchyAnimationCntrl.h" />
     <ClInclude Include="MnItchyBehaviorTree.h" />
@@ -250,6 +256,10 @@
     <ClInclude Include="MnPearl.h" />
     <ClInclude Include="MnPearlScript.h" />
     <ClInclude Include="MnPlayButton.h" />
+    <ClInclude Include="MnPrego.h" />
+    <ClInclude Include="MnPregoAnimationCntrl.h" />
+    <ClInclude Include="MnPregoBehaviorTree.h" />
+    <ClInclude Include="MnPregoRnder.h" />
     <ClInclude Include="MnStartButtonRender.h" />
     <ClInclude Include="MnPlayerHp.h" />
     <ClInclude Include="MnPriceTag.h" />
@@ -293,6 +303,12 @@
     <ClInclude Include="MnZorfAnimationCntrl.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnBirthGuppy.cpp" />
+    <ClCompile Include="MnIsBirth.cpp" />
+    <ClCompile Include="MnIsPregMent.cpp" />
+    <ClCompile Include="MnEggCrackButton.cpp" />
+    <ClCompile Include="MnEggCrackPanel.cpp" />
+    <ClCompile Include="MnEggCrackEvent.cpp" />
     <ClCompile Include="MnGameStartButton.cpp" />
     <ClCompile Include="MnCaniboarIcon.cpp" />
     <ClCompile Include="MnFoodLevelIcon.cpp" />
@@ -418,6 +434,10 @@
     <ClCompile Include="MnUltravoreIcon.cpp" />
     <ClCompile Include="MnTailFlop.cpp" />
     <ClCompile Include="MnTailFlopRender.cpp" />
+    <ClCompile Include="MnPrego.cpp" />
+    <ClCompile Include="MnPregoRnder.cpp" />
+    <ClCompile Include="MnPregoBehaviorTree.cpp" />
+    <ClCompile Include="MnPregoAnimationCntrl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />

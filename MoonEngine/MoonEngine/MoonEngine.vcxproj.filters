@@ -378,6 +378,20 @@
     <ClInclude Include="MnStartButtonRender.h">
       <Filter>Contents\Button\TitleButton</Filter>
     </ClInclude>
+    <ClInclude Include="MnEggCrackEvent.h" />
+    <ClInclude Include="MnEggCrackPanel.h" />
+    <ClInclude Include="MnEggCrackButton.h" />
+    <ClInclude Include="MnPrego.h">
+      <Filter>Contents\Pet\Prego</Filter>
+    </ClInclude>
+    <ClInclude Include="MnPregoRnder.h">
+      <Filter>Contents\Scripts\Prego</Filter>
+    </ClInclude>
+    <ClInclude Include="MnPregoBehaviorTree.h" />
+    <ClInclude Include="MnPregoAnimationCntrl.h" />
+    <ClInclude Include="MnIsPregMent.h" />
+    <ClInclude Include="MnIsBirth.h" />
+    <ClInclude Include="MnBirthGuppy.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -753,6 +767,20 @@
     <ClCompile Include="MnStartButtonRender.cpp">
       <Filter>Contents\Button\TitleButton</Filter>
     </ClCompile>
+    <ClCompile Include="MnEggCrackEvent.cpp" />
+    <ClCompile Include="MnEggCrackPanel.cpp" />
+    <ClCompile Include="MnEggCrackButton.cpp" />
+    <ClCompile Include="MnPrego.cpp">
+      <Filter>Contents\Pet\Prego</Filter>
+    </ClCompile>
+    <ClCompile Include="MnPregoRnder.cpp">
+      <Filter>Contents\Scripts\Prego</Filter>
+    </ClCompile>
+    <ClCompile Include="MnPregoBehaviorTree.cpp" />
+    <ClCompile Include="MnPregoAnimationCntrl.cpp" />
+    <ClCompile Include="MnIsPregMent.cpp" />
+    <ClCompile Include="MnIsBirth.cpp" />
+    <ClCompile Include="MnBirthGuppy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -1042,6 +1070,12 @@
     </Filter>
     <Filter Include="Contents\LeafNode\Common\Rush2Boss">
       <UniqueIdentifier>{029d266f-0e88-46ba-83ef-142a44e87f9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Pet\Prego">
+      <UniqueIdentifier>{52afa61a-7bf5-4d1c-9212-2b37cdfe060c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Prego">
+      <UniqueIdentifier>{681809c8-c1a7-4f10-a331-6241a363b8af}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

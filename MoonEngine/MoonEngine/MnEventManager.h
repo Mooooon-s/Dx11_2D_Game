@@ -32,6 +32,7 @@ namespace Mn
 		int _EventStack;
 		int _BossStack;
 		int _EggFlag;
+		int _EggStack;
 		InGameButton* _FoodLevel;
 		InGameButton* _FoodCount;
 		InGameButton* _CaniboarButton;

@@ -46,6 +46,8 @@
 #include "MnWaterWave.h"
 #include "MnItchy.h"
 #include "MnChomp.h"
+#include "MnEggCrackEvent.h"
+#include "MnPrego.h"
 
 namespace Mn
 {
@@ -118,6 +120,9 @@ namespace Mn
 		Zorf* zorf = object::Instantiate<Zorf>(Vector3(0.0f, 0.0f, 4.0f), eLayerType::Pet);
 		zorf->Initialize();
 
+		Prego* prego = object::Instantiate<Prego>(Vector3(0.0f, 0.0f, 6.0f), eLayerType::Pet);
+		prego->Initialize();
+
 		//Ultravore* ultravore = object::Instantiate<Ultravore>(Vector3(0.0f, 0.0f, 5.0f), eLayerType::Fish);
 		//ultravore->Initialize();
 
@@ -146,6 +151,9 @@ namespace Mn
 
 		EventManager* eventmanager = object::Instantiate<EventManager>(eLayerType::Manager);
 		eventmanager->Initialize();
+
+		//EggCrackEvent* ECE = object::Instantiate<EggCrackEvent>(Vector3(0.0f,0.0f,-9.0f),eLayerType::UI);
+		//ECE->Initialize();
 
 	}
 

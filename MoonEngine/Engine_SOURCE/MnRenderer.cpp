@@ -570,6 +570,10 @@ namespace renderer
 		std::shared_ptr<Mn::graphics::Texture> MenuTex;
 		MenuTex = Resources::Load<Mn::graphics::Texture>(L"Menu_Scene", L"..\\Resources\\Texture\\BackGround\\selectorback.jpg");
 
+		std::shared_ptr<Mn::graphics::Texture> EggCrackTex;
+		EggCrackTex = Resources::Load<Mn::graphics::Texture>(L"EggCrackTex", L"..\\Resources\\Texture\\UI\\panel\\hatchscreen.jpg");
+
+
 		std::shared_ptr<Mn::graphics::Texture> StageBackGround[6];
 		StageBackGround[0] = Resources::Load<Mn::graphics::Texture>(L"Stage_1_BackGround", L"..\\Resources\\Texture\\BackGround\\aquarium1.jpg");
 		StageBackGround[1] = Resources::Load<Mn::graphics::Texture>(L"Stage_2_BackGround", L"..\\Resources\\Texture\\BackGround\\aquarium2.jpg");
@@ -630,6 +634,12 @@ namespace renderer
 		StageMaterial6->RenderingMode(eRenderingMode::Opaque);
 		Mn::Resources::Insert(L"Stage_6_background", StageMaterial6);
 
+		std::shared_ptr<Material> EggCrackMaterial = std::make_shared<Material>();
+		EggCrackMaterial->SetTexture(EggCrackTex);
+		EggCrackMaterial->Shader(backgroundShader);
+		EggCrackMaterial->RenderingMode(eRenderingMode::Opaque);
+		Mn::Resources::Insert(L"EggCrackPanel", EggCrackMaterial);
+
 		//---------------------------------------------------------------------------------------------------------------------------------------
 		//
 		//																GUI
@@ -672,6 +682,8 @@ namespace renderer
 		material = std::make_shared<Material>();
 		material->Shader(debugShader);
 		Resources::Insert(L"DebugMaterial", material);
+
+
 
 		spriteShader
 			= Resources::Find<Shader>(L"ParticleShader");
