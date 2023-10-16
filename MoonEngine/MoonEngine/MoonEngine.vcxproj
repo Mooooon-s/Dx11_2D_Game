@@ -267,6 +267,9 @@
     <ClInclude Include="MnPregoBehaviorTree.h" />
     <ClInclude Include="MnPregoRnder.h" />
     <ClInclude Include="MnShockWave.h" />
+    <ClInclude Include="MnSparkEffect.h" />
+    <ClInclude Include="MnSparkRender.h" />
+    <ClInclude Include="MnSparkScript.h" />
     <ClInclude Include="MnStartButtonRender.h" />
     <ClInclude Include="MnPlayerHp.h" />
     <ClInclude Include="MnPriceTag.h" />
@@ -452,6 +455,9 @@
     <ClCompile Include="MnPregoBehaviorTree.cpp" />
     <ClCompile Include="MnPregoAnimationCntrl.cpp" />
     <ClCompile Include="MnShockWave.cpp" />
+    <ClCompile Include="MnSparkEffect.cpp" />
+    <ClCompile Include="MnSparkRender.cpp" />
+    <ClCompile Include="MnSparkScript.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />

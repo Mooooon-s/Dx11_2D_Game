@@ -3,6 +3,7 @@
 #include "MnGuppy.h"
 #include "MnDiamond.h"
 #include "MnObject.h"
+#include "MnSparkEffect.h"
 
 namespace Mn
 {
@@ -27,6 +28,9 @@ namespace Mn
 			{
 				Transform* tr = dynamic_cast<Guppy*>(obj)->GetComponent<Transform>();
 				Vector3 pos = tr->Position();
+				pos.z += 0.0001;
+				SparkEffect* SE = object::Instantiate<SparkEffect>(pos, eLayerType::Effect);
+				SE->Initialize();
 				pos.z += 0.0001;
 				Diamond* diamond = object::Instantiate<Diamond>(pos, eLayerType::Coin);
 				diamond->Initialize();

@@ -354,9 +354,6 @@
     <ClInclude Include="MnButtonPanel.h">
       <Filter>Contents\Button\InGameButton</Filter>
     </ClInclude>
-    <ClInclude Include="MnChomp.h">
-      <Filter>Contents\Effect</Filter>
-    </ClInclude>
     <ClInclude Include="MnGameStartButton.h">
       <Filter>Contents\Button\TitleButton</Filter>
     </ClInclude>
@@ -378,29 +375,67 @@
     <ClInclude Include="MnStartButtonRender.h">
       <Filter>Contents\Button\TitleButton</Filter>
     </ClInclude>
-    <ClInclude Include="MnEggCrackEvent.h" />
-    <ClInclude Include="MnEggCrackPanel.h" />
-    <ClInclude Include="MnEggCrackButton.h" />
     <ClInclude Include="MnPrego.h">
       <Filter>Contents\Pet\Prego</Filter>
     </ClInclude>
     <ClInclude Include="MnPregoRnder.h">
       <Filter>Contents\Scripts\Prego</Filter>
     </ClInclude>
-    <ClInclude Include="MnPregoBehaviorTree.h" />
-    <ClInclude Include="MnPregoAnimationCntrl.h" />
-    <ClInclude Include="MnIsPregMent.h" />
-    <ClInclude Include="MnIsBirth.h" />
-    <ClInclude Include="MnBirthGuppy.h" />
     <ClInclude Include="MnAmp.h">
       <Filter>Contents\Pet\Amp</Filter>
     </ClInclude>
-    <ClInclude Include="MnAmpRender.h" />
-    <ClInclude Include="MnAmpBehaviorTree.h" />
-    <ClInclude Include="MnAmpAnimationCntrl.h" />
-    <ClInclude Include="MnIsCharged.h" />
-    <ClInclude Include="MnGetCharge.h" />
-    <ClInclude Include="MnShockWave.h" />
+    <ClInclude Include="MnAmpAnimationCntrl.h">
+      <Filter>Contents\Scripts\Amp</Filter>
+    </ClInclude>
+    <ClInclude Include="MnAmpBehaviorTree.h">
+      <Filter>Contents\Scripts\Amp</Filter>
+    </ClInclude>
+    <ClInclude Include="MnAmpRender.h">
+      <Filter>Contents\Scripts\Amp</Filter>
+    </ClInclude>
+    <ClInclude Include="MnEggCrackButton.h">
+      <Filter>Contents\Scripts\Egg</Filter>
+    </ClInclude>
+    <ClInclude Include="MnEggCrackEvent.h">
+      <Filter>Contents\Scripts\Egg</Filter>
+    </ClInclude>
+    <ClInclude Include="MnEggCrackPanel.h">
+      <Filter>Contents\Scripts\Egg</Filter>
+    </ClInclude>
+    <ClInclude Include="MnPregoAnimationCntrl.h">
+      <Filter>Contents\Scripts\Prego</Filter>
+    </ClInclude>
+    <ClInclude Include="MnPregoBehaviorTree.h">
+      <Filter>Contents\Scripts\Prego</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGetCharge.h">
+      <Filter>Contents\LeafNode\Amp</Filter>
+    </ClInclude>
+    <ClInclude Include="MnIsCharged.h">
+      <Filter>Contents\LeafNode\Amp</Filter>
+    </ClInclude>
+    <ClInclude Include="MnShockWave.h">
+      <Filter>Contents\LeafNode\Amp</Filter>
+    </ClInclude>
+    <ClInclude Include="MnBirthGuppy.h">
+      <Filter>Contents\LeafNode\Prego</Filter>
+    </ClInclude>
+    <ClInclude Include="MnIsBirth.h">
+      <Filter>Contents\LeafNode\Prego</Filter>
+    </ClInclude>
+    <ClInclude Include="MnIsPregMent.h">
+      <Filter>Contents\LeafNode\Prego</Filter>
+    </ClInclude>
+    <ClInclude Include="MnChomp.h">
+      <Filter>Contents\Effect\Chomp</Filter>
+    </ClInclude>
+    <ClInclude Include="MnSparkEffect.h">
+      <Filter>Contents\Effect\Spark</Filter>
+    </ClInclude>
+    <ClInclude Include="MnSparkRender.h">
+      <Filter>Contents\Scripts\Sparks</Filter>
+    </ClInclude>
+    <ClInclude Include="MnSparkScript.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -752,9 +787,6 @@
     <ClCompile Include="MnButtonPanel.cpp">
       <Filter>Contents\Button\InGameButton</Filter>
     </ClCompile>
-    <ClCompile Include="MnChomp.cpp">
-      <Filter>Contents\Effect</Filter>
-    </ClCompile>
     <ClCompile Include="MnGameStartButton.cpp">
       <Filter>Contents\Button\TitleButton</Filter>
     </ClCompile>
@@ -776,29 +808,67 @@
     <ClCompile Include="MnStartButtonRender.cpp">
       <Filter>Contents\Button\TitleButton</Filter>
     </ClCompile>
-    <ClCompile Include="MnEggCrackEvent.cpp" />
-    <ClCompile Include="MnEggCrackPanel.cpp" />
-    <ClCompile Include="MnEggCrackButton.cpp" />
     <ClCompile Include="MnPrego.cpp">
       <Filter>Contents\Pet\Prego</Filter>
     </ClCompile>
     <ClCompile Include="MnPregoRnder.cpp">
       <Filter>Contents\Scripts\Prego</Filter>
     </ClCompile>
-    <ClCompile Include="MnPregoBehaviorTree.cpp" />
-    <ClCompile Include="MnPregoAnimationCntrl.cpp" />
-    <ClCompile Include="MnIsPregMent.cpp" />
-    <ClCompile Include="MnIsBirth.cpp" />
-    <ClCompile Include="MnBirthGuppy.cpp" />
     <ClCompile Include="MnAmp.cpp">
       <Filter>Contents\Pet\Amp</Filter>
     </ClCompile>
-    <ClCompile Include="MnAmpRender.cpp" />
-    <ClCompile Include="MnAmpBehaviorTree.cpp" />
-    <ClCompile Include="MnAmpAnimationCntrl.cpp" />
-    <ClCompile Include="MnIsCharged.cpp" />
-    <ClCompile Include="MnGetCharge.cpp" />
-    <ClCompile Include="MnShockWave.cpp" />
+    <ClCompile Include="MnAmpAnimationCntrl.cpp">
+      <Filter>Contents\Scripts\Amp</Filter>
+    </ClCompile>
+    <ClCompile Include="MnAmpBehaviorTree.cpp">
+      <Filter>Contents\Scripts\Amp</Filter>
+    </ClCompile>
+    <ClCompile Include="MnAmpRender.cpp">
+      <Filter>Contents\Scripts\Amp</Filter>
+    </ClCompile>
+    <ClCompile Include="MnEggCrackButton.cpp">
+      <Filter>Contents\Scripts\Egg</Filter>
+    </ClCompile>
+    <ClCompile Include="MnEggCrackEvent.cpp">
+      <Filter>Contents\Scripts\Egg</Filter>
+    </ClCompile>
+    <ClCompile Include="MnEggCrackPanel.cpp">
+      <Filter>Contents\Scripts\Egg</Filter>
+    </ClCompile>
+    <ClCompile Include="MnPregoAnimationCntrl.cpp">
+      <Filter>Contents\Scripts\Prego</Filter>
+    </ClCompile>
+    <ClCompile Include="MnPregoBehaviorTree.cpp">
+      <Filter>Contents\Scripts\Prego</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGetCharge.cpp">
+      <Filter>Contents\LeafNode\Amp</Filter>
+    </ClCompile>
+    <ClCompile Include="MnIsCharged.cpp">
+      <Filter>Contents\LeafNode\Amp</Filter>
+    </ClCompile>
+    <ClCompile Include="MnShockWave.cpp">
+      <Filter>Contents\LeafNode\Amp</Filter>
+    </ClCompile>
+    <ClCompile Include="MnBirthGuppy.cpp">
+      <Filter>Contents\LeafNode\Prego</Filter>
+    </ClCompile>
+    <ClCompile Include="MnIsBirth.cpp">
+      <Filter>Contents\LeafNode\Prego</Filter>
+    </ClCompile>
+    <ClCompile Include="MnIsPregMent.cpp">
+      <Filter>Contents\LeafNode\Prego</Filter>
+    </ClCompile>
+    <ClCompile Include="MnChomp.cpp">
+      <Filter>Contents\Effect\Chomp</Filter>
+    </ClCompile>
+    <ClCompile Include="MnSparkEffect.cpp">
+      <Filter>Contents\Effect\Spark</Filter>
+    </ClCompile>
+    <ClCompile Include="MnSparkRender.cpp">
+      <Filter>Contents\Scripts\Sparks</Filter>
+    </ClCompile>
+    <ClCompile Include="MnSparkScript.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -1097,6 +1167,27 @@
     </Filter>
     <Filter Include="Contents\Pet\Amp">
       <UniqueIdentifier>{779cd27f-1618-407b-a7f6-c39f34976fa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Amp">
+      <UniqueIdentifier>{fe0957c3-c102-42be-a0c2-695298560576}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Egg">
+      <UniqueIdentifier>{2b686c6f-5f7b-4d97-87c1-0d4656c67032}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Amp">
+      <UniqueIdentifier>{2de5cf0c-28c4-4eed-95ba-ba1facb6cf2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Prego">
+      <UniqueIdentifier>{8eebca81-7825-463f-8860-805ad5ef7b60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Effect\Chomp">
+      <UniqueIdentifier>{e1532b78-e494-4c88-ad98-de7d1d59bbe9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Effect\Spark">
+      <UniqueIdentifier>{86d009cf-1f2e-4317-8c35-ac2a1ffe9c90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Sparks">
+      <UniqueIdentifier>{580a07c1-ef91-4a33-ac99-f931637cfc4c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
