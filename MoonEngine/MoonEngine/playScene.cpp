@@ -48,6 +48,7 @@
 #include "MnChomp.h"
 #include "MnEggCrackEvent.h"
 #include "MnPrego.h"
+#include "MnAmp.h"
 
 namespace Mn
 {
@@ -122,6 +123,9 @@ namespace Mn
 
 		Prego* prego = object::Instantiate<Prego>(Vector3(0.0f, 0.0f, 6.0f), eLayerType::Pet);
 		prego->Initialize();
+
+		Amp* amp = object::Instantiate<Amp>(Vector3(0.0f, 1.0f, 7.0f), eLayerType::Pet);
+		amp->Initialize();
 
 		//Ultravore* ultravore = object::Instantiate<Ultravore>(Vector3(0.0f, 0.0f, 5.0f), eLayerType::Fish);
 		//ultravore->Initialize();

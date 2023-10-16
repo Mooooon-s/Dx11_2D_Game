@@ -1,43 +1,42 @@
-#include "MnPregoBehaviorTree.h"
-#include "MnRootNode.h"
-#include "MnPregoAnimationCntrl.h"
+#include "MnAmpBehaviorTree.h"
+
 #include "MnMeshRenderer.h"
 #include "MnGameObject.h"
 
-
+#include "MnAmpAnimationCntrl.h"
 
 #include "MnSequence.h"
 #include "MnSelector.h"
 #include "MnInverter.h"
 #include "MnSucceeder.h"
 
-#include "MnIsPregMent.h"
-#include "MnIsBirth.h"
-#include "MnBirthGuppy.h"
-
+#include "MnIsCharged.h"
+#include "MnGetCharge.h"
 
 #include "MnIsTurn.h"
 #include "MnFishTurn.h"
 #include "MnMove.h"
+#include "MnShockWave.h"
 
 namespace Mn
 {
-	PregoBehaviorTree::PregoBehaviorTree()
+	AmpBehaviorTree::AmpBehaviorTree()
 		: _BlackBoard(nullptr)
 		, _Root(nullptr)
+		, _Stack(1)
 	{
 	}
-	PregoBehaviorTree::~PregoBehaviorTree()
+	AmpBehaviorTree::~AmpBehaviorTree()
 	{
 	}
-	void PregoBehaviorTree::Initialize()
+	void AmpBehaviorTree::Initialize()
 	{
 		_BlackBoard = std::make_shared<BlackBoard>();
 
 		_BlackBoard->AddData<GameObject>(L"Owner", GetOwner());
 
-		PregoAnimationCntrl* PAC = new PregoAnimationCntrl(_BlackBoard.get());
-		_BlackBoard->AddData<PregoAnimationCntrl>(L"AnimaCntrl", PAC);
+		AmpAnimationCntrl* AAC = new AmpAnimationCntrl(_BlackBoard.get());
+		_BlackBoard->AddData(L"AnimaCntrl", AAC);
 
 		_BlackBoard->MakeData<eDir>(L"Dir");
 		_BlackBoard->SetData(L"Dir", eDir::Left);
@@ -49,30 +48,26 @@ namespace Mn
 		_BlackBoard->SetData(L"Behavior", eBehavior::Swim);
 
 		_BlackBoard->MakeData<eFishType>(L"Fish_Type");
-		_BlackBoard->SetData(L"Fish_Type", eFishType::Prego);
+		_BlackBoard->SetData(L"Fish_Type", eFishType::Amp);
 
 		_BlackBoard->MakeData<eFishState>(L"Fish_State");
 		_BlackBoard->SetData(L"Fish_State", eFishState::Full);
 
-		_BlackBoard->MakeData<bool>(L"PregMent");
-		_BlackBoard->SetData(L"PregMent", false);
+		_BlackBoard->MakeData<bool>(L"Charged");
+		_BlackBoard->SetData(L"Charged", false);
 
-		_BlackBoard->MakeData<float>(L"PregMentTime");
-		_BlackBoard->SetData(L"PregMentTime", 0.0f);
-
-		_BlackBoard->MakeData<float>(L"BirthTime");
-		_BlackBoard->SetData(L"BirthTime", 0.0f);
-
+		_BlackBoard->MakeData<float>(L"UnChargedTime");
+		_BlackBoard->SetData(L"UnChargedTime", 0.0f);
 
 		_Root = new RootNode(_BlackBoard.get());
 		_Root->SetTimer();
 
 		Selector* selector = _Root->setChild<Selector>();
 
-		Sequence* pregMentSequence = selector->AddChild<Sequence>();
-		IsPregMent* ispregment = pregMentSequence->AddChild<IsPregMent>();
-		IsBirth* isbirth = pregMentSequence->AddChild<IsBirth>();
-		//BirthGuppy* birthguppy = pregMentSequence->AddChild<BirthGuppy>();
+		Sequence* chargedSequence = selector->AddChild<Sequence>();
+		Inverter* inverter = chargedSequence->AddChild<Inverter>();
+		IsCharged* ischarged = inverter->SetChild<IsCharged>();
+		GetCharge* getcharge = chargedSequence->AddChild<GetCharge>();
 
 		Sequence* swimSequence = selector->AddChild<Sequence>();
 		Succeeder* turnSucceder = swimSequence->AddChild<Succeeder>();
@@ -80,10 +75,12 @@ namespace Mn
 		IsTurn* isturn = turnSequence->AddChild<IsTurn>();
 		FishTurn* fishTurn = turnSequence->AddChild<FishTurn>();
 
-		PregoAnimationCntrl* PACnode = swimSequence->AddChild<PregoAnimationCntrl>();
+		AmpAnimationCntrl* AACntrl = swimSequence->AddChild<AmpAnimationCntrl>();
 		Move* swim = swimSequence->AddChild<Move>();
+
+
 	}
-	void PregoBehaviorTree::Update()
+	void AmpBehaviorTree::Update()
 	{
 		_Root->Run();
 		MeshRenderer* MR = GetOwner()->GetComponent<MeshRenderer>();
@@ -93,10 +90,25 @@ namespace Mn
 		else
 			MR->FlipX(0);
 	}
-	void PregoBehaviorTree::LateUpdate()
+	void AmpBehaviorTree::LateUpdate()
 	{
 	}
-	void PregoBehaviorTree::Render()
+	void AmpBehaviorTree::Render()
 	{
+	}
+	void AmpBehaviorTree::OnClick()
+	{
+		if (_BlackBoard->GetDataValue<bool>(L"Charged"))
+		{
+			if (_Stack < 3)
+				_Stack++;
+			else
+			{
+				_Stack = 1;
+				ShockWave* SW = new ShockWave(_BlackBoard.get());
+				SW->Run();
+				_BlackBoard->GetData<AmpAnimationCntrl>(L"AnimaCntrl")->Run();
+			}
+		}
 	}
 }

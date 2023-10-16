@@ -149,6 +149,8 @@ namespace Mn::enums
 		Ultravore,
 		Zorf,
 		Itchy,
+		Amp,
+		Prego,
 		End,
 	};
 }

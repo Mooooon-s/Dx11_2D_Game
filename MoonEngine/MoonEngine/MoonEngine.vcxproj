@@ -165,6 +165,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="MnAddLevel.h" />
+    <ClInclude Include="MnAmp.h" />
+    <ClInclude Include="MnAmpAnimationCntrl.h" />
+    <ClInclude Include="MnAmpBehaviorTree.h" />
+    <ClInclude Include="MnAmpRender.h" />
     <ClInclude Include="MnBirthGuppy.h" />
     <ClInclude Include="MnCaniboarIcon.h" />
     <ClInclude Include="MnChomp.h" />
@@ -178,7 +182,9 @@
     <ClInclude Include="MnFoodLevelIcon.h" />
     <ClInclude Include="MnGameStartButton.h" />
     <ClInclude Include="MnGetBossPosition.h" />
+    <ClInclude Include="MnGetCharge.h" />
     <ClInclude Include="MnIsBirth.h" />
+    <ClInclude Include="MnIsCharged.h" />
     <ClInclude Include="MnIsPregMent.h" />
     <ClInclude Include="MnItchy.h" />
     <ClInclude Include="MnItchyAnimationCntrl.h" />
@@ -260,6 +266,7 @@
     <ClInclude Include="MnPregoAnimationCntrl.h" />
     <ClInclude Include="MnPregoBehaviorTree.h" />
     <ClInclude Include="MnPregoRnder.h" />
+    <ClInclude Include="MnShockWave.h" />
     <ClInclude Include="MnStartButtonRender.h" />
     <ClInclude Include="MnPlayerHp.h" />
     <ClInclude Include="MnPriceTag.h" />
@@ -303,6 +310,12 @@
     <ClInclude Include="MnZorfAnimationCntrl.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnGetCharge.cpp" />
+    <ClCompile Include="MnIsCharged.cpp" />
+    <ClCompile Include="MnAmpAnimationCntrl.cpp" />
+    <ClCompile Include="MnAmpBehaviorTree.cpp" />
+    <ClCompile Include="MnAmpRender.cpp" />
+    <ClCompile Include="MnAmp.cpp" />
     <ClCompile Include="MnBirthGuppy.cpp" />
     <ClCompile Include="MnIsBirth.cpp" />
     <ClCompile Include="MnIsPregMent.cpp" />
@@ -438,6 +451,7 @@
     <ClCompile Include="MnPregoRnder.cpp" />
     <ClCompile Include="MnPregoBehaviorTree.cpp" />
     <ClCompile Include="MnPregoAnimationCntrl.cpp" />
+    <ClCompile Include="MnShockWave.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />
