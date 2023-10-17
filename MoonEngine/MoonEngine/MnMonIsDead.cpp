@@ -36,6 +36,7 @@ namespace Mn
 				pos -= Vector3(0.0f, 0.2f, 0.0f) * Time::DeltaTime();
 				owner->GetComponent<Transform>()->Position(pos);
 				_BlackBoard->SetRunningNode<MonIsDead>(this);
+				return enums::eBTState::RUNNING;
 			}
 		}
 		else

@@ -11,6 +11,7 @@ namespace Mn
 	Food::Food()
 		:_Level(1)
 	{
+		GetComponent<Transform>()->Position(Vector3(-200.0f, -200.0f, -200.0f));
 	}
 	Food::~Food()
 	{

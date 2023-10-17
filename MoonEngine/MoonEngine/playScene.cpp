@@ -49,6 +49,7 @@
 #include "MnEggCrackEvent.h"
 #include "MnPrego.h"
 #include "MnAmp.h"
+#include "MnGus.h"
 
 namespace Mn
 {
@@ -133,6 +134,12 @@ namespace Mn
 		//Itchy* itchy = object::Instantiate<Itchy>(Vector3(0.0f, 0.0f, -3.0f), eLayerType::Pet);
 		//itchy->Initialize();
 
+		//Gus* gus = object::Instantiate<Gus>(Vector3(0.0f, 0.0f, 8.0f), eLayerType::Monster);
+		//gus->Initialize();
+
+		//Balrog* balrog = object::Instantiate<Balrog>(Vector3(0.0f, 0.0f, 8.0f), eLayerType::Monster);
+		//balrog->Initialize();
+
 		WaterWave* WW = object::Instantiate<WaterWave>(eLayerType::UI);
 		WW->Initialize();
 
@@ -204,6 +211,7 @@ namespace Mn
 		CollisionManager::SetLayer(eLayerType::Fish, eLayerType::Fish, true);
 		CollisionManager::SetLayer(eLayerType::Pet, eLayerType::Coin, true);
 		CollisionManager::SetLayer(eLayerType::Fish, eLayerType::Monster, true);
+		CollisionManager::SetLayer(eLayerType::Food, eLayerType::Monster, true);
 	}
 
 	void playScene::OnExit()

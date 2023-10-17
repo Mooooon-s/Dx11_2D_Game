@@ -6,6 +6,7 @@
 #include "MnUltravoreAnimationCntrl.h"
 #include "MnItchyAnimationCntrl.h"
 #include "MnAmpAnimationCntrl.h"
+#include "MnPregoAnimationCntrl.h"
 
 namespace Mn
 {
@@ -65,6 +66,9 @@ namespace Mn
 			break;
 		case Mn::enums::eFishType::Itchy:
 			_BlackBoard->GetData<ItchyAnimationCntrl>(L"AnimaCntrl")->Run();
+			break;
+		case Mn::enums::eFishType::Prego:
+			_BlackBoard->GetData<PregoAnimationCntrl>(L"AnimaCntrl")->Run();
 			break;
 		case Mn::enums::eFishType::Amp:
 			_BlackBoard->GetData<AmpAnimationCntrl>(L"AnimaCntrl")->Run();

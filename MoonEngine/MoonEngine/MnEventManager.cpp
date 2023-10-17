@@ -80,6 +80,10 @@ namespace Mn
 			break;
 		case 2:
 			warp->BossType(eBossType::Barlog);
+			break;
+		case 3:
+			warp->BossType(eBossType::Gus);
+			break;
 		default:
 			break;
 		}

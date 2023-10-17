@@ -36,22 +36,22 @@
       <Filter>Contents\Fish\Guppy</Filter>
     </ClInclude>
     <ClInclude Include="MnGuppyRenderScript.h">
-      <Filter>Contents\Scripts\Guppy\Render</Filter>
+      <Filter>Contents\Scripts\Fish\Guppy\Render</Filter>
     </ClInclude>
     <ClInclude Include="MnCameraScript.h">
-      <Filter>Contents\Scripts\Camera</Filter>
+      <Filter>Contents\Scripts\etc\Camera</Filter>
     </ClInclude>
     <ClInclude Include="MnGridScript.h">
-      <Filter>Contents\Scripts\Grid</Filter>
+      <Filter>Contents\Scripts\etc\Grid</Filter>
     </ClInclude>
     <ClInclude Include="MnGuppyScript.h">
-      <Filter>Contents\Scripts\Guppy</Filter>
+      <Filter>Contents\Scripts\Fish\Guppy</Filter>
     </ClInclude>
     <ClInclude Include="MnGuppyAnimationCntrl.h">
-      <Filter>Contents\Scripts\Guppy\AnimationCntrl</Filter>
+      <Filter>Contents\Scripts\Fish\Guppy\AnimationCntrl</Filter>
     </ClInclude>
     <ClInclude Include="MnGuppyBehaviorTree.h">
-      <Filter>Contents\Scripts\Guppy\GuppyBehaviorTree</Filter>
+      <Filter>Contents\Scripts\Fish\Guppy\GuppyBehaviorTree</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="MnFindFood.h">
@@ -67,7 +67,7 @@
       <Filter>Contents\LeafNode\Guppy\Turn</Filter>
     </ClInclude>
     <ClInclude Include="MnMousePosScript.h">
-      <Filter>Contents\Scripts\Mouse</Filter>
+      <Filter>Contents\Scripts\etc\Mouse</Filter>
     </ClInclude>
     <ClInclude Include="MnFood.h">
       <Filter>Contents\Food</Filter>
@@ -88,7 +88,7 @@
       <Filter>Contents\Money\Coin</Filter>
     </ClInclude>
     <ClInclude Include="MnFoodScript.h">
-      <Filter>Contents\Scripts\FoodScript</Filter>
+      <Filter>Contents\Scripts\etc\FoodScript</Filter>
     </ClInclude>
     <ClInclude Include="MnAddLevel.h">
       <Filter>Contents\LeafNode\Guppy\AddLevel</Filter>
@@ -97,7 +97,7 @@
       <Filter>Contents\LeafNode\Guppy\DropCoin</Filter>
     </ClInclude>
     <ClInclude Include="MnCoinRender.h">
-      <Filter>Contents\Scripts\CoinRender</Filter>
+      <Filter>Contents\Scripts\etc\CoinRender</Filter>
     </ClInclude>
     <ClInclude Include="MnGuppyDeath.h">
       <Filter>Contents\LeafNode\Guppy\Death</Filter>
@@ -106,13 +106,13 @@
       <Filter>Contents\Pet\Niko</Filter>
     </ClInclude>
     <ClInclude Include="MnNikoScript.h">
-      <Filter>Contents\Scripts\Niko</Filter>
+      <Filter>Contents\Scripts\Pet\Niko</Filter>
     </ClInclude>
     <ClInclude Include="MnNikoBehaviorTree.h">
-      <Filter>Contents\Scripts\Niko</Filter>
+      <Filter>Contents\Scripts\Pet\Niko</Filter>
     </ClInclude>
     <ClInclude Include="MnNikoRenderer.h">
-      <Filter>Contents\Scripts\Niko\Render</Filter>
+      <Filter>Contents\Scripts\Pet\Niko\Render</Filter>
     </ClInclude>
     <ClInclude Include="MnDestroyFish.h">
       <Filter>Contents\LeafNode\Guppy\Death</Filter>
@@ -127,22 +127,22 @@
       <Filter>Contents\Money\Pearl</Filter>
     </ClInclude>
     <ClInclude Include="MnPearlScript.h">
-      <Filter>Contents\Scripts\Pearl</Filter>
+      <Filter>Contents\Scripts\etc\Pearl</Filter>
     </ClInclude>
     <ClInclude Include="MnStinky.h">
       <Filter>Contents\Pet\Stinky</Filter>
     </ClInclude>
     <ClInclude Include="MnStinkyScript.h">
-      <Filter>Contents\Scripts\Stinky</Filter>
+      <Filter>Contents\Scripts\Pet\Stinky</Filter>
     </ClInclude>
     <ClInclude Include="MnMoney.h">
       <Filter>Contents\Money</Filter>
     </ClInclude>
     <ClInclude Include="MnStinkyRenderScript.h">
-      <Filter>Contents\Scripts\Stinky</Filter>
+      <Filter>Contents\Scripts\Pet\Stinky</Filter>
     </ClInclude>
     <ClInclude Include="MnStinkyBehaviorTree.h">
-      <Filter>Contents\Scripts\Stinky</Filter>
+      <Filter>Contents\Scripts\Pet\Stinky</Filter>
     </ClInclude>
     <ClInclude Include="MnFindCoin.h">
       <Filter>Contents\LeafNode\Stinky</Filter>
@@ -196,28 +196,28 @@
       <Filter>Contents\Fish\Caniboar</Filter>
     </ClInclude>
     <ClInclude Include="MnCaniboarRender.h">
-      <Filter>Contents\Scripts\Caniboare</Filter>
+      <Filter>Contents\Scripts\Fish\Caniboare</Filter>
     </ClInclude>
     <ClInclude Include="MnCaniboarBehaviorTree.h">
-      <Filter>Contents\Scripts\Caniboare</Filter>
+      <Filter>Contents\Scripts\Fish\Caniboare</Filter>
     </ClInclude>
     <ClInclude Include="MnCaniBoarAnimatonCntrl.h">
-      <Filter>Contents\Scripts\Caniboare</Filter>
+      <Filter>Contents\Scripts\Fish\Caniboare</Filter>
     </ClInclude>
     <ClInclude Include="MnHungryCheck.h">
       <Filter>Contents\LeafNode\Guppy\IsHungry</Filter>
     </ClInclude>
     <ClInclude Include="MnPlayAnimaion.h">
-      <Filter>Contents\Scripts\Caniboare</Filter>
+      <Filter>Contents\Scripts\Fish\Caniboare</Filter>
     </ClInclude>
     <ClInclude Include="MnFindSmallGuppy.h">
-      <Filter>Contents\Scripts\Caniboare</Filter>
+      <Filter>Contents\Scripts\Fish\Caniboare</Filter>
     </ClInclude>
     <ClInclude Include="MnMove2Guppy.h">
-      <Filter>Contents\Scripts\Caniboare</Filter>
+      <Filter>Contents\Scripts\Fish\Caniboare</Filter>
     </ClInclude>
     <ClInclude Include="MnTurn2Food.h">
-      <Filter>Contents\Scripts\Caniboare</Filter>
+      <Filter>Contents\Scripts\Fish\Caniboare</Filter>
     </ClInclude>
     <ClInclude Include="MnDiamond.h">
       <Filter>Contents\Money\Diamond</Filter>
@@ -226,16 +226,16 @@
       <Filter>Contents\Pet\Zorf</Filter>
     </ClInclude>
     <ClInclude Include="MnDropDiamond.h">
-      <Filter>Contents\Scripts\Caniboare</Filter>
+      <Filter>Contents\Scripts\Fish\Caniboare</Filter>
     </ClInclude>
     <ClInclude Include="MnDiamondRender.h">
-      <Filter>Contents\Scripts\Diamond</Filter>
+      <Filter>Contents\Scripts\etc\Diamond</Filter>
     </ClInclude>
     <ClInclude Include="MnDiamondScript.h">
-      <Filter>Contents\Scripts\Diamond</Filter>
+      <Filter>Contents\Scripts\etc\Diamond</Filter>
     </ClInclude>
     <ClInclude Include="MnZorfRender.h">
-      <Filter>Contents\Scripts\Zorf</Filter>
+      <Filter>Contents\Scripts\Pet\Zorf</Filter>
     </ClInclude>
     <ClInclude Include="MnZorfFeedDone.h">
       <Filter>Contents\LeafNode\Zorf\FeedDone</Filter>
@@ -250,10 +250,10 @@
       <Filter>Contents\LeafNode\Zorf\FeedFood</Filter>
     </ClInclude>
     <ClInclude Include="MnZorfAnimationCntrl.h">
-      <Filter>Contents\Scripts\Zorf</Filter>
+      <Filter>Contents\Scripts\Pet\Zorf</Filter>
     </ClInclude>
     <ClInclude Include="MnZorfBehaviorTree.h">
-      <Filter>Contents\Scripts\Zorf</Filter>
+      <Filter>Contents\Scripts\Pet\Zorf</Filter>
     </ClInclude>
     <ClInclude Include="MnMonIsDead.h">
       <Filter>Contents\LeafNode\Common\MonlsDead</Filter>
@@ -280,13 +280,13 @@
       <Filter>Contents\Fish\Ultravore</Filter>
     </ClInclude>
     <ClInclude Include="MnUltravoreRender.h">
-      <Filter>Contents\Scripts\Ultrabore</Filter>
+      <Filter>Contents\Scripts\Fish\Ultrabore</Filter>
     </ClInclude>
     <ClInclude Include="MnUltravoreBehaviorTree.h">
-      <Filter>Contents\Scripts\Ultrabore</Filter>
+      <Filter>Contents\Scripts\Fish\Ultrabore</Filter>
     </ClInclude>
     <ClInclude Include="MnUltravoreAnimationCntrl.h">
-      <Filter>Contents\Scripts\Ultrabore</Filter>
+      <Filter>Contents\Scripts\Fish\Ultrabore</Filter>
     </ClInclude>
     <ClInclude Include="MnDropTresure.h">
       <Filter>Contents\LeafNode\Ultravore\DropTresure</Filter>
@@ -307,13 +307,13 @@
       <Filter>Contents\Pet\Itchy</Filter>
     </ClInclude>
     <ClInclude Include="MnItchyAnimationCntrl.h">
-      <Filter>Contents\Scripts\Itchy</Filter>
+      <Filter>Contents\Scripts\Pet\Itchy</Filter>
     </ClInclude>
     <ClInclude Include="MnItchyBehaviorTree.h">
-      <Filter>Contents\Scripts\Itchy</Filter>
+      <Filter>Contents\Scripts\Pet\Itchy</Filter>
     </ClInclude>
     <ClInclude Include="MnItchyRender.h">
-      <Filter>Contents\Scripts\Itchy</Filter>
+      <Filter>Contents\Scripts\Pet\Itchy</Filter>
     </ClInclude>
     <ClInclude Include="MnDetectBoss.h">
       <Filter>Contents\LeafNode\Common\DetectBoss</Filter>
@@ -379,34 +379,34 @@
       <Filter>Contents\Pet\Prego</Filter>
     </ClInclude>
     <ClInclude Include="MnPregoRnder.h">
-      <Filter>Contents\Scripts\Prego</Filter>
+      <Filter>Contents\Scripts\Pet\Prego</Filter>
     </ClInclude>
     <ClInclude Include="MnAmp.h">
       <Filter>Contents\Pet\Amp</Filter>
     </ClInclude>
     <ClInclude Include="MnAmpAnimationCntrl.h">
-      <Filter>Contents\Scripts\Amp</Filter>
+      <Filter>Contents\Scripts\Pet\Amp</Filter>
     </ClInclude>
     <ClInclude Include="MnAmpBehaviorTree.h">
-      <Filter>Contents\Scripts\Amp</Filter>
+      <Filter>Contents\Scripts\Pet\Amp</Filter>
     </ClInclude>
     <ClInclude Include="MnAmpRender.h">
-      <Filter>Contents\Scripts\Amp</Filter>
+      <Filter>Contents\Scripts\Pet\Amp</Filter>
     </ClInclude>
     <ClInclude Include="MnEggCrackButton.h">
-      <Filter>Contents\Scripts\Egg</Filter>
+      <Filter>Contents\Scripts\etc\Egg</Filter>
     </ClInclude>
     <ClInclude Include="MnEggCrackEvent.h">
-      <Filter>Contents\Scripts\Egg</Filter>
+      <Filter>Contents\Scripts\etc\Egg</Filter>
     </ClInclude>
     <ClInclude Include="MnEggCrackPanel.h">
-      <Filter>Contents\Scripts\Egg</Filter>
+      <Filter>Contents\Scripts\etc\Egg</Filter>
     </ClInclude>
     <ClInclude Include="MnPregoAnimationCntrl.h">
-      <Filter>Contents\Scripts\Prego</Filter>
+      <Filter>Contents\Scripts\Pet\Prego</Filter>
     </ClInclude>
     <ClInclude Include="MnPregoBehaviorTree.h">
-      <Filter>Contents\Scripts\Prego</Filter>
+      <Filter>Contents\Scripts\Pet\Prego</Filter>
     </ClInclude>
     <ClInclude Include="MnGetCharge.h">
       <Filter>Contents\LeafNode\Amp</Filter>
@@ -433,9 +433,19 @@
       <Filter>Contents\Effect\Spark</Filter>
     </ClInclude>
     <ClInclude Include="MnSparkRender.h">
-      <Filter>Contents\Scripts\Sparks</Filter>
+      <Filter>Contents\Scripts\etc\Sparks</Filter>
     </ClInclude>
-    <ClInclude Include="MnSparkScript.h" />
+    <ClInclude Include="MnSparkScript.h">
+      <Filter>Contents\Scripts\etc\Sparks</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGus.h">
+      <Filter>Contents\BossMonster\Gus</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGusRender.h" />
+    <ClInclude Include="MnGusBehaviorTree.h" />
+    <ClInclude Include="MnMove2Target.h" />
+    <ClInclude Include="MnGusAnimatorCntrl.h" />
+    <ClInclude Include="MnTurn2Target.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -470,22 +480,22 @@
       <Filter>Contents\Fish\Guppy</Filter>
     </ClCompile>
     <ClCompile Include="MnGuppyRenderScript.cpp">
-      <Filter>Contents\Scripts\Guppy\Render</Filter>
+      <Filter>Contents\Scripts\Fish\Guppy\Render</Filter>
     </ClCompile>
     <ClCompile Include="MnCameraScript.cpp">
-      <Filter>Contents\Scripts\Camera</Filter>
+      <Filter>Contents\Scripts\etc\Camera</Filter>
     </ClCompile>
     <ClCompile Include="MnGridScript.cpp">
-      <Filter>Contents\Scripts\Grid</Filter>
+      <Filter>Contents\Scripts\etc\Grid</Filter>
     </ClCompile>
     <ClCompile Include="MnGuppyScript.cpp">
-      <Filter>Contents\Scripts\Guppy</Filter>
+      <Filter>Contents\Scripts\Fish\Guppy</Filter>
     </ClCompile>
     <ClCompile Include="MnGuppyAnimationCntrl.cpp">
-      <Filter>Contents\Scripts\Guppy\AnimationCntrl</Filter>
+      <Filter>Contents\Scripts\Fish\Guppy\AnimationCntrl</Filter>
     </ClCompile>
     <ClCompile Include="MnGuppyBehaviorTree.cpp">
-      <Filter>Contents\Scripts\Guppy\GuppyBehaviorTree</Filter>
+      <Filter>Contents\Scripts\Fish\Guppy\GuppyBehaviorTree</Filter>
     </ClCompile>
     <ClCompile Include="MnFindFood.cpp">
       <Filter>Contents\LeafNode\Common\FindFood</Filter>
@@ -503,7 +513,7 @@
       <Filter>Contents\LeafNode\Guppy\Turn</Filter>
     </ClCompile>
     <ClCompile Include="MnMousePosScript.cpp">
-      <Filter>Contents\Scripts\Mouse</Filter>
+      <Filter>Contents\Scripts\etc\Mouse</Filter>
     </ClCompile>
     <ClCompile Include="MnFood.cpp">
       <Filter>Contents\Food</Filter>
@@ -524,7 +534,7 @@
       <Filter>Contents\Money\Coin</Filter>
     </ClCompile>
     <ClCompile Include="MnFoodScript.cpp">
-      <Filter>Contents\Scripts\FoodScript</Filter>
+      <Filter>Contents\Scripts\etc\FoodScript</Filter>
     </ClCompile>
     <ClCompile Include="MnAddLevel.cpp">
       <Filter>Contents\LeafNode\Guppy\AddLevel</Filter>
@@ -533,7 +543,7 @@
       <Filter>Contents\LeafNode\Guppy\DropCoin</Filter>
     </ClCompile>
     <ClCompile Include="MnCoinRender.cpp">
-      <Filter>Contents\Scripts\CoinRender</Filter>
+      <Filter>Contents\Scripts\etc\CoinRender</Filter>
     </ClCompile>
     <ClCompile Include="MnGuppyDeath.cpp">
       <Filter>Contents\LeafNode\Guppy\Death</Filter>
@@ -542,13 +552,13 @@
       <Filter>Contents\Pet\Niko</Filter>
     </ClCompile>
     <ClCompile Include="MnNikoScript.cpp">
-      <Filter>Contents\Scripts\Niko</Filter>
+      <Filter>Contents\Scripts\Pet\Niko</Filter>
     </ClCompile>
     <ClCompile Include="MnNikoBehaviorTree.cpp">
-      <Filter>Contents\Scripts\Niko</Filter>
+      <Filter>Contents\Scripts\Pet\Niko</Filter>
     </ClCompile>
     <ClCompile Include="MnNikoRenderer.cpp">
-      <Filter>Contents\Scripts\Niko\Render</Filter>
+      <Filter>Contents\Scripts\Pet\Niko\Render</Filter>
     </ClCompile>
     <ClCompile Include="MnDestroyFish.cpp">
       <Filter>Contents\LeafNode\Guppy\Death</Filter>
@@ -563,22 +573,22 @@
       <Filter>Contents\Money\Pearl</Filter>
     </ClCompile>
     <ClCompile Include="MnPearlScript.cpp">
-      <Filter>Contents\Scripts\Pearl</Filter>
+      <Filter>Contents\Scripts\etc\Pearl</Filter>
     </ClCompile>
     <ClCompile Include="MnStinky.cpp">
       <Filter>Contents\Pet\Stinky</Filter>
     </ClCompile>
     <ClCompile Include="MnStinkyScript.cpp">
-      <Filter>Contents\Scripts\Stinky</Filter>
+      <Filter>Contents\Scripts\Pet\Stinky</Filter>
     </ClCompile>
     <ClCompile Include="MnMoney.cpp">
       <Filter>Contents\Money</Filter>
     </ClCompile>
     <ClCompile Include="MnStinkyRenderScript.cpp">
-      <Filter>Contents\Scripts\Stinky</Filter>
+      <Filter>Contents\Scripts\Pet\Stinky</Filter>
     </ClCompile>
     <ClCompile Include="MnStinkyBehaviorTree.cpp">
-      <Filter>Contents\Scripts\Stinky</Filter>
+      <Filter>Contents\Scripts\Pet\Stinky</Filter>
     </ClCompile>
     <ClCompile Include="MnFindCoin.cpp">
       <Filter>Contents\LeafNode\Stinky</Filter>
@@ -632,25 +642,25 @@
       <Filter>Contents\Fish\Caniboar</Filter>
     </ClCompile>
     <ClCompile Include="MnCaniboarRender.cpp">
-      <Filter>Contents\Scripts\Caniboare</Filter>
+      <Filter>Contents\Scripts\Fish\Caniboare</Filter>
     </ClCompile>
     <ClCompile Include="MnCaniboarBehaviorTree.cpp">
-      <Filter>Contents\Scripts\Caniboare</Filter>
+      <Filter>Contents\Scripts\Fish\Caniboare</Filter>
     </ClCompile>
     <ClCompile Include="MnCaniBoarAnimatonCntrl.cpp">
-      <Filter>Contents\Scripts\Caniboare</Filter>
+      <Filter>Contents\Scripts\Fish\Caniboare</Filter>
     </ClCompile>
     <ClCompile Include="MnHungryCheck.cpp">
       <Filter>Contents\LeafNode\Guppy\IsHungry</Filter>
     </ClCompile>
     <ClCompile Include="MnFindSmallGuppy.cpp">
-      <Filter>Contents\Scripts\Caniboare</Filter>
+      <Filter>Contents\Scripts\Fish\Caniboare</Filter>
     </ClCompile>
     <ClCompile Include="MnMove2Guppy.cpp">
-      <Filter>Contents\Scripts\Caniboare</Filter>
+      <Filter>Contents\Scripts\Fish\Caniboare</Filter>
     </ClCompile>
     <ClCompile Include="MnTurn2Food.cpp">
-      <Filter>Contents\Scripts\Caniboare</Filter>
+      <Filter>Contents\Scripts\Fish\Caniboare</Filter>
     </ClCompile>
     <ClCompile Include="MnDiamond.cpp">
       <Filter>Contents\Money\Diamond</Filter>
@@ -659,16 +669,16 @@
       <Filter>Contents\Pet\Zorf</Filter>
     </ClCompile>
     <ClCompile Include="MnDropDiamond.cpp">
-      <Filter>Contents\Scripts\Caniboare</Filter>
+      <Filter>Contents\Scripts\Fish\Caniboare</Filter>
     </ClCompile>
     <ClCompile Include="MnDiamondRender.cpp">
-      <Filter>Contents\Scripts\Diamond</Filter>
+      <Filter>Contents\Scripts\etc\Diamond</Filter>
     </ClCompile>
     <ClCompile Include="MnDiamondScript.cpp">
-      <Filter>Contents\Scripts\Diamond</Filter>
+      <Filter>Contents\Scripts\etc\Diamond</Filter>
     </ClCompile>
     <ClCompile Include="MnZorfRender.cpp">
-      <Filter>Contents\Scripts\Zorf</Filter>
+      <Filter>Contents\Scripts\Pet\Zorf</Filter>
     </ClCompile>
     <ClCompile Include="MnZorfFeedDone.cpp">
       <Filter>Contents\LeafNode\Zorf\FeedDone</Filter>
@@ -683,10 +693,10 @@
       <Filter>Contents\LeafNode\Zorf\FeedFood</Filter>
     </ClCompile>
     <ClCompile Include="MnZorfAnimationCntrl.cpp">
-      <Filter>Contents\Scripts\Zorf</Filter>
+      <Filter>Contents\Scripts\Pet\Zorf</Filter>
     </ClCompile>
     <ClCompile Include="MnZorfBehaviorTree.cpp">
-      <Filter>Contents\Scripts\Zorf</Filter>
+      <Filter>Contents\Scripts\Pet\Zorf</Filter>
     </ClCompile>
     <ClCompile Include="MnMonIsDead.cpp">
       <Filter>Contents\LeafNode\Common\MonlsDead</Filter>
@@ -713,13 +723,13 @@
       <Filter>Contents\Fish\Ultravore</Filter>
     </ClCompile>
     <ClCompile Include="MnUltravoreRender.cpp">
-      <Filter>Contents\Scripts\Ultrabore</Filter>
+      <Filter>Contents\Scripts\Fish\Ultrabore</Filter>
     </ClCompile>
     <ClCompile Include="MnUltravoreBehaviorTree.cpp">
-      <Filter>Contents\Scripts\Ultrabore</Filter>
+      <Filter>Contents\Scripts\Fish\Ultrabore</Filter>
     </ClCompile>
     <ClCompile Include="MnUltravoreAnimationCntrl.cpp">
-      <Filter>Contents\Scripts\Ultrabore</Filter>
+      <Filter>Contents\Scripts\Fish\Ultrabore</Filter>
     </ClCompile>
     <ClCompile Include="MnDropTresure.cpp">
       <Filter>Contents\LeafNode\Ultravore\DropTresure</Filter>
@@ -740,13 +750,13 @@
       <Filter>Contents\Pet\Itchy</Filter>
     </ClCompile>
     <ClCompile Include="MnItchyAnimationCntrl.cpp">
-      <Filter>Contents\Scripts\Itchy</Filter>
+      <Filter>Contents\Scripts\Pet\Itchy</Filter>
     </ClCompile>
     <ClCompile Include="MnItchyBehaviorTree.cpp">
-      <Filter>Contents\Scripts\Itchy</Filter>
+      <Filter>Contents\Scripts\Pet\Itchy</Filter>
     </ClCompile>
     <ClCompile Include="MnItchyRender.cpp">
-      <Filter>Contents\Scripts\Itchy</Filter>
+      <Filter>Contents\Scripts\Pet\Itchy</Filter>
     </ClCompile>
     <ClCompile Include="MnDetectBoss.cpp">
       <Filter>Contents\LeafNode\Common\DetectBoss</Filter>
@@ -812,34 +822,34 @@
       <Filter>Contents\Pet\Prego</Filter>
     </ClCompile>
     <ClCompile Include="MnPregoRnder.cpp">
-      <Filter>Contents\Scripts\Prego</Filter>
+      <Filter>Contents\Scripts\Pet\Prego</Filter>
     </ClCompile>
     <ClCompile Include="MnAmp.cpp">
       <Filter>Contents\Pet\Amp</Filter>
     </ClCompile>
     <ClCompile Include="MnAmpAnimationCntrl.cpp">
-      <Filter>Contents\Scripts\Amp</Filter>
+      <Filter>Contents\Scripts\Pet\Amp</Filter>
     </ClCompile>
     <ClCompile Include="MnAmpBehaviorTree.cpp">
-      <Filter>Contents\Scripts\Amp</Filter>
+      <Filter>Contents\Scripts\Pet\Amp</Filter>
     </ClCompile>
     <ClCompile Include="MnAmpRender.cpp">
-      <Filter>Contents\Scripts\Amp</Filter>
+      <Filter>Contents\Scripts\Pet\Amp</Filter>
     </ClCompile>
     <ClCompile Include="MnEggCrackButton.cpp">
-      <Filter>Contents\Scripts\Egg</Filter>
+      <Filter>Contents\Scripts\etc\Egg</Filter>
     </ClCompile>
     <ClCompile Include="MnEggCrackEvent.cpp">
-      <Filter>Contents\Scripts\Egg</Filter>
+      <Filter>Contents\Scripts\etc\Egg</Filter>
     </ClCompile>
     <ClCompile Include="MnEggCrackPanel.cpp">
-      <Filter>Contents\Scripts\Egg</Filter>
+      <Filter>Contents\Scripts\etc\Egg</Filter>
     </ClCompile>
     <ClCompile Include="MnPregoAnimationCntrl.cpp">
-      <Filter>Contents\Scripts\Prego</Filter>
+      <Filter>Contents\Scripts\Pet\Prego</Filter>
     </ClCompile>
     <ClCompile Include="MnPregoBehaviorTree.cpp">
-      <Filter>Contents\Scripts\Prego</Filter>
+      <Filter>Contents\Scripts\Pet\Prego</Filter>
     </ClCompile>
     <ClCompile Include="MnGetCharge.cpp">
       <Filter>Contents\LeafNode\Amp</Filter>
@@ -866,9 +876,19 @@
       <Filter>Contents\Effect\Spark</Filter>
     </ClCompile>
     <ClCompile Include="MnSparkRender.cpp">
-      <Filter>Contents\Scripts\Sparks</Filter>
+      <Filter>Contents\Scripts\etc\Sparks</Filter>
     </ClCompile>
-    <ClCompile Include="MnSparkScript.cpp" />
+    <ClCompile Include="MnSparkScript.cpp">
+      <Filter>Contents\Scripts\etc\Sparks</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGus.cpp">
+      <Filter>Contents\BossMonster\Gus</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGusRender.cpp" />
+    <ClCompile Include="MnGusBehaviorTree.cpp" />
+    <ClCompile Include="MnMove2Target.cpp" />
+    <ClCompile Include="MnGusAnimatorCntrl.cpp" />
+    <ClCompile Include="MnTurn2Target.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -901,21 +921,6 @@
     <Filter Include="Contents\BackGround\Menu">
       <UniqueIdentifier>{8e220940-8bc6-419e-8bb2-6401562b52f1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\Scripts\Camera">
-      <UniqueIdentifier>{199f0f2d-b4aa-4ece-ad8a-fff0f6a9abff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scripts\Grid">
-      <UniqueIdentifier>{c4a82383-6cad-49e3-8106-1012a36d1362}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scripts\Guppy">
-      <UniqueIdentifier>{6f8d0803-1917-4b64-a1e3-3832a0727030}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scripts\Guppy\Render">
-      <UniqueIdentifier>{74729f92-dae5-465b-b8d4-2dc38c2f2a71}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scripts\Guppy\AnimationCntrl">
-      <UniqueIdentifier>{f4f05190-345c-43e0-b323-2ef95a2169d5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\LeafNode">
       <UniqueIdentifier>{5b209fe8-25b7-4e4a-846c-537d2715d244}</UniqueIdentifier>
     </Filter>
@@ -937,9 +942,6 @@
     <Filter Include="Contents\LeafNode\Guppy\Turn">
       <UniqueIdentifier>{b3a427d3-12d7-49de-96a3-d033fb5e2ee2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\Scripts\Mouse">
-      <UniqueIdentifier>{8b0b1d74-8c8b-450a-a311-28364d402d1a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\Food">
       <UniqueIdentifier>{5ca81470-328f-40ba-81e3-27d8c8ea2cee}</UniqueIdentifier>
     </Filter>
@@ -952,17 +954,11 @@
     <Filter Include="Contents\LeafNode\Guppy\EatFood">
       <UniqueIdentifier>{e5783598-111e-43a6-9321-6836c064f346}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\Scripts\FoodScript">
-      <UniqueIdentifier>{28acec9d-a6bc-4c37-983e-3da93687110d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\LeafNode\Guppy\AddLevel">
       <UniqueIdentifier>{24ec1fcc-a0b8-4206-a5d8-914778edbb04}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents\LeafNode\Guppy\DropCoin">
       <UniqueIdentifier>{dd9a2d88-31b8-4ae1-991e-3d9875438c09}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scripts\CoinRender">
-      <UniqueIdentifier>{d2e806e0-74ac-4a84-aabd-b8212453a784}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents\LeafNode\Guppy\Death">
       <UniqueIdentifier>{f51aa5a7-e7c1-45f0-abfb-79192e1f7bd2}</UniqueIdentifier>
@@ -978,12 +974,6 @@
     </Filter>
     <Filter Include="Contents\Fish\Guppy">
       <UniqueIdentifier>{865a5c95-e0a7-460e-8a0c-23234d50c7d4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scripts\Niko">
-      <UniqueIdentifier>{be5ed189-ee24-42c9-a853-a861e134db93}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scripts\Niko\Render">
-      <UniqueIdentifier>{8247f518-9987-411e-9f4c-d294a80246f0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents\BossMonster">
       <UniqueIdentifier>{a570d4de-a650-4c2c-b1b6-2a755e215171}</UniqueIdentifier>
@@ -1009,14 +999,8 @@
     <Filter Include="Contents\Money\Pearl">
       <UniqueIdentifier>{21be6858-1533-48e5-b11c-0bc2eb4c9996}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\Scripts\Pearl">
-      <UniqueIdentifier>{946ff12a-8a86-4920-87f9-e79a79297f73}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\Pet\Stinky">
       <UniqueIdentifier>{ded9e0d8-84b9-442d-a790-46eda064dc6e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scripts\Stinky">
-      <UniqueIdentifier>{65855a0b-88e5-4c7c-a9aa-6479df3b930b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents\LeafNode\Stinky">
       <UniqueIdentifier>{9bb67a64-5682-47e6-a6c8-b8bde0e7f98f}</UniqueIdentifier>
@@ -1048,20 +1032,11 @@
     <Filter Include="Contents\Fish\Caniboar">
       <UniqueIdentifier>{c4028ea4-4449-4c65-a990-4435114532e4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\Scripts\Caniboare">
-      <UniqueIdentifier>{fcc995a2-268c-4ebe-9bfb-37e7a81e6258}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\Money\Diamond">
       <UniqueIdentifier>{ac413b40-086c-44d1-aa9c-2f254f264af6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents\Pet\Zorf">
       <UniqueIdentifier>{89345e13-b881-4453-8f35-ab8461a4ceda}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scripts\Zorf">
-      <UniqueIdentifier>{4b2b281b-ef98-47d3-95e2-9cb2988796ee}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scripts\Diamond">
-      <UniqueIdentifier>{10294fae-7ce4-482e-9944-994024b444dd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents\LeafNode\Zorf">
       <UniqueIdentifier>{c9d7e2f1-3d36-40c9-8cb0-21d8687828db}</UniqueIdentifier>
@@ -1099,9 +1074,6 @@
     <Filter Include="Contents\Fish\Ultravore">
       <UniqueIdentifier>{ec07d051-59b3-4ca6-b8f2-f5b4ac3264f2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\Scripts\Ultrabore">
-      <UniqueIdentifier>{e78b4473-02ca-4460-b537-f61f57f10de9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\LeafNode\Ultravore">
       <UniqueIdentifier>{864530cb-5e82-42fe-ba4e-e34ecf44ef3c}</UniqueIdentifier>
     </Filter>
@@ -1119,12 +1091,6 @@
     </Filter>
     <Filter Include="Contents\Pet\Itchy">
       <UniqueIdentifier>{e82d5044-f738-4ddf-a2be-f388f74ffb20}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scripts\Itchy">
-      <UniqueIdentifier>{f6356d28-966b-437e-adc8-c1d8d0f454cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scripts\Guppy\GuppyBehaviorTree">
-      <UniqueIdentifier>{846405bb-df90-4774-9f98-75e70204c3bb}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents\LeafNode\Common\DetectBoss">
       <UniqueIdentifier>{a25835b1-acd8-4b88-8ce4-bf41f735f2d3}</UniqueIdentifier>
@@ -1162,17 +1128,8 @@
     <Filter Include="Contents\Pet\Prego">
       <UniqueIdentifier>{52afa61a-7bf5-4d1c-9212-2b37cdfe060c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\Scripts\Prego">
-      <UniqueIdentifier>{681809c8-c1a7-4f10-a331-6241a363b8af}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\Pet\Amp">
       <UniqueIdentifier>{779cd27f-1618-407b-a7f6-c39f34976fa4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scripts\Amp">
-      <UniqueIdentifier>{fe0957c3-c102-42be-a0c2-695298560576}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\Scripts\Egg">
-      <UniqueIdentifier>{2b686c6f-5f7b-4d97-87c1-0d4656c67032}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents\LeafNode\Amp">
       <UniqueIdentifier>{2de5cf0c-28c4-4eed-95ba-ba1facb6cf2a}</UniqueIdentifier>
@@ -1186,7 +1143,85 @@
     <Filter Include="Contents\Effect\Spark">
       <UniqueIdentifier>{86d009cf-1f2e-4317-8c35-ac2a1ffe9c90}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\Scripts\Sparks">
+    <Filter Include="Contents\BossMonster\Gus">
+      <UniqueIdentifier>{f2b3e96e-90d7-412c-ba35-79194ecd76ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Fish">
+      <UniqueIdentifier>{008ed521-219a-4622-b7af-8bb1ebe715c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Pet">
+      <UniqueIdentifier>{594bdd0d-33b8-43fe-857c-c8ce7f5205c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Fish\Guppy">
+      <UniqueIdentifier>{6f8d0803-1917-4b64-a1e3-3832a0727030}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Fish\Guppy\Render">
+      <UniqueIdentifier>{74729f92-dae5-465b-b8d4-2dc38c2f2a71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Fish\Guppy\AnimationCntrl">
+      <UniqueIdentifier>{f4f05190-345c-43e0-b323-2ef95a2169d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Fish\Guppy\GuppyBehaviorTree">
+      <UniqueIdentifier>{846405bb-df90-4774-9f98-75e70204c3bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Pet\Itchy">
+      <UniqueIdentifier>{f6356d28-966b-437e-adc8-c1d8d0f454cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Pet\Niko">
+      <UniqueIdentifier>{be5ed189-ee24-42c9-a853-a861e134db93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Pet\Niko\Render">
+      <UniqueIdentifier>{8247f518-9987-411e-9f4c-d294a80246f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Pet\Prego">
+      <UniqueIdentifier>{681809c8-c1a7-4f10-a331-6241a363b8af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Pet\Stinky">
+      <UniqueIdentifier>{65855a0b-88e5-4c7c-a9aa-6479df3b930b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Pet\Zorf">
+      <UniqueIdentifier>{4b2b281b-ef98-47d3-95e2-9cb2988796ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Pet\Amp">
+      <UniqueIdentifier>{fe0957c3-c102-42be-a0c2-695298560576}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Fish\Caniboare">
+      <UniqueIdentifier>{fcc995a2-268c-4ebe-9bfb-37e7a81e6258}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\Fish\Ultrabore">
+      <UniqueIdentifier>{e78b4473-02ca-4460-b537-f61f57f10de9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\BossMonster\Gus">
+      <UniqueIdentifier>{8e16a594-d017-44e3-bc4f-2a3c40fd62a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\etc">
+      <UniqueIdentifier>{6c37c300-919b-46b6-b307-562bbeb7915e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\etc\Camera">
+      <UniqueIdentifier>{199f0f2d-b4aa-4ece-ad8a-fff0f6a9abff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\etc\CoinRender">
+      <UniqueIdentifier>{d2e806e0-74ac-4a84-aabd-b8212453a784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\etc\Diamond">
+      <UniqueIdentifier>{10294fae-7ce4-482e-9944-994024b444dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\etc\Egg">
+      <UniqueIdentifier>{2b686c6f-5f7b-4d97-87c1-0d4656c67032}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\etc\FoodScript">
+      <UniqueIdentifier>{28acec9d-a6bc-4c37-983e-3da93687110d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\etc\Grid">
+      <UniqueIdentifier>{c4a82383-6cad-49e3-8106-1012a36d1362}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\etc\Mouse">
+      <UniqueIdentifier>{8b0b1d74-8c8b-450a-a311-28364d402d1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\etc\Pearl">
+      <UniqueIdentifier>{946ff12a-8a86-4920-87f9-e79a79297f73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\etc\Sparks">
       <UniqueIdentifier>{580a07c1-ef91-4a33-ac99-f931637cfc4c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

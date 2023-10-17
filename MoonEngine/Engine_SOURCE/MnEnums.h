@@ -84,6 +84,7 @@ namespace Mn::enums
 	{
 		Barlog,
 		Sylv,
+		Gus,
 		End,
 	};
 

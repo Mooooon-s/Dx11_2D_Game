@@ -12,6 +12,7 @@
 //Boss Type
 #include "MnBalrog.h"
 #include "MnSylv.h"
+#include "MnGus.h"
 
 namespace Mn
 {
@@ -80,6 +81,9 @@ namespace Mn
 			boss = object::Instantiate<Sylv>(pos, eLayerType::Monster);
 			boss->Initialize();
 			break;
+		case Mn::enums::eBossType::Gus:
+			boss = object::Instantiate<Gus>(Vector3(0.0f, 0.0f, 8.0f), eLayerType::Monster);
+			boss->Initialize();
 		}
 	}
 }

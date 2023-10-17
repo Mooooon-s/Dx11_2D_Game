@@ -183,6 +183,11 @@
     <ClInclude Include="MnGameStartButton.h" />
     <ClInclude Include="MnGetBossPosition.h" />
     <ClInclude Include="MnGetCharge.h" />
+    <ClInclude Include="MnGus.h" />
+    <ClInclude Include="MnGusAnimatorCntrl.h" />
+    <ClInclude Include="MnGusBehaviorTree.h" />
+    <ClInclude Include="MnMove2Target.h" />
+    <ClInclude Include="MnGusRender.h" />
     <ClInclude Include="MnIsBirth.h" />
     <ClInclude Include="MnIsCharged.h" />
     <ClInclude Include="MnIsPregMent.h" />
@@ -292,6 +297,7 @@
     <ClInclude Include="MnNikoBehaviorTree.h" />
     <ClInclude Include="MnMove2Coin.h" />
     <ClInclude Include="MnTurn2Food.h" />
+    <ClInclude Include="MnTurn2Target.h" />
     <ClInclude Include="MnUltravore.h" />
     <ClInclude Include="MnUltravoreAnimationCntrl.h" />
     <ClInclude Include="MnUltravoreBehaviorTree.h" />
@@ -313,6 +319,11 @@
     <ClInclude Include="MnZorfAnimationCntrl.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnGusAnimatorCntrl.cpp" />
+    <ClCompile Include="MnMove2Target.cpp" />
+    <ClCompile Include="MnGusBehaviorTree.cpp" />
+    <ClCompile Include="MnGusRender.cpp" />
+    <ClCompile Include="MnGus.cpp" />
     <ClCompile Include="MnGetCharge.cpp" />
     <ClCompile Include="MnIsCharged.cpp" />
     <ClCompile Include="MnAmpAnimationCntrl.cpp" />
@@ -458,6 +469,7 @@
     <ClCompile Include="MnSparkEffect.cpp" />
     <ClCompile Include="MnSparkRender.cpp" />
     <ClCompile Include="MnSparkScript.cpp" />
+    <ClCompile Include="MnTurn2Target.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />
