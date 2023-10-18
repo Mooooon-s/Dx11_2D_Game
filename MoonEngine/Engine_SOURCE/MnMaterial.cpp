@@ -20,6 +20,8 @@ namespace Mn
 	{
 		if (_Texture)
 			_Texture->BindShaderResource(eShaderStage::PS, 0);
+		if (_TextureAlpha)
+			_TextureAlpha->BindShaderResource(eShaderStage::PS, 17);
 		if (_Shader)
 			_Shader->binds();
 	}

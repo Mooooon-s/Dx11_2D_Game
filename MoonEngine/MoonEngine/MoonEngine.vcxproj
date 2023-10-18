@@ -179,6 +179,7 @@
     <ClInclude Include="MnEggCrackButton.h" />
     <ClInclude Include="MnEggCrackEvent.h" />
     <ClInclude Include="MnEggCrackPanel.h" />
+    <ClInclude Include="MnEndingScene.h" />
     <ClInclude Include="MnFindCaniboar.h" />
     <ClInclude Include="MnFoodIcon.h" />
     <ClInclude Include="MnFoodLevelIcon.h" />
@@ -326,6 +327,7 @@
     <ClInclude Include="MnCreateIcon.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnEndingScene.cpp" />
     <ClCompile Include="MnAmpIcon.cpp" />
     <ClCompile Include="MnEggCrack.cpp" />
     <ClCompile Include="MnGusAnimatorCntrl.cpp" />

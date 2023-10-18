@@ -3,6 +3,9 @@
 #include "MnCameraScript.h"
 #include "MnRenderer.h"
 
+#include "MnCreateIcon.h"
+#include "MnGuppyIcon.h"
+
 
 namespace Mn
 {
@@ -19,11 +22,15 @@ namespace Mn
 		AddGameObject(eLayerType::BackGround, titleScene);
 		MeshRenderer* tmr = titleScene->AddComponent<MeshRenderer>();
 		tmr->SetMesh(Resources::Find<Mesh>(L"RectMesh"));
-		tmr->SetMaterial(Resources::Find<Material>(L"TitleMaterial"));
+		tmr->SetMaterial(Resources::Find<Material>(L"EndingSceneMaterial"));
 		tmr->GetMaterial()->CalcurateRatio();
 		Vector2 v = tmr->GetMaterial()->GetTexture()->Raitio();
 		titleScene->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 2.0f));
-		titleScene->GetComponent<Transform>()->Scale(Vector3(v.x * 3.55, v.y * 3.55, 1.0f));
+		titleScene->GetComponent<Transform>()->Scale(Vector3(v.x * 5.0f, v.y * 3.55, 0.0f));
+
+
+		GameObject* icon = CreateIcon<GuppyIcon>(Vector3(0.0f,0.0f,-9.0f));
+		icon->Initialize();
 
 		//Main Camera
 		GameObject* camera = new GameObject();
@@ -31,7 +38,7 @@ namespace Mn
 		camera->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, -10.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		CameraScript* cs = camera->AddComponent<CameraScript>();
-		cameraComp->TurnLayerMask(eLayerType::UI, false);
+		cameraComp->TurnLayerMask(eLayerType::UI, true);
 		renderer::cameras.push_back(cameraComp);
 		renderer::mainCamera = cameraComp;
 

@@ -19,22 +19,17 @@ namespace Mn
 	{
 		std::shared_ptr<Mesh> mesh = Resources::Find<Mesh>(L"PointMesh");
 		SetMesh(mesh);
-
 		std::shared_ptr<Material> material = Resources::Find<Material>(L"ParticleMaterial");
 		SetMaterial(material);
-
 		_CS = Resources::Find<ParticleShader>(L"ParticleSystemShader");
-
 		Particle particles[1000] = {};
 		for (size_t i = 0; i < 1000; i++)
 		{
-
 			std::random_device rd;
 			std::mt19937 gen(rd());
 			std::uniform_real_distribution<> dis(0.0, 2.0);
 			std::uniform_real_distribution<> ac(0.0, 1.0);
 			std::uniform_real_distribution<> t(0.0, 4.0);
-
 
 			Vector4 pos = Vector4::Zero;
 
@@ -46,10 +41,10 @@ namespace Mn
 			particles[i].position = pos;
 			particles[i].speed = (float)dis(gen);
 
-			if(ac(gen)<0.05)
-				particles[i].active = 1;
-			else
-				particles[i].active = 0;
+			//if(ac(gen)<0.05)
+			//	particles[i].active = 1;
+			//else
+			particles[i].active = 0;
 
 			particles[i].endTime= (float)t(gen);
 			particles[i].time = 0;
@@ -59,7 +54,6 @@ namespace Mn
 		_Buffer->Create(sizeof(Particle), 1000, eViewType::UAV,particles);
 		_SharedBuffer = new graphics::StructedBuffer();
 		_SharedBuffer->Create(sizeof(ParticleShared), 1, eViewType::UAV, nullptr, true);
-
 	}
 	ParticleSystem::~ParticleSystem()
 	{
@@ -97,7 +91,6 @@ namespace Mn
 			shareData.sharedActiveCount = 0;
 			_SharedBuffer->SetData(&shareData, 1);
 		}
-
 
 		_CS->SetParticleBuffer(_Buffer);
 		_CS->SetSharedBuffer(_SharedBuffer);

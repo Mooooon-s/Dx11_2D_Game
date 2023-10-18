@@ -11,6 +11,7 @@ namespace Mn::graphics
 	private:
 		std::shared_ptr <Shader> _Shader;
 		std::shared_ptr <Texture> _Texture;
+		std::shared_ptr<Texture> _TextureAlpha;
 		eRenderingMode _Mode;
 	public:
 		Material();
@@ -25,6 +26,7 @@ namespace Mn::graphics
 	public:
 		void Shader(std::shared_ptr<Shader> shader) { _Shader = shader; }
 		void SetTexture(std::shared_ptr <Texture> mesh) { _Texture = mesh; }
+		void SetTextureAlpha(std::shared_ptr <Texture> meshalpha) { _TextureAlpha = meshalpha; }
 		void RenderingMode(eRenderingMode mode) { _Mode = mode; }
 
 		eRenderingMode RenderingMode() { return _Mode; }

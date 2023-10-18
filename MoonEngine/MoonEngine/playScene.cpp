@@ -143,12 +143,12 @@ namespace Mn
 		WaterWave* WW = object::Instantiate<WaterWave>(eLayerType::UI);
 		WW->Initialize();
 
-		//GameObject* particle = new GameObject();
-		//particle->SetName(L"Particle");
-		//AddGameObject(eLayerType::Particle, particle);
-		//ParticleSystem* mr = particle->AddComponent<ParticleSystem>();
-		//particle->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 1.0f));
-		//particle->GetComponent<Transform>()->Scale(Vector3(0.2f, 0.2f, 0.2f));
+		GameObject* particle = new GameObject();
+		particle->SetName(L"Particle");
+		AddGameObject(eLayerType::Particle, particle);
+		ParticleSystem* mr = particle->AddComponent<ParticleSystem>();
+		particle->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, -8.0f));
+		particle->GetComponent<Transform>()->Scale(Vector3(0.2f, 0.2f, 0.2f));
 
 		GameObject* light = new GameObject();
 		light->SetName(L"Light");

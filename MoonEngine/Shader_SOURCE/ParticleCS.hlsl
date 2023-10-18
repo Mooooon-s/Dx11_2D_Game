@@ -48,10 +48,14 @@ void main(uint3 DTid : SV_DispatchThreadID)
                 , GaussianBlur(vUV + float2(0.3f, 0.f)).x
             );
             
-            ParticleBuffer[DTid.x].position.xyz = vRandom.xyz * 3.0f;
+            float3 randomDirection = float3(vRandom.x * 1.0f, abs(vRandom.y) * -1.0f , vRandom.z * 4.0f);
+            
+            ParticleBuffer[DTid.x].position.xyz = vRandom.xyz * 1.0f;
             ParticleBuffer[DTid.x].position.x -= 0.65f;
             ParticleBuffer[DTid.x].position.y -= 1.5f;
             ParticleBuffer[DTid.x].position.z = 0.0f;
+            ParticleBuffer[DTid.x].direction.xzy = normalize(randomDirection);
+
         }
     }
     else
@@ -63,7 +67,6 @@ void main(uint3 DTid : SV_DispatchThreadID)
         {
             ParticleBuffer[DTid.x].active = 0;
             ParticleBuffer[DTid.x].time = 0;
-
         }
             
         // 시간을 체크해서 일정 시간(랜덤)이 지나면

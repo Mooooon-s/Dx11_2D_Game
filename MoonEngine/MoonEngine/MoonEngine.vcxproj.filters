@@ -459,12 +459,27 @@
     <ClInclude Include="MnUltravoreIcon.h">
       <Filter>Contents\Icon\Ultravore</Filter>
     </ClInclude>
-    <ClInclude Include="MnNikoIcon.h" />
-    <ClInclude Include="MnEggCrack.h" />
-    <ClInclude Include="MnStinkyIcon.h" />
-    <ClInclude Include="MnZorfIcon.h" />
-    <ClInclude Include="MnPregoIcon.h" />
-    <ClInclude Include="MnAmpIcon.h" />
+    <ClInclude Include="MnEndingScene.h">
+      <Filter>Contents\Scene\Ending</Filter>
+    </ClInclude>
+    <ClInclude Include="MnAmpIcon.h">
+      <Filter>Contents\Icon\amp</Filter>
+    </ClInclude>
+    <ClInclude Include="MnNikoIcon.h">
+      <Filter>Contents\Icon\Niko</Filter>
+    </ClInclude>
+    <ClInclude Include="MnPregoIcon.h">
+      <Filter>Contents\Icon\prego</Filter>
+    </ClInclude>
+    <ClInclude Include="MnStinkyIcon.h">
+      <Filter>Contents\Icon\Stinky</Filter>
+    </ClInclude>
+    <ClInclude Include="MnZorfIcon.h">
+      <Filter>Contents\Icon\zorf</Filter>
+    </ClInclude>
+    <ClInclude Include="MnEggCrack.h">
+      <Filter>Contents\EggCrack</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -918,12 +933,27 @@
     <ClCompile Include="MnUltravoreIcon.cpp">
       <Filter>Contents\Icon\Ultravore</Filter>
     </ClCompile>
-    <ClCompile Include="MnNikoIcon.cpp" />
-    <ClCompile Include="MnEggCrack.cpp" />
-    <ClCompile Include="MnStinkyIcon.cpp" />
-    <ClCompile Include="MnZorfIcon.cpp" />
-    <ClCompile Include="MnPregoIcon.cpp" />
-    <ClCompile Include="MnAmpIcon.cpp" />
+    <ClCompile Include="MnEndingScene.cpp">
+      <Filter>Contents\Scene\Ending</Filter>
+    </ClCompile>
+    <ClCompile Include="MnAmpIcon.cpp">
+      <Filter>Contents\Icon\amp</Filter>
+    </ClCompile>
+    <ClCompile Include="MnNikoIcon.cpp">
+      <Filter>Contents\Icon\Niko</Filter>
+    </ClCompile>
+    <ClCompile Include="MnPregoIcon.cpp">
+      <Filter>Contents\Icon\prego</Filter>
+    </ClCompile>
+    <ClCompile Include="MnStinkyIcon.cpp">
+      <Filter>Contents\Icon\Stinky</Filter>
+    </ClCompile>
+    <ClCompile Include="MnZorfIcon.cpp">
+      <Filter>Contents\Icon\zorf</Filter>
+    </ClCompile>
+    <ClCompile Include="MnEggCrack.cpp">
+      <Filter>Contents\EggCrack</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -1276,6 +1306,27 @@
     </Filter>
     <Filter Include="Contents\Icon\Ultravore">
       <UniqueIdentifier>{9c0ecced-386f-42ba-99b6-7dfe8b159fd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scene\Ending">
+      <UniqueIdentifier>{f78a9bef-e469-41cd-95d5-605172925e71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Icon\amp">
+      <UniqueIdentifier>{eb900e67-c65f-4284-b868-21985b079580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Icon\Niko">
+      <UniqueIdentifier>{46973977-e41d-42bd-b62c-c6c5c96b8c53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Icon\prego">
+      <UniqueIdentifier>{ac40be1a-9623-4eb1-925d-a4ace16f4887}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Icon\Stinky">
+      <UniqueIdentifier>{7ebf81e9-4266-4826-9dbe-9d86234d40cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Icon\zorf">
+      <UniqueIdentifier>{9df4e775-80ec-40b1-8067-b725d2ad3e3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\EggCrack">
+      <UniqueIdentifier>{c8f22ff9-192f-49a6-bb70-cd12d88bba88}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -573,6 +573,9 @@ namespace renderer
 		std::shared_ptr<Mn::graphics::Texture> EggCrackTex;
 		EggCrackTex = Resources::Load<Mn::graphics::Texture>(L"EggCrackTex", L"..\\Resources\\Texture\\UI\\panel\\hatchscreen.jpg");
 
+		std::shared_ptr<Mn::graphics::Texture> EndingTex;
+		EndingTex = Resources::Load<Mn::graphics::Texture>(L"EndingTex", L"..\\Resources\\Texture\\EndingScene.jpg");
+
 
 		std::shared_ptr<Mn::graphics::Texture> StageBackGround[6];
 		StageBackGround[0] = Resources::Load<Mn::graphics::Texture>(L"Stage_1_BackGround", L"..\\Resources\\Texture\\BackGround\\aquarium1.jpg");
@@ -640,6 +643,12 @@ namespace renderer
 		EggCrackMaterial->RenderingMode(eRenderingMode::Opaque);
 		Mn::Resources::Insert(L"EggCrackPanel", EggCrackMaterial);
 
+		std::shared_ptr<Material> EndingMaterial = std::make_shared<Material>();
+		EndingMaterial->SetTexture(EndingTex);
+		EndingMaterial->Shader(backgroundShader);
+		EndingMaterial->RenderingMode(eRenderingMode::Opaque);
+		Mn::Resources::Insert(L"EndingSceneMaterial", EndingMaterial);
+
 		//---------------------------------------------------------------------------------------------------------------------------------------
 		//
 		//																GUI
@@ -684,16 +693,19 @@ namespace renderer
 		Resources::Insert(L"DebugMaterial", material);
 
 
+		std::shared_ptr<Mn::graphics::Texture> bubbleTex = std::make_shared<Mn::graphics::Texture>();
+		bubbleTex = Resources::Load<Mn::graphics::Texture>(L"BubbleTex", L"..\\Resources\\Texture\\bubbles.jpg");
 
-		spriteShader
-			= Resources::Find<Shader>(L"ParticleShader");
+		spriteShader = Resources::Find<Shader>(L"ParticleShader");
 		material = std::make_shared<Material>();
 		material->Shader(spriteShader);
 		material->RenderingMode(eRenderingMode::Transparent);
-		std::shared_ptr<Texture> particleTex
-			= Resources::Find<Texture>(L"Bubble");
-		material->SetTexture(particleTex);
+		std::shared_ptr<Texture> particleTex = Resources::Find<Texture>(L"Bubble");
+		material->SetTexture(bubbleTex);
+		material->SetTextureAlpha(bubbleTex);
 		Resources::Insert(L"ParticleMaterial", material);
+
+
 
 	}
 

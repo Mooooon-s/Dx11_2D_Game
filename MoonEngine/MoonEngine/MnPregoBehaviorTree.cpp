@@ -4,8 +4,6 @@
 #include "MnMeshRenderer.h"
 #include "MnGameObject.h"
 
-
-
 #include "MnSequence.h"
 #include "MnSelector.h"
 #include "MnInverter.h"
@@ -72,7 +70,6 @@ namespace Mn
 		Sequence* pregMentSequence = selector->AddChild<Sequence>();
 		IsPregMent* ispregment = pregMentSequence->AddChild<IsPregMent>();
 		IsBirth* isbirth = pregMentSequence->AddChild<IsBirth>();
-		//BirthGuppy* birthguppy = pregMentSequence->AddChild<BirthGuppy>();
 
 		Sequence* swimSequence = selector->AddChild<Sequence>();
 		Succeeder* turnSucceder = swimSequence->AddChild<Succeeder>();
