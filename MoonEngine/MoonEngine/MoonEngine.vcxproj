@@ -168,12 +168,14 @@
     <ClInclude Include="MnAmp.h" />
     <ClInclude Include="MnAmpAnimationCntrl.h" />
     <ClInclude Include="MnAmpBehaviorTree.h" />
+    <ClInclude Include="MnAmpIcon.h" />
     <ClInclude Include="MnAmpRender.h" />
     <ClInclude Include="MnBirthGuppy.h" />
     <ClInclude Include="MnCaniboarIcon.h" />
     <ClInclude Include="MnChomp.h" />
     <ClInclude Include="MnDetectBoss.h" />
     <ClInclude Include="MnDropTresure.h" />
+    <ClInclude Include="MnEggCrack.h" />
     <ClInclude Include="MnEggCrackButton.h" />
     <ClInclude Include="MnEggCrackEvent.h" />
     <ClInclude Include="MnEggCrackPanel.h" />
@@ -262,6 +264,7 @@
     <ClInclude Include="MnMove2Fish.h" />
     <ClInclude Include="MnMove2Food.h" />
     <ClInclude Include="MnNiko.h" />
+    <ClInclude Include="MnNikoIcon.h" />
     <ClInclude Include="MnNikoRenderer.h" />
     <ClInclude Include="MnNikoScript.h" />
     <ClInclude Include="MnPearl.h" />
@@ -270,6 +273,7 @@
     <ClInclude Include="MnPrego.h" />
     <ClInclude Include="MnPregoAnimationCntrl.h" />
     <ClInclude Include="MnPregoBehaviorTree.h" />
+    <ClInclude Include="MnPregoIcon.h" />
     <ClInclude Include="MnPregoRnder.h" />
     <ClInclude Include="MnShockWave.h" />
     <ClInclude Include="MnSparkEffect.h" />
@@ -282,6 +286,7 @@
     <ClInclude Include="MnStinky.h" />
     <ClInclude Include="MnStinkyBehaviorTree.h" />
     <ClInclude Include="MnStinkyHide.h" />
+    <ClInclude Include="MnStinkyIcon.h" />
     <ClInclude Include="MnStinkyRenderScript.h" />
     <ClInclude Include="MnStinkyScript.h" />
     <ClInclude Include="MnSwim.h" />
@@ -313,12 +318,16 @@
     <ClInclude Include="MnZorfBehaviorTree.h" />
     <ClInclude Include="MnZorfFeedDone.h" />
     <ClInclude Include="MnZorfFeedFood.h" />
+    <ClInclude Include="MnZorfIcon.h" />
     <ClInclude Include="MnZorfRender.h" />
     <ClInclude Include="playScene.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="MnZorfAnimationCntrl.h" />
+    <ClInclude Include="MnCreateIcon.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnAmpIcon.cpp" />
+    <ClCompile Include="MnEggCrack.cpp" />
     <ClCompile Include="MnGusAnimatorCntrl.cpp" />
     <ClCompile Include="MnMove2Target.cpp" />
     <ClCompile Include="MnGusBehaviorTree.cpp" />
@@ -430,6 +439,7 @@
     <ClCompile Include="MnMove2Boss.cpp" />
     <ClCompile Include="MnPlayButton.cpp" />
     <ClCompile Include="MnStartButtonRender.cpp" />
+    <ClCompile Include="MnNikoIcon.cpp" />
     <ClCompile Include="playScene.cpp" />
     <ClCompile Include="MnStinky.cpp" />
     <ClCompile Include="MnStinkyScript.cpp" />
@@ -470,6 +480,9 @@
     <ClCompile Include="MnSparkRender.cpp" />
     <ClCompile Include="MnSparkScript.cpp" />
     <ClCompile Include="MnTurn2Target.cpp" />
+    <ClCompile Include="MnStinkyIcon.cpp" />
+    <ClCompile Include="MnZorfIcon.cpp" />
+    <ClCompile Include="MnPregoIcon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />

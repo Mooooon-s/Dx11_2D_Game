@@ -13,6 +13,8 @@
 #include "MnInGameButton.h"
 #include "MnMoney.h"
 
+#include "MnEggCrackEvent.h"
+
 namespace Mn
 {
 	EventManager::EventManager()
@@ -22,7 +24,8 @@ namespace Mn
 		, _BarSlotCount()
 		, _FoodLevel(nullptr)
 		, _FoodCount(nullptr)
-		, _EggStack(1)
+		, _EggStack(0)
+		, _Level(1)
 	{
 	}
 	EventManager::~EventManager()
@@ -33,26 +36,6 @@ namespace Mn
 		_BarSlotCount.resize(7,(float)0.00001f);
 		_BarSlotCount[(UINT)eIcon::Caniboar] = (float)eIcon::Caniboar+0.0001;
 		_BarSlotCount[(UINT)eIcon::Ultravore] = (float)eIcon::Ultravore+0.0001;
-
-		InGameButton* IGBGuppy = object::Instantiate<InGameButton>(Vector3(-2.035f, 1.56f, -0.001f), eLayerType::UI);
-		IGBGuppy->SetIcon(eIcon::Guppy);
-		IGBGuppy->Initialize();
-
-		_EggButton = object::Instantiate<InGameButton>(Vector3(1.085f, 1.56f, -0.001f), eLayerType::UI);
-		_EggButton->SetIcon(eIcon::Egg);
-		_EggButton->Initialize();
-
-		//_FoodLevel = object::Instantiate<InGameButton>(Vector3(-1.525f, 1.56f, -0.001f), eLayerType::UI);
-		//_FoodLevel->SetIcon(eIcon::Food);
-		//_FoodLevel->Initialize();
-
-		//_FoodCount = object::Instantiate<InGameButton>(Vector3(-1.1f, 1.56f, -0.001f), eLayerType::UI);
-		//_FoodCount->SetIcon(eIcon::FoodCount);
-		//_FoodCount->Initialize();
-
-		//_CaniboarButton = object::Instantiate<InGameButton>(Vector3(-0.55, 1.56, -0.001f), eLayerType::UI);
-		//_CaniboarButton->SetIcon(eIcon::Ultravore);
-		//_CaniboarButton->Initialize();
 	}
 	void EventManager::Update()
 	{
@@ -198,6 +181,15 @@ namespace Mn
 			{
 				if (dynamic_cast<Guppy*>(obj)->FishLevel() == 3)
 				{
+
+					InGameButton* IGBGuppy = object::Instantiate<InGameButton>(Vector3(-2.035f, 1.56f, -0.001f), eLayerType::UI);
+					IGBGuppy->SetIcon(eIcon::Guppy);
+					IGBGuppy->Initialize();
+
+					_EggButton = object::Instantiate<InGameButton>(Vector3(1.085f, 1.56f, -0.001f), eLayerType::UI);
+					_EggButton->SetIcon(eIcon::Egg);
+					_EggButton->Initialize();
+
 					_FoodLevel = object::Instantiate<InGameButton>(Vector3(-1.525f, 1.56f, -0.001f), eLayerType::UI);
 					_FoodLevel->SetIcon(eIcon::Food);
 					_FoodLevel->Initialize();
@@ -245,6 +237,40 @@ namespace Mn
 		if(_EggFlag==0)
 			_EggFlag++;
 		_EggButton->OnClick();
+		if (_EggStack < 3)
+			_EggStack++;
+		else
+			_EggStack = 1;
+		EggCrack();
+	}
+	void EventManager::EggCrack()
+	{
+		if (_EggStack % 3 == 0 && _EggStack!=0 && _Level<=5)
+		{
+			EggCrackEvent* ECE = object::Instantiate<EggCrackEvent>(Vector3(0.0f, 0.0f, -9.0f), eLayerType::UI);
+			switch (_Level)
+			{
+			case 1:
+				ECE->SetIcon(eIcon::Niko);
+				break;
+			case 2:
+				ECE->SetIcon(eIcon::Stinky);
+				break;
+			case 3:
+				ECE->SetIcon(eIcon::Zorf);
+				break;
+			case 4:
+				ECE->SetIcon(eIcon::Prego);
+				break;
+			case 5:
+				ECE->SetIcon(eIcon::Amp);
+				break;
+			default:
+				break;
+			}
+			ECE->Initialize();
+			_Level++;
+		}
 	}
 	float EventManager::Random()
 	{

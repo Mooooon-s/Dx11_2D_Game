@@ -131,6 +131,11 @@ namespace Mn::enums
 		Ultravore,
 		Weapon,
 		Egg,
+		Niko,
+		Stinky,
+		Zorf,
+		Prego,
+		Amp,
 		End,
 	};
 

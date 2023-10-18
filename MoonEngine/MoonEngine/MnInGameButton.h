@@ -21,13 +21,6 @@ namespace Mn
 		eIcon GetIcon() { return _Icon; }
 	public:
 		void Icon(Vector3 pos);
-	public:
-		template <typename T>
-		T* CreateIcon(Vector3 pos)
-		{
-			T* icon = object::Instantiate<T>(pos, eLayerType::UI);
-			return icon;
-		}
 	private:
 		eIcon _Icon;
 		GameObject* _IconObject;

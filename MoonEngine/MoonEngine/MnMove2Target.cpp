@@ -34,6 +34,7 @@ namespace Mn
 		Vector3 foodPos = _BlackBoard->GetDataValue<Vector3>(L"Food_Pos");
 
 		Vector3 MoveVec = foodPos - Pos;
+		MoveVec.z = 0.0f;
 		MoveVec.Normalize();
 		Pos += MoveVec * moveSpeed * Time::DeltaTime();
 		Transform* tr = owner->GetComponent<Transform>();

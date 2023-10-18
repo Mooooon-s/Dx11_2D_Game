@@ -10,6 +10,7 @@
 #include "playScene.h"
 #include "MnTitleScene.h"
 #include "MnMenuScene.h"
+#include "MnEndingScene.h"
 
 namespace Mn
 {
@@ -18,5 +19,6 @@ namespace Mn
 		SceneManager::CreateScene<playScene>(L"PlayScene");
 		SceneManager::CreateScene<MenuScene>(L"MenuScene");
 		SceneManager::CreateScene<TitleScene>(L"TitleScene");
+		SceneManager::CreateScene<EndingScene>(L"EndingScene");
 	}
 }

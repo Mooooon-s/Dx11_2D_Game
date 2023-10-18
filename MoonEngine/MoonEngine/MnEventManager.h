@@ -26,6 +26,7 @@ namespace Mn
 		bool MoneyCheck(int money);
 		void BuyEggOnce();
 		void BuyEgg();
+		void EggCrack();
 	private:
 		std::vector<float> _BarSlotCount;
 		float _Time;
@@ -33,6 +34,7 @@ namespace Mn
 		int _BossStack;
 		int _EggFlag;
 		int _EggStack;
+		int _Level;
 		InGameButton* _FoodLevel;
 		InGameButton* _FoodCount;
 		InGameButton* _CaniboarButton;

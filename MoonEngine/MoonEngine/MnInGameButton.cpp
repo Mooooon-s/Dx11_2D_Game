@@ -3,6 +3,7 @@
 #include "MnButtonPanel.h"
 #include "MnPriceTag.h"
 #include "MnObject.h"
+#include "MnCreateIcon.h"
 
 
 #include "MnGuppyIcon.h"

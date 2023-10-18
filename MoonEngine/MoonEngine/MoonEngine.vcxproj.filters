@@ -186,12 +186,6 @@
     <ClInclude Include="MnInGameButton.h">
       <Filter>Contents\Button\InGameButton</Filter>
     </ClInclude>
-    <ClInclude Include="MnEggIcon.h">
-      <Filter>Contents\Icon</Filter>
-    </ClInclude>
-    <ClInclude Include="MnGuppyIcon.h">
-      <Filter>Contents\Icon</Filter>
-    </ClInclude>
     <ClInclude Include="MnCaniboar.h">
       <Filter>Contents\Fish\Caniboar</Filter>
     </ClInclude>
@@ -327,20 +321,8 @@
     <ClInclude Include="MnHungryStack.h">
       <Filter>Contents\LeafNode\Common\HungryStack</Filter>
     </ClInclude>
-    <ClInclude Include="MnFoodIcon.h">
-      <Filter>Contents\Icon</Filter>
-    </ClInclude>
-    <ClInclude Include="MnCaniboarIcon.h">
-      <Filter>Contents\Icon</Filter>
-    </ClInclude>
     <ClInclude Include="MnPriceTag.h">
       <Filter>Contents\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="MnFoodLevelIcon.h">
-      <Filter>Contents\Icon</Filter>
-    </ClInclude>
-    <ClInclude Include="MnUltravoreIcon.h">
-      <Filter>Contents\Icon</Filter>
     </ClInclude>
     <ClInclude Include="MnPlayButton.h">
       <Filter>Contents\Button\MenuButton</Filter>
@@ -441,11 +423,48 @@
     <ClInclude Include="MnGus.h">
       <Filter>Contents\BossMonster\Gus</Filter>
     </ClInclude>
-    <ClInclude Include="MnGusRender.h" />
-    <ClInclude Include="MnGusBehaviorTree.h" />
-    <ClInclude Include="MnMove2Target.h" />
-    <ClInclude Include="MnGusAnimatorCntrl.h" />
-    <ClInclude Include="MnTurn2Target.h" />
+    <ClInclude Include="MnGusAnimatorCntrl.h">
+      <Filter>Contents\Scripts\BossMonster\GusScript</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGusRender.h">
+      <Filter>Contents\Scripts\BossMonster\GusScript</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGusBehaviorTree.h">
+      <Filter>Contents\Scripts\BossMonster\GusScript</Filter>
+    </ClInclude>
+    <ClInclude Include="MnTurn2Target.h">
+      <Filter>Contents\LeafNode\Gus</Filter>
+    </ClInclude>
+    <ClInclude Include="MnMove2Target.h">
+      <Filter>Contents\LeafNode\Gus</Filter>
+    </ClInclude>
+    <ClInclude Include="MnCreateIcon.h">
+      <Filter>Contents\Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="MnCaniboarIcon.h">
+      <Filter>Contents\Icon\Caniboar</Filter>
+    </ClInclude>
+    <ClInclude Include="MnGuppyIcon.h">
+      <Filter>Contents\Icon\Guppy</Filter>
+    </ClInclude>
+    <ClInclude Include="MnFoodIcon.h">
+      <Filter>Contents\Icon\Food</Filter>
+    </ClInclude>
+    <ClInclude Include="MnFoodLevelIcon.h">
+      <Filter>Contents\Icon\Food</Filter>
+    </ClInclude>
+    <ClInclude Include="MnEggIcon.h">
+      <Filter>Contents\Icon\Egg</Filter>
+    </ClInclude>
+    <ClInclude Include="MnUltravoreIcon.h">
+      <Filter>Contents\Icon\Ultravore</Filter>
+    </ClInclude>
+    <ClInclude Include="MnNikoIcon.h" />
+    <ClInclude Include="MnEggCrack.h" />
+    <ClInclude Include="MnStinkyIcon.h" />
+    <ClInclude Include="MnZorfIcon.h" />
+    <ClInclude Include="MnPregoIcon.h" />
+    <ClInclude Include="MnAmpIcon.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -632,12 +651,6 @@
     <ClCompile Include="MnInGameButton.cpp">
       <Filter>Contents\Button\InGameButton</Filter>
     </ClCompile>
-    <ClCompile Include="MnEggIcon.cpp">
-      <Filter>Contents\Icon</Filter>
-    </ClCompile>
-    <ClCompile Include="MnGuppyIcon.cpp">
-      <Filter>Contents\Icon</Filter>
-    </ClCompile>
     <ClCompile Include="MnCaniboar.cpp">
       <Filter>Contents\Fish\Caniboar</Filter>
     </ClCompile>
@@ -770,20 +783,8 @@
     <ClCompile Include="MnHungryStack.cpp">
       <Filter>Contents\LeafNode\Common\HungryStack</Filter>
     </ClCompile>
-    <ClCompile Include="MnFoodIcon.cpp">
-      <Filter>Contents\Icon</Filter>
-    </ClCompile>
-    <ClCompile Include="MnCaniboarIcon.cpp">
-      <Filter>Contents\Icon</Filter>
-    </ClCompile>
     <ClCompile Include="MnPriceTag.cpp">
       <Filter>Contents\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="MnFoodLevelIcon.cpp">
-      <Filter>Contents\Icon</Filter>
-    </ClCompile>
-    <ClCompile Include="MnUltravoreIcon.cpp">
-      <Filter>Contents\Icon</Filter>
     </ClCompile>
     <ClCompile Include="MnPlayButton.cpp">
       <Filter>Contents\Button\MenuButton</Filter>
@@ -881,14 +882,48 @@
     <ClCompile Include="MnSparkScript.cpp">
       <Filter>Contents\Scripts\etc\Sparks</Filter>
     </ClCompile>
+    <ClCompile Include="MnGusAnimatorCntrl.cpp">
+      <Filter>Contents\Scripts\BossMonster\GusScript</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGusRender.cpp">
+      <Filter>Contents\Scripts\BossMonster\GusScript</Filter>
+    </ClCompile>
     <ClCompile Include="MnGus.cpp">
       <Filter>Contents\BossMonster\Gus</Filter>
     </ClCompile>
-    <ClCompile Include="MnGusRender.cpp" />
-    <ClCompile Include="MnGusBehaviorTree.cpp" />
-    <ClCompile Include="MnMove2Target.cpp" />
-    <ClCompile Include="MnGusAnimatorCntrl.cpp" />
-    <ClCompile Include="MnTurn2Target.cpp" />
+    <ClCompile Include="MnGusBehaviorTree.cpp">
+      <Filter>Contents\Scripts\BossMonster\GusScript</Filter>
+    </ClCompile>
+    <ClCompile Include="MnTurn2Target.cpp">
+      <Filter>Contents\LeafNode\Gus</Filter>
+    </ClCompile>
+    <ClCompile Include="MnMove2Target.cpp">
+      <Filter>Contents\LeafNode\Gus</Filter>
+    </ClCompile>
+    <ClCompile Include="MnCaniboarIcon.cpp">
+      <Filter>Contents\Icon\Caniboar</Filter>
+    </ClCompile>
+    <ClCompile Include="MnGuppyIcon.cpp">
+      <Filter>Contents\Icon\Guppy</Filter>
+    </ClCompile>
+    <ClCompile Include="MnFoodIcon.cpp">
+      <Filter>Contents\Icon\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="MnFoodLevelIcon.cpp">
+      <Filter>Contents\Icon\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="MnEggIcon.cpp">
+      <Filter>Contents\Icon\Egg</Filter>
+    </ClCompile>
+    <ClCompile Include="MnUltravoreIcon.cpp">
+      <Filter>Contents\Icon\Ultravore</Filter>
+    </ClCompile>
+    <ClCompile Include="MnNikoIcon.cpp" />
+    <ClCompile Include="MnEggCrack.cpp" />
+    <ClCompile Include="MnStinkyIcon.cpp" />
+    <ClCompile Include="MnZorfIcon.cpp" />
+    <ClCompile Include="MnPregoIcon.cpp" />
+    <ClCompile Include="MnAmpIcon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -1191,9 +1226,6 @@
     <Filter Include="Contents\Scripts\Fish\Ultrabore">
       <UniqueIdentifier>{e78b4473-02ca-4460-b537-f61f57f10de9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\Scripts\BossMonster\Gus">
-      <UniqueIdentifier>{8e16a594-d017-44e3-bc4f-2a3c40fd62a8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\Scripts\etc">
       <UniqueIdentifier>{6c37c300-919b-46b6-b307-562bbeb7915e}</UniqueIdentifier>
     </Filter>
@@ -1223,6 +1255,27 @@
     </Filter>
     <Filter Include="Contents\Scripts\etc\Sparks">
       <UniqueIdentifier>{580a07c1-ef91-4a33-ac99-f931637cfc4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scripts\BossMonster\GusScript">
+      <UniqueIdentifier>{8e16a594-d017-44e3-bc4f-2a3c40fd62a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\LeafNode\Gus">
+      <UniqueIdentifier>{29e1454e-c491-4f9b-b8d4-0cd48f93db26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Icon\Caniboar">
+      <UniqueIdentifier>{34befe12-946b-4e16-9a9b-7b60829c1da4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Icon\Guppy">
+      <UniqueIdentifier>{ad25264f-de51-467c-aaee-6803643b80ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Icon\Food">
+      <UniqueIdentifier>{ef7e7ed4-8820-45c1-8f4b-e30871f4dc74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Icon\Egg">
+      <UniqueIdentifier>{a6748635-c285-4424-b3cf-9097a8d904b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Icon\Ultravore">
+      <UniqueIdentifier>{9c0ecced-386f-42ba-99b6-7dfe8b159fd2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

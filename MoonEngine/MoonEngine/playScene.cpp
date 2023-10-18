@@ -36,20 +36,20 @@
 
 
 //Test
-#include "MnStinky.h"
-#include "MnNiko.h"
 #include "MnCaniboar.h"
 #include "MnDiamond.h"
+#include "MnStinky.h"
+#include "MnNiko.h"
 #include "MnZorf.h"
+#include "MnPrego.h"
+#include "MnAmp.h"
 #include "MnSylv.h"
 #include "MnUltravore.h"
 #include "MnWaterWave.h"
+#include "MnGus.h"
 #include "MnItchy.h"
 #include "MnChomp.h"
 #include "MnEggCrackEvent.h"
-#include "MnPrego.h"
-#include "MnAmp.h"
-#include "MnGus.h"
 
 namespace Mn
 {
@@ -104,11 +104,11 @@ namespace Mn
 		Guppy* guppy3 = object::Instantiate<Guppy>(Vector3(1.0f, 1.0f, 0.02f), eLayerType::Fish);
 		guppy3->Initialize();
 
-		Niko* niko = object::Instantiate<Niko>(Vector3(-1.4f, -0.4f, 100.0f), eLayerType::Pet);
-		niko->Initialize();
+		//Niko* niko = object::Instantiate<Niko>(Vector3(-1.4f, -0.4f, 100.0f), eLayerType::Pet);
+		//niko->Initialize();
 
-		Stinky* stinky = object::Instantiate<Stinky>(Vector3(0.0f, -1.2f, 100.1f), eLayerType::Pet);
-		stinky->Initialize();
+		//Stinky* stinky = object::Instantiate<Stinky>(Vector3(0.0f, -1.2f, 100.1f), eLayerType::Pet);
+		//stinky->Initialize();
 
 		Money* money = object::Instantiate<Money>(eLayerType::UI);
 		money->Initialize();
@@ -119,14 +119,14 @@ namespace Mn
 		TopBar* topbar = object::Instantiate<TopBar>(eLayerType::UI);
 		topbar->Initialize();
 
-		Zorf* zorf = object::Instantiate<Zorf>(Vector3(0.0f, 0.0f, 4.0f), eLayerType::Pet);
-		zorf->Initialize();
+		//Zorf* zorf = object::Instantiate<Zorf>(Vector3(0.0f, 0.0f, 4.0f), eLayerType::Pet);
+		//zorf->Initialize();
 
-		Prego* prego = object::Instantiate<Prego>(Vector3(0.0f, 0.0f, 6.0f), eLayerType::Pet);
-		prego->Initialize();
+		//Prego* prego = object::Instantiate<Prego>(Vector3(0.0f, 0.0f, 6.0f), eLayerType::Pet);
+		//prego->Initialize();
 
-		Amp* amp = object::Instantiate<Amp>(Vector3(0.0f, 1.0f, 7.0f), eLayerType::Pet);
-		amp->Initialize();
+		//Amp* amp = object::Instantiate<Amp>(Vector3(0.0f, 1.0f, 7.0f), eLayerType::Pet);
+		//amp->Initialize();
 
 		//Ultravore* ultravore = object::Instantiate<Ultravore>(Vector3(0.0f, 0.0f, 5.0f), eLayerType::Fish);
 		//ultravore->Initialize();
@@ -157,8 +157,6 @@ namespace Mn
 		lightComp->SetType(eLightType::Directional);
 		lightComp->SetColor(Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 		lightComp->SetScene(this->GetName());
-
-
 
 		EventManager* eventmanager = object::Instantiate<EventManager>(eLayerType::Manager);
 		eventmanager->Initialize();
