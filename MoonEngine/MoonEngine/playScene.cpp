@@ -146,8 +146,8 @@ namespace Mn
 		GameObject* particle = new GameObject();
 		particle->SetName(L"Particle");
 		AddGameObject(eLayerType::Particle, particle);
-		ParticleSystem* mr = particle->AddComponent<ParticleSystem>();
-		particle->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, -8.0f));
+		ParticleSystem* mr = particle->AddComponent<ParticleSystem>(Vector3(-0.95f, -1.76f, -8.0f));
+		particle->GetComponent<Transform>()->Position(Vector3(-0.95f, -1.76f, -8.0f));
 		particle->GetComponent<Transform>()->Scale(Vector3(0.2f, 0.2f, 0.2f));
 
 		GameObject* light = new GameObject();

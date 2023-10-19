@@ -50,10 +50,10 @@ void main(uint3 DTid : SV_DispatchThreadID)
             
             float3 randomDirection = float3(vRandom.x * 1.0f, abs(vRandom.y) * -1.0f , vRandom.z * 4.0f);
             
-            ParticleBuffer[DTid.x].position.xyz = vRandom.xyz * 1.0f;
+            ParticleBuffer[DTid.x].position.xy = ParticleSharedBuffer[0].position.xy + vRandom.xy * 1.0f;
             ParticleBuffer[DTid.x].position.x -= 0.65f;
-            ParticleBuffer[DTid.x].position.y -= 1.5f;
-            ParticleBuffer[DTid.x].position.z = 0.0f;
+            ParticleBuffer[DTid.x].position.y -= 0.5f;
+            ParticleBuffer[DTid.x].position.z = ParticleSharedBuffer[0].position.z-0.01f;
             ParticleBuffer[DTid.x].direction.xzy = normalize(randomDirection);
 
         }

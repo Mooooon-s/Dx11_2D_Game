@@ -16,13 +16,14 @@ namespace Mn
 		, _EndColor(Vector4::Zero)
 		, _LifeTime(0.0f)
 		, _Time(0.0f)
+		, _Pos(Vector4::Zero)
+		, _Particles{}
 	{
 		std::shared_ptr<Mesh> mesh = Resources::Find<Mesh>(L"PointMesh");
 		SetMesh(mesh);
 		std::shared_ptr<Material> material = Resources::Find<Material>(L"ParticleMaterial");
 		SetMaterial(material);
 		_CS = Resources::Find<ParticleShader>(L"ParticleSystemShader");
-		Particle particles[1000] = {};
 		for (size_t i = 0; i < 1000; i++)
 		{
 			std::random_device rd;
@@ -31,29 +32,68 @@ namespace Mn
 			std::uniform_real_distribution<> ac(0.0, 1.0);
 			std::uniform_real_distribution<> t(0.0, 4.0);
 
-			Vector4 pos = Vector4::Zero;
-
-			particles[i].direction =
+			_Particles[i].direction =
 				Vector4(cosf((float)i * (XM_2PI / (float)1000))
 					, sinf((float)i * (XM_2PI / 100.f))
 					, 0.0f, 1.0f);
 
-			particles[i].position = pos;
-			particles[i].speed = (float)dis(gen);
+			_Particles[i].position = _Pos;
+			_Particles[i].speed = (float)dis(gen);
+			_Particles[i].active = 0;
 
-			//if(ac(gen)<0.05)
-			//	particles[i].active = 1;
-			//else
-			particles[i].active = 0;
-
-			particles[i].endTime= (float)t(gen);
-			particles[i].time = 0;
+			_Particles[i].endTime= (float)t(gen);
+			_Particles[i].time = 0;
 		}
 
 		_Buffer = new graphics::StructedBuffer();
-		_Buffer->Create(sizeof(Particle), 1000, eViewType::UAV,particles);
+		_Buffer->Create(sizeof(Particle), 1000, eViewType::UAV, _Particles,true);
 		_SharedBuffer = new graphics::StructedBuffer();
 		_SharedBuffer->Create(sizeof(ParticleShared), 1, eViewType::UAV, nullptr, true);
+	}
+	ParticleSystem::ParticleSystem(Vector3 position)
+		: _Count(0)
+		, _StartSize(Vector4::One)
+		, _EndSize(Vector4::One)
+		, _StartColor(Vector4::Zero)
+		, _EndColor(Vector4::Zero)
+		, _LifeTime(0.0f)
+		, _Time(0.0f)
+		, _Pos(Vector4(position.x, position.y, position.z,0.0f))
+		, _Particles{}
+	{
+		std::shared_ptr<Mesh> mesh = Resources::Find<Mesh>(L"PointMesh");
+		SetMesh(mesh);
+		std::shared_ptr<Material> material = Resources::Find<Material>(L"ParticleMaterial");
+		SetMaterial(material);
+		_CS = Resources::Find<ParticleShader>(L"ParticleSystemShader");
+		for (size_t i = 0; i < 1000; i++)
+		{
+			std::random_device rd;
+			std::mt19937 gen(rd());
+			std::uniform_real_distribution<> dis(0.0, 2.0);
+			std::uniform_real_distribution<> ac(0.0, 1.0);
+			std::uniform_real_distribution<> t(0.0, 4.0);
+
+			//_Pos = Vector4(position.x, position.y, position.z,0.0f);
+
+			_Particles[i].direction =
+				Vector4(cosf((float)i * (XM_2PI / (float)1000))
+					, sinf((float)i * (XM_2PI / 100.f))
+					, 0.0f, 1.0f);
+
+			_Particles[i].position = _Pos;
+			_Particles[i].speed = (float)dis(gen);
+			_Particles[i].active = 0;
+
+			_Particles[i].endTime = (float)t(gen);
+			_Particles[i].time = 0;
+		}
+
+		_Buffer = new graphics::StructedBuffer();
+		_Buffer->Create(sizeof(Particle), 1000, eViewType::UAV, _Particles,true);
+		_SharedBuffer = new graphics::StructedBuffer();
+		_SharedBuffer->Create(sizeof(ParticleShared), 1, eViewType::UAV, nullptr, true);
+		int a = 0;
 	}
 	ParticleSystem::~ParticleSystem()
 	{
@@ -65,9 +105,11 @@ namespace Mn
 	}
 	void ParticleSystem::Update()
 	{
+	
 	}
 	void ParticleSystem::LateUpdate()
 	{
+
 		std::random_device rd;
 		std::mt19937 gen(rd());
 		std::uniform_real_distribution<> dis(0.0, 10.0);
@@ -77,18 +119,25 @@ namespace Mn
 
 		if (_Time > AliveTime)
 		{
+			//Transform* tr = GetOwner()->GetComponent<Transform>();
+			//Vector3 pos = tr->Position();
+			//_Pos = Vector4(pos.x, pos.y, pos.z, 0.0f);
+
+
 			float f = (_Time / AliveTime);
 			UINT AliveCount = (UINT)f;
 			_Time = f - floor(f);
 
 			ParticleShared shareData = {};
 			shareData.sharedActiveCount = (UINT)dis(gen);
+			shareData.position = _Pos;
 			_SharedBuffer->SetData(&shareData, 1);
 		}
 		else
 		{
 			ParticleShared shareData = {};
 			shareData.sharedActiveCount = 0;
+			shareData.position = _Pos;
 			_SharedBuffer->SetData(&shareData, 1);
 		}
 
@@ -104,8 +153,8 @@ namespace Mn
 		_Buffer->BindSRV(eShaderStage::PS, 15);
 
 		GetMaterial()->Binds();
+		GetMesh()->BindBuffer();
 		GetMesh()->RenderInstanced(1000);
-
 		_Buffer->Clear();
 	}
 }

@@ -104,6 +104,33 @@ namespace Mn
 			return comp;
 		}
 
+		template <typename T>
+		T* AddComponent(Vector3 position)
+		{
+			T* comp = new T(position);
+			if (dynamic_cast<MeshRenderer*>(comp))
+				int a = 0;
+			for (auto compon : _Components)
+			{
+				if (dynamic_cast<T*>(compon))
+					int a = 0;
+			}
+
+			Component* buff = dynamic_cast<Component*>(comp);
+			Script* script = dynamic_cast<Script*>(buff);
+
+			if (buff == nullptr)
+				return nullptr;
+
+			if (script == nullptr)
+				_Components.push_back(buff);
+			else
+				_Scripts.push_back(script);
+			comp->SetOwner(this);
+			//comp->Initialize();
+			return comp;
+		}
+
 	public:
 		void State(eState state) { _State = state; }
 		eState State() { return _State; }

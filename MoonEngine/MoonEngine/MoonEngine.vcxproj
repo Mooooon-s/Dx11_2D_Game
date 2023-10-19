@@ -171,6 +171,7 @@
     <ClInclude Include="MnAmpIcon.h" />
     <ClInclude Include="MnAmpRender.h" />
     <ClInclude Include="MnBirthGuppy.h" />
+    <ClInclude Include="MnBubbleParticle.h" />
     <ClInclude Include="MnCaniboarIcon.h" />
     <ClInclude Include="MnChomp.h" />
     <ClInclude Include="MnDetectBoss.h" />
@@ -327,6 +328,7 @@
     <ClInclude Include="MnCreateIcon.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MnBubbleParticle.cpp" />
     <ClCompile Include="MnEndingScene.cpp" />
     <ClCompile Include="MnAmpIcon.cpp" />
     <ClCompile Include="MnEggCrack.cpp" />

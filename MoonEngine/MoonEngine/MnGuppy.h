@@ -28,6 +28,7 @@ namespace Mn
 		void DropIntoTank();
 	private:
 		GuppyBehaviorTree* _GBT;
+		class BubbleParticle* _BP;
 		int _Flag;
 	};
 

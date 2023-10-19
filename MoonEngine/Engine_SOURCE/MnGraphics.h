@@ -154,5 +154,6 @@ namespace Mn::graphics
 	struct ParticleShared
 	{
 		UINT sharedActiveCount;
+		math::Vector4 position;
 	};
 }

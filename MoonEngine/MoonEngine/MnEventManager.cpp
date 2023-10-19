@@ -74,7 +74,7 @@ namespace Mn
 	}
 	void EventManager::Timer()
 	{
-		if (_Time / 30 >= 1.0f)
+		if (_Time / 60 >= 1.0f)
 		{
 			_BossStack++;
 			Event();

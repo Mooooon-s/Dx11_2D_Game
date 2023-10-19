@@ -480,6 +480,7 @@
     <ClInclude Include="MnEggCrack.h">
       <Filter>Contents\EggCrack</Filter>
     </ClInclude>
+    <ClInclude Include="MnBubbleParticle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -954,6 +955,7 @@
     <ClCompile Include="MnEggCrack.cpp">
       <Filter>Contents\EggCrack</Filter>
     </ClCompile>
+    <ClCompile Include="MnBubbleParticle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -1327,6 +1329,9 @@
     </Filter>
     <Filter Include="Contents\EggCrack">
       <UniqueIdentifier>{c8f22ff9-192f-49a6-bb70-cd12d88bba88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Particle">
+      <UniqueIdentifier>{530acb42-e067-4191-bade-67349cfbc155}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

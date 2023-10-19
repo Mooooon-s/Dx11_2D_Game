@@ -14,6 +14,8 @@
 
 #include "MnTime.h"
 
+#include "MnBubbleParticle.h"
+
 namespace Mn
 {
 	Guppy::Guppy()
@@ -32,9 +34,14 @@ namespace Mn
 		col->SetSize(Vector2(0.25f, 0.25f));
 
 		GuppyRender* GR = AddComponent<GuppyRender>();
-
 		_GBT = AddComponent<GuppyBehaviorTree>();
-
+		
+		if (_Flag != 2)
+		{
+			_BP = object::Instantiate<BubbleParticle>(tr->Position(), eLayerType::Particle);
+			_BP->SetTarget(this);
+			_BP->Initialize();
+		}
 		GameObject::Initialize();
 	}
 	void Guppy::Update()
@@ -72,6 +79,7 @@ namespace Mn
 	}
 	void Guppy::DropIntoTank()
 	{
+
 		Transform* tr = GetComponent<Transform>();
 		Vector3 pos = tr->Position();
 		if (pos.y >= 0.6f && _Flag == 0)
@@ -89,6 +97,9 @@ namespace Mn
 			tr->Position(pos);
 		}
 		else if (pos.y >= 0.8f && _Flag == 1)
+		{
 			_Flag = 2;
+			_BP->State(GameObject::eState::Dead);
+		}
 	}
 }

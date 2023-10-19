@@ -1,6 +1,7 @@
 #include "MnMonIsDead.h"
 #include "MnGameObject.h"
 #include "MnTime.h"
+
 namespace Mn
 {
 	MonIsDead::MonIsDead()

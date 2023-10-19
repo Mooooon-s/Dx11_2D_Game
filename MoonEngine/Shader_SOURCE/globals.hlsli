@@ -85,6 +85,7 @@ struct Particle
 struct ParticleShared
 {
     uint ActiveSharedCount;
+    float4 position;
 };
 
 Texture2D albedoTexture : register(t0);
