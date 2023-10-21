@@ -480,7 +480,9 @@
     <ClInclude Include="MnEggCrack.h">
       <Filter>Contents\EggCrack</Filter>
     </ClInclude>
-    <ClInclude Include="MnBubbleParticle.h" />
+    <ClInclude Include="MnBubbleParticle.h">
+      <Filter>Contents\Particle</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -955,7 +957,9 @@
     <ClCompile Include="MnEggCrack.cpp">
       <Filter>Contents\EggCrack</Filter>
     </ClCompile>
-    <ClCompile Include="MnBubbleParticle.cpp" />
+    <ClCompile Include="MnBubbleParticle.cpp">
+      <Filter>Contents\Particle</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">

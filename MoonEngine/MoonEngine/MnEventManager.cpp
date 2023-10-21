@@ -15,6 +15,8 @@
 
 #include "MnEggCrackEvent.h"
 
+#include "MnFontWrapper.h"
+
 namespace Mn
 {
 	EventManager::EventManager()
@@ -26,6 +28,8 @@ namespace Mn
 		, _FoodCount(nullptr)
 		, _EggStack(0)
 		, _Level(1)
+		, _WaringFlag(0)
+		, _WaringSantance(L"ENEMY APROACHING")
 	{
 	}
 	EventManager::~EventManager()
@@ -52,10 +56,15 @@ namespace Mn
 	{
 		GameObject::Render();
 	}
+	void EventManager::FontRender()
+	{
+		if(_WaringFlag)
+			FontWrapper::DrawFont(_SzString,300,680,30,FONT_RGBA(255,0,0,255));
+		GameObject::FontRender();
+	}
 	void EventManager::Event()
 	{
 		Warp* warp = object::Instantiate<Warp>(Vector3(0.0f, 0.0f, -0.01f), eLayerType::Effect);
-
 		switch (_BossStack)
 		{
 		case 1:
@@ -74,23 +83,29 @@ namespace Mn
 	}
 	void EventManager::Timer()
 	{
+		if (_Time / 50 >= 1.0f && _WaringFlag == 0)
+		{
+			swprintf_s(_SzString, 100, L"%ls", _WaringSantance.c_str());
+			_WaringFlag = 1;
+		}
 		if (_Time / 60 >= 1.0f)
 		{
 			_BossStack++;
 			Event();
 			_Time = 0;
+			_WaringFlag = 0;
 		}
 	}
 	void EventManager::ButtonEvent(eIcon icon,int price)
 	{
 		if (MoneyCheck(price))
 		{
-			float a = _BarSlotCount[(UINT)icon];
+			float z = _BarSlotCount[(UINT)icon];
 			GameObject* button;
 			switch (icon)
 			{
 			case enums::eIcon::Guppy:
-				button = object::Instantiate<Guppy>(Vector3(Random(), 1.5f, a), eLayerType::Fish);
+				button = object::Instantiate<Guppy>(Vector3(Random(), 1.5f, z), eLayerType::Fish);
 				dynamic_cast<Guppy*>(button)->SetFlag(0);
 				button->Initialize();
 				_BarSlotCount[(UINT)eIcon::Guppy] += 0.001f;
@@ -102,13 +117,13 @@ namespace Mn
 				FoodCountUp();
 				break;
 			case enums::eIcon::Caniboar:
-				button = object::Instantiate<Caniboar>(Vector3(Random(), 1.5f, a), eLayerType::Fish);
+				button = object::Instantiate<Caniboar>(Vector3(Random(), 1.5f, z), eLayerType::Fish);
 				dynamic_cast<Caniboar*>(button)->SetFlag(0);
 				button->Initialize();
 				_BarSlotCount[(UINT)eIcon::Caniboar] += 0.001f;
 				break;
 			case enums::eIcon::Ultravore:
-				button = object::Instantiate<Ultravore>(Vector3(Random(), 1.5f, a), eLayerType::Fish);
+				button = object::Instantiate<Ultravore>(Vector3(Random(), 1.5f, z), eLayerType::Fish);
 				dynamic_cast<Ultravore*>(button)->SetFlag(0);
 				button->Initialize();
 				_BarSlotCount[(UINT)eIcon::Ultravore] += 0.001f;

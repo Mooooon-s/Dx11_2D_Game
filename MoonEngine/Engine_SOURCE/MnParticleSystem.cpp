@@ -85,6 +85,11 @@ namespace Mn
 			_Particles[i].speed = (float)dis(gen);
 			_Particles[i].active = 0;
 
+			for (int i = 0; i < 5; i++)
+			{
+				_Particles[i].active = 1;
+			}
+
 			_Particles[i].endTime = (float)t(gen);
 			_Particles[i].time = 0;
 		}
@@ -93,7 +98,6 @@ namespace Mn
 		_Buffer->Create(sizeof(Particle), 1000, eViewType::UAV, _Particles,true);
 		_SharedBuffer = new graphics::StructedBuffer();
 		_SharedBuffer->Create(sizeof(ParticleShared), 1, eViewType::UAV, nullptr, true);
-		int a = 0;
 	}
 	ParticleSystem::~ParticleSystem()
 	{
