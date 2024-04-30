@@ -16,8 +16,8 @@ namespace Mn
 
 	AudioClip::~AudioClip()
 	{
-		//mSound->release();
-		//mSound = nullptr;
+		mSound->release();
+		mSound = nullptr;
 	}
 
 	HRESULT AudioClip::Load(const std::wstring& path)
@@ -26,7 +26,7 @@ namespace Mn
 		if (!Fmod::CreateSound(cPath, &mSound))
 			return S_FALSE;
 
-		mSound->set3DMinMaxDistance(mMinDistance, mMaxDistance);
+		//mSound->set3DMinMaxDistance(mMinDistance, mMaxDistance);
 
 		return S_OK;
 	}

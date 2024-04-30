@@ -18,7 +18,7 @@ namespace Mn
 		virtual void Render() override;
 	public:
 		void SetPosition(Vector3 position) { _Pos = Vector4(position.x, position.y, position.z,0.0f); }
-
+		void SetLifeTime(float time) { _LifeTime = time; }
 	private:
 		graphics::StructedBuffer* _Buffer;
 		graphics::StructedBuffer* _SharedBuffer;

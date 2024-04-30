@@ -20,6 +20,7 @@ namespace Mn
 {
 	Guppy::Guppy()
 		: _Flag(2)
+		, _BP(nullptr)
 	{
 	}
 	Guppy::~Guppy()
@@ -36,12 +37,16 @@ namespace Mn
 		GuppyRender* GR = AddComponent<GuppyRender>();
 		_GBT = AddComponent<GuppyBehaviorTree>();
 		
-		if (_Flag != 2)
-		{
-			_BP = object::Instantiate<BubbleParticle>(tr->Position(), eLayerType::Particle);
-			_BP->SetTarget(this);
-			_BP->Initialize();
-		}
+		//if (_Flag != 2)
+		//{
+		//	Vector3 bubblepos = Vector3(tr->Position().x, tr->Position().y, tr->Position().z - 8.01);
+		//	BubbleParticle * bp = object::Instantiate<BubbleParticle>(bubblepos, eLayerType::Particle);
+		//	bp->SetTarget(this);
+		//	bp->Initialize();
+		//	//_BP = object::Instantiate<BubbleParticle>(bubblepos, eLayerType::Particle);
+		//	//_BP->SetTarget(this);
+		//	//_BP->Initialize();
+		//}
 		GameObject::Initialize();
 	}
 	void Guppy::Update()
@@ -99,7 +104,7 @@ namespace Mn
 		else if (pos.y >= 0.8f && _Flag == 1)
 		{
 			_Flag = 2;
-			_BP->State(GameObject::eState::Dead);
+			//_BP->State(GameObject::eState::Dead);
 		}
 	}
 }

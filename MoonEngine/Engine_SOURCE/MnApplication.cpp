@@ -4,6 +4,7 @@
 #include "MnRenderer.h"
 #include "MnSceneManager.h"
 #include "MnCollisionManager.h"
+#include "MnFmod.h"
 
 namespace Mn
 {
@@ -35,6 +36,7 @@ namespace Mn
 		SceneManager::Initialize();
 		
 		CollisionManager::Initialize();
+		Fmod::Initialize();
 	}
 
 	void Application::Update()

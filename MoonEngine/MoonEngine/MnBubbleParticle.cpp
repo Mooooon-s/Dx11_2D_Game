@@ -1,10 +1,13 @@
 #include "MnBubbleParticle.h"
 #include "MnParticleSystem.h"
+#include "MnTime.h"
+
 
 namespace Mn
 {
 	BubbleParticle::BubbleParticle()
 		: _PS(nullptr)
+		, _Time(0.f)
 	{
 	}
 	BubbleParticle::~BubbleParticle()
@@ -23,6 +26,10 @@ namespace Mn
 	}
 	void BubbleParticle::LateUpdate()
 	{
+		_Time += Time::DeltaTime();
+		if (_Time >= 0.8f)
+			this->State(eState::Dead);
+
 		GameObject::LateUpdate();
 	}
 	void BubbleParticle::Render()

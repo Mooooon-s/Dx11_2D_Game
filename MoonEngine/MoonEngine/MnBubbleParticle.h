@@ -16,6 +16,7 @@ namespace Mn
 	public:
 		void SetTarget(GameObject* target) { _Target = target; }
 	private:
+		float	_Time;
 		GameObject* _Target;
 		class ParticleSystem* _PS;
 	};

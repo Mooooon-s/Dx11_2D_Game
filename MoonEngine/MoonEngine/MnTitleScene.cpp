@@ -15,6 +15,8 @@
 
 #include "MnGameStartButton.h"
 
+#include "MnAudioClip.h"
+
 namespace Mn
 {
 	TitleScene::TitleScene()
@@ -25,6 +27,11 @@ namespace Mn
 	}
 	void TitleScene::Initialize()
 	{
+		std::shared_ptr<AudioClip> BGM = Resources::Load<AudioClip>(L"TitleBackground",L"..\\Resources\\music\\Title-Screen.wav");
+		BGM->Play();
+
+
+
 		SetName(L"TitleScene");
 		GameObject* titleScene = new GameObject();
 		AddGameObject(eLayerType::BackGround, titleScene);

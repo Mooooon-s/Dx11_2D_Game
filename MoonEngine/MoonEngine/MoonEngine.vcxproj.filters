@@ -483,6 +483,8 @@
     <ClInclude Include="MnBubbleParticle.h">
       <Filter>Contents\Particle</Filter>
     </ClInclude>
+    <ClInclude Include="MnPsychosquid.h" />
+    <ClInclude Include="MnPsychosquidRender.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -960,6 +962,8 @@
     <ClCompile Include="MnBubbleParticle.cpp">
       <Filter>Contents\Particle</Filter>
     </ClCompile>
+    <ClCompile Include="MnPsychosquid.cpp" />
+    <ClCompile Include="MnPsychosquidRender.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
