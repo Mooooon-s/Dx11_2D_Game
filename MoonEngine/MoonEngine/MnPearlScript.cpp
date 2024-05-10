@@ -4,6 +4,7 @@
 #include "MnTexture.h"
 #include "MnGameObject.h"
 #include "MnResources.h"
+#include "MnAudioClip.h"
 #include "MnTime.h"
 
 namespace Mn
@@ -34,6 +35,8 @@ namespace Mn
 		at->Create(L"Pearl", atlas, atlasAlpha, Vector2::Zero, Vector2(72.0f,72.0f), 2, Vector2::Zero, 1);
 
 		at->PlayAnimation(L"Pearl", true);
+	
+		//Resources::Find<Mn::AudioClip>(L"Pearl")->SoundPlay();
 	}
 	void PearlScript::Update()
 	{

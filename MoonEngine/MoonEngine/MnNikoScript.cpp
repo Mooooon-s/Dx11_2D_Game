@@ -8,6 +8,9 @@
 #include "MnObject.h"
 #include "MnPearl.h"
 
+#include "MnResources.h"
+#include "MnAudioClip.h"
+
 namespace Mn
 {
 	NikoScript::NikoScript()
@@ -20,6 +23,9 @@ namespace Mn
 	}
 	void NikoScript::Initialize()
 	{
+		Resources::Load<Mn::AudioClip>(L"Niko_Open", L"..\\Resources\\Sound\\nikoopen.ogg");
+		Resources::Load<Mn::AudioClip>(L"Niko_Close", L"..\\Resources\\Sound\\nikoclose.ogg");
+		Resources::Load<Mn::AudioClip>(L"Pearl", L"..\\Resources\\Sound\\PEARL.ogg");
 	}
 	void NikoScript::Update()
 	{
@@ -30,6 +36,7 @@ namespace Mn
 			_Open = true;
 			Animator* at = GetOwner()->GetComponent<Animator>();
 			at->PlayAnimation(L"Niko_Open",false);
+			Resources::Find<Mn::AudioClip>(L"Niko_Open")->SoundPlay();
 			_Time = 0;
 		}
 	}
@@ -61,6 +68,7 @@ namespace Mn
 			}
 			Animator* at =GetOwner()->GetComponent<Animator>();
 			at->PlayAnimation(L"Niko_Close", true);
+			Resources::Find<Mn::AudioClip>(L"Niko_Close")->SoundPlay();
 			Transform* tr = GetOwner()->GetComponent<Transform>();
 			Vector3 pos = tr->Position();
 			Pearl* pearl = object::Instantiate<Pearl>(Vector3(pos.x,pos.y,-9.0f),eLayerType::UI);

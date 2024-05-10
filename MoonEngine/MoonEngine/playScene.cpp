@@ -213,7 +213,7 @@ namespace Mn
 		CollisionManager::SetLayer(eLayerType::Fish, eLayerType::Monster, true);
 		CollisionManager::SetLayer(eLayerType::Food, eLayerType::Monster, true);
 
-		Resources::Find<Mn::AudioClip>(L"Stage_BackGround_Music")->SoundPlay(0.5f,true);
+		Resources::Find<Mn::AudioClip>(L"Stage_BackGround_Music")->SoundPlay(0.3f,true);
 	}
 
 	void playScene::OnExit()
