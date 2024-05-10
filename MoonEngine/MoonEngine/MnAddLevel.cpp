@@ -1,6 +1,8 @@
 #include "MnAddLevel.h"
 #include "MnGameObject.h"
 #include "MnPlayAnimaion.h"
+#include "MnResources.h"
+#include "MnAudioClip.h"
 
 namespace Mn
 {
@@ -27,6 +29,7 @@ namespace Mn
 			{
 				_BlackBoard->SetData(L"Level_Stack", 0);
 				_BlackBoard->SetData(L"Level", 2);
+				Resources::Find<Mn::AudioClip>(L"Grow")->Play();
 			}
 			break;
 		case 2:
@@ -34,6 +37,7 @@ namespace Mn
 			{
 				_BlackBoard->SetData(L"Level_Stack", 0);
 				_BlackBoard->SetData(L"Level", 3);
+				Resources::Find<Mn::AudioClip>(L"Grow")->Play();
 			}
 			break;
 		case 3:

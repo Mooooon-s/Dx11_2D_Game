@@ -24,6 +24,8 @@ namespace Mn
 		DiamondRender* DR = AddComponent<DiamondRender>();
 		DiamondScript* DS = AddComponent<DiamondScript>();
 
+		Resources::Load<Mn::AudioClip>(L"Get_Diamond", L"..\\Resources\\Sound\\diamond.wav");
+
 		GameObject::Initialize();
 	}
 	void Diamond::Update()
@@ -49,6 +51,7 @@ namespace Mn
 				dynamic_cast<Money*>(obj)->EarnMoney(_Price);
 			}
 		}
+		Resources::Find<Mn::AudioClip>(L"Get_Diamond")->SoundPlay();
 		this->State(eState::Dead);
 	}
 }

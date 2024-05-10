@@ -15,6 +15,7 @@
 #include "MnTime.h"
 
 #include "MnBubbleParticle.h"
+#include "MnAudioClip.h"
 
 namespace Mn
 {
@@ -36,6 +37,8 @@ namespace Mn
 
 		GuppyRender* GR = AddComponent<GuppyRender>();
 		_GBT = AddComponent<GuppyBehaviorTree>();
+
+		GuppyScript* GS = AddComponent<GuppyScript>();
 		
 		//if (_Flag != 2)
 		//{
@@ -93,7 +96,10 @@ namespace Mn
 			tr->Position(pos);
 		}
 		else if (pos.y <= 0.6f && _Flag == 0)
+		{
 			_Flag = 1;
+			Resources::Find<Mn::AudioClip>(L"Splash")->Play();
+		}
 
 		if (pos.y <= 0.8f && _Flag == 1)
 		{

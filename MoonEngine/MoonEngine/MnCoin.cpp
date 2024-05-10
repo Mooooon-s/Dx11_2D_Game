@@ -29,6 +29,8 @@ namespace Mn
 
 		CoinRender* CR = AddComponent<CoinRender>();
 		CR->SetLevel(_Level);
+
+		Resources::Load<Mn::AudioClip>(L"Get_Coin", L"..\\Resources\\Sound\\POINTS.ogg");
 		
 		GameObject::Initialize();
 	}
@@ -83,6 +85,7 @@ namespace Mn
 				dynamic_cast<Money*>(obj)->EarnMoney(_Price);
 			}
 		}
+		Resources::Find<Mn::AudioClip>(L"Get_Coin")->SoundPlay();
 		this->State(eState::Dead);
 	}
 }

@@ -1,3 +1,5 @@
+#include "MnResources.h"
+#include "MnAudioClip.h"
 #include "MnGuppyBehaviorTree.h"
 
 #include "MnGuppyDeath.h"
@@ -30,6 +32,7 @@
 #include "MnConstantBuffer.h"
 #include "MnRenderer.h"
 #include "MnMeshRenderer.h"
+
 
 namespace Mn
 {
@@ -192,6 +195,7 @@ namespace Mn
 		eFishState hungrystate = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
 		if (hungrystate!=eFishState::Full && other->GetOwner()->GetName() == L"Food")
 		{
+			Resources::Find<Mn::AudioClip>(L"Eat_Food")->SoundPlay();
 			_BlackBoard->SetData(L"Behavior", enums::eBehavior::Eat);
 			_BlackBoard->SetData(L"HungryStack", 0);
 			_BlackBoard->SetData(L"Fish_State", eFishState::Full);

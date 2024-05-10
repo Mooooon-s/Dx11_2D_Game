@@ -164,6 +164,8 @@ namespace Mn
 		//EggCrackEvent* ECE = object::Instantiate<EggCrackEvent>(Vector3(0.0f,0.0f,-9.0f),eLayerType::UI);
 		//ECE->Initialize();
 
+		Resources::Load<Mn::AudioClip>(L"Stage_BackGround_Music", L"..\\Resources\\music\\Insaniq2.mp3");
+
 	}
 
 	void playScene::Update()
@@ -210,9 +212,12 @@ namespace Mn
 		CollisionManager::SetLayer(eLayerType::Pet, eLayerType::Coin, true);
 		CollisionManager::SetLayer(eLayerType::Fish, eLayerType::Monster, true);
 		CollisionManager::SetLayer(eLayerType::Food, eLayerType::Monster, true);
+
+		Resources::Find<Mn::AudioClip>(L"Stage_BackGround_Music")->SoundPlay(0.5f,true);
 	}
 
 	void playScene::OnExit()
 	{
+		Resources::Find<Mn::AudioClip>(L"Stage_BackGround_Music")->Stop();
 	}
 }

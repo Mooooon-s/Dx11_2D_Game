@@ -27,8 +27,7 @@ namespace Mn
 	}
 	void TitleScene::Initialize()
 	{
-		std::shared_ptr<AudioClip> BGM = Resources::Load<AudioClip>(L"TitleBackground",L"..\\Resources\\music\\Title-Screen.wav");
-		BGM->Play();
+		Resources::Load<AudioClip>(L"TitleBackground",L"..\\Resources\\music\\Title-Screen.wav");
 
 
 
@@ -87,8 +86,10 @@ namespace Mn
 	}
 	void TitleScene::OnEnter()
 	{
+		Resources::Find<Mn::AudioClip>(L"TitleBackground")->SoundPlay();
 	}
 	void TitleScene::OnExit()
 	{
+		Resources::Find<Mn::AudioClip>(L"TitleBackground")->Stop();
 	}
 }

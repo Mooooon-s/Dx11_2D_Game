@@ -5,6 +5,9 @@
 
 #include "MnEnums.h"
 
+#include "MnAudioClip.h"
+#include "MnResources.h"
+
 namespace Mn
 {
 		class Node
