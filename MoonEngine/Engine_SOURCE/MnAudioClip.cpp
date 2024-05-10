@@ -46,6 +46,18 @@ namespace Mn
 		mChannel->stop();
 	}
 
+	void AudioClip::SoundPlay(float vol, bool loop)
+	{
+		if (loop)
+			mSound->setMode(FMOD_LOOP_NORMAL);
+		else
+			mSound->setMode(FMOD_LOOP_OFF);
+
+		Fmod::SoundPlay(mSound, &mChannel);
+
+		mChannel->setVolume(vol);
+	}
+
 	void AudioClip::Set3DAttributes(const Vector3 pos, const Vector3 vel)
 	{
 		FMOD_VECTOR fmodPos(pos.x, pos.y, pos.z);
