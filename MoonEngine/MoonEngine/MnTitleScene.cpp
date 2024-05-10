@@ -27,7 +27,7 @@ namespace Mn
 	}
 	void TitleScene::Initialize()
 	{
-		Resources::Load<AudioClip>(L"TitleBackground",L"..\\Resources\\music\\Title-Screen.wav");
+		Resources::Load<AudioClip>(L"TitleBackground",L"..\\Resources\\music\\Title-Screen.wav")->SoundPlay();
 
 
 

@@ -13,6 +13,8 @@
 
 #include "MnTailFlop.h"
 
+#include "MnAudioClip.h"
+
 namespace Mn
 {
 	MenuScene::MenuScene()
@@ -29,6 +31,8 @@ namespace Mn
 		//std::shared_ptr<Mn::graphics::Texture> paintTexture = Resources::Find<Mn::graphics::Texture>(L"PaintTexuture");
 		//paintShader->SetTarget(paintTexture);
 		//paintShader->OnExcute();
+
+		Resources::Load<Mn::AudioClip>(L"Menu_Music", L"..\\Resources\\music\\Menu.mp3");
 
 		MenuBG* BG = object::Instantiate<MenuBG>(eLayerType::BackGround);
 		BG->Initialize();
@@ -77,10 +81,10 @@ namespace Mn
 	}
 	void MenuScene::OnEnter()
 	{
-
+		Resources::Find<Mn::AudioClip>(L"Menu_Music")->SoundPlay();
 	}
 	void MenuScene::OnExit()
 	{
-
+		Resources::Find<Mn::AudioClip>(L"Menu_Music")->Stop();
 	}
 }
