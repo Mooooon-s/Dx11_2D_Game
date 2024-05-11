@@ -16,6 +16,7 @@ namespace Mn
 		virtual void OnClick();
 	public:
 		void DropIntoTank();
+		void LoadSound();
 	public:
 		void SetFishState(eFishState state) { Mn::Fish::SetFishState(state); }
 		eFishState GetFishState() { return Mn::Fish::GetFishState(); }

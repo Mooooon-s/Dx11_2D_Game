@@ -18,6 +18,8 @@ namespace Mn
 		virtual void OnClick(Vector3 pos) override;
 
 		void SetLevel(float level) { _Level = level; }
+		void LoadSound();
+		void SoundPlay();
 	private:
 		float _Speed;
 		float _Time;

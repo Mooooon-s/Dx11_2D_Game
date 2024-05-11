@@ -31,6 +31,7 @@ namespace Mn
 	}
 	void Sylv::OnClick(Vector3 pos)
 	{
+		Resources::Find<AudioClip>(L"Hit_Sound")->SoundPlay();
 		_SBT->OnClick(pos);
 	}
 }

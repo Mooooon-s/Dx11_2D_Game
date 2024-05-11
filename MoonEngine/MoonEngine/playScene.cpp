@@ -165,6 +165,10 @@ namespace Mn
 		//ECE->Initialize();
 
 		Resources::Load<Mn::AudioClip>(L"Stage_BackGround_Music", L"..\\Resources\\music\\Insaniq2.mp3");
+		Resources::Load<AudioClip>(L"Hit_Sound", L"..\\Resources\\Sound\\zap.wav");
+		Resources::Load<AudioClip>(L"Buzzer", L"..\\Resources\\Sound\\BUZZER.ogg");
+		Resources::Load<AudioClip>(L"Buy", L"..\\Resources\\Sound\\BUY.ogg");
+		Resources::Load<AudioClip>(L"Bubble", L"..\\Resources\\Sound\\BUBBLES.ogg");
 
 	}
 

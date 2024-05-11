@@ -6,6 +6,7 @@ namespace Mn
 {
 	MonIsDead::MonIsDead()
 		: _BlackBoard(nullptr)
+		, _Flag(false)
 	{
 	}
 	MonIsDead::MonIsDead(BlackBoard* board)
@@ -34,6 +35,11 @@ namespace Mn
 			}
 			else
 			{
+				if (!_Flag)
+				{
+					Resources::Find<AudioClip>(L"ROAR")->SoundPlay();
+					_Flag = true;
+				}
 				Vector3 pos = owner->GetComponent<Transform>()->Position();
 				pos -= Vector3(0.0f, 0.2f, 0.0f) * Time::DeltaTime();
 				owner->GetComponent<Transform>()->Position(pos);

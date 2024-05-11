@@ -15,5 +15,6 @@ namespace Mn
 		void SoundChange();
 	private:
 		BlackBoard* _BlackBoard;
+		bool _Flag;
 	};
 }

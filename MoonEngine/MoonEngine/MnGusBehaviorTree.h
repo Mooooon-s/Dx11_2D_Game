@@ -1,7 +1,8 @@
 #pragma once
 #include "MnScript.h"
 #include "MnBlackBoard.h"
-#include "MnRootNode.h"
+#include "../Engine_SOURCE/MnRootNode.h"
+#include "MnGetDemaged.h"
 
 namespace Mn
 {
@@ -18,7 +19,8 @@ namespace Mn
 
 		virtual void OnCollisionEnter(Collider2D* other);
 	private:
-		std::shared_ptr<BlackBoard> _BlackBoard;
+		BlackBoard* _BlackBoard;
 		RootNode* _Root;
+		GetDemaged* _GetDemage;
 	};
 }

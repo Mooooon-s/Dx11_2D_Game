@@ -40,6 +40,8 @@ namespace Mn
 		Animator* at = AddComponent<Animator>();
 		at->Create(L"Warphole", atlas, atlasAlpha, Vector2::Zero, Vector2(60, 220), 17, Vector2::Zero, 0.1f);
 		at->PlayAnimation(L"Warphole", true);
+
+		Resources::Load<AudioClip>(L"ROAR", L"..\\Resources\\Sound\\ROAR.ogg");
 	}
 	void WarpHole::Update()
 	{
@@ -70,6 +72,7 @@ namespace Mn
 	}
 	void WarpHole::SpawnBoss(Vector3 pos)
 	{
+		Resources::Find<AudioClip>(L"ROAR")->SoundPlay();
 		GameObject* boss;
 		switch (_Type)
 		{

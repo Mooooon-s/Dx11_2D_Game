@@ -11,11 +11,12 @@
 
 #include "MnGusAnimatorCntrl.h"
 
+#include "MnMonIsDead.h"
+#include "MnGetDemaged.h"
 #include "MnFindFish.h"
 #include "MnMove2Fish.h"
 #include "MnMeshRenderer.h"
 #include "MnGameObject.h"
-#include "MnMonIsDead.h"
 
 #include "MnFindFood.h"
 #include "MnMove2Target.h"
@@ -28,6 +29,7 @@ namespace Mn
 	GusBehaviorTree::GusBehaviorTree()
 		: _BlackBoard(nullptr)
 		, _Root(nullptr)
+		, _GetDemage(nullptr)
 	{
 	}
 	GusBehaviorTree::~GusBehaviorTree()
@@ -35,8 +37,9 @@ namespace Mn
 	}
 	void GusBehaviorTree::Initialize()
 	{
-		_BlackBoard = std::make_shared<BlackBoard>();
+		_BlackBoard = new BlackBoard();
 
+		_GetDemage = new GetDemaged(_BlackBoard);
 		_BlackBoard->AddData<GameObject>(L"Owner",GetOwner());
 
 		KdTree* foodtree = Mn::kdTree;
@@ -64,7 +67,7 @@ namespace Mn
 
 		_BlackBoard->ResetRunningNode();
 
-		_Root = new RootNode(_BlackBoard.get());
+		_Root = new RootNode(_BlackBoard);
 		_Root->SetTimer();
 		Sequence* sequence = _Root->setChild<Sequence>();
 
@@ -116,9 +119,11 @@ namespace Mn
 		}
 		else if (dynamic_cast<Food*>(other->GetOwner()))
 		{
-			int hp = _BlackBoard->GetDataValue<int>(L"Hp");
-			hp -= 10;
-			_BlackBoard->SetData(L"Hp", hp);
+			//int hp = _BlackBoard->GetDataValue<int>(L"Hp");
+			//hp -= 10;
+			//_BlackBoard->SetData(L"Hp", hp);
+			_GetDemage->Run();
+			Resources::Find<AudioClip>(L"Eat_Food")->SoundPlay();
 			dynamic_cast<Food*>(other->GetOwner())->State(GameObject::eState::Dead);
 		}
 	}

@@ -140,6 +140,7 @@ namespace Mn
 			_BlackBoard->SetData(L"Fish_State", eFishState::Full);
 			_BlackBoard->SetData(L"StackFlag", 1);
 			_BlackBoard->ResetRunningNode();
+			Resources::Find<AudioClip>(L"Chomp")->SoundPlay();
 			other->GetOwner()->OnClick();
 		}
 	}
