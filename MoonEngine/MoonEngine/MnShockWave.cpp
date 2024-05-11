@@ -39,6 +39,7 @@ namespace Mn
 		}
 		_BlackBoard->SetData(L"Charged", false);
 		_BlackBoard->SetData(L"UnChargedTime", _BlackBoard->GetDataValue<float>(L"Timer"));
+		Resources::Load<AudioClip>(L"ShockWave", L"..\\Resources\\Sound\\EEL2.ogg")->SoundPlay();
 		return enums::eBTState::SUCCESS;
 	}
 }

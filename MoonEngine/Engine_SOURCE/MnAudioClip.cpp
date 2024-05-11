@@ -58,6 +58,20 @@ namespace Mn
 		mChannel->setVolume(vol);
 	}
 
+	void AudioClip::SetVolum(float vol)
+	{
+		mChannel->setVolume(vol);
+	}
+
+	bool AudioClip::IsPlaying()
+	{
+		bool isplaying;
+
+		mChannel->isPlaying(&isplaying);
+
+		return isplaying;
+	}
+
 	void AudioClip::Set3DAttributes(const Vector3 pos, const Vector3 vel)
 	{
 		FMOD_VECTOR fmodPos(pos.x, pos.y, pos.z);

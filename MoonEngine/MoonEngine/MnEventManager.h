@@ -29,6 +29,7 @@ namespace Mn
 		void BuyEggOnce();
 		void BuyEgg();
 		void EggCrack();
+		void BossEventSound();
 	private:
 		std::vector<float> _BarSlotCount;
 		wchar_t _SzString[100];

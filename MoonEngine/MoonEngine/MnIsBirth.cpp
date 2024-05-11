@@ -62,6 +62,7 @@ namespace Mn
 	}
 	void IsBirth::Birthguupy()
 	{
+		Resources::Load<AudioClip>(L"Prego_Birth", L"..\\Resources\\Sound\\fart.wav")->SoundPlay();
 		GameObject* owner = _BlackBoard->GetData<GameObject>(L"Owner");
 		Transform* tr = owner->GetComponent<Transform>();
 		Vector3 pos = tr->Position();

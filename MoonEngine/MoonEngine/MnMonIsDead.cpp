@@ -27,6 +27,7 @@ namespace Mn
 
 			if (alpha <= 0.0f)
 			{
+				SoundChange();
 				owner->State(GameObject::eState::Dead);
 				_BlackBoard->ResetRunningNode();
 				return enums::eBTState::SUCCESS;
@@ -42,5 +43,10 @@ namespace Mn
 		}
 		else
 			return enums::eBTState::FAILURE;
+	}
+	void MonIsDead::SoundChange()
+	{
+		Resources::Find<AudioClip>(L"Alien_music")->Stop();
+		Resources::Find<AudioClip>(L"Stage_BackGround_Music")->SetVolum(0.3f);
 	}
 }

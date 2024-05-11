@@ -40,6 +40,8 @@ namespace Mn
 		_BarSlotCount.resize(7,(float)0.00001f);
 		_BarSlotCount[(UINT)eIcon::Caniboar] = (float)eIcon::Caniboar+0.0001;
 		_BarSlotCount[(UINT)eIcon::Ultravore] = (float)eIcon::Ultravore+0.0001;
+		Resources::Load<AudioClip>(L"Waring", L"..\\Resources\\Sound\\AWOOGA.ogg");
+		Resources::Load<AudioClip>(L"Alien_music", L"..\\Resources\\music\\Alien.mp3");
 	}
 	void EventManager::Update()
 	{
@@ -85,11 +87,17 @@ namespace Mn
 	{
 		if (_Time / 50 >= 1.0f && _WaringFlag == 0)
 		{
+			BossEventSound();
 			swprintf_s(_SzString, 100, L"%ls", _WaringSantance.c_str());
 			_WaringFlag = 1;
 		}
 		if (_Time / 60 >= 1.0f)
 		{
+			if (false == Resources::Find<AudioClip>(L"Waring")->IsPlaying())
+			{
+				Resources::Find<AudioClip>(L"Stage_BackGround_Music")->SetVolum(0.f);
+				Resources::Find<AudioClip>(L"Alien_music")->SoundPlay(0.3f, true);
+			}
 			_BossStack++;
 			Event();
 			_Time = 0;
@@ -286,6 +294,11 @@ namespace Mn
 			ECE->Initialize();
 			_Level++;
 		}
+	}
+	void EventManager::BossEventSound()
+	{
+		Resources::Find<AudioClip>(L"Stage_BackGround_Music")->SetVolum(0.05f);
+		Resources::Find<AudioClip>(L"Waring")->SoundPlay();
 	}
 	float EventManager::Random()
 	{

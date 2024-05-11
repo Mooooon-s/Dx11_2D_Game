@@ -11,6 +11,8 @@ namespace Mn
 		~MonIsDead();
 
 		virtual enums::eBTState Run() override;
+	public:
+		void SoundChange();
 	private:
 		BlackBoard* _BlackBoard;
 	};

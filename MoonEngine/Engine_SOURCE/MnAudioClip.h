@@ -25,6 +25,8 @@ namespace Mn
 		void Play();
 		void Stop();
 		void SoundPlay(float vol=0.3f,bool loop = false);
+		void SetVolum(float vol);
+		bool IsPlaying();
 		void Set3DAttributes(const Vector3 pos, const Vector3 vel);
 		void SetLoop(bool loop) { mbLoop = loop; }
 
