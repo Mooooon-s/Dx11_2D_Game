@@ -19,7 +19,7 @@ namespace Mn
 	{
 		if (_BlackBoard->GetDataValue<bool>(L"Hiding"))
 		{
-			GameObject* stinky = _BlackBoard->GetData<GameObject>(L"Stinky");
+			GameObject* stinky = _BlackBoard->GetData<GameObject>(L"Owner");
 			Animator* at = stinky->GetComponent<Animator>();
 			at->PlayAnimation(L"Stinky_Hide_Reverse",true);
 			_BlackBoard->SetData(L"Hiding", false);

@@ -19,7 +19,7 @@ namespace Mn
 	{
 		if (_BlackBoard->GetDataValue<bool>(L"Hiding")==false)
 		{
-			GameObject* stinky = _BlackBoard->GetData<GameObject>(L"Stinky");
+			GameObject* stinky = _BlackBoard->GetData<GameObject>(L"Owner");
 			Animator* at = stinky->GetComponent<Animator>();
 			enums::eDir dir = _BlackBoard->GetDataValue<enums::eDir>(L"Dir");
 			at->PlayAnimation(L"Stinky_Hide",false);

@@ -32,7 +32,7 @@ namespace Mn
 	}
 	void FindCoin::NearestCoin(std::vector<GameObject*> coin)
 	{
-		GameObject* stinky = _BlackBoard->GetData<GameObject>(L"Stinky");
+		GameObject* stinky = _BlackBoard->GetData<GameObject>(L"Owner");
 		Vector3 pos = stinky->GetComponent<Transform>()->Position();
 		pos.z = 0;
 		float minDistance = 999.0f;

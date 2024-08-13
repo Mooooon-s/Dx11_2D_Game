@@ -18,7 +18,7 @@ namespace Mn
 	}
 	enums::eBTState Move2Coin::Run()
 	{
-		GameObject* stinky = _BlackBoard->GetData<GameObject>(L"Stinky");
+		GameObject* stinky = _BlackBoard->GetData<GameObject>(L"Owner");
 		Transform* tr = stinky->GetComponent<Transform>();
 		Vector3 pos = tr->Position();
 
