@@ -117,7 +117,7 @@ namespace Mn
 				button = object::Instantiate<Guppy>(Vector3(Random(), 1.5f, z), eLayerType::Fish);
 				dynamic_cast<Guppy*>(button)->SetFlag(0);
 				button->Initialize();
-				_BarSlotCount[(UINT)eIcon::Guppy] += 0.001f;
+				_BarSlotCount[(UINT)eIcon::Guppy] += 0.0001f;
 				break;
 			case enums::eIcon::Food:
 				FoodLevelUp();
@@ -129,13 +129,13 @@ namespace Mn
 				button = object::Instantiate<Caniboar>(Vector3(Random(), 1.5f, z), eLayerType::Fish);
 				dynamic_cast<Caniboar*>(button)->SetFlag(0);
 				button->Initialize();
-				_BarSlotCount[(UINT)eIcon::Caniboar] += 0.001f;
+				_BarSlotCount[(UINT)eIcon::Caniboar] += 0.0001f;
 				break;
 			case enums::eIcon::Ultravore:
 				button = object::Instantiate<Ultravore>(Vector3(Random(), 1.5f, z), eLayerType::Fish);
 				dynamic_cast<Ultravore*>(button)->SetFlag(0);
 				button->Initialize();
-				_BarSlotCount[(UINT)eIcon::Ultravore] += 0.001f;
+				_BarSlotCount[(UINT)eIcon::Ultravore] += 0.0001f;
 				break;
 			case enums::eIcon::Egg:
 				BuyEgg();

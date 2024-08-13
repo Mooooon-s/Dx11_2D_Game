@@ -1,5 +1,8 @@
 #include "MnFoodLevelIcon.h"
 #include "MnFontWrapper.h"
+#include "MnSoundManager.h"
+#include "MnSceneManager.h"
+#include "MnMoney.h"
 
 namespace Mn
 {
@@ -32,5 +35,14 @@ namespace Mn
 	{
 		if (_Count < 5)
 			_Count++;
+		else {
+			std::vector<GameObject*> objs = SceneManager::ActiveScene()->GetLayer(Mn::enums::eLayerType::UI).GetGameObjects();
+			for (auto obj : objs) {
+				if (dynamic_cast<Money*>(obj)) {
+					dynamic_cast<Money*>(obj)->EarnMoney(200);
+				}
+			}
+			MnSoundManager::SoundPlay(L"Buzzer");
+		}
 	}
 }

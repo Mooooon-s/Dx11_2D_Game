@@ -1,6 +1,8 @@
 #include "MnFoodIcon.h"
 
 #include "MnSoundManager.h"
+#include "MnSceneManager.h"
+#include "MnMoney.h"
 
 #include "MnMeshRenderer.h"
 #include "MnResources.h"
@@ -55,6 +57,7 @@ namespace Mn
 	void FoodIcon::OnClick()
 	{
 		Animator* at = GetComponent<Animator>();
+		SoundPlay();
 		if (_FoodLevel == 1)
 		{
 			_FoodLevel++;
@@ -64,10 +67,6 @@ namespace Mn
 		{
 			_FoodLevel++;
 			at->PlayAnimation(L"Level_3_Food", true);
-		}
-		else if (_FoodLevel == 3)
-		{
-
 		}
 	}
 	void FoodIcon::SoundPlay()
@@ -79,6 +78,12 @@ namespace Mn
 			MnSoundManager::SoundPlay(L"ButtonSound_Buy");
 			break;
 		case 3:
+			MnSoundManager::SoundPlay(L"Buzzer");
+			for (auto obj : SceneManager::ActiveScene()->GetLayer(Mn::enums::eLayerType::UI).GetGameObjects()) {
+				if (dynamic_cast<Money*>(obj)) {
+					dynamic_cast<Money*>(obj)->EarnMoney(200);
+				}
+			}
 			break;
 		default:
 			break;
