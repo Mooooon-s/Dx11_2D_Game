@@ -71,6 +71,7 @@ namespace Mn
 	}
 	void FoodIcon::SoundPlay()
 	{
+		int flag = false;
 		switch (_FoodLevel)
 		{
 		case 1:
@@ -80,9 +81,12 @@ namespace Mn
 		case 3:
 			MnSoundManager::SoundPlay(L"Buzzer");
 			for (auto obj : SceneManager::ActiveScene()->GetLayer(Mn::enums::eLayerType::UI).GetGameObjects()) {
-				if (dynamic_cast<Money*>(obj)) {
+				if (dynamic_cast<Money*>(obj) && !flag) {
 					dynamic_cast<Money*>(obj)->EarnMoney(200);
+					flag = true;
 				}
+				if (flag)
+					break;
 			}
 			break;
 		default:

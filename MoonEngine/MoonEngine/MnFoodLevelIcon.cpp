@@ -37,10 +37,14 @@ namespace Mn
 			_Count++;
 		else {
 			std::vector<GameObject*> objs = SceneManager::ActiveScene()->GetLayer(Mn::enums::eLayerType::UI).GetGameObjects();
+			int flag = false;
 			for (auto obj : objs) {
-				if (dynamic_cast<Money*>(obj)) {
+				if (dynamic_cast<Money*>(obj) && !flag) {
 					dynamic_cast<Money*>(obj)->EarnMoney(200);
+					flag = true;
 				}
+				if (flag)
+					break;
 			}
 			MnSoundManager::SoundPlay(L"Buzzer");
 		}
