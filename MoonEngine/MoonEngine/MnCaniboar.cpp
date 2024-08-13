@@ -26,8 +26,6 @@ namespace Mn
 		CaniboarRender* CR = AddComponent<CaniboarRender>();
 
 		CaniboarBehaviorTree* CBT = AddComponent<CaniboarBehaviorTree>();
-
-		LoadSound();
 		
 		GameObject::Initialize();
 	}
@@ -67,7 +65,7 @@ namespace Mn
 		}
 		else if (pos.y <= 0.6f && _Flag == 0) {
 			_Flag = 1;
-			Resources::Find<Mn::AudioClip>(L"Splash")->Play();
+			MnSoundManager::SoundPlay(L"Splash");
 		}
 
 		if (pos.y <= 0.8f && _Flag == 1)
@@ -78,9 +76,5 @@ namespace Mn
 		}
 		else if (pos.y >= 0.8f && _Flag == 1)
 			_Flag = 2;
-	}
-	void Caniboar::LoadSound()
-	{
-		Resources::Load<AudioClip>(L"Chomp", L"..\\Resources\\Sound\\chomp.wav");
 	}
 }

@@ -33,10 +33,10 @@ namespace Mn
 		Input::Initialize();
 		
 		renderer::Initialize();
-		SceneManager::Initialize();
-		
-		CollisionManager::Initialize();
+
 		MnSoundManager::Initialize();
+		SceneManager::Initialize();
+		CollisionManager::Initialize();
 	}
 
 	void Application::Update()

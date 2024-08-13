@@ -98,7 +98,7 @@ namespace Mn
 		else if (pos.y <= 0.6f && _Flag == 0)
 		{
 			_Flag = 1;
-			Resources::Find<Mn::AudioClip>(L"Splash")->Play();
+			MnSoundManager::SoundPlay(L"Splash");
 		}
 
 		if (pos.y <= 0.8f && _Flag == 1)

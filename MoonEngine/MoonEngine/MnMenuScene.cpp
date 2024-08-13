@@ -32,8 +32,6 @@ namespace Mn
 		//paintShader->SetTarget(paintTexture);
 		//paintShader->OnExcute();
 
-		Resources::Load<Mn::AudioClip>(L"Menu_Music", L"..\\Resources\\music\\Menu.mp3");
-
 		MenuBG* BG = object::Instantiate<MenuBG>(eLayerType::BackGround);
 		BG->Initialize();
 

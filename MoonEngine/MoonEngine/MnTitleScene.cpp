@@ -12,6 +12,7 @@
 
 #include "MnInput.h"
 #include "MnSceneManager.h"
+#include "MnSoundManager.h"
 
 #include "MnGameStartButton.h"
 
@@ -27,8 +28,7 @@ namespace Mn
 	}
 	void TitleScene::Initialize()
 	{
-		Resources::Load<AudioClip>(L"TitleBackground",L"..\\Resources\\music\\Title-Screen.wav")->SoundPlay();
-
+		MnSoundManager::SoundPlay(L"TitleBackground");
 
 
 		SetName(L"TitleScene");
@@ -90,6 +90,6 @@ namespace Mn
 	}
 	void TitleScene::OnExit()
 	{
-		Resources::Find<Mn::AudioClip>(L"TitleBackground")->Stop();
+		MnSoundManager::SoundStop(L"TitleBackground");
 	}
 }

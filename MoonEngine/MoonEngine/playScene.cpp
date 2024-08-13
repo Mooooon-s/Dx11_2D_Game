@@ -8,6 +8,7 @@
 #include "../Engine_SOURCE/MnKdTree.h"
 
 #include "MnCollisionManager.h"
+#include "MnSoundManager.h"
 #include "MnResources.h"
 
 #include "MnGameObject.h"
@@ -163,13 +164,6 @@ namespace Mn
 
 		//EggCrackEvent* ECE = object::Instantiate<EggCrackEvent>(Vector3(0.0f,0.0f,-9.0f),eLayerType::UI);
 		//ECE->Initialize();
-
-		Resources::Load<Mn::AudioClip>(L"Stage_BackGround_Music", L"..\\Resources\\music\\Insaniq2.mp3");
-		Resources::Load<AudioClip>(L"Hit_Sound", L"..\\Resources\\Sound\\zap.wav");
-		Resources::Load<AudioClip>(L"Buzzer", L"..\\Resources\\Sound\\BUZZER.ogg");
-		Resources::Load<AudioClip>(L"Buy", L"..\\Resources\\Sound\\BUY.ogg");
-		Resources::Load<AudioClip>(L"Bubble", L"..\\Resources\\Sound\\BUBBLES.ogg");
-
 	}
 
 	void playScene::Update()
@@ -217,11 +211,11 @@ namespace Mn
 		CollisionManager::SetLayer(eLayerType::Fish, eLayerType::Monster, true);
 		CollisionManager::SetLayer(eLayerType::Food, eLayerType::Monster, true);
 
-		Resources::Find<Mn::AudioClip>(L"Stage_BackGround_Music")->SoundPlay(0.3f,true);
+		MnSoundManager::SoundPlay(L"Stage_BackGround_Music",0.3f,true);
 	}
 
 	void playScene::OnExit()
 	{
-		Resources::Find<Mn::AudioClip>(L"Stage_BackGround_Music")->Stop();
+		MnSoundManager::SoundStop(L"Stage_BackGround_Music");
 	}
 }

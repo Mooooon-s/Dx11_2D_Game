@@ -11,6 +11,7 @@ namespace Mn {
 		static void Initialize();
 		static void LoadSound();
 		static void SoundPlay(const std::wstring sound);
+		static void SoundStop(const std::wstring sound);
 		static void SoundPlay(const std::wstring sound,float vol);
 		static void SoundPlay(const std::wstring sound,float vol,bool loop);
 		static void SetVolum(const std::wstring sound,float volum);

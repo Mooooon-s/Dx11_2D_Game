@@ -1,5 +1,6 @@
 #pragma once
 #include "MnGameObject.h"
+#include "MnSoundManager.h"
 
 namespace Mn
 {

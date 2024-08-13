@@ -1,9 +1,9 @@
 #pragma once
-#include "MnGameObject.h"
+#include "MnFish.h"
 
 namespace Mn
 {
-	class Ultravore : public GameObject
+	class Ultravore : public Fish
 	{
 	public:
 		Ultravore();
