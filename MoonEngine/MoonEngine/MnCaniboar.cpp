@@ -65,8 +65,10 @@ namespace Mn
 			pos.y -= 1.5 * Time::DeltaTime();
 			tr->Position(pos);
 		}
-		else if (pos.y <= 0.6f && _Flag == 0)
+		else if (pos.y <= 0.6f && _Flag == 0) {
 			_Flag = 1;
+			Resources::Find<Mn::AudioClip>(L"Splash")->Play();
+		}
 
 		if (pos.y <= 0.8f && _Flag == 1)
 		{
