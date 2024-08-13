@@ -332,6 +332,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnPaintShader.cpp">
       <Filter>ComputeShader</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnSoundManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnEntity.h">
@@ -518,6 +521,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MnPaintShader.h">
       <Filter>ComputeShader</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnSoundManager.h">
+      <Filter>Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
 #include "MnFood.h"
+#include "MnSoundManager.h"
 #include "MnMeshRenderer.h"
 #include "MnResources.h"
 #include "MnAudioClip.h"
@@ -56,7 +57,7 @@ namespace Mn
 			break;
 		}
 
-		Resources::Load<Mn::AudioClip>(L"DropFood", L"..\\Resources\\Sound\\DROPFOOD.ogg")->SoundPlay(0.5f);
+		MnSoundManager::SoundPlay(L"DropFood", 0.5f);
 
 		FoodScript* foodscript = AddComponent<FoodScript>();
 		foodscript->Initialize();

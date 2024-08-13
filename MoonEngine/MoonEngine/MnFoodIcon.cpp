@@ -1,5 +1,7 @@
 #include "MnFoodIcon.h"
 
+#include "MnSoundManager.h"
+
 #include "MnMeshRenderer.h"
 #include "MnResources.h"
 #include "MnAnimator.h"
@@ -74,7 +76,7 @@ namespace Mn
 		{
 		case 1:
 		case 2:
-			Resources::Find<Mn::AudioClip>(L"")->Play();
+			MnSoundManager::SoundPlay(L"ButtonSound_Buy");
 			break;
 		case 3:
 			break;

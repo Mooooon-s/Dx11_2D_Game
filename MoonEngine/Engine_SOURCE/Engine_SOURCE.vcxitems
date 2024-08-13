@@ -47,6 +47,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MnResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MnSoundManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MnRectangle.cpp" />
@@ -125,6 +126,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MnSelector.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnSequence.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnShader.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MnSoundManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnStructedBuffer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnSucceeder.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MnTexture.h" />

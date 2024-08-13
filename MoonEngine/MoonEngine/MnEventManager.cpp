@@ -1,4 +1,5 @@
 #include "MnEventManager.h"
+#include "MnSoundManager.h"
 
 #include <random>
 
@@ -40,8 +41,7 @@ namespace Mn
 		_BarSlotCount.resize(7,(float)0.00001f);
 		_BarSlotCount[(UINT)eIcon::Caniboar] = (float)eIcon::Caniboar+0.0001;
 		_BarSlotCount[(UINT)eIcon::Ultravore] = (float)eIcon::Ultravore+0.0001;
-		Resources::Load<AudioClip>(L"Waring", L"..\\Resources\\Sound\\AWOOGA.ogg");
-		Resources::Load<AudioClip>(L"Alien_music", L"..\\Resources\\music\\Alien.mp3");
+
 	}
 	void EventManager::Update()
 	{
@@ -93,10 +93,10 @@ namespace Mn
 		}
 		if (_Time / 60 >= 1.0f)
 		{
-			if (false == Resources::Find<AudioClip>(L"Waring")->IsPlaying())
-			{
-				Resources::Find<AudioClip>(L"Stage_BackGround_Music")->SetVolum(0.f);
-				Resources::Find<AudioClip>(L"Alien_music")->SoundPlay(0.3f, true);
+			if (false == MnSoundManager::IsPlaying(L"Waring"))
+			{ 
+				MnSoundManager::SetVolum(L"Stage_BackGround_Music", 0.f);
+				MnSoundManager::SoundPlay(L"Alien_music", 0.3f, true);
 			}
 			_BossStack++;
 			Event();
@@ -110,6 +110,7 @@ namespace Mn
 		{
 			float z = _BarSlotCount[(UINT)icon];
 			GameObject* button;
+			MnSoundManager::SoundPlay(L"ButtonSound_Buy");
 			switch (icon)
 			{
 			case enums::eIcon::Guppy:
@@ -142,6 +143,9 @@ namespace Mn
 			case enums::eIcon::End:
 				break;
 			}
+		}
+		else {
+
 		}
 	}
 	void EventManager::FoodLevelUp()
@@ -297,8 +301,8 @@ namespace Mn
 	}
 	void EventManager::BossEventSound()
 	{
-		Resources::Find<AudioClip>(L"Stage_BackGround_Music")->SetVolum(0.05f);
-		Resources::Find<AudioClip>(L"Waring")->SoundPlay();
+		MnSoundManager::SetVolum(L"Stage_BackGround_Music",0.05f );
+		MnSoundManager::SoundPlay(L"Waring");
 	}
 	float EventManager::Random()
 	{
