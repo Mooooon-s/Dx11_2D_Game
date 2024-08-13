@@ -27,7 +27,7 @@ namespace Mn
 	void StinkyBehaviorTree::Initialize()
 	{
 		_BlackBoard = new BlackBoard();
-		_BlackBoard->AddData(L"Stinky", GetOwner());
+		_BlackBoard->AddData(L"Owner", GetOwner());
 
 		Vector3 distance = Vector3::Zero;
 		_BlackBoard->MakeData<Vector3>(L"Nearest_Distance");

@@ -2,11 +2,13 @@
 #include "MnMove.h"
 #include "MnPlayAnimaion.h"
 #include "MnTime.h"
+#include "MnGameObject.h"
 
 namespace Mn
 {
 	enums::eBTState RootNode::Run()
 	{
+		if (_BlackBoard->GetData<GameObject>(L"Owner")->State() == Mn::GameObject::eState::Dead) return eBTState::FAILURE;
 		_Time = _BlackBoard->GetDataValue<float>(L"Timer");
 		_Time += Time::DeltaTime();
 		_BlackBoard->SetData(L"Timer", _Time);
