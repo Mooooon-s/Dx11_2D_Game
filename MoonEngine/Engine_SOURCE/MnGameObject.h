@@ -33,6 +33,7 @@ namespace Mn
 		virtual void OnClick(Vector3 pos);
 		virtual void MouseOn();
 		virtual void MouseOff();
+		virtual void SoundPlay();
 	public:
 		template <typename T>
 		T* GetComponent()

@@ -14,6 +14,7 @@ namespace Mn
 		virtual void LateUpdate();
 		virtual void Render();
 		virtual void OnClick();
+		virtual void SoundPlay();
 	private:
 		int _FoodLevel;
 	};

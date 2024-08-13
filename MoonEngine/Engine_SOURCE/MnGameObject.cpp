@@ -106,4 +106,7 @@ namespace Mn
 	void GameObject::MouseOff()
 	{
 	}
+	void GameObject::SoundPlay()
+	{
+	}
 }

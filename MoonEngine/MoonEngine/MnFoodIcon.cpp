@@ -3,6 +3,7 @@
 #include "MnMeshRenderer.h"
 #include "MnResources.h"
 #include "MnAnimator.h"
+#include "MnAudioClip.h"
 
 namespace Mn
 {
@@ -61,6 +62,24 @@ namespace Mn
 		{
 			_FoodLevel++;
 			at->PlayAnimation(L"Level_3_Food", true);
+		}
+		else if (_FoodLevel == 3)
+		{
+
+		}
+	}
+	void FoodIcon::SoundPlay()
+	{
+		switch (_FoodLevel)
+		{
+		case 1:
+		case 2:
+			Resources::Find<Mn::AudioClip>(L"")->Play();
+			break;
+		case 3:
+			break;
+		default:
+			break;
 		}
 	}
 }
