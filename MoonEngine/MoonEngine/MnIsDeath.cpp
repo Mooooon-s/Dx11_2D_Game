@@ -2,6 +2,7 @@
 #include "MnGameObject.h"
 #include "MnCaniBoarAnimatonCntrl.h"
 #include "MnUltravoreAnimationCntrl.h"
+#include "MnSoundManager.h"
 
 namespace Mn
 {
@@ -31,6 +32,7 @@ namespace Mn
 		int hungrystack = _BlackBoard->GetDataValue<int>(L"HungryStack");
 		if (hungrystack <= -10)
 		{
+			MnSoundManager::SoundPlay(L"FishDie",0.3f,false);
 			if (state != eFishState::Death)
 			{
 				_BlackBoard->SetData(L"Fish_State", eFishState::Death);

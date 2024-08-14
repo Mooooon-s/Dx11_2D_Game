@@ -1,6 +1,7 @@
 #include "MnSylv.h"
 #include "MnSylvRender.h"
 #include "MnSylvBehaviorTree.h"
+#include "MnSoundManager.h"
 
 namespace Mn
 {
@@ -31,7 +32,7 @@ namespace Mn
 	}
 	void Sylv::OnClick(Vector3 pos)
 	{
-		Resources::Find<AudioClip>(L"Hit_Sound")->SoundPlay();
+		MnSoundManager::SoundPlay(L"Hit_Sound");
 		_SBT->OnClick(pos);
 	}
 }
