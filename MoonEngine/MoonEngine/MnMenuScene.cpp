@@ -1,19 +1,16 @@
-#include "MnMenuScene.h"
-#include "MnObject.h"
-#include "MnCameraScript.h"
-#include "MnCamera.h"
-#include "MnRenderer.h"
-#include "MnMouse.h"
-#include "MnPlayButton.h"
-
-#include "MnMenuBG.h"
-
-#include "MnPaintShader.h"
-#include "MnResources.h"
-
-#include "MnTailFlop.h"
-
 #include "MnAudioClip.h"
+#include "MnCamera.h"
+#include "MnCameraScript.h"
+#include "MnMenuBG.h"
+#include "MnMenuScene.h"
+#include "MnMouse.h"
+#include "MnObject.h"
+#include "MnPaintShader.h"
+#include "MnPlayButton.h"
+#include "MnRenderer.h"
+#include "MnResources.h"
+#include "MnSoundManager.h"
+#include "MnTailFlop.h"
 
 namespace Mn
 {
@@ -26,11 +23,6 @@ namespace Mn
 	void MenuScene::Initialize()
 	{
 		SetName(L"MenuScene");
-
-		//std::shared_ptr<PaintShader> paintShader = Resources::Find<PaintShader>(L"PaintShader");
-		//std::shared_ptr<Mn::graphics::Texture> paintTexture = Resources::Find<Mn::graphics::Texture>(L"PaintTexuture");
-		//paintShader->SetTarget(paintTexture);
-		//paintShader->OnExcute();
 
 		MenuBG* BG = object::Instantiate<MenuBG>(eLayerType::BackGround);
 		BG->Initialize();
@@ -63,7 +55,6 @@ namespace Mn
 		lightComp->SetType(eLightType::Directional);
 		lightComp->SetColor(Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 		lightComp->SetScene(this->GetName());
-
 	}
 	void MenuScene::Update()
 	{
@@ -79,10 +70,10 @@ namespace Mn
 	}
 	void MenuScene::OnEnter()
 	{
-		Resources::Find<Mn::AudioClip>(L"Menu_Music")->SoundPlay();
+		MnSoundManager::SoundPlay(L"Menu_Music",0.5f,true);
 	}
 	void MenuScene::OnExit()
 	{
-		Resources::Find<Mn::AudioClip>(L"Menu_Music")->Stop();
+		MnSoundManager::SoundStop(L"Menu_Music");
 	}
 }

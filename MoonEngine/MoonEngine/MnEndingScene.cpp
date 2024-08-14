@@ -1,10 +1,10 @@
-#include "MnEndingScene.h"
-#include "MnResources.h"
 #include "MnCameraScript.h"
-#include "MnRenderer.h"
-
 #include "MnCreateIcon.h"
+#include "MnEndingScene.h"
 #include "MnGuppyIcon.h"
+#include "MnRenderer.h"
+#include "MnResources.h"
+#include "MnSoundManager.h"
 
 
 namespace Mn
@@ -68,8 +68,10 @@ namespace Mn
 	}
 	void EndingScene::OnEnter()
 	{
+		MnSoundManager::SoundPlay(L"Ending_Music",0.5,true);
 	}
 	void EndingScene::OnExit()
 	{
+		MnSoundManager::SoundStop(L"Ending_Music");
 	}
 }

@@ -15,6 +15,9 @@
 #include "MnSoundManager.h"
 
 #include "MnGameStartButton.h"
+#include "StartButtonBarRender.h"
+
+#include "MnMouse.h"
 
 #include "MnAudioClip.h"
 
@@ -28,7 +31,7 @@ namespace Mn
 	}
 	void TitleScene::Initialize()
 	{
-		MnSoundManager::SoundPlay(L"TitleBackground");
+		MnSoundManager::SoundPlay(L"TitleBackground",0.3f);
 
 
 		SetName(L"TitleScene");
@@ -42,8 +45,15 @@ namespace Mn
 		titleScene->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, 2.0f));
 		titleScene->GetComponent<Transform>()->Scale(Vector3(v.x * 3.55, v.y * 3.55, 1.0f));
 
+		GameStartButton* GSB = object::Instantiate<GameStartButton>(Vector3(0.0f,0.0f,-1.1f), eLayerType::Button);
+		GSB->Initialize();
+
+		StartButtonBarRender* SBBR = object::Instantiate<StartButtonBarRender>(Vector3(0.0f, 0.0f, -1.0f), eLayerType::Button);
+		SBBR->Initialize();
+
 		//Main Camera
 		GameObject* camera = new GameObject();
+		camera->SetName(L"TitleCamera");
 		AddGameObject(eLayerType::UI, camera);
 		camera->GetComponent<Transform>()->Position(Vector3(0.0f, 0.0f, -10.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
@@ -52,8 +62,9 @@ namespace Mn
 		renderer::cameras.push_back(cameraComp);
 		renderer::mainCamera = cameraComp;
 
-		GameStartButton* GSB = object::Instantiate<GameStartButton>(Vector3(0.0f,0.0f,-1.0f), eLayerType::Button);
-		GSB->Initialize();
+		Mouse* mouse = object::Instantiate<Mouse>(eLayerType::UI);
+		mouse->UICamera(camera);
+		mouse->Initialize();
 
 		GameObject* light = new GameObject();
 		light->SetName(L"Light");
@@ -62,6 +73,8 @@ namespace Mn
 		lightComp->SetType(eLightType::Directional);
 		lightComp->SetColor(Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 		lightComp->SetScene(this->GetName());
+
+
 
 	}
 	void TitleScene::Update()
@@ -86,7 +99,7 @@ namespace Mn
 	}
 	void TitleScene::OnEnter()
 	{
-		Resources::Find<Mn::AudioClip>(L"TitleBackground")->SoundPlay();
+		MnSoundManager::SoundPlay(L"TitleBackground");
 	}
 	void TitleScene::OnExit()
 	{

@@ -27,6 +27,7 @@ namespace Mn {
 		Resources::Load<AudioClip>(L"TitleBackground", L"..\\Resources\\music\\Title-Screen.wav");
 		Resources::Load<AudioClip>(L"Stage_BackGround_Music", L"..\\Resources\\music\\Insaniq2.mp3");
 		Resources::Load<AudioClip>(L"Stage_Award_Music", L"..\\Resources\\music\\Award Fanfare.mp3");
+		Resources::Load<AudioClip>(L"Ending_Music", L"..\\Resources\\music\\Lullaby.mp3");
 	}
 	void MnSoundManager::SoundPlay(const std::wstring sound)
 	{

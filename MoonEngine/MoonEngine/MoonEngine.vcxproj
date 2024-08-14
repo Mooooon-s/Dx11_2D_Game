@@ -328,6 +328,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="MnZorfAnimationCntrl.h" />
     <ClInclude Include="MnCreateIcon.h" />
+    <ClInclude Include="StartButtonBarRender.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MnBubbleParticle.cpp" />
@@ -491,6 +492,7 @@
     <ClCompile Include="MnPregoIcon.cpp" />
     <ClCompile Include="MnPsychosquid.cpp" />
     <ClCompile Include="MnPsychosquidRender.cpp" />
+    <ClCompile Include="StartButtonBarRender.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MoonEngine.rc" />
