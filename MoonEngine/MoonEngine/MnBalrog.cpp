@@ -1,5 +1,6 @@
 #include "MnBalrog.h"
 #include "MnBalrogRenderScript.h"
+#include "MnSoundManager.h"
 
 namespace Mn
 {
@@ -30,6 +31,7 @@ namespace Mn
 	}
 	void Balrog::OnClick(Vector3 pos)
 	{
+		MnSoundManager::SoundPlay(L"Hit_Sound");
 		_BHT->OnClick(pos);
 	}
 }
