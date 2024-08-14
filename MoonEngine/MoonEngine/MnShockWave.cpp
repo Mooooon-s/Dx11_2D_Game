@@ -1,5 +1,6 @@
 #include "MnShockWave.h"
 #include "MnSceneManager.h"
+#include "MnSoundManager.h"
 #include "MnGuppy.h"
 #include "MnDiamond.h"
 #include "MnObject.h"
@@ -39,7 +40,7 @@ namespace Mn
 		}
 		_BlackBoard->SetData(L"Charged", false);
 		_BlackBoard->SetData(L"UnChargedTime", _BlackBoard->GetDataValue<float>(L"Timer"));
-		Resources::Load<AudioClip>(L"ShockWave", L"..\\Resources\\Sound\\EEL2.ogg")->SoundPlay();
+		MnSoundManager::SoundPlay(L"ShockWave");
 		return enums::eBTState::SUCCESS;
 	}
 }

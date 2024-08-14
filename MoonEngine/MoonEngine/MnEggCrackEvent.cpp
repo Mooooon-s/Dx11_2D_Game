@@ -6,6 +6,7 @@
 #include "MnNikoIcon.h"
 #include "MnEggCrack.h"
 #include "MnFontWrapper.h"
+#include "MnSoundManager.h"
 
 #define ICON_POSITION Vector3(0.0f, 0.85f, -9.1f)
 #define BUTTONPOSITION Vector3(0.0f, -1.65f, -9.1f)
@@ -64,6 +65,8 @@ namespace Mn
 			obj->State(GameObject::eState::Dead);
 		}
 		this->State(GameObject::eState::Dead);
+		MnSoundManager::SoundStop(L"Stage_Award_Music");
+		MnSoundManager::SetVolum(L"Stage_BackGround_Music", 0.3f);
 	}
 	void EggCrackEvent::Coment()
 	{
