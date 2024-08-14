@@ -485,6 +485,9 @@
     </ClInclude>
     <ClInclude Include="MnPsychosquid.h" />
     <ClInclude Include="MnPsychosquidRender.h" />
+    <ClInclude Include="StartButtonBarRender.h">
+      <Filter>Contents\Button\TitleButton</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MoonEngine.cpp" />
@@ -964,6 +967,9 @@
     </ClCompile>
     <ClCompile Include="MnPsychosquid.cpp" />
     <ClCompile Include="MnPsychosquidRender.cpp" />
+    <ClCompile Include="StartButtonBarRender.cpp">
+      <Filter>Contents\Button\TitleButton</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">

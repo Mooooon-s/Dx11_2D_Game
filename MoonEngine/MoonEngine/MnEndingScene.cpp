@@ -1,10 +1,9 @@
-#include "MnEndingScene.h"
-#include "MnResources.h"
 #include "MnCameraScript.h"
-#include "MnRenderer.h"
-
 #include "MnCreateIcon.h"
+#include "MnEndingScene.h"
 #include "MnGuppyIcon.h"
+#include "MnRenderer.h"
+#include "MnResources.h"
 
 
 namespace Mn

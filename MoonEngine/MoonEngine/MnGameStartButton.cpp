@@ -14,6 +14,7 @@ namespace Mn
 	{
 		StartButtonRender* SBR = AddComponent<StartButtonRender>();
 		SBR->Initialize();
+
 	}
 	void GameStartButton::Update()
 	{

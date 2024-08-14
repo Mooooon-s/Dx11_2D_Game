@@ -62,7 +62,7 @@ namespace Mn
 		}
 		if (scene->GetName() == L"TitleScene")
 		{
-			//TitleSceneMouse();
+			TitleSceneMouse();
 		}
 	}
 	void MousePosScript::LateUpdate()
@@ -294,6 +294,48 @@ namespace Mn
 				for (auto otherObj : _GameObjects)
 				{
 						otherObj->MouseOff();
+				}
+			}
+		}
+	}
+	void MousePosScript::TitleSceneMouse()
+	{
+		if (Input::GetKeyDown(eKeyCode::LBUTTON))
+		{
+			_DotPos = _UnProjectPos;
+			GatherObject();
+
+			for (auto Obj : _GameObjects)
+			{
+				if (Obj->GetComponent<Collider2D>() != nullptr)
+					InterSect(Obj->GetComponent<Collider2D>());
+			}
+
+			GameObject* Obj = PrimaryObj();
+
+			if (Obj != nullptr)
+				Obj->OnClick(_DotPos);
+		}
+		else
+		{
+			_DotPos = _UnProjectPos;
+			GatherObject();
+
+			for (auto Obj : _GameObjects)
+			{
+				if (Obj->GetComponent<Collider2D>() != nullptr)
+					InterSect(Obj->GetComponent<Collider2D>());
+			}
+
+			GameObject* Obj = PrimaryObj();
+
+			if (Obj != nullptr)
+				Obj->MouseOn();
+			else
+			{
+				for (auto otherObj : _GameObjects)
+				{
+					otherObj->MouseOff();
 				}
 			}
 		}

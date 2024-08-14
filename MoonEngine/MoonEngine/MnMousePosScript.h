@@ -30,6 +30,7 @@ namespace Mn
 		bool MoneyCheck();
 		void PlaySceneMouse();
 		void MenuSceneMouse();
+		void TitleSceneMouse();
 	public:
 		void UICamera(GameObject* uicamera) { _Cam = uicamera; }
 		UINT GetFoodCount() { return _FoodCount; }
