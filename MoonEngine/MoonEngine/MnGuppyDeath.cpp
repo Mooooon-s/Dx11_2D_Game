@@ -2,6 +2,7 @@
 #include "MnGameObject.h"
 #include "MnAnimator.h"
 #include "MnPlayAnimaion.h"
+#include "MnSoundManager.h"
 
 namespace Mn
 {
@@ -26,6 +27,7 @@ namespace Mn
 			eFishState state = _BlackBoard->GetDataValue<eFishState>(L"Fish_State");
 			if (state != eFishState::Death)
 			{
+				MnSoundManager::SoundPlay(L"FishDie", 0.3f);
 				_BlackBoard->SetData(L"Fish_State", eFishState::Death);
 				PlayAnimaion* anima = new PlayAnimaion(_BlackBoard);
 				anima->Run();
