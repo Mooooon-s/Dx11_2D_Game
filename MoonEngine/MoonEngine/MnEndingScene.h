@@ -17,6 +17,11 @@ namespace Mn
 
 		virtual void OnEnter() override;
 		virtual void OnExit() override;
+		virtual void FontRender() override;
+
+	public:
+		void MakeIcon();
 	private:
+		const wchar_t* _szFloat;
 	};
 }
