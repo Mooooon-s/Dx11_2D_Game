@@ -20,6 +20,13 @@ namespace Mn
 		{
 			LoadScene(L"PlayScene");
 		}
+		if (Input::GetKeyDown(eKeyCode::I))
+		{
+			LoadScene(L"MenuScene");
+		}
+		if (Input::GetKeyDown(eKeyCode::U)) {
+			LoadScene(L"EndingScene");
+		}
 
 		_ActiveScene->Update();
 		

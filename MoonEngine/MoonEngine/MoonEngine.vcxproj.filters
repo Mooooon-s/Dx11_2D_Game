@@ -3,7 +3,7 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="LoadScene.h">
-      <Filter>Contents\Load</Filter>
+      <Filter>Contents\Scene\Load</Filter>
     </ClInclude>
     <ClInclude Include="MnPlayerHp.h">
       <Filter>Contents\UI</Filter>
@@ -981,9 +981,6 @@
     <Filter Include="Contents\Scene">
       <UniqueIdentifier>{a9b745f7-a3cb-4e6a-90d5-88b238a1db7c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\Load">
-      <UniqueIdentifier>{64460e03-0eec-4f30-9969-ac14b48662b8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\UI">
       <UniqueIdentifier>{d6a5643c-5fc4-4c8b-a82d-fca0352925af}</UniqueIdentifier>
     </Filter>
@@ -1346,6 +1343,9 @@
     </Filter>
     <Filter Include="Contents\Particle">
       <UniqueIdentifier>{530acb42-e067-4191-bade-67349cfbc155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Scene\Load">
+      <UniqueIdentifier>{64460e03-0eec-4f30-9969-ac14b48662b8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

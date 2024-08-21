@@ -73,17 +73,10 @@ namespace Mn
 		lightComp->SetType(eLightType::Directional);
 		lightComp->SetColor(Vector4(1.0f, 1.0f, 1.0f, 1.0f));
 		lightComp->SetScene(this->GetName());
-
-
-
 	}
 	void TitleScene::Update()
 	{
 		Scene::Update();
-		if (Input::GetKeyDown(eKeyCode::I))
-		{
-			SceneManager::LoadScene(L"MenuScene");
-		}
 	}
 	void TitleScene::LateUpdate()
 	{
@@ -99,7 +92,7 @@ namespace Mn
 	}
 	void TitleScene::OnEnter()
 	{
-		MnSoundManager::SoundPlay(L"TitleBackground");
+		MnSoundManager::SoundPlay(L"TitleBackground",0.3f);
 	}
 	void TitleScene::OnExit()
 	{
