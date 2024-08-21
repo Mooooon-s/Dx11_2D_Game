@@ -14,6 +14,7 @@ namespace Mn
 	}
 	void UltravoreIcon::Initialize()
 	{
+		SetName(L"[Ultravore]");
 		Transform* tr = GetComponent<Transform>();
 		tr->Scale(0.25f, 0.25f, 0.0f);
 		Vector3 pos = tr->Position();

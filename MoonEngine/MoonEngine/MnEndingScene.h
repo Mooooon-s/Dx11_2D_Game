@@ -21,7 +21,10 @@ namespace Mn
 
 	public:
 		void MakeIcon();
+		void CalulatePos(GameObject* _obj);
 	private:
+		std::map<std::wstring, GameObject*> Obj;
 		const wchar_t* _szFloat;
+		GameObject* _Cam;
 	};
 }
