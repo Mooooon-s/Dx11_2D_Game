@@ -100,7 +100,7 @@ namespace Mn
 		prego->Initialize();
 		prego->GetComponent<Transform>()->Scale(Vector3(0.5f, 0.5f, 0.0f));
 
-
+		//monster
 		
 	}
 
@@ -157,16 +157,17 @@ namespace Mn
 	void EndingScene::Update()
 	{
 		//TODO: Move position -> unproject -> render -> DrawFont
-		for (auto o : _vObj) {
-			if (o._Winpos.x < 960)
-				o._Winpos.x += 10;
+		for (auto& o : _vObj) {
+			if (o._Winpos.x > -200) {
+				o._Winpos.x -= 100* Time::DeltaTime();
+				o._Winpos.y = 50*sin(0.025*o._Winpos.x)+360;
+			}
 			else
-				o._Winpos.x = 0;
+				o._Winpos.x = 960;
 			float tmp = o.Obj->GetComponent<Transform>()->Position().z;
 			Vector3 _pos = MoveObj(o);
 			_pos.z = tmp;
 			o.Obj->GetComponent<Transform>()->Position(_pos);
-
 		}
 
 		Scene::Update();
