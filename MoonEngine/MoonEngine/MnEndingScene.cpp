@@ -15,6 +15,7 @@
 #include "MnNikoIcon.h"
 #include "MnStinkyIcon.h"
 #include "MnPregoIcon.h"
+#include "MnTime.h"
 
 extern Mn::Application application;
 
@@ -66,17 +67,18 @@ namespace Mn
 		GameObject* icon = CreateIcon<GuppyIcon>(Vector3(0.0f, 0.0f, -9.7f));
 		icon->Initialize();
 		icon->GetComponent<Transform>()->Scale(Vector3(0.8, 0.8, 0.0f));
-		Obj.insert(std::make_pair(L"guppy", icon));
+		_SObj guppy;
+		guppy.Obj = icon;
+		guppy._Winpos = Vector2(480, 360);
+		_vObj.push_back(guppy);
 
 		GameObject* caniboar = CreateIcon<CaniboarIcon>(Vector3(0.5f, 0.0f, -9.6f));
 		caniboar->Initialize();
 		caniboar->GetComponent<Transform>()->Scale(Vector3(0.5, 0.5, 0.0f));
-		Obj.insert(std::make_pair(L"boar", caniboar));
-
+		
 		GameObject* ultra = CreateIcon<UltravoreIcon>(Vector3(1.f, 0.0f, -9.5f));
 		ultra->Initialize();
 		ultra->GetComponent<Transform>()->Scale(Vector3(0.5, 0.5, 0.0f));
-		Obj.insert(std::make_pair(L"Ultra", ultra));
 
 		GameObject* zorf = CreateIcon<ZorfIcon>(Vector3(0.6f, 0.0f, -9.4f));
 		zorf->Initialize();
@@ -97,6 +99,9 @@ namespace Mn
 		GameObject* prego = CreateIcon<PregoIcon>(Vector3(1.3f, 0.0f, -9.0f));
 		prego->Initialize();
 		prego->GetComponent<Transform>()->Scale(Vector3(0.5f, 0.5f, 0.0f));
+
+
+		
 	}
 
 	void EndingScene::CalulatePos(GameObject* _obj)
@@ -130,8 +135,40 @@ namespace Mn
 		FontWrapper::DrawFont((const wchar_t*)_obj->GetName().c_str(), screenPos.x - _obj->GetName().size(), screenPos.y + 40, 20, FONT_RGBA(255, 0, 255, 255));
 
 	}
+	Vector3 EndingScene::MoveObj(_SObj o)
+	{
+		Transform* tr = _Cam->GetComponent<Transform>();
+		Matrix world = tr->WorldMatrix();
+		Matrix view = tr->ViewMatrix();
+		Matrix projection = tr->ProjectionMatrix();
+		//camera
+		Vector2 pos = o._Winpos;
+		Vector3 _winPos = Vector3(pos.x, pos.y, 1.0f);
+		Viewport viewport;
+		viewport.width = application.GetWidth();
+		viewport.height = application.GetHeight();
+		viewport.x = 0;
+		viewport.y = 0;
+		viewport.minDepth = 0.0f;
+		viewport.maxDepth = 1.0f;
+
+		return viewport.Unproject(_winPos, Camera::GetGpuProjectionMatrix(), Camera::GetGpuViewMatrix(), Matrix::Identity);
+	}
 	void EndingScene::Update()
 	{
+		//TODO: Move position -> unproject -> render -> DrawFont
+		for (auto o : _vObj) {
+			if (o._Winpos.x < 960)
+				o._Winpos.x += 10;
+			else
+				o._Winpos.x = 0;
+			float tmp = o.Obj->GetComponent<Transform>()->Position().z;
+			Vector3 _pos = MoveObj(o);
+			_pos.z = tmp;
+			o.Obj->GetComponent<Transform>()->Position(_pos);
+
+		}
+
 		Scene::Update();
 	}
 	void EndingScene::LateUpdate()
@@ -146,9 +183,10 @@ namespace Mn
 	{
 		FontWrapper::DrawFont(_szFloat, 300, 100, 40, FONT_RGBA(255, 0, 255, 255));
 
-		for (auto o : Obj) {
-			CalulatePos(o.second);
+		for (auto o : _vObj) {
+			FontWrapper::DrawFont(o.Obj->GetName().c_str(), o._Winpos.x, o._Winpos.y, 40, FONT_RGBA(255, 0, 255, 255));
 		}
+		Scene::FontRender();
 	}
 
 

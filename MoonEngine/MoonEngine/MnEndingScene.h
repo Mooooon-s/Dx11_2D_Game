@@ -3,6 +3,12 @@
 
 namespace Mn
 {
+	struct _SObj
+	{
+		Vector2 _Winpos;
+		GameObject* Obj;
+	};
+
 	class EndingScene : public Scene
 	{
 	public:
@@ -22,8 +28,9 @@ namespace Mn
 	public:
 		void MakeIcon();
 		void CalulatePos(GameObject* _obj);
+		Vector3 MoveObj(_SObj o);
 	private:
-		std::map<std::wstring, GameObject*> Obj;
+		std::vector<_SObj> _vObj;
 		const wchar_t* _szFloat;
 		GameObject* _Cam;
 	};
