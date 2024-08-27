@@ -14,6 +14,7 @@ namespace Mn
 
 	void CaniboarIcon::Initialize()
 	{
+		SetName(L"[Caniboar]");
 		Transform* tr = GetComponent<Transform>();
 		tr->Scale(0.25f, 0.25f, 0.0f);
 		Vector3 pos = tr->Position();

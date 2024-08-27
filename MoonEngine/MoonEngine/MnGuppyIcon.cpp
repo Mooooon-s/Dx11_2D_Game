@@ -14,6 +14,7 @@ namespace Mn
 	}
 	void GuppyIcon::Initialize()
 	{
+		SetName(L"[Guppy]");
 		Transform* tr = GetComponent<Transform>();
 		tr->Scale(0.45f, 0.45f, 0.0f);
 		Vector3 pos = tr->Position();
