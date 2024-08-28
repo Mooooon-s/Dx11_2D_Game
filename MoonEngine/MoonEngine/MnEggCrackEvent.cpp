@@ -7,6 +7,8 @@
 #include "MnEggCrack.h"
 #include "MnFontWrapper.h"
 #include "MnSoundManager.h"
+#include "MnEventManager.h"
+#include "MnSceneManager.h"
 
 #define ICON_POSITION Vector3(0.0f, 0.85f, -9.1f)
 #define BUTTONPOSITION Vector3(0.0f, -1.65f, -9.1f)
@@ -67,6 +69,7 @@ namespace Mn
 		this->State(GameObject::eState::Dead);
 		MnSoundManager::SoundStop(L"Stage_Award_Music");
 		MnSoundManager::SetVolum(L"Stage_BackGround_Music", 0.3f);
+		dynamic_cast<EventManager*>(SceneManager::ActiveScene()->GetLayer(eLayerType::Manager).GetGameObjects()[0])->OffEggCracking();
 	}
 	void EggCrackEvent::Coment()
 	{

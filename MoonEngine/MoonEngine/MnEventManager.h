@@ -30,10 +30,15 @@ namespace Mn
 		void BuyEgg();
 		void EggCrack();
 		void BossEventSound();
+	public:
+		bool GetEggCracking() { return _EggCracking; };
+		void OnEggCracking() { _EggCracking = false; }
+		void OffEggCracking() { _EggCracking = true; }
 	private:
 		std::vector<float> _BarSlotCount;
 		wchar_t _SzString[100];
 		float _Time;
+		bool _EggCracking;
 		int _EventStack;
 		int _WaringFlag;
 		int _BossStack;

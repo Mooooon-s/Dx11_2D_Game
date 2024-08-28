@@ -31,6 +31,7 @@ namespace Mn
 		, _Level(1)
 		, _WaringFlag(0)
 		, _WaringSantance(L"ENEMY APROACHING")
+		, _EggCracking(true)
 	{
 	}
 	EventManager::~EventManager()
@@ -274,6 +275,7 @@ namespace Mn
 	{
 		if (_EggStack % 3 == 0 && _EggStack!=0 && _Level<=5)
 		{
+			OnEggCracking();
 			MnSoundManager::SoundPlay(L"Stage_Award_Music");
 			MnSoundManager::SetVolum(L"Stage_BackGround_Music", 0.0f);
 			EggCrackEvent* ECE = object::Instantiate<EggCrackEvent>(Vector3(0.0f, 0.0f, -9.0f), eLayerType::UI);

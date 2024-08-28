@@ -7,6 +7,7 @@ namespace Mn
 		: _Money(0)
 		, _szFloat(L"000")
 		, _Pos(Vector2::Zero)
+		, _On(true)
 	{
 	}
 	PriceTag::~PriceTag()
@@ -30,7 +31,8 @@ namespace Mn
 	}
 	void PriceTag::FontRender()
 	{
-		FontWrapper::DrawFont(_szFloat, (int)_Pos.x, (int)_Pos.y, 16, FONT_RGBA(255, 0, 255, 255));
+		if(_On)
+			FontWrapper::DrawFont(_szFloat, (int)_Pos.x, (int)_Pos.y, 16, FONT_RGBA(255, 0, 255, 255));
 		GameObject::FontRender();
 	}
 	void PriceTag::SetPosition()

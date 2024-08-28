@@ -1,6 +1,7 @@
 #pragma once
 #include "MnButton.h"
 #include "MnObject.h"
+#include "MnPriceTag.h"
 
 namespace Mn
 {
@@ -24,5 +25,6 @@ namespace Mn
 	private:
 		eIcon _Icon;
 		GameObject* _IconObject;
+		PriceTag* _PT;
 	};
 }

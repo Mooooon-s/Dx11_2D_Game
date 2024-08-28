@@ -19,10 +19,15 @@ namespace Mn
 	public:
 		void SetPrice(int money) { _Money = money; }
 		void SetIcon(eIcon icon) { _Icon = icon; }
+	public:
+		void TagOff() { _On = false; }
+		void TagOn() { _On = true; }
+		void TagOnOff(bool _onoff) { _On = _onoff; }
 	private:
 		wchar_t _szFloat[50];
 		Vector2 _Pos;
 		eIcon _Icon;
+		bool _On;
 		int _Money;
 	};
 }

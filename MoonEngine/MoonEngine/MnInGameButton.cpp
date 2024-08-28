@@ -13,10 +13,14 @@
 #include "MnCaniboarIcon.h"
 #include "MnUltravoreIcon.h"
 
+#include "MnSceneManager.h"
+#include "MnEventManager.h"
+
 namespace Mn
 {
 	InGameButton::InGameButton()
 	: _IconObject(nullptr)
+	, _PT(nullptr)
 	{
 	}
 	InGameButton::~InGameButton()
@@ -37,14 +41,15 @@ namespace Mn
 		BP->SetIcon(_Icon);
 		BP->Initialize();
 		
-		PriceTag* PT = object::Instantiate<PriceTag>(pos, eLayerType::UI);
-		PT->SetPrice(BP->GetPrice());
-		PT->SetIcon(_Icon);
-		PT->SetPosition();
-		PT->Initialize();
+		_PT = object::Instantiate<PriceTag>(pos, eLayerType::UI);
+		_PT->SetPrice(BP->GetPrice());
+		_PT->SetIcon(_Icon);
+		_PT->SetPosition();
+		_PT->Initialize();
 	}
 	void InGameButton::Update()
 	{
+		dynamic_cast<PriceTag*>(_PT)->TagOnOff(dynamic_cast<EventManager*>(SceneManager::ActiveScene()->GetLayer(eLayerType::Manager).GetGameObjects()[0])->GetEggCracking());
 		GameObject::Update();
 	}
 	void InGameButton::LateUpdate()
