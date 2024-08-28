@@ -2,6 +2,7 @@
 #include "MnFontWrapper.h"
 #include "MnSoundManager.h"
 #include "MnSceneManager.h"
+#include "MnEventManager.h"
 #include "MnMoney.h"
 
 namespace Mn
@@ -29,7 +30,8 @@ namespace Mn
 	}
 	void FoodLevelIcon::FontRender()
 	{
-		FontWrapper::DrawFont(_szFloat, 250, 25, 25, FONT_RGBA(255, 0, 255, 255));
+		if(dynamic_cast<EventManager*>(SceneManager::ActiveScene()->GetLayer(eLayerType::Manager).GetGameObjects()[0])->GetEggCracking())
+			FontWrapper::DrawFont(_szFloat, 250, 25, 25, FONT_RGBA(255, 0, 255, 255));
 	}
 	void FoodLevelIcon::OnClick()
 	{
