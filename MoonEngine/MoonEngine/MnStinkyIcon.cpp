@@ -12,6 +12,7 @@ namespace Mn
 	}
 	void StinkyIcon::Initialize()
 	{
+		SetName(L"[Stinky]");
 		Transform* tr = GetComponent<Transform>();
 		tr->Scale(Vector3(0.8, 0.8, 0.0f));
 		Vector3 pos = tr->Position();

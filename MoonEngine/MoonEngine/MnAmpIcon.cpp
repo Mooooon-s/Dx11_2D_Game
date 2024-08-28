@@ -12,6 +12,7 @@ namespace Mn
 	}
 	void AmpIcon::Initialize()
 	{
+		SetName(L"[Amp]");
 		Transform* tr = GetComponent<Transform>();
 		tr->Scale(Vector3(1.0f, 0.5f, 0.0f));
 		Vector3 pos = tr->Position();
