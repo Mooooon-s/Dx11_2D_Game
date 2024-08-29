@@ -302,6 +302,9 @@ namespace Mn
 			ECE->Initialize();
 			_Level++;
 		}
+		else if (_EggStack % 3 == 0 && _EggStack != 0 && _Level == 6) {
+			SceneManager::LoadScene(L"EndingScene");
+		}
 	}
 	void EventManager::BossEventSound()
 	{

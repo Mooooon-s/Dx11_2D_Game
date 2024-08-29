@@ -49,7 +49,8 @@ namespace Mn
 	}
 	void InGameButton::Update()
 	{
-		dynamic_cast<PriceTag*>(_PT)->TagOnOff(dynamic_cast<EventManager*>(SceneManager::ActiveScene()->GetLayer(eLayerType::Manager).GetGameObjects()[0])->GetEggCracking());
+		if(SceneManager::ActiveScene()->GetName() ==L"PlayScene")
+			dynamic_cast<PriceTag*>(_PT)->TagOnOff(dynamic_cast<EventManager*>(SceneManager::ActiveScene()->GetLayer(eLayerType::Manager).GetGameObjects()[0])->GetEggCracking());
 		GameObject::Update();
 	}
 	void InGameButton::LateUpdate()

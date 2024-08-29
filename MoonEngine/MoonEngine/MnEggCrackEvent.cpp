@@ -58,6 +58,8 @@ namespace Mn
 	void EggCrackEvent::FontRender()
 	{
 		FontWrapper::DrawFont(_szString, 300, 360, 30, FONT_RGBA(255, 255, 255, 255));
+
+		FontWrapper::DrawFont(L"Continue!", 410, 670, 30, FONT_RGBA(255, 255, 255, 255));
 		GameObject::FontRender();
 	}
 	void EggCrackEvent::OnClick()
