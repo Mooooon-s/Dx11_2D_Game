@@ -75,32 +75,38 @@ namespace Mn
 		GameObject* caniboar = CreateIcon<CaniboarIcon>(Vector3(0.5f, 0.0f, -9.6f));
 		caniboar->Initialize();
 		caniboar->GetComponent<Transform>()->Scale(Vector3(0.5, 0.5, 0.0f));
+		_vObj.push_back(_SObj(Vector2(680, 360), caniboar));
 		
 		GameObject* ultra = CreateIcon<UltravoreIcon>(Vector3(1.f, 0.0f, -9.5f));
 		ultra->Initialize();
-		ultra->GetComponent<Transform>()->Scale(Vector3(0.5, 0.5, 0.0f));
+		ultra->GetComponent<Transform>()->Scale(Vector3(0.7, 0.7, 0.0f));
+		_vObj.push_back(_SObj(Vector2(880, 360), ultra));
 
 		GameObject* zorf = CreateIcon<ZorfIcon>(Vector3(0.6f, 0.0f, -9.4f));
 		zorf->Initialize();
 		zorf->GetComponent<Transform>()->Scale(Vector3(0.5f, 0.5f, 0.0f));
-
-		GameObject* niko = CreateIcon<NikoIcon>(Vector3(0.8f, 0.0f, -9.3f));
-		niko->Initialize();
-		niko->GetComponent<Transform>()->Scale(Vector3(0.5f, 0.5f, 0.0f));
+		_vObj.push_back(_SObj(Vector2(1020, 360), zorf));
 
 		GameObject* amp = CreateIcon<AmpIcon>(Vector3(1.0f, 0.0f, -9.2f));
 		amp->Initialize();
-		amp->GetComponent<Transform>()->Scale(Vector3(1.0f, 0.5f, 0.0f));
-
-		GameObject* stinky = CreateIcon<StinkyIcon>(Vector3(1.2f, 0.0f, -9.1f));
-		stinky->Initialize();
-		stinky->GetComponent<Transform>()->Scale(Vector3(0.5f, 0.5f, 0.0f));
+		amp->GetComponent<Transform>()->Scale(Vector3(0.75f, 0.375f, 0.0f));
+		_vObj.push_back(_SObj(Vector2(1150, 360), amp));
 
 		GameObject* prego = CreateIcon<PregoIcon>(Vector3(1.3f, 0.0f, -9.0f));
 		prego->Initialize();
 		prego->GetComponent<Transform>()->Scale(Vector3(0.5f, 0.5f, 0.0f));
+		_vObj.push_back(_SObj(Vector2(1300, 360), prego));
 
+		GameObject* stinky = CreateIcon<StinkyIcon>(Vector3(1.2f, 0.0f, -9.1f));
+		stinky->Initialize();
+		stinky->GetComponent<Transform>()->Scale(Vector3(0.5f, 0.5f, 0.0f));
+		_vObj.push_back(_SObj(Vector2(1450, 360), stinky));
+		
 		//monster
+		GameObject* niko = CreateIcon<NikoIcon>(Vector3(0.8f, 0.0f, -9.3f));
+		niko->Initialize();
+		niko->GetComponent<Transform>()->Scale(Vector3(0.5f, 0.5f, 0.0f));
+		_vObj.push_back(_SObj(Vector2(1600, 360), niko));
 		
 	}
 
@@ -158,7 +164,7 @@ namespace Mn
 	{
 		//TODO: Move position -> unproject -> render -> DrawFont
 		for (auto& o : _vObj) {
-			if (o._Winpos.x > -200) {
+			if (o._Winpos.x > -1000) {
 				o._Winpos.x -= 100* Time::DeltaTime();
 				o._Winpos.y = 50*sin(0.025*o._Winpos.x)+360;
 			}
@@ -182,10 +188,10 @@ namespace Mn
 	}
 	void EndingScene::FontRender()
 	{
-		FontWrapper::DrawFont(_szFloat, 300, 100, 40, FONT_RGBA(255, 0, 255, 255));
+		FontWrapper::DrawFont(_szFloat, 300, 100, 40, FONT_RGBA(255, 255, 255, 255));
 
 		for (auto o : _vObj) {
-			FontWrapper::DrawFont(o.Obj->GetName().c_str(), o._Winpos.x, o._Winpos.y, 40, FONT_RGBA(255, 0, 255, 255));
+			FontWrapper::DrawFont(o.Obj->GetName().c_str(), o._Winpos.x - o.Obj->GetName().size()*10, o._Winpos.y + 20, 40, FONT_RGBA(255, 255, 255, 255));
 		}
 		Scene::FontRender();
 	}

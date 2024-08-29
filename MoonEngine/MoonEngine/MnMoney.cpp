@@ -1,5 +1,7 @@
 #include "MnMoney.h"
 #include "MnFontWrapper.h"
+#include "MnSceneManager.h"
+#include "MnEventManager.h"
 
 namespace Mn
 {
@@ -30,7 +32,8 @@ namespace Mn
 	}
 	void Money::FontRender()
 	{
-		FontWrapper::DrawFont(_szFloat, 825, 60, 25, FONT_RGBA(255, 0, 255, 255));
+		if (dynamic_cast<EventManager*>(SceneManager::ActiveScene()->GetLayer(eLayerType::Manager).GetGameObjects()[0])->GetEggCracking())
+			FontWrapper::DrawFont(_szFloat, 825, 60, 25, FONT_RGBA(255, 0, 255, 255));
 	}
 	void Money::OnClick()
 	{
