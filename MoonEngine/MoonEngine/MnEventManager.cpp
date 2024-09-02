@@ -86,13 +86,13 @@ namespace Mn
 	}
 	void EventManager::Timer()
 	{
-		if (_Time / 50 >= 1.0f && _WaringFlag == 0)
+		if (_Time / 50 >= 1.0f && _WaringFlag == 0 && _Level >=6 )
 		{
 			BossEventSound();
 			swprintf_s(_SzString, 100, L"%ls", _WaringSantance.c_str());
 			_WaringFlag = 1;
 		}
-		if (_Time / 60 >= 1.0f)
+		if (_Time / 60 >= 1.0f && _Level >=6 )
 		{
 			if (false == MnSoundManager::IsPlaying(L"Waring"))
 			{ 
@@ -295,6 +295,7 @@ namespace Mn
 				break;
 			case 5:
 				ECE->SetIcon(eIcon::Amp);
+				_Time = 0;
 				break;
 			default:
 				break;
