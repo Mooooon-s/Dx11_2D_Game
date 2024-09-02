@@ -56,13 +56,13 @@ namespace Mn
 	void GusRender::afterTurn()
 	{
 		Animator* at = GetOwner()->AddComponent<Animator>();
-		if(at != nullptr)
+		if(at != nullptr || at->GetActiveAnimation()!=nullptr)
 			at->PlayAnimation(L"Gus_Swim", true);
 	}
 	void GusRender::afterEat()
 	{
 		Animator* at = GetOwner()->AddComponent<Animator>();
-		if(at != nullptr)
+		if(at != nullptr || at->GetActiveAnimation() != nullptr)
 			at->PlayAnimation(L"Gus_Swim", true);
 	}
 }

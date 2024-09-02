@@ -88,6 +88,7 @@ namespace Mn
 		bool AnimationComplete() { return _ActiveAnimation->IsComplete(); }
 		void ActiveAnimationPlaySpeed(float speed);
 		void ResetActiveAnimationPlaySpeed();
+		const Animation* GetActiveAnimation() { return _ActiveAnimation; }
 	private:
 		std::map<std::wstring, Animation*> _Animations;
 		std::map<std::wstring, Events*> _Events;

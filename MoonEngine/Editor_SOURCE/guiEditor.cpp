@@ -134,6 +134,6 @@ namespace gui
 		Mn::Camera::SetGpuViewMatrix(mainCamara->GetGpuViewMatrix());
 		Mn::Camera::SetGpuProjectionMatrix(mainCamara->GetGpuProjectionMatrix());
 
-		debugObj->Render();
+		//debugObj->Render();
 	}
 }
